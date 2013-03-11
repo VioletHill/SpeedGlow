@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 
-@interface SpecialButton : CCSprite<CCTargetedTouchDelegate>
+@interface SpecialButton : CCMenu
 {
     NSInvocation* doubleClick;
     NSInvocation* singleClick;

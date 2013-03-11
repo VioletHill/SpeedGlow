@@ -6,9 +6,24 @@
 //  Copyright 2013年 VioletHill. All rights reserved.
 //
 
-#import "ChooseLevelScrollLayer.h"
+#import "YlfcChooseLevelScrollLayer.h"
 
 
-@implementation ChooseLevelScrollLayer
+@implementation YlfcChooseLevelScrollLayer
+
+-(void) onEnterLayer
+{
+    
+}
+
+-(void) onExitLayer
+{
+    
+}
+
+-(void) onClick
+{
+    
+}
 
 @end

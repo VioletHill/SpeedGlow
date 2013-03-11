@@ -9,17 +9,21 @@
 #import "Mwtj.h"
 #import "SimpleAudioEngine.h"
 #import "Setting.h"
+#import "UserData.h"
 
 
 @implementation Mwtj
 {
+    bool isLock;
+    
     CGSize layerSize;
     CGSize screenSize;
     CCSprite* background;
+    CCSprite* lock;
     
     CCAction* playEffectAction;
     
-    ALuint* nowEffect;
+    CCParticleSystemQuad* fog;
 }
 
 -(id) init
@@ -56,21 +60,6 @@
     }
 }
 
--(void) playEnterEffect:(id)pSender
-{
-    if ([Setting sharedSetting].isNeedEffect)
-    {
-        nowEffect=[[SimpleAudioEngine sharedEngine] playEffect:@"双击任意位置选择进入场景.mp3"];
-    }
-}
-
--(void) playLeftRightEffect:(id)pSender
-{
-    if ([Setting sharedSetting].isNeedEffect)
-    {
-        nowEffect=[[SimpleAudioEngine sharedEngine] playEffect:@"左右滑屏左右上角.mp3"];
-    }
-}
 
 
 -(void) pushToChooseLevel
@@ -78,18 +67,55 @@
     
 }
 
--(void) onEnterLayer
+-(void) onFog
 {
+    fog=[CCParticleSystemQuad particleWithFile:@"fog.plist"];
+    [self addChild:fog];
+}
+
+-(void) unlockScene
+{
+    [self onFog];
     [background setOpacity:255];
+    int sun=[[UserData sharedUserData] getSunByScene:kYLFC];
     playEffectAction=[CCSequence actions:
                       [CCDelayTime actionWithDuration:1],[CCCallFunc actionWithTarget:self selector:@selector(playSceneEffect:)],
-                      [CCDelayTime actionWithDuration:2.5],[CCCallFunc actionWithTarget:self selector:@selector(playEnterEffect:)],
+                      [CCDelayTime actionWithDuration:2.5], [CCCallFunc actionWithTarget:self selector:@selector(playAllSunEffect:)],
+                      [CCDelayTime actionWithDuration:1.5],[CCCallFuncND actionWithTarget:self selector:@selector(playNum:data:) data:(void*)MwtjMaxSunNum],
+                      [CCDelayTime actionWithDuration:1.5],[CCCallFunc actionWithTarget:self selector:@selector(playHaveSunEffect:)],
+                      [CCDelayTime actionWithDuration:2],[CCCallFuncND actionWithTarget:self selector:@selector(playNum:data:) data:(void*)sun],
+                      [CCDelayTime actionWithDuration:1.5],[CCCallFunc actionWithTarget:self selector:@selector(playEnterEffect:)],
                       [CCDelayTime actionWithDuration:2.5],[CCCallFunc actionWithTarget:self selector:@selector(playLeftRightEffect:)],nil];
     [self runAction:playEffectAction];
 }
 
+-(void) lockScene
+{
+    lock=[CCSprite spriteWithFile:@"Lock.png"];
+    lock.position=ccp(layerSize.width/2,layerSize.height/2);
+    [self addChild:lock];
+}
+
+-(void) onEnterLayer
+{
+//    if ([[UserData sharedUserData] getIsUnlockAtScene:kMWTJ])
+//    {
+//        isLock=false;
+//        [self unlockScene];
+//    }
+//    else
+//    {
+//        isLock=true;
+//        [self lockScene];
+//    }
+    [self unlockScene];
+}
+
 -(void) onExitLayer
 {
+    [super onExitLayer];
+    [self removeChild:fog cleanup:true];
+    if (lock!=nil)  [self removeChild:lock cleanup:true];
     [background setOpacity:255/2];
     [[SimpleAudioEngine sharedEngine] stopEffect:nowEffect];
     [self stopAllActions];

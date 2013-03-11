@@ -9,8 +9,15 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 
-@interface MyMenuItem : CCMenuItem {
-    
+
+@interface MyMenuItem : CCMenuItem
+{
+    void (^singleBlock_)(id sender);
+    void (^doubleBlock_)(id sender);
+    void (^touchBeginBlcok_)(id sender);
+    void (^touchEndBlock_)(id sender);
 }
 
+
++(id) itemWithSingBlock:(void(^)(id sender))block;
 @end

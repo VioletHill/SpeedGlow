@@ -10,25 +10,36 @@
 #import "cocos2d.h"
 
 #define barrierTotalTime 0.8
-#define sunTotalTime 1.0
+#define sunTotalTime 1.6
 #define turnOneTotalTime 0.7
 #define turnTwoTotalTime 1.4
-#define trafficeLightTime 2.1
+#define trafficLightTime 3
+#define trafficReadyTime 2.1
+#define trafficTotalTime 5.1
+
 
 typedef enum
 {
-    kYLFC,
-    kBYYM,
-    kMYTJ,
-    kXBTW
+    kYLFC=0,
+    kBYYM=1,
+    kMWTJ=2,
+    kXBTW=3
 }GameScene;
 
 typedef enum
 {
-    kBARRIER,
-    kTURN,
-    kSUN,
-    kTRAFFIC_LIGHT,
+    kEASY=0,
+    kMIDDLE=1,
+    kHARD=2
+}GameLevel;
+
+typedef enum
+{
+    kBARRIER=0,
+    kTURN=1,
+    kSUN=2,
+    kTRAFFIC_LIGHT=3,
+    kFINAL=4
 }WhichObstacle;
 
 @interface Obstacle : NSObject
@@ -36,10 +47,9 @@ typedef enum
 @property (nonatomic,readwrite) BOOL barrierL;
 @property (nonatomic,readwrite) BOOL barrierR;
 @property (nonatomic,readwrite) GameScene gameScene;
+@property (nonatomic,readwrite) GameLevel gameLevel;
 
 +(Obstacle*) sharedObstacle;
-
--(void) startRotationObstacle;
 
 -(void) startBarrierL;
 -(void) startBarrierR;
@@ -53,5 +63,8 @@ typedef enum
 -(double) getRotationRate;
 -(double) getRotationRateByAcceleor;
 
+
+-(void) startRed2Green;
+-(void) startGreen2Red;
 
 @end

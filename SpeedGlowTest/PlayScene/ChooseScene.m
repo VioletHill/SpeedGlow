@@ -6,8 +6,8 @@
 //  Copyright 2013年 VioletHill. All rights reserved.
 //
 
-#import "PlayScene.h"
-#import "PlayScrollLayer.h"
+#import "ChooseScene.h"
+#import "ChooseScrollLayer.h"
 #import "CCScrollLayer.h"
 #import "Ylfc.h"
 #import "Byym.h"
@@ -16,15 +16,23 @@
 #import "Mwtj.h"
 #import "SimpleAudioEngine.h"
 #import "Setting.h"
+#import "UserData.h"
 
-@implementation PlayScene
+@implementation ChooseScene
 {
     CGSize screenSize;
     int nowPageIndex;
-    PlayScrollLayer* nowLayer;
+    ChooseScrollLayer* nowLayer;
     CCScrollLayer *scroller ;
     
     ALuint chooseScene;
+    
+    
+    CCSprite* totSunSprite1;
+    CCSprite* totSunSprite2;
+    CCSprite* sprite_;
+    CCSprite* haveSunSprite1;
+    CCSprite* haveSunSprite2;
 }
 
 @synthesize playLayer=_playLayer;
@@ -32,21 +40,84 @@
 
 +(CCScene *) scene
 {
+
+    
     
 	CCScene *scene = [CCScene node];
-	PlayScene *layer = [PlayScene node];
+	ChooseScene *layer = [ChooseScene node];
 	[scene addChild: layer];
 	return scene;
     
 }
 
+-(void) reflushSunNum
+{
+    [self removeChild:totSunSprite1 cleanup:true];
+    [self removeChild:totSunSprite2 cleanup:true];
+    
+    int totSun;
+    int haveSun;
+    switch (nowPageIndex)
+    {
+        case 0:
+            totSun=YlfcMaxSunNum;
+            haveSun=[[UserData sharedUserData] getSunByScene:kYLFC];
+            break;
+        case 1:
+            totSun=ByymMaxSunNum;
+            haveSun=[[UserData sharedUserData] getSunByScene:kBYYM];
+            break;
+        case 2:
+            totSun=MwtjMaxSunNum;
+            haveSun=[[UserData sharedUserData] getSunByScene:kMWTJ];
+            break;
+        case 3:
+            totSun=XbtwMaxSunNum;
+            haveSun=[[UserData sharedUserData] getSunByScene:kXBTW];
+            break;
+        default:
+            totSun=0;
+            haveSun=0;
+            break;
+    }
+    totSunSprite1=[CCSprite spriteWithFile:[@"SunNum" stringByAppendingFormat:@"%d.png",totSun/10]];
+    totSunSprite1.anchorPoint=ccp(0,1);
+    totSunSprite1.position=ccp(550,screenSize.height-680);
+    [self addChild:totSunSprite1];
+    
+    totSunSprite2=[CCSprite spriteWithFile:[@"SunNum" stringByAppendingFormat:@"%d.png",totSun%10]];
+    totSunSprite2.anchorPoint=ccp(0,1);
+    totSunSprite2.position=ccp(578,screenSize.height-680);
+    [self addChild:totSunSprite2];
+    
+    sprite_=[CCSprite spriteWithFile:@"SunNum_.png"];
+    sprite_.anchorPoint=ccp(0,1);
+    sprite_.position=ccp(534,screenSize.height-680);
+    [self addChild:sprite_];
+    
+    
+    haveSunSprite1=[CCSprite spriteWithFile:[@"SunNum" stringByAppendingFormat:@"%d.png",haveSun/10] ];
+    haveSunSprite1.anchorPoint=ccp(0,1);
+    haveSunSprite1.position=ccp(478,screenSize.height-680);
+    [self addChild:haveSunSprite1];
+    
+    haveSunSprite2=[CCSprite spriteWithFile:[@"SunNum" stringByAppendingFormat:@"%d.png",haveSun%10] ];
+    haveSunSprite2.anchorPoint=ccp(0,1);
+    haveSunSprite2.position=ccp(506,screenSize.height-680);
+    [self addChild:haveSunSprite2];
+}
+
 - (void)setPageIndex:(int)pageIndex
 {
     if (nowPageIndex==pageIndex) return;
+    
     nowPageIndex=pageIndex;
     [nowLayer onExitLayer];
+    
     nowLayer=[self.playLayer objectAtIndex:pageIndex];
+    [self reflushSunNum];
     [nowLayer onEnterLayer];
+    
 }
 
 - (void)onPageMoved:(CCScrollLayer *)scrollLayer
@@ -59,7 +130,7 @@
     [nowLayer onClick];
 }
 
--(PlayScrollLayer*) getYlfcLayer
+-(ChooseScrollLayer*) getYlfcLayer
 {
     if ([self.playLayer count]<1)
     {
@@ -70,7 +141,7 @@
 }
 
 
--(PlayScrollLayer*) getByymLayer
+-(ChooseScrollLayer*) getByymLayer
 {
     if ([self.playLayer count]<2)
     {
@@ -79,7 +150,7 @@
     return [self.playLayer objectAtIndex:1];
 }
 
--(PlayScrollLayer*) getMwtjLayer
+-(ChooseScrollLayer*) getMwtjLayer
 {
     if ([self.playLayer count]<3)
     {
@@ -88,7 +159,7 @@
     return [self.playLayer objectAtIndex:2];
 }
 
--(PlayScrollLayer*) getXbtwLayer
+-(ChooseScrollLayer*) getXbtwLayer
 {
     if ([self.playLayer count]<4)
     {
@@ -162,6 +233,14 @@
 
 }
 
+-(void) addSun
+{
+    CCSprite* sun=[CCSprite spriteWithFile:@"Sun.png"];
+    sun.anchorPoint=ccp(0,1);
+    sun.position=ccp(372,screenSize.height-636);
+    [self addChild:sun];
+}
+
 -(void) startInit
 {
     CCSprite* background=[CCSprite spriteWithFile:@"Background.png"];
@@ -173,6 +252,7 @@
     [self initScrollLayer];
     [nowLayer onEnterLayer];
     
+    [self addSun];
     [self addBack];
     [self addHelp];
 }
@@ -186,6 +266,19 @@
     [[SimpleAudioEngine sharedEngine] preloadEffect:@"场景四.mp3"];
     [[SimpleAudioEngine sharedEngine] preloadEffect:@"双击任意位置选择进入场景.mp3"];
     [[SimpleAudioEngine sharedEngine] preloadEffect:@"左右滑屏左右上角.mp3"];
+    [[SimpleAudioEngine sharedEngine] preloadEffect:@"太阳总数.mp3"];
+    [[SimpleAudioEngine sharedEngine] preloadEffect:@"已获得太阳数量.mp3"];
+    [[SimpleAudioEngine sharedEngine] preloadEffect:@"已获得所有太阳.mp3"];
+    [[SimpleAudioEngine sharedEngine] preloadEffect:@"1.mp3"];
+    [[SimpleAudioEngine sharedEngine] preloadEffect:@"2.mp3"];
+    [[SimpleAudioEngine sharedEngine] preloadEffect:@"3.mp3"];
+    [[SimpleAudioEngine sharedEngine] preloadEffect:@"4.mp3"];
+    [[SimpleAudioEngine sharedEngine] preloadEffect:@"5.mp3"];
+    [[SimpleAudioEngine sharedEngine] preloadEffect:@"6.mp3"];
+    [[SimpleAudioEngine sharedEngine] preloadEffect:@"7.mp3"];
+    [[SimpleAudioEngine sharedEngine] preloadEffect:@"8.mp3"];
+    [[SimpleAudioEngine sharedEngine] preloadEffect:@"9.mp3"];
+    [[SimpleAudioEngine sharedEngine] preloadEffect:@"10.mp3"];
 }
 
 -(void) callPlayChooseSceneEffect:(id)pSender
@@ -245,6 +338,7 @@
 {
     [super onEnter];
     [self startInit];
+    [self reflushSunNum];
     [self playChooseSceneEffect];
 }
 

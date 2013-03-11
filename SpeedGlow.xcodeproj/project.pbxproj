@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1805E8D6169D50FC008DCB9A /* PlayScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 1805E8D5169D50FC008DCB9A /* PlayScene.m */; };
+		1805E8D6169D50FC008DCB9A /* ChooseScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 1805E8D5169D50FC008DCB9A /* ChooseScene.m */; };
 		18567F9416931043003D5282 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18567F9316931043003D5282 /* QuartzCore.framework */; };
 		18567F9616931043003D5282 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18567F9516931043003D5282 /* OpenGLES.framework */; };
 		18567F9816931043003D5282 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18567F9716931043003D5282 /* OpenAL.framework */; };
@@ -140,9 +140,6 @@
 		1856813416931046003D5282 /* IntroLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1856813316931046003D5282 /* IntroLayer.m */; };
 		1856814D16931103003D5282 /* HelpScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 1856814416931103003D5282 /* HelpScene.m */; };
 		1856814E16931103003D5282 /* HelpScrollLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1856814616931103003D5282 /* HelpScrollLayer.m */; };
-		1856814F16931103003D5282 /* EffectLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1856814816931103003D5282 /* EffectLayer.m */; };
-		1856815016931103003D5282 /* OperateLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1856814A16931103003D5282 /* OperateLayer.m */; };
-		1856815116931103003D5282 /* RegularLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1856814C16931103003D5282 /* RegularLayer.m */; };
 		185681551693115E003D5282 /* SettingScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 185681541693115E003D5282 /* SettingScene.m */; };
 		18568158169311D6003D5282 /* MainMenuScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 18568157169311D6003D5282 /* MainMenuScene.m */; };
 		240D6B2716E87BC300CF51FA /* SpeedUp.png in Resources */ = {isa = PBXBuildFile; fileRef = 240D6B2516E87BC300CF51FA /* SpeedUp.png */; };
@@ -153,24 +150,81 @@
 		240D6B3516E8B4F600CF51FA /* RaceTime.png in Resources */ = {isa = PBXBuildFile; fileRef = 240D6B2E16E8B4F600CF51FA /* RaceTime.png */; };
 		240D6B3616E8B4F600CF51FA /* RedLight.png in Resources */ = {isa = PBXBuildFile; fileRef = 240D6B2F16E8B4F600CF51FA /* RedLight.png */; };
 		240D6B3716E8B4F600CF51FA /* TurnRight.png in Resources */ = {isa = PBXBuildFile; fileRef = 240D6B3016E8B4F600CF51FA /* TurnRight.png */; };
-		240D6B3A16E8B50C00CF51FA /* Sun.png in Resources */ = {isa = PBXBuildFile; fileRef = 240D6B3916E8B50C00CF51FA /* Sun.png */; };
-		240D6B3D16E8BAAE00CF51FA /* PauseLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 240D6B3C16E8BAAE00CF51FA /* PauseLayer.m */; };
 		24161FFB16DCA1A7008BE1B3 /* Obstacle.m in Sources */ = {isa = PBXBuildFile; fileRef = 24161FFA16DCA1A7008BE1B3 /* Obstacle.m */; };
 		24161FFF16DCC1E2008BE1B3 /* Medium.png in Resources */ = {isa = PBXBuildFile; fileRef = 24161FFC16DCC1E0008BE1B3 /* Medium.png */; };
 		2416200016DCC1E2008BE1B3 /* Easy.png in Resources */ = {isa = PBXBuildFile; fileRef = 24161FFD16DCC1E1008BE1B3 /* Easy.png */; };
 		2416200116DCC1E2008BE1B3 /* Hard.png in Resources */ = {isa = PBXBuildFile; fileRef = 24161FFE16DCC1E1008BE1B3 /* Hard.png */; };
-		2416200716DCC56B008BE1B3 /* PlayGameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 2416200616DCC56B008BE1B3 /* PlayGameScene.m */; };
 		2416200916DCC72E008BE1B3 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2416200816DCC72E008BE1B3 /* CoreMotion.framework */; };
+		242351A416ED9BB9009986A7 /* SettingBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 242351A216ED9BB9009986A7 /* SettingBackground.png */; };
+		242351A516ED9BB9009986A7 /* Switch.png in Resources */ = {isa = PBXBuildFile; fileRef = 242351A316ED9BB9009986A7 /* Switch.png */; };
 		2424E11316DF74190060ED9E /* 当前页音效页.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2424E11016DF74190060ED9E /* 当前页音效页.mp3 */; };
 		2424E11416DF74190060ED9E /* 上下滚动切换查看不同音效.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2424E11116DF74190060ED9E /* 上下滚动切换查看不同音效.mp3 */; };
 		2424E11516DF74190060ED9E /* 向右滑屏切换操作页.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2424E11216DF74190060ED9E /* 向右滑屏切换操作页.mp3 */; };
 		242512B516DDD6C300273A27 /* 01主菜单单击屏幕中间开始游戏.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 242512B416DDD6C300273A27 /* 01主菜单单击屏幕中间开始游戏.mp3 */; };
+		2425455616EAF13D0025293E /* 拐弯音效 .mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2425455516EAF13D0025293E /* 拐弯音效 .mp3 */; };
+		2425455D16EB08600025293E /* fog.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2425455B16EB08600025293E /* fog.plist */; };
+		2425455E16EB08600025293E /* fog.png in Resources */ = {isa = PBXBuildFile; fileRef = 2425455C16EB08600025293E /* fog.png */; };
+		2425456116EB0CA70025293E /* rain.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2425455F16EB0CA70025293E /* rain.plist */; };
+		2425456216EB0CA70025293E /* MyRain.png in Resources */ = {isa = PBXBuildFile; fileRef = 2425456016EB0CA70025293E /* MyRain.png */; };
+		2425456516EB14EB0025293E /* start.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2425456316EB14EB0025293E /* start.plist */; };
+		2425456816EB15130025293E /* Start.png in Resources */ = {isa = PBXBuildFile; fileRef = 2425456716EB15130025293E /* Start.png */; };
+		2425456B16EB16890025293E /* mySnow.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2425456916EB16890025293E /* mySnow.plist */; };
+		2425456C16EB16890025293E /* mySnow.png in Resources */ = {isa = PBXBuildFile; fileRef = 2425456A16EB16890025293E /* mySnow.png */; };
+		2425456F16EB357D0025293E /* MyMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2425456E16EB357D0025293E /* MyMenuItem.m */; };
+		2425458216EB74A10025293E /* YlfcHardLevelLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2425458116EB70C30025293E /* YlfcHardLevelLayer.m */; };
+		2425458316EB74A50025293E /* YlfcEasyLevelLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2425457616EB6EC80025293E /* YlfcEasyLevelLayer.m */; };
+		2425458416EB74AA0025293E /* YlfcMidiumLevelLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2425457F16EB70B90025293E /* YlfcMidiumLevelLayer.m */; };
+		2425458516EB74AF0025293E /* YlfcEasyLevelLoad.m in Sources */ = {isa = PBXBuildFile; fileRef = 2425457816EB6EC80025293E /* YlfcEasyLevelLoad.m */; };
+		2425458616EB74C30025293E /* PlayGameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 2425457116EB6B610025293E /* PlayGameScene.m */; };
 		2435018D16DB94CC00D55106 /* Xbtw.m in Sources */ = {isa = PBXBuildFile; fileRef = 2435018C16DB94CC00D55106 /* Xbtw.m */; };
 		2435019116DB95F400D55106 /* XbtwTitle.png in Resources */ = {isa = PBXBuildFile; fileRef = 2435018F16DB95F400D55106 /* XbtwTitle.png */; };
 		2435019316DBA17B00D55106 /* ByymTitle.png in Resources */ = {isa = PBXBuildFile; fileRef = 2435019216DBA17B00D55106 /* ByymTitle.png */; };
 		2435019816DBA2D700D55106 /* MwtjScrollLayer.png in Resources */ = {isa = PBXBuildFile; fileRef = 2435019616DBA2D700D55106 /* MwtjScrollLayer.png */; };
 		2435019916DBA2D700D55106 /* MwtjTitle.png in Resources */ = {isa = PBXBuildFile; fileRef = 2435019716DBA2D700D55106 /* MwtjTitle.png */; };
 		2435019C16DBA2FF00D55106 /* Mwtj.m in Sources */ = {isa = PBXBuildFile; fileRef = 2435019B16DBA2FF00D55106 /* Mwtj.m */; };
+		2465FB4F16EC487000394BB6 /* LastOrder.png in Resources */ = {isa = PBXBuildFile; fileRef = 2465FB4E16EC487000394BB6 /* LastOrder.png */; };
+		2465FB5216EC4E6900394BB6 /* Gameover.m in Sources */ = {isa = PBXBuildFile; fileRef = 2465FB5116EC4DCA00394BB6 /* Gameover.m */; };
+		2465FB5816EC607800394BB6 /* Lock.png in Resources */ = {isa = PBXBuildFile; fileRef = 2465FB5716EC607700394BB6 /* Lock.png */; };
+		2465FB5B16ECAFF700394BB6 /* 欢呼.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2465FB5916ECAFF700394BB6 /* 欢呼.mp3 */; };
+		2465FB5C16ECAFF700394BB6 /* 嘘声.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2465FB5A16ECAFF700394BB6 /* 嘘声.mp3 */; };
+		2465FB6316ECB6C500394BB6 /* Sun.png in Resources */ = {isa = PBXBuildFile; fileRef = 2465FB6116ECB6C500394BB6 /* Sun.png */; };
+		2465FB6416ECB6C500394BB6 /* SunCount.png in Resources */ = {isa = PBXBuildFile; fileRef = 2465FB6216ECB6C500394BB6 /* SunCount.png */; };
+		2465FB8716ECB88100394BB6 /* SunNum_.png in Resources */ = {isa = PBXBuildFile; fileRef = 2465FB7C16ECB88100394BB6 /* SunNum_.png */; };
+		2465FB8816ECB88100394BB6 /* SunNum0.png in Resources */ = {isa = PBXBuildFile; fileRef = 2465FB7D16ECB88100394BB6 /* SunNum0.png */; };
+		2465FB8916ECB88100394BB6 /* SunNum1.png in Resources */ = {isa = PBXBuildFile; fileRef = 2465FB7E16ECB88100394BB6 /* SunNum1.png */; };
+		2465FB8A16ECB88100394BB6 /* SunNum2.png in Resources */ = {isa = PBXBuildFile; fileRef = 2465FB7F16ECB88100394BB6 /* SunNum2.png */; };
+		2465FB8B16ECB88100394BB6 /* SunNum3.png in Resources */ = {isa = PBXBuildFile; fileRef = 2465FB8016ECB88100394BB6 /* SunNum3.png */; };
+		2465FB8C16ECB88100394BB6 /* SunNum4.png in Resources */ = {isa = PBXBuildFile; fileRef = 2465FB8116ECB88100394BB6 /* SunNum4.png */; };
+		2465FB8D16ECB88100394BB6 /* SunNum5.png in Resources */ = {isa = PBXBuildFile; fileRef = 2465FB8216ECB88100394BB6 /* SunNum5.png */; };
+		2465FB8E16ECB88100394BB6 /* SunNum6.png in Resources */ = {isa = PBXBuildFile; fileRef = 2465FB8316ECB88100394BB6 /* SunNum6.png */; };
+		2465FB8F16ECB88100394BB6 /* SunNum7.png in Resources */ = {isa = PBXBuildFile; fileRef = 2465FB8416ECB88100394BB6 /* SunNum7.png */; };
+		2465FB9016ECB88100394BB6 /* SunNum8.png in Resources */ = {isa = PBXBuildFile; fileRef = 2465FB8516ECB88100394BB6 /* SunNum8.png */; };
+		2465FB9116ECB88100394BB6 /* SunNum9.png in Resources */ = {isa = PBXBuildFile; fileRef = 2465FB8616ECB88100394BB6 /* SunNum9.png */; };
+		2465FBAF16ECCD5C00394BB6 /* 03选择关卡！_01.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2465FB9316ECCD5C00394BB6 /* 03选择关卡！_01.mp3 */; };
+		2465FBB016ECCD5C00394BB6 /* 1分.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2465FB9416ECCD5C00394BB6 /* 1分.mp3 */; };
+		2465FBB116ECCD5C00394BB6 /* 2分.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2465FB9516ECCD5C00394BB6 /* 2分.mp3 */; };
+		2465FBB216ECCD5C00394BB6 /* 3分.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2465FB9616ECCD5C00394BB6 /* 3分.mp3 */; };
+		2465FBB416ECCD5C00394BB6 /* 个.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2465FB9916ECCD5C00394BB6 /* 个.mp3 */; };
+		2465FBB516ECCD5C00394BB6 /* 公里.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2465FB9A16ECCD5C00394BB6 /* 公里.mp3 */; };
+		2465FBB616ECCD5C00394BB6 /* 分.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2465FB9B16ECCD5C00394BB6 /* 分.mp3 */; };
+		2465FBB716ECCD5C00394BB6 /* 秒.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2465FB9C16ECCD5C00394BB6 /* 秒.mp3 */; };
+		2465FBB816ECCD5C00394BB6 /* 米.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2465FB9D16ECCD5C00394BB6 /* 米.mp3 */; };
+		2465FBB916ECCD5C00394BB6 /* 太阳总数.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2465FB9E16ECCD5C00394BB6 /* 太阳总数.mp3 */; };
+		2465FBBA16ECCD5C00394BB6 /* 已获得太阳数量.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2465FB9F16ECCD5C00394BB6 /* 已获得太阳数量.mp3 */; };
+		2465FBBB16ECCD5C00394BB6 /* 已获得所有的太阳.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2465FBA016ECCD5C00394BB6 /* 已获得所有的太阳.mp3 */; };
+		2465FBBC16ECCD5C00394BB6 /* 1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2465FBA216ECCD5C00394BB6 /* 1.mp3 */; };
+		2465FBBD16ECCD5C00394BB6 /* 10.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2465FBA316ECCD5C00394BB6 /* 10.mp3 */; };
+		2465FBBE16ECCD5C00394BB6 /* 2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2465FBA416ECCD5C00394BB6 /* 2.mp3 */; };
+		2465FBBF16ECCD5C00394BB6 /* 3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2465FBA516ECCD5C00394BB6 /* 3.mp3 */; };
+		2465FBC016ECCD5C00394BB6 /* 4.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2465FBA616ECCD5C00394BB6 /* 4.mp3 */; };
+		2465FBC116ECCD5C00394BB6 /* 5.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2465FBA716ECCD5C00394BB6 /* 5.mp3 */; };
+		2465FBC216ECCD5C00394BB6 /* 6.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2465FBA816ECCD5C00394BB6 /* 6.mp3 */; };
+		2465FBC316ECCD5C00394BB6 /* 7.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2465FBA916ECCD5C00394BB6 /* 7.mp3 */; };
+		2465FBC416ECCD5C00394BB6 /* 8.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2465FBAA16ECCD5C00394BB6 /* 8.mp3 */; };
+		2465FBC516ECCD5C00394BB6 /* 9.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2465FBAB16ECCD5C00394BB6 /* 9.mp3 */; };
+		2465FBC616ECCD5C00394BB6 /* 最佳纪录.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2465FBAC16ECCD5C00394BB6 /* 最佳纪录.mp3 */; };
+		2465FBC716ECCD5C00394BB6 /* 模板所用时间  太阳数量.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2465FBAD16ECCD5C00394BB6 /* 模板所用时间  太阳数量.mp3 */; };
+		2465FBC816ECCD5C00394BB6 /* 模板排名第二.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2465FBAE16ECCD5C00394BB6 /* 模板排名第二.mp3 */; };
 		2491518916DB6816002DA205 /* FrameLayer.png in Resources */ = {isa = PBXBuildFile; fileRef = 2491518816DB6816002DA205 /* FrameLayer.png */; };
 		2491518D16DB6FEA002DA205 /* Byym.m in Sources */ = {isa = PBXBuildFile; fileRef = 2491518C16DB6FEA002DA205 /* Byym.m */; };
 		2491519016DB70C7002DA205 /* ByymScrollLayer.png in Resources */ = {isa = PBXBuildFile; fileRef = 2491518F16DB70C7002DA205 /* ByymScrollLayer.png */; };
@@ -187,10 +241,8 @@
 		24925F0B16DA4FE90041EF8A /* Back.png in Resources */ = {isa = PBXBuildFile; fileRef = 24925F0916DA4FE90041EF8A /* Back.png */; };
 		24925F0C16DA4FE90041EF8A /* Help.png in Resources */ = {isa = PBXBuildFile; fileRef = 24925F0A16DA4FE90041EF8A /* Help.png */; };
 		2492789916E5F9EB001E75B8 /* SpecialButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 2492789816E5F9EB001E75B8 /* SpecialButton.m */; };
-		2492789A16E60C4C001E75B8 /* CCScrollLayer.h in Sources */ = {isa = PBXBuildFile; fileRef = 2492789316E5F940001E75B8 /* CCScrollLayer.h */; };
 		2492789B16E60C54001E75B8 /* CCScrollLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2492789416E5F940001E75B8 /* CCScrollLayer.m */; };
-		2492789C16E60C67001E75B8 /* PlayScrollLayer.h in Sources */ = {isa = PBXBuildFile; fileRef = 2492789516E5F973001E75B8 /* PlayScrollLayer.h */; };
-		2492789D16E60C6D001E75B8 /* PlayScrollLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2492789616E5F973001E75B8 /* PlayScrollLayer.m */; };
+		2492789D16E60C6D001E75B8 /* ChooseScrollLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2492789616E5F973001E75B8 /* ChooseScrollLayer.m */; };
 		2493BEC616E75ADE00BB0A4C /* 重启间隙4s.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2493BEC516E75ADE00BB0A4C /* 重启间隙4s.mp3 */; };
 		2493BEC816E77DE600BB0A4C /* Barrier.png in Resources */ = {isa = PBXBuildFile; fileRef = 2493BEC716E77DE600BB0A4C /* Barrier.png */; };
 		2493BECF16E7849600BB0A4C /* 货箱.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2493BECB16E7849600BB0A4C /* 货箱.mp3 */; };
@@ -213,11 +265,8 @@
 		2493BEF116E795A100BB0A4C /* 完成转弯提示音.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2493BEF016E795A100BB0A4C /* 完成转弯提示音.mp3 */; };
 		2493BEF416E795B600BB0A4C /* 向右转提示音单位.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2493BEF216E795B600BB0A4C /* 向右转提示音单位.mp3 */; };
 		2493BEF516E795B600BB0A4C /* 向左转提示音单位.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2493BEF316E795B600BB0A4C /* 向左转提示音单位.mp3 */; };
-		2493D09616DAF3AE00E2C3FB /* ChooseLevel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2493D09516DAF3AE00E2C3FB /* ChooseLevel.m */; };
-		2493D09916DAF64600E2C3FB /* ChooseLevelScrollLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2493D09816DAF64600E2C3FB /* ChooseLevelScrollLayer.m */; };
-		2493D09C16DAF72500E2C3FB /* EasyLevelLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2493D09B16DAF72500E2C3FB /* EasyLevelLayer.m */; };
-		2493D0A316DB48C600E2C3FB /* MidiumLevelLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2493D0A216DB48C600E2C3FB /* MidiumLevelLayer.m */; };
-		2493D0A616DB492800E2C3FB /* HardLevelLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2493D0A516DB492700E2C3FB /* HardLevelLayer.m */; };
+		2493D09616DAF3AE00E2C3FB /* YlfcChooseLevel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2493D09516DAF3AE00E2C3FB /* YlfcChooseLevel.m */; };
+		2493D09916DAF64600E2C3FB /* YlfcChooseLevelScrollLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2493D09816DAF64600E2C3FB /* YlfcChooseLevelScrollLayer.m */; };
 		249565E216E4257B00D4BF3D /* Car.m in Sources */ = {isa = PBXBuildFile; fileRef = 249565E116E4257B00D4BF3D /* Car.m */; };
 		249565E716E42ED900D4BF3D /* UserData.m in Sources */ = {isa = PBXBuildFile; fileRef = 249565E616E42ED900D4BF3D /* UserData.m */; };
 		2496C11616E5D24900C727E2 /* 按键音二双击.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2496C11316E5D24900C727E2 /* 按键音二双击.mp3 */; };
@@ -240,7 +289,6 @@
 		24976EBD16DF44FC0060D105 /* Setting.m in Sources */ = {isa = PBXBuildFile; fileRef = 24976EBC16DF44FC0060D105 /* Setting.m */; };
 		24976EBF16DF6A480060D105 /* Background.png in Resources */ = {isa = PBXBuildFile; fileRef = 24976EBE16DF6A460060D105 /* Background.png */; };
 		2498965216E4BB6E00E0531F /* XbtwScrollLayer.png in Resources */ = {isa = PBXBuildFile; fileRef = 2498965116E4BB6E00E0531F /* XbtwScrollLayer.png */; };
-		249898B616E4EBE200E0531F /* EasyLevelLoad.m in Sources */ = {isa = PBXBuildFile; fileRef = 249898B516E4EBE200E0531F /* EasyLevelLoad.m */; };
 		249898BF16E4EEE400E0531F /* 游戏界面.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 249898BD16E4EEE400E0531F /* 游戏界面.mp3 */; };
 		249898C016E4EEE400E0531F /* 载入中-.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 249898BE16E4EEE400E0531F /* 载入中-.mp3 */; };
 		249898C316E4F92400E0531F /* Load.png in Resources */ = {isa = PBXBuildFile; fileRef = 249898C216E4F92400E0531F /* Load.png */; };
@@ -248,15 +296,36 @@
 		24C1345C16E1FB370017EBCF /* 红绿灯绿转红音效.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 24C1345716E1FB370017EBCF /* 红绿灯绿转红音效.mp3 */; };
 		24C1345D16E1FB370017EBCF /* 音效提示路障L.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 24C1345816E1FB370017EBCF /* 音效提示路障L.mp3 */; };
 		24C1345E16E1FB370017EBCF /* 音效提示路障R.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 24C1345916E1FB370017EBCF /* 音效提示路障R.mp3 */; };
-		24C1345F16E1FB370017EBCF /* 音效提示转弯（左+右）.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 24C1345A16E1FB370017EBCF /* 音效提示转弯（左+右）.mp3 */; };
-		24C1346116E21AFF0017EBCF /* YLFC.plist in Resources */ = {isa = PBXBuildFile; fileRef = 24C1346016E21AFF0017EBCF /* YLFC.plist */; };
-		24C1346316E21CAA0017EBCF /* YLFCsnow.plist in Resources */ = {isa = PBXBuildFile; fileRef = 24C1346216E21CAA0017EBCF /* YLFCsnow.plist */; };
-		24C1346516E21FAB0017EBCF /* YLFCrain.plist in Resources */ = {isa = PBXBuildFile; fileRef = 24C1346416E21FAB0017EBCF /* YLFCrain.plist */; };
+		24C1345F16E1FB370017EBCF /* 音效提示转弯左+右.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 24C1345A16E1FB370017EBCF /* 音效提示转弯左+右.mp3 */; };
+		24E4C51516E9E4890052300A /* BGM.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 24E4C51416E9E4890052300A /* BGM.mp3 */; };
+		24E4C51B16E9FBD60052300A /* HelpBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 24E4C51816E9FBD60052300A /* HelpBackground.png */; };
+		24E4C51C16E9FBD60052300A /* NextOrder.png in Resources */ = {isa = PBXBuildFile; fileRef = 24E4C51916E9FBD60052300A /* NextOrder.png */; };
+		24E4C51F16E9FBE40052300A /* EffectBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 24E4C51E16E9FBE40052300A /* EffectBackground.png */; };
+		24E4C52216E9FC110052300A /* helprulebg.png in Resources */ = {isa = PBXBuildFile; fileRef = 24E4C52116E9FC110052300A /* helprulebg.png */; };
+		24E4C52516E9FC3D0052300A /* helpoperbg.png in Resources */ = {isa = PBXBuildFile; fileRef = 24E4C52416E9FC3D0052300A /* helpoperbg.png */; };
+		24E4C53016E9FD780052300A /* Video.png in Resources */ = {isa = PBXBuildFile; fileRef = 24E4C52F16E9FD780052300A /* Video.png */; };
+		24E4C53116E9FDF20052300A /* OperateLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 24E4C52B16E9FCB40052300A /* OperateLayer.m */; };
+		24E4C53216E9FE0A0052300A /* RegularLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 24E4C52E16E9FCDE0052300A /* RegularLayer.m */; };
+		24E4C53316E9FE0F0052300A /* EffectLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 24E4C52816E9FC8E0052300A /* EffectLayer.m */; };
+		24E4C54416EA1D6D0052300A /* Minute.png in Resources */ = {isa = PBXBuildFile; fileRef = 24E4C53816EA1D6D0052300A /* Minute.png */; };
+		24E4C54516EA1D6D0052300A /* Second.png in Resources */ = {isa = PBXBuildFile; fileRef = 24E4C53916EA1D6D0052300A /* Second.png */; };
+		24E4C54616EA1D6D0052300A /* small0.png in Resources */ = {isa = PBXBuildFile; fileRef = 24E4C53A16EA1D6D0052300A /* small0.png */; };
+		24E4C54716EA1D6D0052300A /* small1.png in Resources */ = {isa = PBXBuildFile; fileRef = 24E4C53B16EA1D6D0052300A /* small1.png */; };
+		24E4C54816EA1D6D0052300A /* small2.png in Resources */ = {isa = PBXBuildFile; fileRef = 24E4C53C16EA1D6D0052300A /* small2.png */; };
+		24E4C54916EA1D6D0052300A /* small3.png in Resources */ = {isa = PBXBuildFile; fileRef = 24E4C53D16EA1D6D0052300A /* small3.png */; };
+		24E4C54A16EA1D6D0052300A /* small4.png in Resources */ = {isa = PBXBuildFile; fileRef = 24E4C53E16EA1D6D0052300A /* small4.png */; };
+		24E4C54B16EA1D6D0052300A /* small5.png in Resources */ = {isa = PBXBuildFile; fileRef = 24E4C53F16EA1D6D0052300A /* small5.png */; };
+		24E4C54C16EA1D6D0052300A /* small6.png in Resources */ = {isa = PBXBuildFile; fileRef = 24E4C54016EA1D6D0052300A /* small6.png */; };
+		24E4C54D16EA1D6D0052300A /* small7.png in Resources */ = {isa = PBXBuildFile; fileRef = 24E4C54116EA1D6D0052300A /* small7.png */; };
+		24E4C54E16EA1D6D0052300A /* small8.png in Resources */ = {isa = PBXBuildFile; fileRef = 24E4C54216EA1D6D0052300A /* small8.png */; };
+		24E4C54F16EA1D6D0052300A /* small9.png in Resources */ = {isa = PBXBuildFile; fileRef = 24E4C54316EA1D6D0052300A /* small9.png */; };
+		24FF140B16E9D816006B1214 /* PauseBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 24FF140916E9D816006B1214 /* PauseBackground.png */; };
+		24FF140E16E9D839006B1214 /* Resume.png in Resources */ = {isa = PBXBuildFile; fileRef = 24FF140D16E9D839006B1214 /* Resume.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1805E8D4169D50FC008DCB9A /* PlayScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlayScene.h; path = PlayScene/PlayScene.h; sourceTree = "<group>"; };
-		1805E8D5169D50FC008DCB9A /* PlayScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlayScene.m; path = PlayScene/PlayScene.m; sourceTree = "<group>"; };
+		1805E8D4169D50FC008DCB9A /* ChooseScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChooseScene.h; path = PlayScene/ChooseScene.h; sourceTree = "<group>"; };
+		1805E8D5169D50FC008DCB9A /* ChooseScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ChooseScene.m; path = PlayScene/ChooseScene.m; sourceTree = "<group>"; };
 		18567F8F16931043003D5282 /* SpeedGlow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpeedGlow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18567F9316931043003D5282 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		18567F9516931043003D5282 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -531,12 +600,6 @@
 		1856814416931103003D5282 /* HelpScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelpScene.m; sourceTree = "<group>"; };
 		1856814516931103003D5282 /* HelpScrollLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HelpScrollLayer.h; sourceTree = "<group>"; };
 		1856814616931103003D5282 /* HelpScrollLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HelpScrollLayer.m; sourceTree = "<group>"; };
-		1856814716931103003D5282 /* EffectLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EffectLayer.h; sourceTree = "<group>"; };
-		1856814816931103003D5282 /* EffectLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EffectLayer.m; sourceTree = "<group>"; };
-		1856814916931103003D5282 /* OperateLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OperateLayer.h; sourceTree = "<group>"; };
-		1856814A16931103003D5282 /* OperateLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OperateLayer.m; sourceTree = "<group>"; };
-		1856814B16931103003D5282 /* RegularLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegularLayer.h; sourceTree = "<group>"; };
-		1856814C16931103003D5282 /* RegularLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegularLayer.m; sourceTree = "<group>"; };
 		185681531693115E003D5282 /* SettingScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingScene.h; sourceTree = "<group>"; };
 		185681541693115E003D5282 /* SettingScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingScene.m; sourceTree = "<group>"; };
 		18568156169311D6003D5282 /* MainMenuScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainMenuScene.h; sourceTree = "<group>"; };
@@ -549,21 +612,39 @@
 		240D6B2E16E8B4F600CF51FA /* RaceTime.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = RaceTime.png; path = "Resources/MainMenuScene/MainMenu/Play/游戏界面/RaceTime.png"; sourceTree = "<group>"; };
 		240D6B2F16E8B4F600CF51FA /* RedLight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = RedLight.png; path = "Resources/MainMenuScene/MainMenu/Play/游戏界面/RedLight.png"; sourceTree = "<group>"; };
 		240D6B3016E8B4F600CF51FA /* TurnRight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TurnRight.png; path = "Resources/MainMenuScene/MainMenu/Play/游戏界面/TurnRight.png"; sourceTree = "<group>"; };
-		240D6B3916E8B50C00CF51FA /* Sun.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Sun.png; path = "Resources/MainMenuScene/MainMenu/Play/游戏界面/Sun.png"; sourceTree = "<group>"; };
-		240D6B3B16E8BAAD00CF51FA /* PauseLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PauseLayer.h; path = MyLibs/PauseLayer.h; sourceTree = "<group>"; };
-		240D6B3C16E8BAAE00CF51FA /* PauseLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PauseLayer.m; path = MyLibs/PauseLayer.m; sourceTree = "<group>"; };
 		24161FF916DCA1A7008BE1B3 /* Obstacle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Obstacle.h; path = Obstacle/Obstacle.h; sourceTree = "<group>"; };
 		24161FFA16DCA1A7008BE1B3 /* Obstacle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Obstacle.m; path = Obstacle/Obstacle.m; sourceTree = "<group>"; };
 		24161FFC16DCC1E0008BE1B3 /* Medium.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Medium.png; path = Resources/MainMenuScene/MainMenu/Play/Medium.png; sourceTree = "<group>"; };
 		24161FFD16DCC1E1008BE1B3 /* Easy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Easy.png; path = Resources/MainMenuScene/MainMenu/Play/Easy.png; sourceTree = "<group>"; };
 		24161FFE16DCC1E1008BE1B3 /* Hard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Hard.png; path = Resources/MainMenuScene/MainMenu/Play/Hard.png; sourceTree = "<group>"; };
-		2416200516DCC56B008BE1B3 /* PlayGameScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PlayGameScene.h; path = "PlayScene/夜路飞车/PlayGameScene.h"; sourceTree = "<group>"; };
-		2416200616DCC56B008BE1B3 /* PlayGameScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PlayGameScene.m; path = "PlayScene/夜路飞车/PlayGameScene.m"; sourceTree = "<group>"; };
 		2416200816DCC72E008BE1B3 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		242351A216ED9BB9009986A7 /* SettingBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = SettingBackground.png; path = "Resources/MainMenuScene/设置/SettingBackground.png"; sourceTree = "<group>"; };
+		242351A316ED9BB9009986A7 /* Switch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Switch.png; path = "Resources/MainMenuScene/设置/Switch.png"; sourceTree = "<group>"; };
 		2424E11016DF74190060ED9E /* 当前页音效页.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "当前页音效页.mp3"; path = "音效/帮助/音效页/当前页音效页.mp3"; sourceTree = "<group>"; };
 		2424E11116DF74190060ED9E /* 上下滚动切换查看不同音效.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "上下滚动切换查看不同音效.mp3"; path = "音效/帮助/音效页/上下滚动切换查看不同音效.mp3"; sourceTree = "<group>"; };
 		2424E11216DF74190060ED9E /* 向右滑屏切换操作页.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "向右滑屏切换操作页.mp3"; path = "音效/帮助/音效页/向右滑屏切换操作页.mp3"; sourceTree = "<group>"; };
 		242512B416DDD6C300273A27 /* 01主菜单单击屏幕中间开始游戏.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "01主菜单单击屏幕中间开始游戏.mp3"; path = "音效/语音/01主菜单单击屏幕中间开始游戏.mp3"; sourceTree = "<group>"; };
+		2425455516EAF13D0025293E /* 拐弯音效 .mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "拐弯音效 .mp3"; sourceTree = "<group>"; };
+		2425455B16EB08600025293E /* fog.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = fog.plist; path = "Resources/MainMenuScene/MainMenu/Play/迷雾通缉/fog.plist"; sourceTree = "<group>"; };
+		2425455C16EB08600025293E /* fog.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = fog.png; path = "Resources/MainMenuScene/MainMenu/Play/迷雾通缉/fog.png"; sourceTree = "<group>"; };
+		2425455F16EB0CA70025293E /* rain.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = rain.plist; path = "Resources/MainMenuScene/MainMenu/Play/暴雨要密/rain.plist"; sourceTree = "<group>"; };
+		2425456016EB0CA70025293E /* MyRain.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MyRain.png; path = "Resources/MainMenuScene/MainMenu/Play/暴雨要密/MyRain.png"; sourceTree = "<group>"; };
+		2425456316EB14EB0025293E /* start.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = start.plist; path = "Resources/MainMenuScene/MainMenu/Play/夜路飞车/start.plist"; sourceTree = "<group>"; };
+		2425456716EB15130025293E /* Start.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Start.png; path = "Resources/MainMenuScene/MainMenu/Play/夜路飞车/Start.png"; sourceTree = "<group>"; };
+		2425456916EB16890025293E /* mySnow.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = mySnow.plist; path = "Resources/MainMenuScene/MainMenu/Play/雪崩逃亡/mySnow.plist"; sourceTree = "<group>"; };
+		2425456A16EB16890025293E /* mySnow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mySnow.png; path = "Resources/MainMenuScene/MainMenu/Play/雪崩逃亡/mySnow.png"; sourceTree = "<group>"; };
+		2425456D16EB357D0025293E /* MyMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyMenuItem.h; path = MyLibs/MyMenuItem.h; sourceTree = "<group>"; };
+		2425456E16EB357D0025293E /* MyMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyMenuItem.m; path = MyLibs/MyMenuItem.m; sourceTree = "<group>"; };
+		2425457016EB6B600025293E /* PlayGameScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PlayGameScene.h; path = PlayScene/PlayGameScene.h; sourceTree = "<group>"; };
+		2425457116EB6B610025293E /* PlayGameScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = PlayGameScene.m; path = PlayScene/PlayGameScene.m; sourceTree = "<group>"; };
+		2425457516EB6EC80025293E /* YlfcEasyLevelLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = YlfcEasyLevelLayer.h; path = "PlayScene/夜路飞车/简单/YlfcEasyLevelLayer.h"; sourceTree = "<group>"; };
+		2425457616EB6EC80025293E /* YlfcEasyLevelLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = YlfcEasyLevelLayer.m; path = "PlayScene/夜路飞车/简单/YlfcEasyLevelLayer.m"; sourceTree = "<group>"; };
+		2425457716EB6EC80025293E /* YlfcEasyLevelLoad.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = YlfcEasyLevelLoad.h; path = "PlayScene/夜路飞车/简单/YlfcEasyLevelLoad.h"; sourceTree = "<group>"; };
+		2425457816EB6EC80025293E /* YlfcEasyLevelLoad.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = YlfcEasyLevelLoad.m; path = "PlayScene/夜路飞车/简单/YlfcEasyLevelLoad.m"; sourceTree = "<group>"; };
+		2425457E16EB70B90025293E /* YlfcMidiumLevelLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = YlfcMidiumLevelLayer.h; path = "PlayScene/夜路飞车/中等/YlfcMidiumLevelLayer.h"; sourceTree = "<group>"; };
+		2425457F16EB70B90025293E /* YlfcMidiumLevelLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = YlfcMidiumLevelLayer.m; path = "PlayScene/夜路飞车/中等/YlfcMidiumLevelLayer.m"; sourceTree = "<group>"; };
+		2425458016EB70C30025293E /* YlfcHardLevelLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = YlfcHardLevelLayer.h; path = "PlayScene/夜路飞车/困难/YlfcHardLevelLayer.h"; sourceTree = "<group>"; };
+		2425458116EB70C30025293E /* YlfcHardLevelLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = YlfcHardLevelLayer.m; path = "PlayScene/夜路飞车/困难/YlfcHardLevelLayer.m"; sourceTree = "<group>"; };
 		2435018B16DB94CC00D55106 /* Xbtw.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Xbtw.h; path = "PlayScene/雪崩逃亡/Xbtw.h"; sourceTree = "<group>"; };
 		2435018C16DB94CC00D55106 /* Xbtw.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Xbtw.m; path = "PlayScene/雪崩逃亡/Xbtw.m"; sourceTree = "<group>"; };
 		2435018F16DB95F400D55106 /* XbtwTitle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = XbtwTitle.png; path = "Resources/MainMenuScene/MainMenu/Play/雪崩逃亡/XbtwTitle.png"; sourceTree = "<group>"; };
@@ -572,6 +653,50 @@
 		2435019716DBA2D700D55106 /* MwtjTitle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MwtjTitle.png; path = "Resources/MainMenuScene/MainMenu/Play/迷雾通缉/MwtjTitle.png"; sourceTree = "<group>"; };
 		2435019A16DBA2FF00D55106 /* Mwtj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Mwtj.h; path = "PlayScene/迷雾通缉/Mwtj.h"; sourceTree = "<group>"; };
 		2435019B16DBA2FF00D55106 /* Mwtj.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Mwtj.m; path = "PlayScene/迷雾通缉/Mwtj.m"; sourceTree = "<group>"; };
+		2465FB4E16EC487000394BB6 /* LastOrder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = LastOrder.png; path = "Resources/MainMenuScene/帮助/LastOrder.png"; sourceTree = "<group>"; };
+		2465FB5016EC4DC900394BB6 /* Gameover.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Gameover.h; path = PlayScene/Gameover.h; sourceTree = "<group>"; };
+		2465FB5116EC4DCA00394BB6 /* Gameover.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = Gameover.m; path = PlayScene/Gameover.m; sourceTree = "<group>"; };
+		2465FB5716EC607700394BB6 /* Lock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Lock.png; path = Resources/MainMenuScene/MainMenu/Play/Lock.png; sourceTree = "<group>"; };
+		2465FB5916ECAFF700394BB6 /* 欢呼.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "欢呼.mp3"; path = "音效/系统游戏音效/欢呼.mp3"; sourceTree = "<group>"; };
+		2465FB5A16ECAFF700394BB6 /* 嘘声.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "嘘声.mp3"; path = "音效/系统游戏音效/嘘声.mp3"; sourceTree = "<group>"; };
+		2465FB6116ECB6C500394BB6 /* Sun.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Sun.png; path = "Resources/MainMenuScene/MainMenu/Play/游戏界面/Sun.png"; sourceTree = "<group>"; };
+		2465FB6216ECB6C500394BB6 /* SunCount.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = SunCount.png; path = "Resources/MainMenuScene/MainMenu/Play/游戏界面/SunCount.png"; sourceTree = "<group>"; };
+		2465FB7C16ECB88100394BB6 /* SunNum_.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = SunNum_.png; path = "SpeedGlowTest/Resources/MainMenuScene/数字/太阳数量/SunNum_.png"; sourceTree = SOURCE_ROOT; };
+		2465FB7D16ECB88100394BB6 /* SunNum0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = SunNum0.png; path = "SpeedGlowTest/Resources/MainMenuScene/数字/太阳数量/SunNum0.png"; sourceTree = SOURCE_ROOT; };
+		2465FB7E16ECB88100394BB6 /* SunNum1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = SunNum1.png; path = "SpeedGlowTest/Resources/MainMenuScene/数字/太阳数量/SunNum1.png"; sourceTree = SOURCE_ROOT; };
+		2465FB7F16ECB88100394BB6 /* SunNum2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = SunNum2.png; path = "SpeedGlowTest/Resources/MainMenuScene/数字/太阳数量/SunNum2.png"; sourceTree = SOURCE_ROOT; };
+		2465FB8016ECB88100394BB6 /* SunNum3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = SunNum3.png; path = "SpeedGlowTest/Resources/MainMenuScene/数字/太阳数量/SunNum3.png"; sourceTree = SOURCE_ROOT; };
+		2465FB8116ECB88100394BB6 /* SunNum4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = SunNum4.png; path = "SpeedGlowTest/Resources/MainMenuScene/数字/太阳数量/SunNum4.png"; sourceTree = SOURCE_ROOT; };
+		2465FB8216ECB88100394BB6 /* SunNum5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = SunNum5.png; path = "SpeedGlowTest/Resources/MainMenuScene/数字/太阳数量/SunNum5.png"; sourceTree = SOURCE_ROOT; };
+		2465FB8316ECB88100394BB6 /* SunNum6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = SunNum6.png; path = "SpeedGlowTest/Resources/MainMenuScene/数字/太阳数量/SunNum6.png"; sourceTree = SOURCE_ROOT; };
+		2465FB8416ECB88100394BB6 /* SunNum7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = SunNum7.png; path = "SpeedGlowTest/Resources/MainMenuScene/数字/太阳数量/SunNum7.png"; sourceTree = SOURCE_ROOT; };
+		2465FB8516ECB88100394BB6 /* SunNum8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = SunNum8.png; path = "SpeedGlowTest/Resources/MainMenuScene/数字/太阳数量/SunNum8.png"; sourceTree = SOURCE_ROOT; };
+		2465FB8616ECB88100394BB6 /* SunNum9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = SunNum9.png; path = "SpeedGlowTest/Resources/MainMenuScene/数字/太阳数量/SunNum9.png"; sourceTree = SOURCE_ROOT; };
+		2465FB9316ECCD5C00394BB6 /* 03选择关卡！_01.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "03选择关卡！_01.mp3"; sourceTree = "<group>"; };
+		2465FB9416ECCD5C00394BB6 /* 1分.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "1分.mp3"; sourceTree = "<group>"; };
+		2465FB9516ECCD5C00394BB6 /* 2分.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "2分.mp3"; sourceTree = "<group>"; };
+		2465FB9616ECCD5C00394BB6 /* 3分.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "3分.mp3"; sourceTree = "<group>"; };
+		2465FB9916ECCD5C00394BB6 /* 个.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "个.mp3"; sourceTree = "<group>"; };
+		2465FB9A16ECCD5C00394BB6 /* 公里.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "公里.mp3"; sourceTree = "<group>"; };
+		2465FB9B16ECCD5C00394BB6 /* 分.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "分.mp3"; sourceTree = "<group>"; };
+		2465FB9C16ECCD5C00394BB6 /* 秒.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "秒.mp3"; sourceTree = "<group>"; };
+		2465FB9D16ECCD5C00394BB6 /* 米.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "米.mp3"; sourceTree = "<group>"; };
+		2465FB9E16ECCD5C00394BB6 /* 太阳总数.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "太阳总数.mp3"; sourceTree = "<group>"; };
+		2465FB9F16ECCD5C00394BB6 /* 已获得太阳数量.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "已获得太阳数量.mp3"; sourceTree = "<group>"; };
+		2465FBA016ECCD5C00394BB6 /* 已获得所有的太阳.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "已获得所有的太阳.mp3"; sourceTree = "<group>"; };
+		2465FBA216ECCD5C00394BB6 /* 1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 1.mp3; sourceTree = "<group>"; };
+		2465FBA316ECCD5C00394BB6 /* 10.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 10.mp3; sourceTree = "<group>"; };
+		2465FBA416ECCD5C00394BB6 /* 2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 2.mp3; sourceTree = "<group>"; };
+		2465FBA516ECCD5C00394BB6 /* 3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 3.mp3; sourceTree = "<group>"; };
+		2465FBA616ECCD5C00394BB6 /* 4.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 4.mp3; sourceTree = "<group>"; };
+		2465FBA716ECCD5C00394BB6 /* 5.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 5.mp3; sourceTree = "<group>"; };
+		2465FBA816ECCD5C00394BB6 /* 6.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 6.mp3; sourceTree = "<group>"; };
+		2465FBA916ECCD5C00394BB6 /* 7.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 7.mp3; sourceTree = "<group>"; };
+		2465FBAA16ECCD5C00394BB6 /* 8.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 8.mp3; sourceTree = "<group>"; };
+		2465FBAB16ECCD5C00394BB6 /* 9.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 9.mp3; sourceTree = "<group>"; };
+		2465FBAC16ECCD5C00394BB6 /* 最佳纪录.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "最佳纪录.mp3"; sourceTree = "<group>"; };
+		2465FBAD16ECCD5C00394BB6 /* 模板所用时间  太阳数量.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "模板所用时间  太阳数量.mp3"; sourceTree = "<group>"; };
+		2465FBAE16ECCD5C00394BB6 /* 模板排名第二.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "模板排名第二.mp3"; sourceTree = "<group>"; };
 		2491518816DB6816002DA205 /* FrameLayer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = FrameLayer.png; path = Resources/MainMenuScene/MainMenu/FrameLayer.png; sourceTree = "<group>"; };
 		2491518B16DB6FEA002DA205 /* Byym.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Byym.h; path = "PlayScene/暴雨要密/Byym.h"; sourceTree = "<group>"; };
 		2491518C16DB6FEA002DA205 /* Byym.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Byym.m; path = "PlayScene/暴雨要密/Byym.m"; sourceTree = "<group>"; };
@@ -591,8 +716,8 @@
 		24925F0A16DA4FE90041EF8A /* Help.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Help.png; path = Resources/MainMenuScene/MainMenu/Play/Help.png; sourceTree = "<group>"; };
 		2492789316E5F940001E75B8 /* CCScrollLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CCScrollLayer.h; path = MyLibs/CCScrollLayer.h; sourceTree = "<group>"; };
 		2492789416E5F940001E75B8 /* CCScrollLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = CCScrollLayer.m; path = MyLibs/CCScrollLayer.m; sourceTree = "<group>"; };
-		2492789516E5F973001E75B8 /* PlayScrollLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PlayScrollLayer.h; path = PlayScene/PlayScrollLayer.h; sourceTree = "<group>"; };
-		2492789616E5F973001E75B8 /* PlayScrollLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = PlayScrollLayer.m; path = PlayScene/PlayScrollLayer.m; sourceTree = "<group>"; };
+		2492789516E5F973001E75B8 /* ChooseScrollLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ChooseScrollLayer.h; path = PlayScene/ChooseScrollLayer.h; sourceTree = "<group>"; };
+		2492789616E5F973001E75B8 /* ChooseScrollLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ChooseScrollLayer.m; path = PlayScene/ChooseScrollLayer.m; sourceTree = "<group>"; };
 		2492789716E5F9EB001E75B8 /* SpecialButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SpecialButton.h; path = MyLibs/SpecialButton.h; sourceTree = "<group>"; };
 		2492789816E5F9EB001E75B8 /* SpecialButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SpecialButton.m; path = MyLibs/SpecialButton.m; sourceTree = "<group>"; };
 		2493BEC516E75ADE00BB0A4C /* 重启间隙4s.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "重启间隙4s.mp3"; sourceTree = "<group>"; };
@@ -617,16 +742,10 @@
 		2493BEF016E795A100BB0A4C /* 完成转弯提示音.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "完成转弯提示音.mp3"; path = "音效/系统游戏音效/转弯/完成转弯提示音.mp3"; sourceTree = "<group>"; };
 		2493BEF216E795B600BB0A4C /* 向右转提示音单位.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "向右转提示音单位.mp3"; path = "音效/系统游戏音效/转弯/向右转提示音单位.mp3"; sourceTree = "<group>"; };
 		2493BEF316E795B600BB0A4C /* 向左转提示音单位.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "向左转提示音单位.mp3"; path = "音效/系统游戏音效/转弯/向左转提示音单位.mp3"; sourceTree = "<group>"; };
-		2493D09416DAF3AE00E2C3FB /* ChooseLevel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChooseLevel.h; path = "PlayScene/夜路飞车/ChooseLevel.h"; sourceTree = "<group>"; };
-		2493D09516DAF3AE00E2C3FB /* ChooseLevel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ChooseLevel.m; path = "PlayScene/夜路飞车/ChooseLevel.m"; sourceTree = "<group>"; };
-		2493D09716DAF64600E2C3FB /* ChooseLevelScrollLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChooseLevelScrollLayer.h; path = "PlayScene/夜路飞车/ChooseLevelScrollLayer.h"; sourceTree = "<group>"; };
-		2493D09816DAF64600E2C3FB /* ChooseLevelScrollLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ChooseLevelScrollLayer.m; path = "PlayScene/夜路飞车/ChooseLevelScrollLayer.m"; sourceTree = "<group>"; };
-		2493D09A16DAF72500E2C3FB /* EasyLevelLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EasyLevelLayer.h; path = "PlayScene/夜路飞车/EasyLevelLayer.h"; sourceTree = "<group>"; };
-		2493D09B16DAF72500E2C3FB /* EasyLevelLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EasyLevelLayer.m; path = "PlayScene/夜路飞车/EasyLevelLayer.m"; sourceTree = "<group>"; };
-		2493D0A116DB48C600E2C3FB /* MidiumLevelLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MidiumLevelLayer.h; path = "PlayScene/夜路飞车/MidiumLevelLayer.h"; sourceTree = "<group>"; };
-		2493D0A216DB48C600E2C3FB /* MidiumLevelLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MidiumLevelLayer.m; path = "PlayScene/夜路飞车/MidiumLevelLayer.m"; sourceTree = "<group>"; };
-		2493D0A416DB492700E2C3FB /* HardLevelLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HardLevelLayer.h; path = "PlayScene/夜路飞车/HardLevelLayer.h"; sourceTree = "<group>"; };
-		2493D0A516DB492700E2C3FB /* HardLevelLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HardLevelLayer.m; path = "PlayScene/夜路飞车/HardLevelLayer.m"; sourceTree = "<group>"; };
+		2493D09416DAF3AE00E2C3FB /* YlfcChooseLevel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YlfcChooseLevel.h; path = "PlayScene/夜路飞车/YlfcChooseLevel.h"; sourceTree = "<group>"; };
+		2493D09516DAF3AE00E2C3FB /* YlfcChooseLevel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YlfcChooseLevel.m; path = "PlayScene/夜路飞车/YlfcChooseLevel.m"; sourceTree = "<group>"; };
+		2493D09716DAF64600E2C3FB /* YlfcChooseLevelScrollLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YlfcChooseLevelScrollLayer.h; path = "PlayScene/夜路飞车/YlfcChooseLevelScrollLayer.h"; sourceTree = "<group>"; };
+		2493D09816DAF64600E2C3FB /* YlfcChooseLevelScrollLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YlfcChooseLevelScrollLayer.m; path = "PlayScene/夜路飞车/YlfcChooseLevelScrollLayer.m"; sourceTree = "<group>"; };
 		249565E016E4257B00D4BF3D /* Car.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Car.h; path = Car/Car.h; sourceTree = "<group>"; };
 		249565E116E4257B00D4BF3D /* Car.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Car.m; path = Car/Car.m; sourceTree = "<group>"; };
 		249565E516E42ED900D4BF3D /* UserData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = UserData.h; path = UserData/UserData.h; sourceTree = "<group>"; };
@@ -652,8 +771,6 @@
 		24976EBC16DF44FC0060D105 /* Setting.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Setting.m; sourceTree = "<group>"; };
 		24976EBE16DF6A460060D105 /* Background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Background.png; path = Resources/MainMenuScene/MainMenu/Background.png; sourceTree = "<group>"; };
 		2498965116E4BB6E00E0531F /* XbtwScrollLayer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = XbtwScrollLayer.png; path = "Resources/MainMenuScene/MainMenu/Play/雪崩逃亡/XbtwScrollLayer.png"; sourceTree = "<group>"; };
-		249898B416E4EBE200E0531F /* EasyLevelLoad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EasyLevelLoad.h; path = "PlayScene/夜路飞车/EasyLevelLoad.h"; sourceTree = "<group>"; };
-		249898B516E4EBE200E0531F /* EasyLevelLoad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EasyLevelLoad.m; path = "PlayScene/夜路飞车/EasyLevelLoad.m"; sourceTree = "<group>"; };
 		249898BD16E4EEE400E0531F /* 游戏界面.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "游戏界面.mp3"; path = "音效/语音/游戏界面.mp3"; sourceTree = "<group>"; };
 		249898BE16E4EEE400E0531F /* 载入中-.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "载入中-.mp3"; path = "音效/语音/载入中-.mp3"; sourceTree = "<group>"; };
 		249898C216E4F92400E0531F /* Load.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Load.png; path = "Resources/MainMenuScene/MainMenu/Play/载入中/Load.png"; sourceTree = "<group>"; };
@@ -661,10 +778,34 @@
 		24C1345716E1FB370017EBCF /* 红绿灯绿转红音效.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "红绿灯绿转红音效.mp3"; path = "音效/帮助/音效页/红绿灯绿转红音效.mp3"; sourceTree = "<group>"; };
 		24C1345816E1FB370017EBCF /* 音效提示路障L.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "音效提示路障L.mp3"; path = "音效/帮助/音效页/音效提示路障L.mp3"; sourceTree = "<group>"; };
 		24C1345916E1FB370017EBCF /* 音效提示路障R.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "音效提示路障R.mp3"; path = "音效/帮助/音效页/音效提示路障R.mp3"; sourceTree = "<group>"; };
-		24C1345A16E1FB370017EBCF /* 音效提示转弯（左+右）.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "音效提示转弯（左+右）.mp3"; path = "音效/帮助/音效页/音效提示转弯（左+右）.mp3"; sourceTree = "<group>"; };
-		24C1346016E21AFF0017EBCF /* YLFC.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = YLFC.plist; sourceTree = "<group>"; };
-		24C1346216E21CAA0017EBCF /* YLFCsnow.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = YLFCsnow.plist; sourceTree = "<group>"; };
-		24C1346416E21FAB0017EBCF /* YLFCrain.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = YLFCrain.plist; sourceTree = "<group>"; };
+		24C1345A16E1FB370017EBCF /* 音效提示转弯左+右.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "音效提示转弯左+右.mp3"; path = "音效/帮助/音效页/音效提示转弯左+右.mp3"; sourceTree = "<group>"; };
+		24E4C51416E9E4890052300A /* BGM.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = BGM.mp3; path = "音效/系统游戏音效/BGM.mp3"; sourceTree = "<group>"; };
+		24E4C51816E9FBD60052300A /* HelpBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = HelpBackground.png; path = "Resources/MainMenuScene/帮助/HelpBackground.png"; sourceTree = "<group>"; };
+		24E4C51916E9FBD60052300A /* NextOrder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = NextOrder.png; path = "Resources/MainMenuScene/帮助/NextOrder.png"; sourceTree = "<group>"; };
+		24E4C51E16E9FBE40052300A /* EffectBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = EffectBackground.png; path = "Resources/MainMenuScene/帮助/音效/EffectBackground.png"; sourceTree = "<group>"; };
+		24E4C52116E9FC110052300A /* helprulebg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = helprulebg.png; path = "Resources/MainMenuScene/帮助/规则/helprulebg.png"; sourceTree = "<group>"; };
+		24E4C52416E9FC3D0052300A /* helpoperbg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = helpoperbg.png; path = "Resources/MainMenuScene/帮助/操作/helpoperbg.png"; sourceTree = "<group>"; };
+		24E4C52716E9FC8E0052300A /* EffectLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = EffectLayer.h; path = "音效/EffectLayer.h"; sourceTree = "<group>"; };
+		24E4C52816E9FC8E0052300A /* EffectLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = EffectLayer.m; path = "音效/EffectLayer.m"; sourceTree = "<group>"; };
+		24E4C52A16E9FCB40052300A /* OperateLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = OperateLayer.h; path = "操作/OperateLayer.h"; sourceTree = "<group>"; };
+		24E4C52B16E9FCB40052300A /* OperateLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = OperateLayer.m; path = "操作/OperateLayer.m"; sourceTree = "<group>"; };
+		24E4C52D16E9FCDE0052300A /* RegularLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = RegularLayer.h; path = "规则/RegularLayer.h"; sourceTree = "<group>"; };
+		24E4C52E16E9FCDE0052300A /* RegularLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = RegularLayer.m; path = "规则/RegularLayer.m"; sourceTree = "<group>"; };
+		24E4C52F16E9FD780052300A /* Video.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Video.png; path = "Resources/MainMenuScene/帮助/Video.png"; sourceTree = "<group>"; };
+		24E4C53816EA1D6D0052300A /* Minute.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Minute.png; sourceTree = "<group>"; };
+		24E4C53916EA1D6D0052300A /* Second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Second.png; sourceTree = "<group>"; };
+		24E4C53A16EA1D6D0052300A /* small0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = small0.png; sourceTree = "<group>"; };
+		24E4C53B16EA1D6D0052300A /* small1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = small1.png; sourceTree = "<group>"; };
+		24E4C53C16EA1D6D0052300A /* small2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = small2.png; sourceTree = "<group>"; };
+		24E4C53D16EA1D6D0052300A /* small3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = small3.png; sourceTree = "<group>"; };
+		24E4C53E16EA1D6D0052300A /* small4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = small4.png; sourceTree = "<group>"; };
+		24E4C53F16EA1D6D0052300A /* small5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = small5.png; sourceTree = "<group>"; };
+		24E4C54016EA1D6D0052300A /* small6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = small6.png; sourceTree = "<group>"; };
+		24E4C54116EA1D6D0052300A /* small7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = small7.png; sourceTree = "<group>"; };
+		24E4C54216EA1D6D0052300A /* small8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = small8.png; sourceTree = "<group>"; };
+		24E4C54316EA1D6D0052300A /* small9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = small9.png; sourceTree = "<group>"; };
+		24FF140916E9D816006B1214 /* PauseBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = PauseBackground.png; path = "Resources/MainMenuScene/MainMenu/Play/游戏界面/暂停/PauseBackground.png"; sourceTree = "<group>"; };
+		24FF140D16E9D839006B1214 /* Resume.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Resume.png; path = "Resources/MainMenuScene/MainMenu/Play/游戏界面/暂停/Resume.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -691,10 +832,14 @@
 		1816AEE31694469C002ADD43 /* PlayScene */ = {
 			isa = PBXGroup;
 			children = (
-				1805E8D4169D50FC008DCB9A /* PlayScene.h */,
-				1805E8D5169D50FC008DCB9A /* PlayScene.m */,
-				2492789516E5F973001E75B8 /* PlayScrollLayer.h */,
-				2492789616E5F973001E75B8 /* PlayScrollLayer.m */,
+				1805E8D4169D50FC008DCB9A /* ChooseScene.h */,
+				1805E8D5169D50FC008DCB9A /* ChooseScene.m */,
+				2492789516E5F973001E75B8 /* ChooseScrollLayer.h */,
+				2492789616E5F973001E75B8 /* ChooseScrollLayer.m */,
+				2425457016EB6B600025293E /* PlayGameScene.h */,
+				2425457116EB6B610025293E /* PlayGameScene.m */,
+				2465FB5016EC4DC900394BB6 /* Gameover.h */,
+				2465FB5116EC4DCA00394BB6 /* Gameover.m */,
 				24925F0016DA49150041EF8A /* 夜路飞车 */,
 				2491518A16DB6F55002DA205 /* 暴雨要密 */,
 				2435019416DBA1DA00D55106 /* 迷雾通缉 */,
@@ -761,6 +906,8 @@
 		18567FA616931043003D5282 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				242351A116ED9BAF009986A7 /* 音效 */,
+				24E4C51616E9FA170052300A /* 帮助 */,
 				24925EEE16DA3A710041EF8A /* MainMenu */,
 				18567FA716931043003D5282 /* Default.png */,
 				18567FA916931043003D5282 /* Default@2x.png */,
@@ -1139,12 +1286,9 @@
 				1856814416931103003D5282 /* HelpScene.m */,
 				1856814516931103003D5282 /* HelpScrollLayer.h */,
 				1856814616931103003D5282 /* HelpScrollLayer.m */,
-				1856814716931103003D5282 /* EffectLayer.h */,
-				1856814816931103003D5282 /* EffectLayer.m */,
-				1856814916931103003D5282 /* OperateLayer.h */,
-				1856814A16931103003D5282 /* OperateLayer.m */,
-				1856814B16931103003D5282 /* RegularLayer.h */,
-				1856814C16931103003D5282 /* RegularLayer.m */,
+				24E4C52616E9FC820052300A /* 音效 */,
+				24E4C52916E9FC9A0052300A /* 操作 */,
+				24E4C52C16E9FCBE0052300A /* 规则 */,
 			);
 			path = HelpScene;
 			sourceTree = "<group>";
@@ -1181,35 +1325,42 @@
 			name = Obstacle;
 			sourceTree = "<group>";
 		};
-		2416200216DCC3F9008BE1B3 /* EasyLevel */ = {
+		2416200216DCC3F9008BE1B3 /* 简单 */ = {
 			isa = PBXGroup;
 			children = (
-				2493D09A16DAF72500E2C3FB /* EasyLevelLayer.h */,
-				2493D09B16DAF72500E2C3FB /* EasyLevelLayer.m */,
-				2416200516DCC56B008BE1B3 /* PlayGameScene.h */,
-				2416200616DCC56B008BE1B3 /* PlayGameScene.m */,
-				249898B416E4EBE200E0531F /* EasyLevelLoad.h */,
-				249898B516E4EBE200E0531F /* EasyLevelLoad.m */,
+				2425457516EB6EC80025293E /* YlfcEasyLevelLayer.h */,
+				2425457616EB6EC80025293E /* YlfcEasyLevelLayer.m */,
+				2425457716EB6EC80025293E /* YlfcEasyLevelLoad.h */,
+				2425457816EB6EC80025293E /* YlfcEasyLevelLoad.m */,
 			);
-			name = EasyLevel;
+			name = "简单";
 			sourceTree = "<group>";
 		};
-		2416200316DCC40C008BE1B3 /* MidiumLevel */ = {
+		2416200316DCC40C008BE1B3 /* 中等 */ = {
 			isa = PBXGroup;
 			children = (
-				2493D0A216DB48C600E2C3FB /* MidiumLevelLayer.m */,
-				2493D0A116DB48C600E2C3FB /* MidiumLevelLayer.h */,
+				2425457E16EB70B90025293E /* YlfcMidiumLevelLayer.h */,
+				2425457F16EB70B90025293E /* YlfcMidiumLevelLayer.m */,
 			);
-			name = MidiumLevel;
+			name = "中等";
 			sourceTree = "<group>";
 		};
-		2416200416DCC41E008BE1B3 /* HardLevel */ = {
+		2416200416DCC41E008BE1B3 /* 困难 */ = {
 			isa = PBXGroup;
 			children = (
-				2493D0A416DB492700E2C3FB /* HardLevelLayer.h */,
-				2493D0A516DB492700E2C3FB /* HardLevelLayer.m */,
+				2425458016EB70C30025293E /* YlfcHardLevelLayer.h */,
+				2425458116EB70C30025293E /* YlfcHardLevelLayer.m */,
 			);
-			name = HardLevel;
+			name = "困难";
+			sourceTree = "<group>";
+		};
+		242351A116ED9BAF009986A7 /* 音效 */ = {
+			isa = PBXGroup;
+			children = (
+				242351A216ED9BB9009986A7 /* SettingBackground.png */,
+				242351A316ED9BB9009986A7 /* Switch.png */,
+			);
+			name = "音效";
 			sourceTree = "<group>";
 		};
 		2424E10E16DF73AC0060ED9E /* 帮助 */ = {
@@ -1230,7 +1381,7 @@
 				24C1345916E1FB370017EBCF /* 音效提示路障R.mp3 */,
 				24C1345616E1FB370017EBCF /* 红绿灯红转绿音效.mp3 */,
 				24C1345716E1FB370017EBCF /* 红绿灯绿转红音效.mp3 */,
-				24C1345A16E1FB370017EBCF /* 音效提示转弯（左+右）.mp3 */,
+				24C1345A16E1FB370017EBCF /* 音效提示转弯左+右.mp3 */,
 			);
 			name = "音效页";
 			sourceTree = "<group>";
@@ -1238,6 +1389,7 @@
 		242512B216DDD69E00273A27 /* 音效 */ = {
 			isa = PBXGroup;
 			children = (
+				2465FB9216ECCD5C00394BB6 /* 数字单位 */,
 				24C1344D16E1F8300017EBCF /* 游戏音效 */,
 				2496C11A16E5D2A200C727E2 /* 车音效 */,
 				2424E10E16DF73AC0060ED9E /* 帮助 */,
@@ -1285,6 +1437,8 @@
 		2435018A16DB948E00D55106 /* 雪崩逃亡 */ = {
 			isa = PBXGroup;
 			children = (
+				2425456916EB16890025293E /* mySnow.plist */,
+				2425456A16EB16890025293E /* mySnow.png */,
 				2498965116E4BB6E00E0531F /* XbtwScrollLayer.png */,
 				2435018F16DB95F400D55106 /* XbtwTitle.png */,
 			);
@@ -1305,8 +1459,77 @@
 			children = (
 				2435019616DBA2D700D55106 /* MwtjScrollLayer.png */,
 				2435019716DBA2D700D55106 /* MwtjTitle.png */,
+				2425455B16EB08600025293E /* fog.plist */,
+				2425455C16EB08600025293E /* fog.png */,
 			);
 			name = "迷雾通缉";
+			sourceTree = "<group>";
+		};
+		2465FB6516ECB7AF00394BB6 /* 太阳数量 */ = {
+			isa = PBXGroup;
+			children = (
+				2465FB7C16ECB88100394BB6 /* SunNum_.png */,
+				2465FB7D16ECB88100394BB6 /* SunNum0.png */,
+				2465FB7E16ECB88100394BB6 /* SunNum1.png */,
+				2465FB7F16ECB88100394BB6 /* SunNum2.png */,
+				2465FB8016ECB88100394BB6 /* SunNum3.png */,
+				2465FB8116ECB88100394BB6 /* SunNum4.png */,
+				2465FB8216ECB88100394BB6 /* SunNum5.png */,
+				2465FB8316ECB88100394BB6 /* SunNum6.png */,
+				2465FB8416ECB88100394BB6 /* SunNum7.png */,
+				2465FB8516ECB88100394BB6 /* SunNum8.png */,
+				2465FB8616ECB88100394BB6 /* SunNum9.png */,
+			);
+			name = "太阳数量";
+			sourceTree = "<group>";
+		};
+		2465FB9216ECCD5C00394BB6 /* 数字单位 */ = {
+			isa = PBXGroup;
+			children = (
+				2465FB9316ECCD5C00394BB6 /* 03选择关卡！_01.mp3 */,
+				2465FB9416ECCD5C00394BB6 /* 1分.mp3 */,
+				2465FB9516ECCD5C00394BB6 /* 2分.mp3 */,
+				2465FB9616ECCD5C00394BB6 /* 3分.mp3 */,
+				2465FB9816ECCD5C00394BB6 /* 单位 */,
+				2465FB9E16ECCD5C00394BB6 /* 太阳总数.mp3 */,
+				2465FB9F16ECCD5C00394BB6 /* 已获得太阳数量.mp3 */,
+				2465FBA016ECCD5C00394BB6 /* 已获得所有的太阳.mp3 */,
+				2465FBA116ECCD5C00394BB6 /* 数字 */,
+				2465FBAC16ECCD5C00394BB6 /* 最佳纪录.mp3 */,
+				2465FBAD16ECCD5C00394BB6 /* 模板所用时间  太阳数量.mp3 */,
+				2465FBAE16ECCD5C00394BB6 /* 模板排名第二.mp3 */,
+			);
+			name = "数字单位";
+			path = "音效/数字单位";
+			sourceTree = "<group>";
+		};
+		2465FB9816ECCD5C00394BB6 /* 单位 */ = {
+			isa = PBXGroup;
+			children = (
+				2465FB9916ECCD5C00394BB6 /* 个.mp3 */,
+				2465FB9A16ECCD5C00394BB6 /* 公里.mp3 */,
+				2465FB9B16ECCD5C00394BB6 /* 分.mp3 */,
+				2465FB9C16ECCD5C00394BB6 /* 秒.mp3 */,
+				2465FB9D16ECCD5C00394BB6 /* 米.mp3 */,
+			);
+			path = "单位";
+			sourceTree = "<group>";
+		};
+		2465FBA116ECCD5C00394BB6 /* 数字 */ = {
+			isa = PBXGroup;
+			children = (
+				2465FBA216ECCD5C00394BB6 /* 1.mp3 */,
+				2465FBA316ECCD5C00394BB6 /* 10.mp3 */,
+				2465FBA416ECCD5C00394BB6 /* 2.mp3 */,
+				2465FBA516ECCD5C00394BB6 /* 3.mp3 */,
+				2465FBA616ECCD5C00394BB6 /* 4.mp3 */,
+				2465FBA716ECCD5C00394BB6 /* 5.mp3 */,
+				2465FBA816ECCD5C00394BB6 /* 6.mp3 */,
+				2465FBA916ECCD5C00394BB6 /* 7.mp3 */,
+				2465FBAA16ECCD5C00394BB6 /* 8.mp3 */,
+				2465FBAB16ECCD5C00394BB6 /* 9.mp3 */,
+			);
+			path = "数字";
 			sourceTree = "<group>";
 		};
 		2491518A16DB6F55002DA205 /* 暴雨要密 */ = {
@@ -1321,6 +1544,8 @@
 		2491518E16DB708E002DA205 /* 暴雨要密 */ = {
 			isa = PBXGroup;
 			children = (
+				2425455F16EB0CA70025293E /* rain.plist */,
+				2425456016EB0CA70025293E /* MyRain.png */,
 				2491518F16DB70C7002DA205 /* ByymScrollLayer.png */,
 				2435019216DBA17B00D55106 /* ByymTitle.png */,
 			);
@@ -1339,6 +1564,7 @@
 				24925EF716DA3FC40041EF8A /* Setting.png */,
 				24925EF816DA3FC40041EF8A /* SettingSelect.png */,
 				24925EF116DA3C720041EF8A /* Play.png */,
+				24E4C53616EA1D6D0052300A /* 数字 */,
 				24925F0116DA4D270041EF8A /* Play */,
 			);
 			name = MainMenu;
@@ -1349,13 +1575,13 @@
 			children = (
 				24925EFD16DA49040041EF8A /* Ylfc.h */,
 				24925EFE16DA49040041EF8A /* Ylfc.m */,
-				2493D09416DAF3AE00E2C3FB /* ChooseLevel.h */,
-				2493D09516DAF3AE00E2C3FB /* ChooseLevel.m */,
-				2493D09716DAF64600E2C3FB /* ChooseLevelScrollLayer.h */,
-				2493D09816DAF64600E2C3FB /* ChooseLevelScrollLayer.m */,
-				2416200216DCC3F9008BE1B3 /* EasyLevel */,
-				2416200316DCC40C008BE1B3 /* MidiumLevel */,
-				2416200416DCC41E008BE1B3 /* HardLevel */,
+				2493D09416DAF3AE00E2C3FB /* YlfcChooseLevel.h */,
+				2493D09516DAF3AE00E2C3FB /* YlfcChooseLevel.m */,
+				2493D09716DAF64600E2C3FB /* YlfcChooseLevelScrollLayer.h */,
+				2493D09816DAF64600E2C3FB /* YlfcChooseLevelScrollLayer.m */,
+				2416200216DCC3F9008BE1B3 /* 简单 */,
+				2416200316DCC40C008BE1B3 /* 中等 */,
+				2416200416DCC41E008BE1B3 /* 困难 */,
 			);
 			name = "夜路飞车";
 			sourceTree = "<group>";
@@ -1363,9 +1589,7 @@
 		24925F0116DA4D270041EF8A /* Play */ = {
 			isa = PBXGroup;
 			children = (
-				24C1346416E21FAB0017EBCF /* YLFCrain.plist */,
-				24C1346016E21AFF0017EBCF /* YLFC.plist */,
-				24C1346216E21CAA0017EBCF /* YLFCsnow.plist */,
+				2465FB5716EC607700394BB6 /* Lock.png */,
 				24161FFD16DCC1E1008BE1B3 /* Easy.png */,
 				24161FFC16DCC1E0008BE1B3 /* Medium.png */,
 				24161FFE16DCC1E1008BE1B3 /* Hard.png */,
@@ -1386,6 +1610,8 @@
 			children = (
 				24925F0416DA4D3E0041EF8A /* YlfcScrollLayer.png */,
 				24925F0516DA4D3E0041EF8A /* YlfcTitle.png */,
+				2425456316EB14EB0025293E /* start.plist */,
+				2425456716EB15130025293E /* Start.png */,
 			);
 			name = "夜路飞车";
 			sourceTree = "<group>";
@@ -1393,6 +1619,8 @@
 		2492788D16E5E858001E75B8 /* 游戏界面 */ = {
 			isa = PBXGroup;
 			children = (
+				2465FB6116ECB6C500394BB6 /* Sun.png */,
+				2465FB6216ECB6C500394BB6 /* SunCount.png */,
 				240D6B2516E87BC300CF51FA /* SpeedUp.png */,
 				240D6B2616E87BC300CF51FA /* Stop.png */,
 				240D6B2916E8B34500CF51FA /* Pause.png */,
@@ -1401,8 +1629,8 @@
 				240D6B2B16E8B4F500CF51FA /* GreenLight.png */,
 				240D6B2C16E8B4F600CF51FA /* TurnLeft.png */,
 				240D6B3016E8B4F600CF51FA /* TurnRight.png */,
-				240D6B3916E8B50C00CF51FA /* Sun.png */,
 				2493BEC716E77DE600BB0A4C /* Barrier.png */,
+				24FF140816E9D7EC006B1214 /* 暂停 */,
 			);
 			name = "游戏界面";
 			sourceTree = "<group>";
@@ -1410,12 +1638,12 @@
 		2492789216E5F8B8001E75B8 /* MyLibs */ = {
 			isa = PBXGroup;
 			children = (
-				240D6B3B16E8BAAD00CF51FA /* PauseLayer.h */,
-				240D6B3C16E8BAAE00CF51FA /* PauseLayer.m */,
 				2492789716E5F9EB001E75B8 /* SpecialButton.h */,
 				2492789816E5F9EB001E75B8 /* SpecialButton.m */,
 				2492789316E5F940001E75B8 /* CCScrollLayer.h */,
 				2492789416E5F940001E75B8 /* CCScrollLayer.m */,
+				2425456D16EB357D0025293E /* MyMenuItem.h */,
+				2425456E16EB357D0025293E /* MyMenuItem.m */,
 			);
 			name = MyLibs;
 			sourceTree = "<group>";
@@ -1497,6 +1725,7 @@
 		2496C11A16E5D2A200C727E2 /* 车音效 */ = {
 			isa = PBXGroup;
 			children = (
+				2425455516EAF13D0025293E /* 拐弯音效 .mp3 */,
 				2496C12116E5D37000C727E2 /* 常速行驶音效.mp3 */,
 				2496C11F16E5D37000C727E2 /* 加速音效.mp3 */,
 				2496C12016E5D37000C727E2 /* 启动发车.mp3 */,
@@ -1530,12 +1759,118 @@
 		24C1344D16E1F8300017EBCF /* 游戏音效 */ = {
 			isa = PBXGroup;
 			children = (
+				24E4C51416E9E4890052300A /* BGM.mp3 */,
+				2465FB5916ECAFF700394BB6 /* 欢呼.mp3 */,
+				2465FB5A16ECAFF700394BB6 /* 嘘声.mp3 */,
 				2493BEEF16E7956E00BB0A4C /* 转弯 */,
 				2493BEE616E7955C00BB0A4C /* 红绿灯 */,
 				2493BEDD16E7953100BB0A4C /* 太阳 */,
 				2493BEC916E7846E00BB0A4C /* 障碍物音效 */,
 			);
 			name = "游戏音效";
+			sourceTree = "<group>";
+		};
+		24E4C51616E9FA170052300A /* 帮助 */ = {
+			isa = PBXGroup;
+			children = (
+				24E4C51816E9FBD60052300A /* HelpBackground.png */,
+				2465FB4E16EC487000394BB6 /* LastOrder.png */,
+				24E4C51916E9FBD60052300A /* NextOrder.png */,
+				24E4C52F16E9FD780052300A /* Video.png */,
+				24E4C51716E9FA3F0052300A /* 音效 */,
+				24E4C52016E9FBFB0052300A /* 规则 */,
+				24E4C52316E9FC240052300A /* 操作 */,
+			);
+			name = "帮助";
+			sourceTree = "<group>";
+		};
+		24E4C51716E9FA3F0052300A /* 音效 */ = {
+			isa = PBXGroup;
+			children = (
+				24E4C51E16E9FBE40052300A /* EffectBackground.png */,
+			);
+			name = "音效";
+			sourceTree = "<group>";
+		};
+		24E4C52016E9FBFB0052300A /* 规则 */ = {
+			isa = PBXGroup;
+			children = (
+				24E4C52116E9FC110052300A /* helprulebg.png */,
+			);
+			name = "规则";
+			sourceTree = "<group>";
+		};
+		24E4C52316E9FC240052300A /* 操作 */ = {
+			isa = PBXGroup;
+			children = (
+				24E4C52416E9FC3D0052300A /* helpoperbg.png */,
+			);
+			name = "操作";
+			sourceTree = "<group>";
+		};
+		24E4C52616E9FC820052300A /* 音效 */ = {
+			isa = PBXGroup;
+			children = (
+				24E4C52716E9FC8E0052300A /* EffectLayer.h */,
+				24E4C52816E9FC8E0052300A /* EffectLayer.m */,
+			);
+			name = "音效";
+			sourceTree = "<group>";
+		};
+		24E4C52916E9FC9A0052300A /* 操作 */ = {
+			isa = PBXGroup;
+			children = (
+				24E4C52A16E9FCB40052300A /* OperateLayer.h */,
+				24E4C52B16E9FCB40052300A /* OperateLayer.m */,
+			);
+			name = "操作";
+			sourceTree = "<group>";
+		};
+		24E4C52C16E9FCBE0052300A /* 规则 */ = {
+			isa = PBXGroup;
+			children = (
+				24E4C52D16E9FCDE0052300A /* RegularLayer.h */,
+				24E4C52E16E9FCDE0052300A /* RegularLayer.m */,
+			);
+			name = "规则";
+			sourceTree = "<group>";
+		};
+		24E4C53616EA1D6D0052300A /* 数字 */ = {
+			isa = PBXGroup;
+			children = (
+				2465FB6516ECB7AF00394BB6 /* 太阳数量 */,
+				24E4C53716EA1D6D0052300A /* 时间排名 */,
+			);
+			name = "数字";
+			path = "Resources/MainMenuScene/数字";
+			sourceTree = "<group>";
+		};
+		24E4C53716EA1D6D0052300A /* 时间排名 */ = {
+			isa = PBXGroup;
+			children = (
+				24E4C53816EA1D6D0052300A /* Minute.png */,
+				24E4C53916EA1D6D0052300A /* Second.png */,
+				24E4C53A16EA1D6D0052300A /* small0.png */,
+				24E4C53B16EA1D6D0052300A /* small1.png */,
+				24E4C53C16EA1D6D0052300A /* small2.png */,
+				24E4C53D16EA1D6D0052300A /* small3.png */,
+				24E4C53E16EA1D6D0052300A /* small4.png */,
+				24E4C53F16EA1D6D0052300A /* small5.png */,
+				24E4C54016EA1D6D0052300A /* small6.png */,
+				24E4C54116EA1D6D0052300A /* small7.png */,
+				24E4C54216EA1D6D0052300A /* small8.png */,
+				24E4C54316EA1D6D0052300A /* small9.png */,
+			);
+			path = "时间排名";
+			sourceTree = "<group>";
+		};
+		24FF140816E9D7EC006B1214 /* 暂停 */ = {
+			isa = PBXGroup;
+			children = (
+				24FF140D16E9D839006B1214 /* Resume.png */,
+				24FF140916E9D816006B1214 /* PauseBackground.png */,
+			);
+			name = "暂停";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1640,10 +1975,7 @@
 				24C1345C16E1FB370017EBCF /* 红绿灯绿转红音效.mp3 in Resources */,
 				24C1345D16E1FB370017EBCF /* 音效提示路障L.mp3 in Resources */,
 				24C1345E16E1FB370017EBCF /* 音效提示路障R.mp3 in Resources */,
-				24C1345F16E1FB370017EBCF /* 音效提示转弯（左+右）.mp3 in Resources */,
-				24C1346116E21AFF0017EBCF /* YLFC.plist in Resources */,
-				24C1346316E21CAA0017EBCF /* YLFCsnow.plist in Resources */,
-				24C1346516E21FAB0017EBCF /* YLFCrain.plist in Resources */,
+				24C1345F16E1FB370017EBCF /* 音效提示转弯左+右.mp3 in Resources */,
 				2498965216E4BB6E00E0531F /* XbtwScrollLayer.png in Resources */,
 				249898BF16E4EEE400E0531F /* 游戏界面.mp3 in Resources */,
 				249898C016E4EEE400E0531F /* 载入中-.mp3 in Resources */,
@@ -1688,7 +2020,80 @@
 				240D6B3516E8B4F600CF51FA /* RaceTime.png in Resources */,
 				240D6B3616E8B4F600CF51FA /* RedLight.png in Resources */,
 				240D6B3716E8B4F600CF51FA /* TurnRight.png in Resources */,
-				240D6B3A16E8B50C00CF51FA /* Sun.png in Resources */,
+				24FF140B16E9D816006B1214 /* PauseBackground.png in Resources */,
+				24FF140E16E9D839006B1214 /* Resume.png in Resources */,
+				24E4C51516E9E4890052300A /* BGM.mp3 in Resources */,
+				24E4C51B16E9FBD60052300A /* HelpBackground.png in Resources */,
+				24E4C51C16E9FBD60052300A /* NextOrder.png in Resources */,
+				24E4C51F16E9FBE40052300A /* EffectBackground.png in Resources */,
+				24E4C52216E9FC110052300A /* helprulebg.png in Resources */,
+				24E4C52516E9FC3D0052300A /* helpoperbg.png in Resources */,
+				24E4C53016E9FD780052300A /* Video.png in Resources */,
+				24E4C54416EA1D6D0052300A /* Minute.png in Resources */,
+				24E4C54516EA1D6D0052300A /* Second.png in Resources */,
+				24E4C54616EA1D6D0052300A /* small0.png in Resources */,
+				24E4C54716EA1D6D0052300A /* small1.png in Resources */,
+				24E4C54816EA1D6D0052300A /* small2.png in Resources */,
+				24E4C54916EA1D6D0052300A /* small3.png in Resources */,
+				24E4C54A16EA1D6D0052300A /* small4.png in Resources */,
+				24E4C54B16EA1D6D0052300A /* small5.png in Resources */,
+				24E4C54C16EA1D6D0052300A /* small6.png in Resources */,
+				24E4C54D16EA1D6D0052300A /* small7.png in Resources */,
+				24E4C54E16EA1D6D0052300A /* small8.png in Resources */,
+				24E4C54F16EA1D6D0052300A /* small9.png in Resources */,
+				2425455616EAF13D0025293E /* 拐弯音效 .mp3 in Resources */,
+				2425455D16EB08600025293E /* fog.plist in Resources */,
+				2425455E16EB08600025293E /* fog.png in Resources */,
+				2425456116EB0CA70025293E /* rain.plist in Resources */,
+				2425456216EB0CA70025293E /* MyRain.png in Resources */,
+				2425456516EB14EB0025293E /* start.plist in Resources */,
+				2425456816EB15130025293E /* Start.png in Resources */,
+				2425456B16EB16890025293E /* mySnow.plist in Resources */,
+				2425456C16EB16890025293E /* mySnow.png in Resources */,
+				2465FB4F16EC487000394BB6 /* LastOrder.png in Resources */,
+				2465FB5816EC607800394BB6 /* Lock.png in Resources */,
+				2465FB5B16ECAFF700394BB6 /* 欢呼.mp3 in Resources */,
+				2465FB5C16ECAFF700394BB6 /* 嘘声.mp3 in Resources */,
+				2465FB6316ECB6C500394BB6 /* Sun.png in Resources */,
+				2465FB6416ECB6C500394BB6 /* SunCount.png in Resources */,
+				2465FB8716ECB88100394BB6 /* SunNum_.png in Resources */,
+				2465FB8816ECB88100394BB6 /* SunNum0.png in Resources */,
+				2465FB8916ECB88100394BB6 /* SunNum1.png in Resources */,
+				2465FB8A16ECB88100394BB6 /* SunNum2.png in Resources */,
+				2465FB8B16ECB88100394BB6 /* SunNum3.png in Resources */,
+				2465FB8C16ECB88100394BB6 /* SunNum4.png in Resources */,
+				2465FB8D16ECB88100394BB6 /* SunNum5.png in Resources */,
+				2465FB8E16ECB88100394BB6 /* SunNum6.png in Resources */,
+				2465FB8F16ECB88100394BB6 /* SunNum7.png in Resources */,
+				2465FB9016ECB88100394BB6 /* SunNum8.png in Resources */,
+				2465FB9116ECB88100394BB6 /* SunNum9.png in Resources */,
+				2465FBAF16ECCD5C00394BB6 /* 03选择关卡！_01.mp3 in Resources */,
+				2465FBB016ECCD5C00394BB6 /* 1分.mp3 in Resources */,
+				2465FBB116ECCD5C00394BB6 /* 2分.mp3 in Resources */,
+				2465FBB216ECCD5C00394BB6 /* 3分.mp3 in Resources */,
+				2465FBB416ECCD5C00394BB6 /* 个.mp3 in Resources */,
+				2465FBB516ECCD5C00394BB6 /* 公里.mp3 in Resources */,
+				2465FBB616ECCD5C00394BB6 /* 分.mp3 in Resources */,
+				2465FBB716ECCD5C00394BB6 /* 秒.mp3 in Resources */,
+				2465FBB816ECCD5C00394BB6 /* 米.mp3 in Resources */,
+				2465FBB916ECCD5C00394BB6 /* 太阳总数.mp3 in Resources */,
+				2465FBBA16ECCD5C00394BB6 /* 已获得太阳数量.mp3 in Resources */,
+				2465FBBB16ECCD5C00394BB6 /* 已获得所有的太阳.mp3 in Resources */,
+				2465FBBC16ECCD5C00394BB6 /* 1.mp3 in Resources */,
+				2465FBBD16ECCD5C00394BB6 /* 10.mp3 in Resources */,
+				2465FBBE16ECCD5C00394BB6 /* 2.mp3 in Resources */,
+				2465FBBF16ECCD5C00394BB6 /* 3.mp3 in Resources */,
+				2465FBC016ECCD5C00394BB6 /* 4.mp3 in Resources */,
+				2465FBC116ECCD5C00394BB6 /* 5.mp3 in Resources */,
+				2465FBC216ECCD5C00394BB6 /* 6.mp3 in Resources */,
+				2465FBC316ECCD5C00394BB6 /* 7.mp3 in Resources */,
+				2465FBC416ECCD5C00394BB6 /* 8.mp3 in Resources */,
+				2465FBC516ECCD5C00394BB6 /* 9.mp3 in Resources */,
+				2465FBC616ECCD5C00394BB6 /* 最佳纪录.mp3 in Resources */,
+				2465FBC716ECCD5C00394BB6 /* 模板所用时间  太阳数量.mp3 in Resources */,
+				2465FBC816ECCD5C00394BB6 /* 模板排名第二.mp3 in Resources */,
+				242351A416ED9BB9009986A7 /* SettingBackground.png in Resources */,
+				242351A516ED9BB9009986A7 /* Switch.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1699,10 +2104,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2492789D16E60C6D001E75B8 /* PlayScrollLayer.m in Sources */,
-				2492789C16E60C67001E75B8 /* PlayScrollLayer.h in Sources */,
+				2465FB5216EC4E6900394BB6 /* Gameover.m in Sources */,
+				2425458616EB74C30025293E /* PlayGameScene.m in Sources */,
+				2425458516EB74AF0025293E /* YlfcEasyLevelLoad.m in Sources */,
+				2425458416EB74AA0025293E /* YlfcMidiumLevelLayer.m in Sources */,
+				2425458316EB74A50025293E /* YlfcEasyLevelLayer.m in Sources */,
+				2425458216EB74A10025293E /* YlfcHardLevelLayer.m in Sources */,
+				24E4C53316E9FE0F0052300A /* EffectLayer.m in Sources */,
+				24E4C53216E9FE0A0052300A /* RegularLayer.m in Sources */,
+				24E4C53116E9FDF20052300A /* OperateLayer.m in Sources */,
+				2492789D16E60C6D001E75B8 /* ChooseScrollLayer.m in Sources */,
 				2492789B16E60C54001E75B8 /* CCScrollLayer.m in Sources */,
-				2492789A16E60C4C001E75B8 /* CCScrollLayer.h in Sources */,
 				18567FC816931043003D5282 /* CCAction.m in Sources */,
 				18567FCB16931043003D5282 /* CCActionCamera.m in Sources */,
 				18567FCE16931043003D5282 /* CCActionCatmullRom.m in Sources */,
@@ -1811,29 +2223,21 @@
 				1856813416931046003D5282 /* IntroLayer.m in Sources */,
 				1856814D16931103003D5282 /* HelpScene.m in Sources */,
 				1856814E16931103003D5282 /* HelpScrollLayer.m in Sources */,
-				1856814F16931103003D5282 /* EffectLayer.m in Sources */,
-				1856815016931103003D5282 /* OperateLayer.m in Sources */,
-				1856815116931103003D5282 /* RegularLayer.m in Sources */,
 				185681551693115E003D5282 /* SettingScene.m in Sources */,
 				18568158169311D6003D5282 /* MainMenuScene.m in Sources */,
-				1805E8D6169D50FC008DCB9A /* PlayScene.m in Sources */,
+				1805E8D6169D50FC008DCB9A /* ChooseScene.m in Sources */,
 				24925EFF16DA49040041EF8A /* Ylfc.m in Sources */,
-				2493D09616DAF3AE00E2C3FB /* ChooseLevel.m in Sources */,
-				2493D09916DAF64600E2C3FB /* ChooseLevelScrollLayer.m in Sources */,
-				2493D09C16DAF72500E2C3FB /* EasyLevelLayer.m in Sources */,
-				2493D0A316DB48C600E2C3FB /* MidiumLevelLayer.m in Sources */,
-				2493D0A616DB492800E2C3FB /* HardLevelLayer.m in Sources */,
+				2493D09616DAF3AE00E2C3FB /* YlfcChooseLevel.m in Sources */,
+				2493D09916DAF64600E2C3FB /* YlfcChooseLevelScrollLayer.m in Sources */,
 				2491518D16DB6FEA002DA205 /* Byym.m in Sources */,
 				2435018D16DB94CC00D55106 /* Xbtw.m in Sources */,
 				2435019C16DBA2FF00D55106 /* Mwtj.m in Sources */,
 				24161FFB16DCA1A7008BE1B3 /* Obstacle.m in Sources */,
-				2416200716DCC56B008BE1B3 /* PlayGameScene.m in Sources */,
 				24976EBD16DF44FC0060D105 /* Setting.m in Sources */,
 				249565E216E4257B00D4BF3D /* Car.m in Sources */,
 				249565E716E42ED900D4BF3D /* UserData.m in Sources */,
-				249898B616E4EBE200E0531F /* EasyLevelLoad.m in Sources */,
 				2492789916E5F9EB001E75B8 /* SpecialButton.m in Sources */,
-				240D6B3D16E8BAAE00CF51FA /* PauseLayer.m in Sources */,
+				2425456F16EB357D0025293E /* MyMenuItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

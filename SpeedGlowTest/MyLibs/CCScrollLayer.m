@@ -15,6 +15,7 @@
 
 @synthesize currentScreen;
 @synthesize onPageMoved;
+@synthesize onClick;
 
 -(id) initWithLayers:(NSMutableArray *)layers widthOffset: (int) widthOffset
 {
@@ -23,7 +24,8 @@
 	{
 		
 		// Make sure the layer accepts touches
-		[[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:YES];
+		[[[CCDirector sharedDirector] touchDispatcher] addTargetedDelegate:self priority:0 swallowsTouches:YES];
+
 		
 		// Set up the starting variables
 		if(!widthOffset){
@@ -119,7 +121,7 @@
 
 - (void)onExit
 {
-	[[CCTouchDispatcher sharedDispatcher] removeDelegate:self];
+	[[[CCDirector sharedDirector] touchDispatcher] removeDelegate:self];
 	[super onExit];
 }
 

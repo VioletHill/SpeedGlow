@@ -10,7 +10,7 @@
 #import "IntroLayer.h"
 #import "MainMenuScene.h"
 #import "SettingScene.h"
-#import "PlayScene.h"
+#import "ChooseScene.h"
 #import "SimpleAudioEngine.h"
 #import "Setting.h"
 
@@ -121,7 +121,7 @@
     {
         [[SimpleAudioEngine sharedEngine] playEffect:@"按键音一单击.mp3"];
     }
-    CCTransitionFade* fade=[CCTransitionShrinkGrow transitionWithDuration:0.1 scene:[PlayScene scene]];
+    CCTransitionFade* fade=[CCTransitionShrinkGrow transitionWithDuration:0.1 scene:[ChooseScene scene]];
     [[CCDirector sharedDirector] pushScene:fade];
 }
 

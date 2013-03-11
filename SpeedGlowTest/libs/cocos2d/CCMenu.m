@@ -219,11 +219,13 @@ enum {
 
 -(void) ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event
 {
+    
 	NSAssert(state_ == kCCMenuStateTrackingTouch, @"[Menu ccTouchEnded] -- invalid state");
 
 	[selectedItem_ unselected];
+  
 	[selectedItem_ activate];
-
+    
 	state_ = kCCMenuStateWaiting;
 }
 

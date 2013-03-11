@@ -11,4 +11,24 @@
 
 @implementation HelpScrollLayer
 
+-(void) onEnterLayer
+{
+    
+}
+
+-(void) onExitLayer
+{
+    
+}
+
+-(void) nextOrder
+{
+    
+}
+
+-(void) lastOrder
+{
+    
+}
+
 @end

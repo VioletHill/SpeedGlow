@@ -24,6 +24,8 @@ typedef enum
 
 @property (nonatomic,readwrite) TrafficLand lane;
 @property (nonatomic,readwrite) int speed;
+@property (nonatomic,readwrite) BOOL isEatSun;
+@property (nonatomic,readwrite) BOOL isFinishSun;
 @property (nonatomic,readwrite) BOOL isNeedStop;
 @property (nonatomic,readwrite) int sun;
 @property (nonatomic,readwrite) float nowDistance;
@@ -31,6 +33,7 @@ typedef enum
 @property (nonatomic,readwrite) BOOL isNeedTurnRight;
 @property (nonatomic,readwrite) BOOL isChangeLand;
 @property (nonatomic,readwrite) int carEffect;
+@property (nonatomic,readwrite) int finishGameTime;
 
 +(Car*) sharedCar;
 
@@ -41,10 +44,18 @@ typedef enum
 -(void) collisionCat;
 
 -(void) turnFail;
+-(void) breakRedLight;
 
 -(void) eatSun;
 
 -(void) changeLandFromL2R;
 -(void) changeLandFromR2L;
+
+-(void) turnLeft;
+-(void) turnRight;
+
+-(void) speedUpStart;
+-(void) normalSpeedStart;
+-(void) carStopWithTime:(float)time;
 
 @end

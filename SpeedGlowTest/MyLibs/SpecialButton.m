@@ -21,6 +21,21 @@
 @synthesize touchEnd;
 
 
++(id) menuWithItems: (CCMenuItem*) item vaList: (va_list) args
+{
+	NSMutableArray *array = nil;
+	if( item ) {
+		array = [NSMutableArray arrayWithObject:item];
+		CCMenuItem *i = va_arg(args, CCMenuItem*);
+		while(i) {
+			[array addObject:i];
+			i = va_arg(args, CCMenuItem*);
+		}
+	}
+	
+	return [[[self alloc] initWithArray:array] autorelease];
+}
+
 +(SpecialButton*) specialButtonWithNormalFile:(NSString*)normalFileName selectFile:(NSString*)selectFileName target:(id)t singleClick:(SEL)singleClickFun doubleClick:(SEL)doubleClickFun touchBegin:(SEL)touchBeginFun touchEnd:(SEL)touchEndFun
 {
     if (t==nil)
@@ -29,12 +44,15 @@
         return nil;
     }
 
-    SpecialButton* specialButton=[SpecialButton spriteWithFile:normalFileName];
+   // SpecialButton* specialButton=[SpecialButton spriteWithFile:normalFileName];
+    SpecialButton* specialButton=[SpecialButton menuWithItems:nil];
     specialButton->normalName=normalFileName;
     specialButton->selectName=selectFileName;
     if (selectFileName!=nil) selectFileName=[CCSprite spriteWithFile:selectFileName];
     
-    [[CCTouchDispatcher sharedDispatcher] addTargetedDelegate:specialButton priority:1 swallowsTouches:YES];
+    
+    [[[CCDirector sharedDirector] touchDispatcher] addTargetedDelegate:specialButton priority:0 swallowsTouches:YES];
+
     if (singleClickFun!=nil)
     {
         NSMethodSignature* singleClickSignature=[[t class] instanceMethodSignatureForSelector:singleClickFun];
@@ -115,6 +133,7 @@
 
 -(void) singleClickFun
 {
+    NSLog(@"singleClick");
    if (self.singleClick!=nil)
    {
        [self.singleClick setArgument:&self atIndex:2];
@@ -151,6 +170,7 @@
 
 -(BOOL) ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event
 {
+    NSLog(@"touchBegin");
     if (self->selectName!=nil)   [self touchBeginFun];
     if (self.touchBegin!=nil)
     {
@@ -180,18 +200,18 @@
 
 -(void) onSelect
 {
-    [self setTexture:[[CCTextureCache sharedTextureCache] addImage:self->selectName]];
+   // [self setTexture:[[CCTextureCache sharedTextureCache] addImage:self->selectName]];
 }
 
 -(void) cancelSelect
 {
-    [self setTexture:[[CCTextureCache sharedTextureCache] addImage:self->normalName]];
+ //   [self setTexture:[[CCTextureCache sharedTextureCache] addImage:self->normalName]];
 
 }
 
 -(void) onExit
 {
-    [[CCTouchDispatcher sharedDispatcher] removeDelegate:self];
+  //  [[CCTouchDispatcher sharedDispatche] removeDelegate:self];
 	[super onExit];
 }
 

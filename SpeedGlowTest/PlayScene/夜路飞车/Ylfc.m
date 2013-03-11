@@ -7,31 +7,22 @@
 //
 
 #import "Ylfc.h"
-#import "ChooseLevel.h"
+#import "YlfcChooseLevel.h"
 #import "SimpleAudioEngine.h"
 #import "Setting.h"
+#import "UserData.h"
 
 @implementation Ylfc
 {
     CGSize layerSize;
     CGSize screenSize;
     CCSprite* background;
-    CCParticleRain* rain;
     
     CCAction* playEffectAction;
     
-    int nowEffect;
-}
-
-
-
--(void) onRain
-{
-    // rain=[[CCParticleRain alloc] init];
-    CCParticleSystemQuad* rain=[CCParticleSystemQuad particleWithFile:@"YLFCrain.plist"];
-   // [rain setBlendAdditive:false];
-   // [rain setOpacityModifyRGB:true];
-    [self addChild:rain ];
+    CCParticleSystemQuad* start;
+    
+    ALuint nowEffect;
 }
 
 -(void) playSceneEffect:(id)pSender
@@ -39,22 +30,6 @@
     if ([Setting sharedSetting].isNeedEffect)
     {
         nowEffect=[[SimpleAudioEngine sharedEngine] playEffect:@"场景一.mp3"];
-    }
-}
-
--(void) playEnterEffect:(id)pSender
-{
-    if ([Setting sharedSetting].isNeedEffect)
-    {
-        nowEffect=[[SimpleAudioEngine sharedEngine] playEffect:@"双击任意位置选择进入场景.mp3"];
-    }
-}
-
--(void) playLeftRightEffect:(id)pSender
-{
-    if ([Setting sharedSetting].isNeedEffect)
-    {
-        nowEffect=[[SimpleAudioEngine sharedEngine] playEffect:@"左右滑屏左右上角.mp3"];
     }
 }
 
@@ -74,6 +49,8 @@
         background.position=ccp(layerSize.width/2,-106);
         [background setOpacity:255/2];
         [self addChild:background];
+        
+
     }
     
     return self;
@@ -81,23 +58,37 @@
 
 -(void) pushToChooseLevel
 {
-    CCTransitionFade* fade=[CCTransitionShrinkGrow transitionWithDuration:0.1 scene:[ChooseLevel scene]];
+    CCTransitionFade* fade=[CCTransitionShrinkGrow transitionWithDuration:0.1 scene:[YlfcChooseLevel scene]];
     [[CCDirector sharedDirector] pushScene:fade];
+}
+
+-(void) onStart
+{
+    start=[CCParticleSystemQuad particleWithFile:@"start.plist"];
+     [self addChild:start ];
 }
 
 -(void) onEnterLayer
 {
-    [self onRain];
+    [self onStart];
     [background setOpacity:255];
+    
+    int sun=[[UserData sharedUserData] getSunByScene:kYLFC];
     playEffectAction=[CCSequence actions:
                       [CCDelayTime actionWithDuration:1],[CCCallFunc actionWithTarget:self selector:@selector(playSceneEffect:)],
-                      [CCDelayTime actionWithDuration:2.5],[CCCallFunc actionWithTarget:self selector:@selector(playEnterEffect:)],
+                      [CCDelayTime actionWithDuration:2.5], [CCCallFunc actionWithTarget:self selector:@selector(playAllSunEffect:)],
+                      [CCDelayTime actionWithDuration:1.5],[CCCallFuncND actionWithTarget:self selector:@selector(playNum:data:) data:(void*)YlfcMaxSunNum],
+                      [CCDelayTime actionWithDuration:1.5],[CCCallFunc actionWithTarget:self selector:@selector(playHaveSunEffect:)],
+                      [CCDelayTime actionWithDuration:2],[CCCallFuncND actionWithTarget:self selector:@selector(playNum:data:) data:(void*)sun],
+                      [CCDelayTime actionWithDuration:1.5],[CCCallFunc actionWithTarget:self selector:@selector(playEnterEffect:)],
                       [CCDelayTime actionWithDuration:2.5],[CCCallFunc actionWithTarget:self selector:@selector(playLeftRightEffect:)],nil];
     [self runAction:playEffectAction];
 }
 
 -(void) onExitLayer
 {
+    [super onExitLayer];
+    [self removeChild:start cleanup:true];
     [background setOpacity:255/2];
     [self stopAllActions];
     [[SimpleAudioEngine sharedEngine] stopEffect:nowEffect];

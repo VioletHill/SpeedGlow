@@ -6,17 +6,17 @@
 //  Copyright 2013年 VioletHill. All rights reserved.
 //
 
-#import "ChooseLevel.h"
 #import "CCScrollLayer.h"
-#import "EasyLevelLayer.h"
-#import "MidiumLevelLayer.h"
-#import "HardLevelLayer.h"
+#import "YlfcChooseLevel.h"
+#import "YlfcEasyLevelLayer.h"
+#import "YlfcMidiumLevelLayer.h"
+#import "YlfcHardLevelLayer.h"
 #import "HelpScene.h"
 
-@implementation ChooseLevel
+@implementation YlfcChooseLevel
 {
     CGSize screenSize;
-    ChooseLevelScrollLayer* nowLayer;
+    YlfcChooseLevelScrollLayer* nowLayer;
     int nowPageIndex;
 }
 @synthesize level=_level;
@@ -25,7 +25,7 @@
 +(CCScene *) scene
 {
 	CCScene *scene = [CCScene node];
-	ChooseLevel *layer = [ChooseLevel node];
+	YlfcChooseLevel *layer = [YlfcChooseLevel node];
 	[scene addChild: layer];
 	return scene;
     
@@ -50,29 +50,29 @@
 	[self setPageIndex:scrollLayer.currentScreen - 1];
 }
 
--(ChooseLevelScrollLayer*) getEasyLevel
+-(YlfcChooseLevelScrollLayer*) getEasyLevel
 {
     if ([self.level count]<1)
     {
-        [self.level addObject:[[EasyLevelLayer alloc] init] ];
+        [self.level addObject:[[YlfcEasyLevelLayer alloc] init] ];
     }
     return [self.level objectAtIndex:0];
 }
 
--(ChooseLevelScrollLayer*) getMiddleLevel
+-(YlfcChooseLevelScrollLayer*) getMiddleLevel
 {
     if ([self.level count]<2)
     {
-        [self.level addObject:[[MiddleLevelLayer alloc] init]];
+        [self.level addObject:[[YlfcMiddleLevelLayer alloc] init]];
     }
     return [self.level objectAtIndex:1];
 }
 
--(ChooseLevelScrollLayer*) getHardLevel
+-(YlfcChooseLevelScrollLayer*) getHardLevel
 {
     if ([self.level count]<3)
     {
-        [self.level addObject:[[HardLevelLayer alloc] init]];
+        [self.level addObject:[[YlfcHardLevelLayer alloc] init]];
     }
     return [self.level objectAtIndex:2];
 }

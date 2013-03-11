@@ -9,6 +9,6 @@
 #import "MyMenuItem.h"
 
 
-@implementation MyMenuItem
+//@implementation MyMenuItem
 
-@end
+//@end

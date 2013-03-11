@@ -136,7 +136,7 @@
     if(self=[super init])
     {
         screenSize=[[CCDirector sharedDirector] winSize];
-        background=[CCSprite spriteWithFile:@"Background.png"];
+        background=[CCSprite spriteWithFile:@"HelpBackground.png"];
         background.position=CGPointMake(screenSize.width/2,screenSize.height/2);
         [self addChild:background];
         
@@ -145,19 +145,17 @@
         [self addBack];
         
         //上一条
-      //  CCMenuItemImage* lastOrderMenuItem=[CCMenuItemImage itemWithNormalImage:@"Last.png" selectedImage:NULL target:self selector:@selector(lastOrder:)];
-        CCMenuItemLabel* lastOrderMenuItem=[CCMenuItemLabel itemWithLabel:[CCLabelTTF labelWithString:@"上一条" fontName:@"Marker Felt" fontSize:30] target:self selector:@selector(lastOrder:)];
+        CCMenuItemImage* lastOrderMenuItem=[CCMenuItemImage itemWithNormalImage:@"LastOrder.png" selectedImage:nil target:self selector:@selector(lastOrder:)];
         CCMenu* lastOrderMenu=[CCMenu menuWithItems:lastOrderMenuItem, nil];
         [lastOrderMenuItem setAnchorPoint:ccp(0,0)];
-        lastOrderMenu.position=ccp(0,0);
+        lastOrderMenu.position=ccp(0,20);
         [self addChild:lastOrderMenu];
         
         //下一条
-     //   CCMenuItemImage* nextOrderMenuItem=[CCMenuItemImage itemWithNormalImage:@"Next.png" selectedImage:@"NextSelect.png" target:self selector:@selector(nextOrder:)];
-        CCMenuItemLabel* nextOrderMenuItem=[CCMenuItemLabel itemWithLabel:[CCLabelTTF labelWithString:@"下一条" fontName:@"Marker Felt" fontSize:30] target:self selector:@selector(nextOrder:)];
+        CCMenuItemImage* nextOrderMenuItem=[CCMenuItemImage itemWithNormalImage:@"NextOrder.png" selectedImage:nil target:self selector:@selector(nextOrder:)];
         CCMenu* nextOrderMenu=[CCMenu menuWithItems:nextOrderMenuItem, nil];
         [nextOrderMenuItem setAnchorPoint:ccp(0, 0)];
-        nextOrderMenu.position=ccp(screenSize.width-[nextOrderMenuItem contentSize].width,0);
+        nextOrderMenu.position=ccp(screenSize.width-[nextOrderMenuItem contentSize].width,20);
         [self addChild:nextOrderMenu];
         
         [nowLayer onEnterLayer];

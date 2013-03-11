@@ -8,10 +8,12 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
+#import "SimpleAudioEngine.h"
+#import "Setting.h"
 
-@interface PlayScrollLayer : CCLayerColor
+@interface ChooseScrollLayer : CCLayerColor
 {
-    
+    ALuint nowEffect;
 }
 
 -(void) onEnterLayer;

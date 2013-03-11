@@ -8,9 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
-#import "PlayScrollLayer.h"
+#import "ChooseScrollLayer.h"
 
-@interface Xbtw : PlayScrollLayer
+@interface Xbtw : ChooseScrollLayer
 {
     
 }
