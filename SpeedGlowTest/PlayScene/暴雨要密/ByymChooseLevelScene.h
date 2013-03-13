@@ -9,8 +9,12 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 
-@interface ByymChooseLevelScene : CCLayer {
-    
-}
+@interface ByymChooseLevelScene : CCLayer
+
+@property (nonatomic, retain) NSInvocation* onPageMoved;
+@property (strong,nonatomic) NSMutableArray* level;
+
+
++(CCScene*) scene;
 
 @end

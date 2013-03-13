@@ -72,7 +72,7 @@
 {
     [self onSnow];
     [background setOpacity:255];
-    int sun=[[UserData sharedUserData] getSunByScene:kYLFC];
+    int sun=[[UserData sharedUserData] getSunByScene:kXBTW];
     playEffectAction=[CCSequence actions:
                       [CCDelayTime actionWithDuration:1],[CCCallFunc actionWithTarget:self selector:@selector(playSceneEffect:)],
                       [CCDelayTime actionWithDuration:2.5], [CCCallFunc actionWithTarget:self selector:@selector(playAllSunEffect:)],
@@ -93,27 +93,28 @@
 
 -(void) onEnterLayer
 {
-//    if ([[UserData sharedUserData] getIsUnlockAtScene:kXBTW])
-//    {
-//        isLock=false;
-//        [self unlockScene];
-//    }
-//    else
-//    {
-//        isLock=true;
-//        [self lockScene];
-//    }
-    [self unlockScene];
+    if ([[UserData sharedUserData] getIsUnlockAtScene:kXBTW])
+    {
+        isLock=false;
+        [self unlockScene];
+    }
+    else
+    {
+        isLock=true;
+        [self lockScene];
+    }
+   // [self unlockScene];
 }
 
 -(void) onExitLayer
 {
-    [super onExitLayer];
     [self removeChild:snow cleanup:true];
     if (lock!=nil)  [self removeChild:lock cleanup:true];
     [background setOpacity:255/2];
     [self stopAllActions];
     [[SimpleAudioEngine sharedEngine] stopEffect:nowEffect];
+    [super onExitLayer];
+
 }
 
 -(void) onClick

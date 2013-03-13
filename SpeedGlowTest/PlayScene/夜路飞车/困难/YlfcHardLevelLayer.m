@@ -7,11 +7,16 @@
 //
 
 #import "YlfcHardLevelLayer.h"
-
+#import "UserData.h"
+#import "Obstacle.h"
+#import "Setting.h"
+#import "Load.h"
 
 @implementation YlfcHardLevelLayer
 {
     CGSize layerSize;
+    
+    CCAction* playEffectAction;
 }
 
 -(id) init
@@ -37,22 +42,47 @@
 
 -(void) startGame
 {
+    [Obstacle sharedObstacle].gameScene=kYLFC;
+    [Obstacle sharedObstacle].gameLevel=kHARD;
+    CCTransitionFade* fade=[CCTransitionShrinkGrow transitionWithDuration:0.1 scene:[Load scene]];
+    [[CCDirector sharedDirector] pushScene:fade];
+}
+
+-(void) playEasyEffect:(id)pSender
+{
+    if ([Setting sharedSetting].isNeedEffect)
+    {
+        nowEffect=[[SimpleAudioEngine sharedEngine] playEffect:@"三难度困难.mp3"];
+    }
     
 }
 
 -(void) onEnterLayer
 {
-  
+    int sun=[[UserData sharedUserData] getSunByScene:kYLFC andLevel:kHARD];
+    playEffectAction=[CCSequence actions:
+                      [CCDelayTime actionWithDuration:1],[CCCallFunc actionWithTarget:self selector:@selector(playEasyEffect:)],
+                      [CCDelayTime actionWithDuration:2], [CCCallFunc actionWithTarget:self selector:@selector(playAllSunEffect:)],
+                      [CCDelayTime actionWithDuration:1.5],[CCCallFuncND actionWithTarget:self selector:@selector(playNum:data:) data:(void*)YlfcHardSunNum],
+                      [CCDelayTime actionWithDuration:1.5],[CCCallFunc actionWithTarget:self selector:@selector(playHaveSunEffect:)],
+                      [CCDelayTime actionWithDuration:2],[CCCallFuncND actionWithTarget:self selector:@selector(playNum:data:) data:(void*)sun],
+                      [CCDelayTime actionWithDuration:1.5],[CCCallFunc actionWithTarget:self selector:@selector(playLeftRightEffect:)],
+                      [CCDelayTime actionWithDuration:2],[CCCallFunc actionWithTarget:self selector:@selector(playReturnAndHelpEffect:)],nil];
+    [self runAction:playEffectAction];
+    
 }
 
 -(void) onExitLayer
 {
-
+    [self stopAllActions];
+    [[SimpleAudioEngine sharedEngine] stopEffect:nowEffect];
+    [super onExitLayer];
+    
 }
 
 -(void) onClick
 {
-    
+    [self startGame];
 }
 
 @end

@@ -67,11 +67,11 @@
 	<key>rotationStartVariance</key>
 	<real>0</real>
 	<key>sourcePositionVariancex</key>
-	<real>557</real>
+	<integer>900</integer>
 	<key>sourcePositionVariancey</key>
 	<real>-64</real>
 	<key>sourcePositionx</key>
-	<real>605.7265625</real>
+	<integer>0</integer>
 	<key>sourcePositiony</key>
 	<real>832</real>
 	<key>speed</key>

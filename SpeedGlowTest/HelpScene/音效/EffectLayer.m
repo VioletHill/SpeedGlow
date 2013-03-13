@@ -15,18 +15,18 @@
 #define labelFontSize 40
 #define currentPosition ccp(layerSize.width/2,layerSize.height/2+100);
 #define labelSpace 100
-#define addDistance 40
+#define addDistance 20
 
 #define lowerLimit  layerSize.height/2+addDistance-2*labelSpace
 #define uperLimit   layerSize.height/2+addDistance+labelSpace
 #define middleLightPoint layerSize.height/2+addDistance
 
-static const int totalEffect=4;
+#define totalEffect 5
 
 
 @implementation EffectLayer
 {
-    CCLabelTTF* effectLabel[4];
+    CCLabelTTF* effectLabel[totalEffect];
     
     int effectCurrent;
     CGSize layerSize;
@@ -34,8 +34,6 @@ static const int totalEffect=4;
     CCAction* playEffectAction;
     
     bool isChangeOrder;
-    
-    int nowEffect;
 }
 
 -(void) addMusicEffectLabel
@@ -45,8 +43,10 @@ static const int totalEffect=4;
 
     effectLabel[0]=[CCLabelTTF labelWithString:@"左方有障碍物" fontName:@"Marker Felt" fontSize:labelFontSize];
     effectLabel[1]=[CCLabelTTF labelWithString:@"右方有障碍物" fontName:@"Marker Felt" fontSize:labelFontSize];
-    effectLabel[2]=[CCLabelTTF labelWithString:@"向左转弯" fontName:@"Marker Felt" fontSize:labelFontSize];
-    effectLabel[3]=[CCLabelTTF labelWithString:@"向右转弯" fontName:@"Marker Felt" fontSize:labelFontSize];
+    effectLabel[2]=[CCLabelTTF labelWithString:@"红灯转绿灯" fontName:@"Marker Felt" fontSize:labelFontSize];
+    effectLabel[3]=[CCLabelTTF labelWithString:@"绿灯转红灯" fontName:@"Marker Felt" fontSize:labelFontSize];
+    effectLabel[4]=[CCLabelTTF labelWithString:@"转弯音效" fontName:@"Marker Felt" fontSize:labelFontSize];
+
     
     for (int i=0; i<totalEffect; i++)
     {
@@ -77,27 +77,18 @@ static const int totalEffect=4;
 
 -(void) preloadMusic
 {
-   
-    [[SimpleAudioEngine sharedEngine] preloadEffect:@"当前页音效页.mp3"];
-    [[SimpleAudioEngine sharedEngine] preloadEffect:@"上下滚动切换查看不同音效.mp3"];
-    [[SimpleAudioEngine sharedEngine] preloadEffect:@"向右滑屏切换操作页.mp3"];
-    
-    [[SimpleAudioEngine sharedEngine] preloadEffect:@"音效提示路障L.mp3"];
-    [[SimpleAudioEngine sharedEngine] preloadEffect:@"音效提示路障R.mp3"];
-    [[SimpleAudioEngine sharedEngine] preloadEffect:@"红绿灯红转绿音效.mp3"];
-    [[SimpleAudioEngine sharedEngine] preloadEffect:@"红绿灯绿转红音效.mp3"];
 }
 
 -(id) init
 {
     if ([super init]!=nil)
     {
-        [self setContentSize:CGSizeMake(478, 484)];
+        [self setContentSize:CGSizeMake(650, 497)];
         layerSize=[self contentSize];
         
         //frame
         CCSprite* bg=[CCSprite spriteWithFile:@"EffectBackground.png"];
-        bg.position=ccp(layerSize.width/2,layerSize.height/2+addDistance);
+        bg.position=ccp(layerSize.width/2,layerSize.height/2);
         [self addChild:bg];
         
         [self addMusicEffectLabel];
@@ -122,6 +113,9 @@ static const int totalEffect=4;
             break;
         case 3:
             nowEffect=[[SimpleAudioEngine sharedEngine] playEffect:@"红绿灯绿转红音效.mp3"];
+            break;
+        case 4:
+            nowEffect=[[SimpleAudioEngine sharedEngine] playEffect:@"音效提示转弯左+右.mp3"];
             break;
         default:
             break;
@@ -166,7 +160,7 @@ static const int totalEffect=4;
 
     if (effectCurrent==totalEffect-1) return;
     isChangeOrder=true;
-    
+    [self stopAction:playEffectAction];
     
     
     for (int i=0; i<totalEffect; i++)
@@ -191,6 +185,7 @@ static const int totalEffect=4;
     isChangeOrder=true;
     
     [[SimpleAudioEngine sharedEngine] stopEffect:nowEffect];
+    [self stopAction:playEffectAction];
     
     for (int i=0; i<totalEffect; i++)
     {

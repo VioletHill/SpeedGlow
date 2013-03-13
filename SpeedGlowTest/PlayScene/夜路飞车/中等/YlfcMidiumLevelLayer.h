@@ -10,7 +10,7 @@
 #import "cocos2d.h"
 #import "YlfcChooseLevelScrollLayer.h"
 
-@interface YlfcMiddleLevelLayer : YlfcChooseLevelScrollLayer
+@interface YlfcMidiumLevelLayer : YlfcChooseLevelScrollLayer
 {
     
 }

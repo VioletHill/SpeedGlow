@@ -8,10 +8,11 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
+#import "SimpleAudioEngine.h"
 
 @interface HelpScrollLayer : CCLayerColor
 {
-    
+    ALuint nowEffect;
 }
 
 -(void) onEnterLayer;

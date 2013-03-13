@@ -143,23 +143,23 @@ static UserData* userData;
     {
         case kYLFC:
             if (sun[scene][kEASY]>YlfcEasySunNum) sun[scene][kEASY]=YlfcEasySunNum;
-            if (sun[scene][kMIDDLE]>YlfcMiddleSunNum) sun[scene][kMIDDLE]=YlfcMiddleSunNum;
+            if (sun[scene][kMIDIUM]>YlfcMidiumSunNum) sun[scene][kMIDIUM]=YlfcMidiumSunNum;
             if (sun[scene][kHARD]>YlfcHardSunNum) sun[scene][kHARD]=YlfcHardSunNum;
             break;
         case kBYYM:
             if (sun[scene][kEASY]>ByymEasySunNum) sun[scene][kEASY]=ByymEasySunNum;
-            if (sun[scene][kMIDDLE]>ByymMiddleSunNum) sun[scene][kMIDDLE]=ByymMiddleSunNum;
+            if (sun[scene][kMIDIUM]>ByymMidiumSunNum) sun[scene][kMIDIUM]=ByymMidiumSunNum;
             if (sun[scene][kHARD]>ByymHardSunNum) sun[scene][kHARD]=ByymHardSunNum;
             break;
         case kMWTJ:
             if (sun[scene][kEASY]>MwtjEasySunNum) sun[scene][kEASY]=MwtjEasySunNum;
-            if (sun[scene][kMIDDLE]>MwtjMiddleSunNum) sun[scene][kMIDDLE]=MwtjMiddleSunNum;
+            if (sun[scene][kMIDIUM]>MwtjMidiumSunNum) sun[scene][kMIDIUM]=MwtjMidiumSunNum;
             if (sun[scene][kHARD]>MwtjHardSunNum) sun[scene][kHARD]=MwtjHardSunNum;
             break;
         case kXBTW:
             if (sun[scene][kEASY]>XbtwEasySunNum) sun[scene][kEASY]=XbtwEasySunNum;
-            if (sun[scene][kMIDDLE]>XbtwMiddleSunNum) sun[scene][kMIDDLE]=XbtwMiddleSunNum;
-            if (sun[scene][kMIDDLE]>XbtwHardSunNum) sun[scene][kHARD]=XbtwHardSunNum;
+            if (sun[scene][kMIDIUM]>XbtwMidiumSunNum) sun[scene][kMIDIUM]=XbtwMidiumSunNum;
+            if (sun[scene][kMIDIUM]>XbtwHardSunNum) sun[scene][kHARD]=XbtwHardSunNum;
             break;
         default:
             break;
@@ -170,7 +170,7 @@ static UserData* userData;
 -(int) getSunByScene:(GameScene)scene
 {
     [self getDate];
-    return sun[scene][kEASY]+sun[scene][kMIDDLE]+sun[scene][kHARD];
+    return sun[scene][kEASY]+sun[scene][kMIDIUM]+sun[scene][kHARD];
 }
 
 -(int) getSunByScene:(GameScene)scene andLevel:(GameLevel)level

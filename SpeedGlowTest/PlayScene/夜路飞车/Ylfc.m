@@ -7,7 +7,7 @@
 //
 
 #import "Ylfc.h"
-#import "YlfcChooseLevel.h"
+#import "YlfcChooseLevelScene.h"
 #import "SimpleAudioEngine.h"
 #import "Setting.h"
 #import "UserData.h"
@@ -21,8 +21,6 @@
     CCAction* playEffectAction;
     
     CCParticleSystemQuad* start;
-    
-    ALuint nowEffect;
 }
 
 -(void) playSceneEffect:(id)pSender
@@ -58,7 +56,7 @@
 
 -(void) pushToChooseLevel
 {
-    CCTransitionFade* fade=[CCTransitionShrinkGrow transitionWithDuration:0.1 scene:[YlfcChooseLevel scene]];
+    CCTransitionFade* fade=[CCTransitionShrinkGrow transitionWithDuration:0.1 scene:[YlfcChooseLevelScene scene]];
     [[CCDirector sharedDirector] pushScene:fade];
 }
 
@@ -87,11 +85,11 @@
 
 -(void) onExitLayer
 {
-    [super onExitLayer];
     [self removeChild:start cleanup:true];
     [background setOpacity:255/2];
     [self stopAllActions];
     [[SimpleAudioEngine sharedEngine] stopEffect:nowEffect];
+    [super onExitLayer];
 }
 
 -(void) onClick

@@ -9,6 +9,8 @@
 #import "OperateLayer.h"
 
 
+#define addDistance 40
+
 @implementation OperatorLayer
 {
     CGSize layerSize;
@@ -35,19 +37,13 @@
 {
     if ([super init]!=nil)
     {
-        [self setContentSize:CGSizeMake(478, 484)];
+        [self setContentSize:CGSizeMake(650, 497)];
         layerSize=[self contentSize];
-//        CCSprite* sprite=[CCSprite spriteWithFile:@"OperateLayer.png"];
-//        sprite.position=CGPointMake(layerSize.width/2,layerSize.height/2);
-//        
-//        [self addChild:sprite];
-//        
-//        [self addPad];
         
-        //frame
-        CCSprite* frame=[CCSprite spriteWithFile:@"FrameLayer.png"];
-        frame.position=ccp(layerSize.width/2,layerSize.height/2);
-        [self addChild:frame];
+        CCSprite* bg=[CCSprite spriteWithFile:@"RegularBackground.png"];
+        bg.position=ccp(layerSize.width/2,layerSize.height/2);
+        [self addChild:bg];
+
     }
     
     return self;

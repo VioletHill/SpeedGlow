@@ -7,11 +7,16 @@
 //
 
 #import "YlfcMidiumLevelLayer.h"
+#import "Setting.h"
+#import "Obstacle.h"
+#import "UserData.h"
+#import "Load.h"
 
 
-@implementation YlfcMiddleLevelLayer
+@implementation YlfcMidiumLevelLayer
 {
     CGSize layerSize;
+    CCAction* playEffectAction;
 }
 
 -(id) init
@@ -36,16 +41,41 @@
 
 -(void) startGame
 {
+    [Obstacle sharedObstacle].gameScene=kYLFC;
+    [Obstacle sharedObstacle].gameLevel=kMIDIUM;
+    CCTransitionFade* fade=[CCTransitionShrinkGrow transitionWithDuration:0.1 scene:[Load scene]];
+    [[CCDirector sharedDirector] pushScene:fade];
+}
+
+-(void) playEasyEffect:(id)pSender
+{
+    if ([Setting sharedSetting].isNeedEffect)
+    {
+        nowEffect=[[SimpleAudioEngine sharedEngine] playEffect:@"二难度中等.mp3"];
+    }
     
 }
 
 -(void) onEnterLayer
 {
+    int sun=[[UserData sharedUserData] getSunByScene:kYLFC andLevel:kMIDIUM];
+    playEffectAction=[CCSequence actions:
+                      [CCDelayTime actionWithDuration:1],[CCCallFunc actionWithTarget:self selector:@selector(playEasyEffect:)],
+                      [CCDelayTime actionWithDuration:2], [CCCallFunc actionWithTarget:self selector:@selector(playAllSunEffect:)],
+                      [CCDelayTime actionWithDuration:1.5],[CCCallFuncND actionWithTarget:self selector:@selector(playNum:data:) data:(void*)YlfcMidiumSunNum],
+                      [CCDelayTime actionWithDuration:1.5],[CCCallFunc actionWithTarget:self selector:@selector(playHaveSunEffect:)],
+                      [CCDelayTime actionWithDuration:2],[CCCallFuncND actionWithTarget:self selector:@selector(playNum:data:) data:(void*)sun],
+                      [CCDelayTime actionWithDuration:1.5],[CCCallFunc actionWithTarget:self selector:@selector(playLeftRightEffect:)],
+                      [CCDelayTime actionWithDuration:2],[CCCallFunc actionWithTarget:self selector:@selector(playReturnAndHelpEffect:)],nil];
+    [self runAction:playEffectAction];
     
 }
 
 -(void) onExitLayer
 {
+    [self stopAllActions];
+    [[SimpleAudioEngine sharedEngine] stopEffect:nowEffect];
+    [super onExitLayer];
     
 }
 

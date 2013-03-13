@@ -8,9 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
-#import "ChooseScrollLayer.h"
+#import "ChooseSceneScrollLayer.h"
 
-@interface Byym : ChooseScrollLayer
+@interface Byym : ChooseSceneScrollLayer
 {
     
 }

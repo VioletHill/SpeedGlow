@@ -77,7 +77,7 @@
 {
     [self onFog];
     [background setOpacity:255];
-    int sun=[[UserData sharedUserData] getSunByScene:kYLFC];
+    int sun=[[UserData sharedUserData] getSunByScene:kMWTJ];
     playEffectAction=[CCSequence actions:
                       [CCDelayTime actionWithDuration:1],[CCCallFunc actionWithTarget:self selector:@selector(playSceneEffect:)],
                       [CCDelayTime actionWithDuration:2.5], [CCCallFunc actionWithTarget:self selector:@selector(playAllSunEffect:)],
@@ -113,12 +113,13 @@
 
 -(void) onExitLayer
 {
-    [super onExitLayer];
     [self removeChild:fog cleanup:true];
     if (lock!=nil)  [self removeChild:lock cleanup:true];
     [background setOpacity:255/2];
     [[SimpleAudioEngine sharedEngine] stopEffect:nowEffect];
     [self stopAllActions];
+    [super onExitLayer];
+
 }
 
 -(void) onClick

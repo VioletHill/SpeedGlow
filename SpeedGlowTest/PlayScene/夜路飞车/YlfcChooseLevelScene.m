@@ -7,13 +7,14 @@
 //
 
 #import "CCScrollLayer.h"
-#import "YlfcChooseLevel.h"
+#import "YlfcChooseLevelScene.h"
 #import "YlfcEasyLevelLayer.h"
 #import "YlfcMidiumLevelLayer.h"
 #import "YlfcHardLevelLayer.h"
 #import "HelpScene.h"
+#import "Setting.h"
 
-@implementation YlfcChooseLevel
+@implementation YlfcChooseLevelScene
 {
     CGSize screenSize;
     YlfcChooseLevelScrollLayer* nowLayer;
@@ -25,7 +26,7 @@
 +(CCScene *) scene
 {
 	CCScene *scene = [CCScene node];
-	YlfcChooseLevel *layer = [YlfcChooseLevel node];
+	YlfcChooseLevelScene *layer = [YlfcChooseLevelScene node];
 	[scene addChild: layer];
 	return scene;
     
@@ -63,7 +64,7 @@
 {
     if ([self.level count]<2)
     {
-        [self.level addObject:[[YlfcMiddleLevelLayer alloc] init]];
+        [self.level addObject:[[YlfcMidiumLevelLayer alloc] init]];
     }
     return [self.level objectAtIndex:1];
 }
@@ -114,6 +115,19 @@
 
 	}
     
+}
+
+-(void) callPlayChooseLevelEffect:(id)pSender
+{
+    if ([Setting sharedSetting].isNeedEffect)
+    {
+        [[SimpleAudioEngine sharedEngine] playEffect:@"选择难度.mp3"];
+    }
+}
+
+-(void) playChooseLevelEffect
+{
+    [self runAction:[CCSequence actionOne:[CCDelayTime actionWithDuration:0.2] two:[CCCallFunc actionWithTarget:self selector:@selector(callPlayChooseLevelEffect:)]]];
 }
 
 -(void) addBack
@@ -167,32 +181,46 @@
     return self;
 }
 
--(void) callReturnLastScene:(id)pSender
+-(void) pushToHelpScene:(id)pSender
 {
+    if ([Setting sharedSetting].isNeedEffect)
+    {
+        [[SimpleAudioEngine sharedEngine] playEffect:@"按键音一单击.mp3"];
+    }
+    
+    CCTransitionFade* fade=[CCTransitionShrinkGrow transitionWithDuration:0.1 scene:[HelpScene scene]];
+    [[CCDirector sharedDirector] pushScene:fade];
+}
+
+-(void) callReturnLastScene:(id)pSender
+{    
     [[CCDirector sharedDirector] popScene];
 }
 
 -(void) returnLastScene:(id)pSender
 {
+    if ([Setting sharedSetting].isNeedEffect)
+    {
+        [[SimpleAudioEngine sharedEngine] playEffect:@"按键音一单击.mp3"];
+    }
+    
     CCAction* action=[CCSequence actions:[CCScaleTo actionWithDuration:0.1 scale:0.25],[CCScaleTo actionWithDuration:0.05 scale:1],[CCCallFunc actionWithTarget:self selector:@selector(callReturnLastScene:)],
                       nil];
     [[[CCDirector sharedDirector] runningScene] runAction:action];
 }
 
--(void) pushToHelpScene:(id)pSender
-{
-    CCTransitionFade* fade=[CCTransitionShrinkGrow transitionWithDuration:0.1 scene:[HelpScene scene]];
-    [[CCDirector sharedDirector] pushScene:fade];
-}
 
 -(void) onEnter
 {
     [super onEnter];
+    [self playChooseLevelEffect];
     [self startInit];
+    [nowLayer onEnterLayer];
 }
 
 -(void) onExit
 {
+    [nowLayer onExitLayer];
     [self removeAllChildrenWithCleanup:true];
     [super onExit];
 }

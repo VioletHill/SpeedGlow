@@ -29,7 +29,7 @@ typedef enum
 typedef enum
 {
     kEASY=0,
-    kMIDDLE=1,
+    kMIDIUM=1,
     kHARD=2
 }GameLevel;
 

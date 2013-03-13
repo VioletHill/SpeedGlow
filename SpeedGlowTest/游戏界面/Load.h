@@ -9,8 +9,11 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 
-@interface Load : CCLayer {
+@interface Load : CCLayer
+{
     
 }
+
++(CCScene*) scene;
 
 @end

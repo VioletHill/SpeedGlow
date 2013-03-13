@@ -8,9 +8,10 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
+#import "ByymChooseLevelLayer.h"
 
-@interface ByymMidiumLevelLayer : ByymChooseLevelLayer {
-    
+@interface ByymMidiumLevelLayer : ByymChooseLevelLayer
+{    
 }
 
 @end

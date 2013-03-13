@@ -10,6 +10,7 @@
 #import "Setting.h"
 #import "SimpleAudioEngine.h"
 #import "UserData.h"
+#import "ByymChooseLevelScene.h"
 
 
 @implementation Byym
@@ -69,7 +70,8 @@
 
 -(void) pushToChooseLevel
 {
-  
+    CCTransitionFade* fade=[CCTransitionShrinkGrow transitionWithDuration:0.1 scene:[ByymChooseLevelScene scene]];
+    [[CCDirector sharedDirector] pushScene:fade];
 }
 
 -(void) unlockScene
@@ -77,7 +79,7 @@
     rain=[CCParticleSystemQuad particleWithFile:@"rain.plist"];
     [self addChild:rain ];
     [background setOpacity:255];
-    int sun=[[UserData sharedUserData] getSunByScene:kYLFC];
+    int sun=[[UserData sharedUserData] getSunByScene:kBYYM];
     playEffectAction=[CCSequence actions:
                       [CCDelayTime actionWithDuration:1],[CCCallFunc actionWithTarget:self selector:@selector(playSceneEffect:)],
                       [CCDelayTime actionWithDuration:2.5], [CCCallFunc actionWithTarget:self selector:@selector(playAllSunEffect:)],
@@ -113,12 +115,13 @@
 
 -(void) onExitLayer
 {
-    [super onExitLayer];
     [self removeChild:rain cleanup:true];
     if (lock!=nil)  [self removeChild:lock cleanup:true];
     [background setOpacity:255/2];
     [self stopAllActions];
     [[SimpleAudioEngine sharedEngine] stopEffect:nowEffect];
+    [super onExitLayer];
+
 }
 
 -(void) onClick

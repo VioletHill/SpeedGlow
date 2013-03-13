@@ -11,23 +11,23 @@
 
 #define YlfcMaxSunNum 25
 #define YlfcEasySunNum 8
-#define YlfcMiddleSunNum 8
+#define YlfcMidiumSunNum 8
 #define YlfcHardSunNum 9
 
 #define ByymMaxSunNum 50
 #define ByymEasySunNum 15
-#define ByymMiddleSunNum 15
+#define ByymMidiumSunNum 15
 #define ByymHardSunNum 20
 
 #define MwtjMaxSunNum 40
 #define MwtjEasySunNum 10
-#define MwtjMiddleSunNum 10
+#define MwtjMidiumSunNum 10
 #define MwtjHardSunNum 20
 
 
 #define XbtwMaxSunNum 40
 #define XbtwEasySunNum 10
-#define XbtwMiddleSunNum 10
+#define XbtwMidiumSunNum 10
 #define XbtwHardSunNum 20
 
 @interface UserData : NSObject
