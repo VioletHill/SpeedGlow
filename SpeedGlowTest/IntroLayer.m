@@ -36,7 +36,6 @@
 
 -(void) preloadMusic        //预载入每个场景都有的音效
 {
-    NSLog(@"preloadMusic");
     [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"按键音二双击.mp3"];
     [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"按键音一单击.mp3"];
     [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"滑屏音.mp3"];
@@ -52,6 +51,8 @@
     [[SimpleAudioEngine sharedEngine] preloadEffect:@"太阳总数.mp3"];
     [[SimpleAudioEngine sharedEngine] preloadEffect:@"已获得太阳数量.mp3"];
     [[SimpleAudioEngine sharedEngine] preloadEffect:@"已获得所有太阳.mp3"];
+    
+    [[SimpleAudioEngine sharedEngine] preloadEffect:@"0.mp3"];
     [[SimpleAudioEngine sharedEngine] preloadEffect:@"1.mp3"];
     [[SimpleAudioEngine sharedEngine] preloadEffect:@"2.mp3"];
     [[SimpleAudioEngine sharedEngine] preloadEffect:@"3.mp3"];
@@ -97,13 +98,6 @@
     [[SimpleAudioEngine sharedEngine] preloadEffect:@"路障超越R.mp3"];
     [[SimpleAudioEngine sharedEngine] preloadEffect:@"撞到路障.mp3"];
     
-    
-    [[SimpleAudioEngine sharedEngine] preloadEffect:@"货箱.mp3"];
-    [[SimpleAudioEngine sharedEngine] preloadEffect:@"路牌.mp3"];
-    [[SimpleAudioEngine sharedEngine] preloadEffect:@"猫咪.mp3"];
-    [[SimpleAudioEngine sharedEngine] preloadEffect:@"猫咪的惨叫.mp3"];
-    
-    
     //太阳
     [[SimpleAudioEngine sharedEngine] preloadEffect:@"SunEatenL.mp3"];
     [[SimpleAudioEngine sharedEngine] preloadEffect:@"SunEatenR.mp3"];
@@ -125,7 +119,6 @@
     [[SimpleAudioEngine sharedEngine] preloadEffect:@"嘘声.mp3"];
     
     //帮助-音效
-    
     [[SimpleAudioEngine sharedEngine] preloadEffect:@"当前页音效页.mp3"];
     [[SimpleAudioEngine sharedEngine] preloadEffect:@"上下滚动切换查看不同音效.mp3"];
     [[SimpleAudioEngine sharedEngine] preloadEffect:@"向右滑屏切换操作页.mp3"];
@@ -150,7 +143,18 @@
     [[SimpleAudioEngine sharedEngine] preloadEffect:@"规则说明.mp3"];
     [[SimpleAudioEngine sharedEngine] preloadEffect:@"上下滚动切换查看不同规则.mp3"];
     [[SimpleAudioEngine sharedEngine] preloadEffect:@"向左滑屏切换操作页.mp3"];
+    
+    //设置
+    [[SimpleAudioEngine sharedEngine] preloadEffect:@"关.mp3"];
+    [[SimpleAudioEngine sharedEngine] preloadEffect:@"否.mp3"];
+    [[SimpleAudioEngine sharedEngine] preloadEffect:@"开.mp3"];
+    [[SimpleAudioEngine sharedEngine] preloadEffect:@"是.mp3"];
+    [[SimpleAudioEngine sharedEngine] preloadEffect:@"确定重置游戏.mp3"];
+    [[SimpleAudioEngine sharedEngine] preloadEffect:@"背景音乐.mp3"];
+    [[SimpleAudioEngine sharedEngine] preloadEffect:@"设置面板.mp3"];
+    [[SimpleAudioEngine sharedEngine] preloadEffect:@"语音提示.mp3"];
 }
+
 
 -(void) preloadNum
 {
@@ -183,6 +187,7 @@
 
 		// add the label as a child to this Layer
 		[self addChild: background];
+        
         
         [self preloadMusic];
         [self preloadNum];

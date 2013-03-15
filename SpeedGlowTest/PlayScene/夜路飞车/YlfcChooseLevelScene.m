@@ -11,14 +11,14 @@
 #import "YlfcEasyLevelLayer.h"
 #import "YlfcMidiumLevelLayer.h"
 #import "YlfcHardLevelLayer.h"
-#import "HelpScene.h"
-#import "Setting.h"
+#import "UserData.h"
 
 @implementation YlfcChooseLevelScene
 {
-    CGSize screenSize;
+
     YlfcChooseLevelScrollLayer* nowLayer;
-    int nowPageIndex;
+    CCScrollLayer *scroller;
+
 }
 @synthesize level=_level;
 @synthesize onPageMoved=_onPageMoved;
@@ -35,12 +35,15 @@
 - (void)setPageIndex:(int)pageIndex
 {
     if (nowPageIndex==pageIndex) return;
+    
     nowPageIndex=pageIndex;
+    [self reflushSunNum];
+    
     [nowLayer onExitLayer];
     nowLayer=[self.level objectAtIndex:pageIndex];
     [nowLayer onEnterLayer];
 }
-
+     
 -(void)onClick:(CCScrollLayer *)scrollLayer
 {
     [nowLayer onClick];
@@ -87,7 +90,7 @@
     
     [self getHardLevel];
     
-    CCScrollLayer *scroller = [[CCScrollLayer alloc] initWithLayers:self.level  widthOffset: 0];
+    scroller = [[CCScrollLayer alloc] initWithLayers:self.level  widthOffset: 0];
     [self addChild:scroller];
 	
 	// page moved delegate
@@ -117,111 +120,68 @@
     
 }
 
--(void) callPlayChooseLevelEffect:(id)pSender
+-(void) reflushSunNum
 {
-    if ([Setting sharedSetting].isNeedEffect)
+    switch (nowPageIndex)
     {
-        [[SimpleAudioEngine sharedEngine] playEffect:@"选择难度.mp3"];
+        case 0:
+            [super reflushSunNumAtScene:kYLFC andTotSun:YlfcEasySunNum];
+            break;
+        case 1:
+            [super reflushSunNumAtScene:kYLFC andTotSun:YlfcMidiumSunNum];
+            break;
+        case 2:
+            [super reflushSunNumAtScene:kYLFC andTotSun:YlfcHardSunNum];
+            break;
+        default:
+            break;
     }
-}
-
--(void) playChooseLevelEffect
-{
-    [self runAction:[CCSequence actionOne:[CCDelayTime actionWithDuration:0.2] two:[CCCallFunc actionWithTarget:self selector:@selector(callPlayChooseLevelEffect:)]]];
-}
-
--(void) addBack
-{
     
-    ////后退
-    CCMenuItemImage* backMenuItem=[CCMenuItemImage itemWithNormalImage:@"Back.png" selectedImage:NULL target:self selector:@selector(returnLastScene:)];
-    CCMenu* backMenu=[CCMenu menuWithItems:backMenuItem, nil];
-    backMenu.position=ccp([backMenuItem contentSize].width/2, screenSize.height-[backMenuItem contentSize].height/2);
-    [self addChild:backMenu];
-}
-
--(void) addHelp
-{
-    //帮助
-    CCMenuItemImage* helpMenuItem=[CCMenuItemImage itemWithNormalImage:@"Help.png" selectedImage:NULL target:self selector:@selector(pushToHelpScene:)];
-    CCMenu* helpMenu=[CCMenu menuWithItems:helpMenuItem, nil];
-    helpMenu.position=ccp(screenSize.width-[helpMenuItem contentSize].width/2, screenSize.height-[helpMenuItem contentSize].height/2);
-    [self addChild:helpMenu];
-    
-}
-
--(void) startInit
-{
-    nowPageIndex=0;
-    
-    //background1
-    CCSprite* background1=[CCSprite spriteWithFile:@"Background.png"];
-    background1.position=ccp(screenSize.width/2,screenSize.height/2);
-    [self addChild:background1];
-    
-    //background2
-    CCSprite* backgroud2=[CCSprite spriteWithFile:@"YlfcScrollLayer.png"];
-    [backgroud2 setAnchorPoint:ccp(0,0)];
-    backgroud2.position=ccp(0,0);
-    [self addChild:backgroud2];
-    
-    [self addBack];
-    [self addHelp];
-    
-    [self initScrollLayer];
 }
 
 -(id) init
 {
-  
+    nowPageIndex=0;
     if (self=[super init])
     {
-        screenSize=[[CCDirector sharedDirector] winSize];
+        nowPageIndex=0;
+        
+        //background1
+        CCSprite* background1;
+        CCSprite* background2;
+        
+        background1=[CCSprite spriteWithFile:@"Background.png"];
+        background1.position=ccp(screenSize.width/2,screenSize.height/2);
+        [self addChild:background1];
+        
+        //background2
+        background2=[CCSprite spriteWithFile:@"YlfcScrollLayer.png"];
+        [background2 setAnchorPoint:ccp(0,0)];
+        background2.position=ccp(0,0);
+        [self addChild:background2];
+        
+        [super addBack];
+        [super addHelp];
+        [super addSun];
+        
+        [self initScrollLayer];
     }
     return self;
 }
 
--(void) pushToHelpScene:(id)pSender
-{
-    if ([Setting sharedSetting].isNeedEffect)
-    {
-        [[SimpleAudioEngine sharedEngine] playEffect:@"按键音一单击.mp3"];
-    }
-    
-    CCTransitionFade* fade=[CCTransitionShrinkGrow transitionWithDuration:0.1 scene:[HelpScene scene]];
-    [[CCDirector sharedDirector] pushScene:fade];
-}
-
--(void) callReturnLastScene:(id)pSender
-{    
-    [[CCDirector sharedDirector] popScene];
-}
-
--(void) returnLastScene:(id)pSender
-{
-    if ([Setting sharedSetting].isNeedEffect)
-    {
-        [[SimpleAudioEngine sharedEngine] playEffect:@"按键音一单击.mp3"];
-    }
-    
-    CCAction* action=[CCSequence actions:[CCScaleTo actionWithDuration:0.1 scale:0.25],[CCScaleTo actionWithDuration:0.05 scale:1],[CCCallFunc actionWithTarget:self selector:@selector(callReturnLastScene:)],
-                      nil];
-    [[[CCDirector sharedDirector] runningScene] runAction:action];
-}
 
 
 -(void) onEnter
 {
     [super onEnter];
-    [self playChooseLevelEffect];
-    [self startInit];
+    [[[CCDirector sharedDirector] touchDispatcher] addTargetedDelegate:scroller priority:0 swallowsTouches:YES];
+    [self reflushSunNum];
     [nowLayer onEnterLayer];
 }
 
 -(void) onExit
 {
     [nowLayer onExitLayer];
-    [self removeAllChildrenWithCleanup:true];
     [super onExit];
 }
 

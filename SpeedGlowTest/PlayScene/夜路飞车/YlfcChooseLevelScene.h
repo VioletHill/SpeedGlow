@@ -8,8 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
+#import "ChooseLevelScene.h"
 
-@interface YlfcChooseLevelScene : CCLayer
+@interface YlfcChooseLevelScene : ChooseLevelScene
 {
     
 }

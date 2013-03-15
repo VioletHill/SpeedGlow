@@ -113,7 +113,6 @@
     nowLayer=[self.playLayer objectAtIndex:pageIndex];
     [self reflushSunNum];
     [nowLayer onEnterLayer];
-    
 }
 
 - (void)onPageMoved:(CCScrollLayer *)scrollLayer
@@ -168,8 +167,12 @@
 
 -(void) initScrollLayer
 {
+    nowPageIndex=0;
+    
+    
     self.playLayer=[NSMutableArray arrayWithCapacity:4];
     nowLayer=[self getYlfcLayer];
+    
     
     [self getByymLayer];
     
@@ -237,22 +240,6 @@
     [self addChild:sun];
 }
 
--(void) startInit
-{
-    CCSprite* background=[CCSprite spriteWithFile:@"Background.png"];
-    background.position=CGPointMake(screenSize.width/2,screenSize.height/2);
-    [self addChild:background];
-    
-    nowPageIndex=0;
-    
-    [self initScrollLayer];
-    [nowLayer onEnterLayer];
-    
-    [self addSun];
-    [self addBack];
-    [self addHelp];
-}
-
 
 -(void) callPlayChooseSceneEffect:(id)pSender
 {
@@ -272,6 +259,16 @@
     if (self=[super init])
     {
         screenSize=[[CCDirector sharedDirector] winSize];
+        
+        CCSprite* background=[CCSprite spriteWithFile:@"Background.png"];
+        background.position=CGPointMake(screenSize.width/2,screenSize.height/2);
+        [self addChild:background];
+        
+        [self initScrollLayer];
+
+        [self addSun];
+        [self addBack];
+        [self addHelp];
     }
     return self;
 }
@@ -309,7 +306,8 @@
 -(void) onEnter
 {
     [super onEnter];
-    [self startInit];
+    [[[CCDirector sharedDirector] touchDispatcher] addTargetedDelegate:scroller priority:0 swallowsTouches:YES];
+    [nowLayer onEnterLayer];
     [self reflushSunNum];
     [self playChooseSceneEffect];
 }
@@ -317,7 +315,6 @@
 -(void) onExit
 {
     [nowLayer onExitLayer];
-    [self removeAllChildrenWithCleanup:true];
     [super onExit];
 }
 

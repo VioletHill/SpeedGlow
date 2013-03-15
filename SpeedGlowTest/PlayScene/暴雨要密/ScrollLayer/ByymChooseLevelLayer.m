@@ -6,24 +6,21 @@
 //  Copyright 2013年 VioletHill. All rights reserved.
 //
 
-#import "ByymChooseLevelLayer.h"
+#import "ByymChooseLevelScrollLayer.h"
 
 
-@implementation ByymChooseLevelLayer
+@implementation ByymChooseLevelScrollLayer
 
 -(void) onEnterLayer
 {
-    
 }
 
 -(void) onExitLayer
 {
-    
 }
 
 -(void) onClick
 {
-    
 }
 
 

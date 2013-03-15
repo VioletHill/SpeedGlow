@@ -10,6 +10,7 @@
 #import "SimpleAudioEngine.h"
 #import "Setting.h"
 #import "UserData.h"
+#import "MwtjChooseLevelScene.h"
 
 
 @implementation Mwtj
@@ -64,7 +65,8 @@
 
 -(void) pushToChooseLevel
 {
-    
+    CCTransitionFade* fade=[CCTransitionShrinkGrow transitionWithDuration:0.1 scene:[MwtjChooseLevelScene scene]];
+    [[CCDirector sharedDirector] pushScene:fade];
 }
 
 -(void) onFog

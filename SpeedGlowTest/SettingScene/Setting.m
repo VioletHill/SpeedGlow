@@ -7,6 +7,7 @@
 //
 
 #import "Setting.h"
+#import "UserData.h"
 
 @implementation Setting
 @synthesize isNeedBackgroundMusic=_isNeedBackgroundMusic;
@@ -26,7 +27,8 @@ static Setting* setting;
 
 -(id) init
 {
-    _isNeedEffect=true;
+    self.isNeedBackgroundMusic=[[UserData sharedUserData] isNeedBg];
+    self.isNeedEffect=[[UserData sharedUserData] isNeedEffect];
     return self;
 }
 

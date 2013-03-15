@@ -45,5 +45,11 @@
 -(void) reflushSunAtScene:(GameScene)scene andLevel:(GameLevel)level withSunNumber:(int)sunNumber;
 -(void) reflushLockAtScene:(GameScene)scene withLock:(BOOL)lock;
 
+-(BOOL) isNeedBg;
+-(BOOL) isNeedEffect;
+
+-(void) setIsNeedBg:(BOOL)isNeedBg;
+-(void) setIsNeedEffect:(BOOL)isNeedEffect;
+
 
 @end

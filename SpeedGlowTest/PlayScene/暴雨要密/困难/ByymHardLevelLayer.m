@@ -57,7 +57,7 @@
 
 -(void) onEnterLayer
 {
-    int sun=[[UserData sharedUserData] getSunByScene:kYLFC andLevel:kHARD];
+    int sun=[[UserData sharedUserData] getSunByScene:kBYYM andLevel:kHARD];
     playEffectAction=[CCSequence actions:
                       [CCDelayTime actionWithDuration:1],[CCCallFunc actionWithTarget:self selector:@selector(playEasyEffect:)],
                       [CCDelayTime actionWithDuration:2], [CCCallFunc actionWithTarget:self selector:@selector(playAllSunEffect:)],

@@ -14,8 +14,9 @@
 
 @implementation Ylfc
 {
-    CGSize layerSize;
     CGSize screenSize;
+    CGSize layerSize;
+    
     CCSprite* background;
     
     CCAction* playEffectAction;
@@ -69,6 +70,7 @@
 -(void) onEnterLayer
 {
     [self onStart];
+    
     [background setOpacity:255];
     
     int sun=[[UserData sharedUserData] getSunByScene:kYLFC];

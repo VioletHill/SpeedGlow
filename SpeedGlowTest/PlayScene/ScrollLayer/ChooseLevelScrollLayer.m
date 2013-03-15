@@ -63,22 +63,43 @@
 -(void) playNum:(id)pSender data:(void*)num
 {
     int playNum=(int) num;
-    if (playNum>10)
+    if (playNum>=20)
     {
         if (playNum%10!=0)
         {
-            CCAction* playAction=[CCSequence actions:[CCCallFuncND actionWithTarget:self selector:@selector(playSingleNum:data:) data:(void*) (playNum/10)], [CCDelayTime actionWithDuration:0.4],[CCCallFuncND actionWithTarget:self selector:@selector(playSingleNum:data:) data:(void*)10],[CCDelayTime actionWithDuration:0.4],[CCCallFuncND actionWithTarget:self selector:@selector(playSingleNum:data:) data:(void*)(playNum%10)],nil];
+            CCAction* playAction=[CCSequence actions:
+                                  [CCCallFuncND actionWithTarget:self selector:@selector(playSingleNum:data:) data:(void*) (playNum/10)],
+                                  [CCDelayTime actionWithDuration:0.4],[CCCallFuncND actionWithTarget:self selector:@selector(playSingleNum:data:) data:(void*)10],
+                                  [CCDelayTime actionWithDuration:0.4],[CCCallFuncND actionWithTarget:self selector:@selector(playSingleNum:data:) data:(void*)(playNum%10)],nil];
             [self runAction:playAction];
         }
         else
         {
-            CCAction* playAction=[CCSequence actions:[CCCallFuncND actionWithTarget:self selector:@selector(playSingleNum:data:) data:(void*) (playNum/10)], [CCDelayTime actionWithDuration:0.4],[CCCallFuncND actionWithTarget:self selector:@selector(playSingleNum:data:) data:(void*)10],nil];
+            CCAction* playAction=[CCSequence actions:
+                                  [CCCallFuncND actionWithTarget:self selector:@selector(playSingleNum:data:) data:(void*) (playNum/10)],
+                                  [CCDelayTime actionWithDuration:0.4],[CCCallFuncND actionWithTarget:self selector:@selector(playSingleNum:data:) data:(void*)10],nil];
             [self runAction:playAction];
+        }
+    }
+    else if (playNum>=10)
+    {
+        if (playNum%10!=0)
+        {
+            CCAction* playAction=[CCSequence actions:
+                                  [CCDelayTime actionWithDuration:0.4],[CCCallFuncND actionWithTarget:self selector:@selector(playSingleNum:data:) data:(void*)10],
+                                  [CCDelayTime actionWithDuration:0.4],[CCCallFuncND actionWithTarget:self selector:@selector(playSingleNum:data:) data:(void*)(playNum%10)],nil];
+            [self runAction:playAction];
+        }
+        else
+        {
+            [CCSequence actions:[CCDelayTime actionWithDuration:0.5],
+             [CCCallFuncND actionWithTarget:self selector:@selector(playSingleNum:data:) data:(void*)10],nil];
         }
     }
     else
     {
-        CCAction*playAction=[CCSequence actions:[CCDelayTime actionWithDuration:0.5], [CCCallFuncND actionWithTarget:self selector:@selector(playSingleNum:data:) data:(void*)playNum],nil];
+        CCAction*playAction=[CCSequence actions:
+                             [CCDelayTime actionWithDuration:0.5],[CCCallFuncND actionWithTarget:self selector:@selector(playSingleNum:data:) data:(void*)playNum],nil];
         [self runAction:playAction];
     }
 }

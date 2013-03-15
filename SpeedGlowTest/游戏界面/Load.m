@@ -35,6 +35,25 @@
     [[SimpleAudioEngine sharedEngine] playEffect:@"载入中-.mp3"];
 }
 
+-(void) preloadEffect
+{
+    if ([Obstacle sharedObstacle].gameScene==kYLFC)
+    {
+        [[SimpleAudioEngine sharedEngine] preloadEffect:@"货箱.mp3"];
+        [[SimpleAudioEngine sharedEngine] preloadEffect:@"路牌.mp3"];
+        [[SimpleAudioEngine sharedEngine] preloadEffect:@"猫咪.mp3"];
+        [[SimpleAudioEngine sharedEngine] preloadEffect:@"猫咪的惨叫.mp3"];
+    }
+    else if ([Obstacle sharedObstacle].gameScene==kBYYM)
+    {
+        [[SimpleAudioEngine sharedEngine] preloadEffect:@"倒下的树.mp3"];
+        [[SimpleAudioEngine sharedEngine] preloadEffect:@"车辆.mp3"];
+        [[SimpleAudioEngine sharedEngine] preloadEffect:@"雷声.mp3"];
+        [[SimpleAudioEngine sharedEngine] preloadEffect:@"雷声背景.mp3"];
+        [[SimpleAudioEngine sharedEngine] preloadEffect:@"雷电.mp3"];
+    }
+}
+
 -(id) init
 {
     if (self=[super init])
@@ -62,6 +81,12 @@
 
     }
     return self;
+}
+
+-(void) onEnter
+{
+    [super onEnter];
+    [self preloadEffect];
 }
 
 @end

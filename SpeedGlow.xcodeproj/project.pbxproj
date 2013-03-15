@@ -150,13 +150,23 @@
 		240D6B3516E8B4F600CF51FA /* RaceTime.png in Resources */ = {isa = PBXBuildFile; fileRef = 240D6B2E16E8B4F600CF51FA /* RaceTime.png */; };
 		240D6B3616E8B4F600CF51FA /* RedLight.png in Resources */ = {isa = PBXBuildFile; fileRef = 240D6B2F16E8B4F600CF51FA /* RedLight.png */; };
 		240D6B3716E8B4F600CF51FA /* TurnRight.png in Resources */ = {isa = PBXBuildFile; fileRef = 240D6B3016E8B4F600CF51FA /* TurnRight.png */; };
+		24122B8216F1B6350058B50D /* 倒下的树.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 24122B7D16F1B6350058B50D /* 倒下的树.mp3 */; };
+		24122B8316F1B6350058B50D /* 车辆.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 24122B7E16F1B6350058B50D /* 车辆.mp3 */; };
+		24122B8416F1B6350058B50D /* 雷声.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 24122B7F16F1B6350058B50D /* 雷声.mp3 */; };
+		24122B8516F1B6350058B50D /* 雷声背景.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 24122B8016F1B6350058B50D /* 雷声背景.mp3 */; };
+		24122B8616F1B6350058B50D /* 雷电.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 24122B8116F1B6350058B50D /* 雷电.mp3 */; };
+		24122B8916F1C7180058B50D /* ChooseLevelScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 24122B8816F1C7180058B50D /* ChooseLevelScene.m */; };
+		24122B8D16F1DAFA0058B50D /* MwtjChooseLevelScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 24122B8C16F1DAFA0058B50D /* MwtjChooseLevelScene.m */; };
+		24122B9116F1DC970058B50D /* MwtjChooseLayerScrollLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 24122B9016F1DC970058B50D /* MwtjChooseLayerScrollLayer.m */; };
+		24122B9716F1DE920058B50D /* MwtjEasyLevelLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 24122B9616F1DE920058B50D /* MwtjEasyLevelLayer.m */; };
+		24122B9A16F1E13D0058B50D /* MwtjMidiumLevelLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 24122B9916F1E13D0058B50D /* MwtjMidiumLevelLayer.m */; };
+		24122B9D16F1E2C20058B50D /* MwtjHardLevelLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 24122B9C16F1E2C20058B50D /* MwtjHardLevelLayer.m */; };
 		24161FFB16DCA1A7008BE1B3 /* Obstacle.m in Sources */ = {isa = PBXBuildFile; fileRef = 24161FFA16DCA1A7008BE1B3 /* Obstacle.m */; };
 		24161FFF16DCC1E2008BE1B3 /* Medium.png in Resources */ = {isa = PBXBuildFile; fileRef = 24161FFC16DCC1E0008BE1B3 /* Medium.png */; };
 		2416200016DCC1E2008BE1B3 /* Easy.png in Resources */ = {isa = PBXBuildFile; fileRef = 24161FFD16DCC1E1008BE1B3 /* Easy.png */; };
 		2416200116DCC1E2008BE1B3 /* Hard.png in Resources */ = {isa = PBXBuildFile; fileRef = 24161FFE16DCC1E1008BE1B3 /* Hard.png */; };
 		2416200916DCC72E008BE1B3 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2416200816DCC72E008BE1B3 /* CoreMotion.framework */; };
 		242351A416ED9BB9009986A7 /* SettingBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 242351A216ED9BB9009986A7 /* SettingBackground.png */; };
-		242351A516ED9BB9009986A7 /* Switch.png in Resources */ = {isa = PBXBuildFile; fileRef = 242351A316ED9BB9009986A7 /* Switch.png */; };
 		242351C816EF0D0F009986A7 /* 二难度中等.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 242351C116EF0D0F009986A7 /* 二难度中等.mp3 */; };
 		242351C916EF0D0F009986A7 /* 排名第一.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 242351C216EF0D0F009986A7 /* 排名第一.mp3 */; };
 		242351CA16EF0D0F009986A7 /* 三难度困难.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 242351C316EF0D0F009986A7 /* 三难度困难.mp3 */; };
@@ -304,6 +314,17 @@
 		24C1345D16E1FB370017EBCF /* 音效提示路障L.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 24C1345816E1FB370017EBCF /* 音效提示路障L.mp3 */; };
 		24C1345E16E1FB370017EBCF /* 音效提示路障R.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 24C1345916E1FB370017EBCF /* 音效提示路障R.mp3 */; };
 		24C1345F16E1FB370017EBCF /* 音效提示转弯左+右.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 24C1345A16E1FB370017EBCF /* 音效提示转弯左+右.mp3 */; };
+		24D96E4016F349CE00C47E9D /* SwitchOff.png in Resources */ = {isa = PBXBuildFile; fileRef = 24D96E3E16F349CE00C47E9D /* SwitchOff.png */; };
+		24D96E4116F349CE00C47E9D /* SwitchOn.png in Resources */ = {isa = PBXBuildFile; fileRef = 24D96E3F16F349CE00C47E9D /* SwitchOn.png */; };
+		24D96E4316F34EF400C47E9D /* 0.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 24D96E4216F34EF400C47E9D /* 0.mp3 */; };
+		24D96E4D16F36CAE00C47E9D /* 关.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 24D96E4516F36CAE00C47E9D /* 关.mp3 */; };
+		24D96E4E16F36CAE00C47E9D /* 否.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 24D96E4616F36CAE00C47E9D /* 否.mp3 */; };
+		24D96E4F16F36CAE00C47E9D /* 开.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 24D96E4716F36CAE00C47E9D /* 开.mp3 */; };
+		24D96E5016F36CAE00C47E9D /* 是.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 24D96E4816F36CAE00C47E9D /* 是.mp3 */; };
+		24D96E5116F36CAE00C47E9D /* 确定重置游戏.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 24D96E4916F36CAE00C47E9D /* 确定重置游戏.mp3 */; };
+		24D96E5216F36CAE00C47E9D /* 背景音乐.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 24D96E4A16F36CAE00C47E9D /* 背景音乐.mp3 */; };
+		24D96E5316F36CAE00C47E9D /* 设置面板.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 24D96E4B16F36CAE00C47E9D /* 设置面板.mp3 */; };
+		24D96E5416F36CAE00C47E9D /* 语音提示.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 24D96E4C16F36CAE00C47E9D /* 语音提示.mp3 */; };
 		24E4C51516E9E4890052300A /* BGM.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 24E4C51416E9E4890052300A /* BGM.mp3 */; };
 		24E4C51B16E9FBD60052300A /* HelpBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 24E4C51816E9FBD60052300A /* HelpBackground.png */; };
 		24E4C51C16E9FBD60052300A /* NextOrder.png in Resources */ = {isa = PBXBuildFile; fileRef = 24E4C51916E9FBD60052300A /* NextOrder.png */; };
@@ -637,6 +658,23 @@
 		240D6B2E16E8B4F600CF51FA /* RaceTime.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = RaceTime.png; path = "Resources/MainMenuScene/MainMenu/Play/游戏界面/RaceTime.png"; sourceTree = "<group>"; };
 		240D6B2F16E8B4F600CF51FA /* RedLight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = RedLight.png; path = "Resources/MainMenuScene/MainMenu/Play/游戏界面/RedLight.png"; sourceTree = "<group>"; };
 		240D6B3016E8B4F600CF51FA /* TurnRight.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TurnRight.png; path = "Resources/MainMenuScene/MainMenu/Play/游戏界面/TurnRight.png"; sourceTree = "<group>"; };
+		24122B7D16F1B6350058B50D /* 倒下的树.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "倒下的树.mp3"; sourceTree = "<group>"; };
+		24122B7E16F1B6350058B50D /* 车辆.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "车辆.mp3"; sourceTree = "<group>"; };
+		24122B7F16F1B6350058B50D /* 雷声.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "雷声.mp3"; sourceTree = "<group>"; };
+		24122B8016F1B6350058B50D /* 雷声背景.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "雷声背景.mp3"; sourceTree = "<group>"; };
+		24122B8116F1B6350058B50D /* 雷电.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "雷电.mp3"; sourceTree = "<group>"; };
+		24122B8716F1C7180058B50D /* ChooseLevelScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChooseLevelScene.h; path = PlayScene/ScrollLayer/ChooseLevelScene.h; sourceTree = "<group>"; };
+		24122B8816F1C7180058B50D /* ChooseLevelScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ChooseLevelScene.m; path = PlayScene/ScrollLayer/ChooseLevelScene.m; sourceTree = "<group>"; };
+		24122B8B16F1DAFA0058B50D /* MwtjChooseLevelScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MwtjChooseLevelScene.h; path = "PlayScene/迷雾通缉/MwtjChooseLevelScene.h"; sourceTree = "<group>"; };
+		24122B8C16F1DAFA0058B50D /* MwtjChooseLevelScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MwtjChooseLevelScene.m; path = "PlayScene/迷雾通缉/MwtjChooseLevelScene.m"; sourceTree = "<group>"; };
+		24122B8F16F1DC970058B50D /* MwtjChooseLevelScrollLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MwtjChooseLevelScrollLayer.h; path = "PlayScene/迷雾通缉/ScrollLayer/MwtjChooseLevelScrollLayer.h"; sourceTree = "<group>"; };
+		24122B9016F1DC970058B50D /* MwtjChooseLayerScrollLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MwtjChooseLayerScrollLayer.m; path = "PlayScene/迷雾通缉/ScrollLayer/MwtjChooseLayerScrollLayer.m"; sourceTree = "<group>"; };
+		24122B9516F1DE920058B50D /* MwtjEasyLevelLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MwtjEasyLevelLayer.h; sourceTree = "<group>"; };
+		24122B9616F1DE920058B50D /* MwtjEasyLevelLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MwtjEasyLevelLayer.m; sourceTree = "<group>"; };
+		24122B9816F1E13D0058B50D /* MwtjMidiumLevelLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MwtjMidiumLevelLayer.h; sourceTree = "<group>"; };
+		24122B9916F1E13D0058B50D /* MwtjMidiumLevelLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MwtjMidiumLevelLayer.m; sourceTree = "<group>"; };
+		24122B9B16F1E2C20058B50D /* MwtjHardLevelLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MwtjHardLevelLayer.h; sourceTree = "<group>"; };
+		24122B9C16F1E2C20058B50D /* MwtjHardLevelLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MwtjHardLevelLayer.m; sourceTree = "<group>"; };
 		24161FF916DCA1A7008BE1B3 /* Obstacle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Obstacle.h; path = Obstacle/Obstacle.h; sourceTree = "<group>"; };
 		24161FFA16DCA1A7008BE1B3 /* Obstacle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Obstacle.m; path = Obstacle/Obstacle.m; sourceTree = "<group>"; };
 		24161FFC16DCC1E0008BE1B3 /* Medium.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Medium.png; path = Resources/MainMenuScene/MainMenu/Play/Medium.png; sourceTree = "<group>"; };
@@ -644,7 +682,6 @@
 		24161FFE16DCC1E1008BE1B3 /* Hard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Hard.png; path = Resources/MainMenuScene/MainMenu/Play/Hard.png; sourceTree = "<group>"; };
 		2416200816DCC72E008BE1B3 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
 		242351A216ED9BB9009986A7 /* SettingBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = SettingBackground.png; path = "Resources/MainMenuScene/设置/SettingBackground.png"; sourceTree = "<group>"; };
-		242351A316ED9BB9009986A7 /* Switch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Switch.png; path = "Resources/MainMenuScene/设置/Switch.png"; sourceTree = "<group>"; };
 		242351C116EF0D0F009986A7 /* 二难度中等.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "二难度中等.mp3"; path = "音效/选择关卡/选择难度/二难度中等.mp3"; sourceTree = "<group>"; };
 		242351C216EF0D0F009986A7 /* 排名第一.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "排名第一.mp3"; path = "音效/选择关卡/选择难度/排名第一.mp3"; sourceTree = "<group>"; };
 		242351C316EF0D0F009986A7 /* 三难度困难.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "三难度困难.mp3"; path = "音效/选择关卡/选择难度/三难度困难.mp3"; sourceTree = "<group>"; };
@@ -811,6 +848,17 @@
 		24C1345816E1FB370017EBCF /* 音效提示路障L.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "音效提示路障L.mp3"; path = "音效/帮助/音效页/音效提示路障L.mp3"; sourceTree = "<group>"; };
 		24C1345916E1FB370017EBCF /* 音效提示路障R.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "音效提示路障R.mp3"; path = "音效/帮助/音效页/音效提示路障R.mp3"; sourceTree = "<group>"; };
 		24C1345A16E1FB370017EBCF /* 音效提示转弯左+右.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "音效提示转弯左+右.mp3"; path = "音效/帮助/音效页/音效提示转弯左+右.mp3"; sourceTree = "<group>"; };
+		24D96E3E16F349CE00C47E9D /* SwitchOff.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = SwitchOff.png; path = "Resources/MainMenuScene/设置/SwitchOff.png"; sourceTree = "<group>"; };
+		24D96E3F16F349CE00C47E9D /* SwitchOn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = SwitchOn.png; path = "Resources/MainMenuScene/设置/SwitchOn.png"; sourceTree = "<group>"; };
+		24D96E4216F34EF400C47E9D /* 0.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 0.mp3; sourceTree = "<group>"; };
+		24D96E4516F36CAE00C47E9D /* 关.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "关.mp3"; sourceTree = "<group>"; };
+		24D96E4616F36CAE00C47E9D /* 否.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "否.mp3"; sourceTree = "<group>"; };
+		24D96E4716F36CAE00C47E9D /* 开.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "开.mp3"; sourceTree = "<group>"; };
+		24D96E4816F36CAE00C47E9D /* 是.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "是.mp3"; sourceTree = "<group>"; };
+		24D96E4916F36CAE00C47E9D /* 确定重置游戏.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "确定重置游戏.mp3"; sourceTree = "<group>"; };
+		24D96E4A16F36CAE00C47E9D /* 背景音乐.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "背景音乐.mp3"; sourceTree = "<group>"; };
+		24D96E4B16F36CAE00C47E9D /* 设置面板.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "设置面板.mp3"; sourceTree = "<group>"; };
+		24D96E4C16F36CAE00C47E9D /* 语音提示.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "语音提示.mp3"; sourceTree = "<group>"; };
 		24E4C51416E9E4890052300A /* BGM.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = BGM.mp3; path = "音效/系统游戏音效/BGM.mp3"; sourceTree = "<group>"; };
 		24E4C51816E9FBD60052300A /* HelpBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = HelpBackground.png; path = "Resources/MainMenuScene/帮助/HelpBackground.png"; sourceTree = "<group>"; };
 		24E4C51916E9FBD60052300A /* NextOrder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = NextOrder.png; path = "Resources/MainMenuScene/帮助/NextOrder.png"; sourceTree = "<group>"; };
@@ -848,7 +896,7 @@
 		24E7CEDF16F0666C00233E66 /* 规则说明.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "规则说明.mp3"; path = "音效/帮助/规则页/规则说明.mp3"; sourceTree = "<group>"; };
 		24E7CEE016F0666C00233E66 /* 上下滚动切换查看不同规则.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "上下滚动切换查看不同规则.mp3"; path = "音效/帮助/规则页/上下滚动切换查看不同规则.mp3"; sourceTree = "<group>"; };
 		24E7CEE116F0666C00233E66 /* 向左滑屏切换操作页.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "向左滑屏切换操作页.mp3"; path = "音效/帮助/规则页/向左滑屏切换操作页.mp3"; sourceTree = "<group>"; };
-		24E7CEF216F094AC00233E66 /* ByymChooseLevelLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ByymChooseLevelLayer.h; path = "PlayScene/暴雨要密/ScrollLayer/ByymChooseLevelLayer.h"; sourceTree = "<group>"; };
+		24E7CEF216F094AC00233E66 /* ByymChooseLevelScrollLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ByymChooseLevelScrollLayer.h; path = "PlayScene/暴雨要密/ScrollLayer/ByymChooseLevelScrollLayer.h"; sourceTree = "<group>"; };
 		24E7CEF316F094AC00233E66 /* ByymChooseLevelLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ByymChooseLevelLayer.m; path = "PlayScene/暴雨要密/ScrollLayer/ByymChooseLevelLayer.m"; sourceTree = "<group>"; };
 		24E7CEF416F094CF00233E66 /* ByymChooseLevelScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ByymChooseLevelScene.h; path = "PlayScene/暴雨要密/ByymChooseLevelScene.h"; sourceTree = "<group>"; };
 		24E7CEF516F094CF00233E66 /* ByymChooseLevelScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ByymChooseLevelScene.m; path = "PlayScene/暴雨要密/ByymChooseLevelScene.m"; sourceTree = "<group>"; };
@@ -1368,6 +1416,58 @@
 			name = MainMenuScene;
 			sourceTree = "<group>";
 		};
+		24122B7C16F1B6350058B50D /* 场景二 */ = {
+			isa = PBXGroup;
+			children = (
+				24122B7D16F1B6350058B50D /* 倒下的树.mp3 */,
+				24122B7E16F1B6350058B50D /* 车辆.mp3 */,
+				24122B7F16F1B6350058B50D /* 雷声.mp3 */,
+				24122B8016F1B6350058B50D /* 雷声背景.mp3 */,
+				24122B8116F1B6350058B50D /* 雷电.mp3 */,
+			);
+			name = "场景二";
+			path = "音效/系统游戏音效/障碍物音效/场景二";
+			sourceTree = "<group>";
+		};
+		24122B8E16F1DB760058B50D /* ScrollLayer */ = {
+			isa = PBXGroup;
+			children = (
+				24122B8F16F1DC970058B50D /* MwtjChooseLevelScrollLayer.h */,
+				24122B9016F1DC970058B50D /* MwtjChooseLayerScrollLayer.m */,
+			);
+			name = ScrollLayer;
+			sourceTree = "<group>";
+		};
+		24122B9216F1DE4A0058B50D /* 简单 */ = {
+			isa = PBXGroup;
+			children = (
+				24122B9516F1DE920058B50D /* MwtjEasyLevelLayer.h */,
+				24122B9616F1DE920058B50D /* MwtjEasyLevelLayer.m */,
+			);
+			name = "简单";
+			path = "PlayScene/迷雾通缉/简单";
+			sourceTree = "<group>";
+		};
+		24122B9316F1DE510058B50D /* 困难 */ = {
+			isa = PBXGroup;
+			children = (
+				24122B9B16F1E2C20058B50D /* MwtjHardLevelLayer.h */,
+				24122B9C16F1E2C20058B50D /* MwtjHardLevelLayer.m */,
+			);
+			name = "困难";
+			path = "SpeedGlowTest/PlayScene/迷雾通缉/困难";
+			sourceTree = SOURCE_ROOT;
+		};
+		24122B9416F1DE720058B50D /* 中等 */ = {
+			isa = PBXGroup;
+			children = (
+				24122B9816F1E13D0058B50D /* MwtjMidiumLevelLayer.h */,
+				24122B9916F1E13D0058B50D /* MwtjMidiumLevelLayer.m */,
+			);
+			name = "中等";
+			path = "PlayScene/迷雾通缉/中等";
+			sourceTree = "<group>";
+		};
 		24161FF816DCA14B008BE1B3 /* Obstacle */ = {
 			isa = PBXGroup;
 			children = (
@@ -1408,7 +1508,8 @@
 			isa = PBXGroup;
 			children = (
 				242351A216ED9BB9009986A7 /* SettingBackground.png */,
-				242351A316ED9BB9009986A7 /* Switch.png */,
+				24D96E3E16F349CE00C47E9D /* SwitchOff.png */,
+				24D96E3F16F349CE00C47E9D /* SwitchOn.png */,
 			);
 			name = "音效";
 			sourceTree = "<group>";
@@ -1442,6 +1543,8 @@
 				242351D016EF1146009986A7 /* ChooseSceneScrollLayer.m */,
 				24B5642D16EF251200AA7094 /* ChooseLevelScrollLayer.h */,
 				24B5642E16EF251200AA7094 /* ChooseLevelScrollLayer.m */,
+				24122B8716F1C7180058B50D /* ChooseLevelScene.h */,
+				24122B8816F1C7180058B50D /* ChooseLevelScene.m */,
 			);
 			name = ScrollLayer;
 			sourceTree = "<group>";
@@ -1487,6 +1590,7 @@
 		242512B216DDD69E00273A27 /* 音效 */ = {
 			isa = PBXGroup;
 			children = (
+				24D96E4416F36CAE00C47E9D /* 设置 */,
 				2465FB9216ECCD5C00394BB6 /* 数字单位 */,
 				24C1344D16E1F8300017EBCF /* 游戏音效 */,
 				2496C11A16E5D2A200C727E2 /* 车音效 */,
@@ -1549,6 +1653,12 @@
 			children = (
 				2435019A16DBA2FF00D55106 /* Mwtj.h */,
 				2435019B16DBA2FF00D55106 /* Mwtj.m */,
+				24122B8B16F1DAFA0058B50D /* MwtjChooseLevelScene.h */,
+				24122B8C16F1DAFA0058B50D /* MwtjChooseLevelScene.m */,
+				24122B8E16F1DB760058B50D /* ScrollLayer */,
+				24122B9216F1DE4A0058B50D /* 简单 */,
+				24122B9416F1DE720058B50D /* 中等 */,
+				24122B9316F1DE510058B50D /* 困难 */,
 			);
 			name = "迷雾通缉";
 			sourceTree = "<group>";
@@ -1617,6 +1727,7 @@
 		2465FBA116ECCD5C00394BB6 /* 数字 */ = {
 			isa = PBXGroup;
 			children = (
+				24D96E4216F34EF400C47E9D /* 0.mp3 */,
 				2465FBA216ECCD5C00394BB6 /* 1.mp3 */,
 				2465FBA316ECCD5C00394BB6 /* 10.mp3 */,
 				2465FBA416ECCD5C00394BB6 /* 2.mp3 */,
@@ -1761,6 +1872,7 @@
 				2493BED616E78E1100BB0A4C /* 路障提示音_R.mp3 */,
 				2493BED716E78E1100BB0A4C /* 撞到路障.mp3 */,
 				2493BECA16E7848000BB0A4C /* 场景一 */,
+				24122B7C16F1B6350058B50D /* 场景二 */,
 			);
 			name = "障碍物音效";
 			sourceTree = "<group>";
@@ -1872,6 +1984,22 @@
 				2493BEC916E7846E00BB0A4C /* 障碍物音效 */,
 			);
 			name = "游戏音效";
+			sourceTree = "<group>";
+		};
+		24D96E4416F36CAE00C47E9D /* 设置 */ = {
+			isa = PBXGroup;
+			children = (
+				24D96E4516F36CAE00C47E9D /* 关.mp3 */,
+				24D96E4616F36CAE00C47E9D /* 否.mp3 */,
+				24D96E4716F36CAE00C47E9D /* 开.mp3 */,
+				24D96E4816F36CAE00C47E9D /* 是.mp3 */,
+				24D96E4916F36CAE00C47E9D /* 确定重置游戏.mp3 */,
+				24D96E4A16F36CAE00C47E9D /* 背景音乐.mp3 */,
+				24D96E4B16F36CAE00C47E9D /* 设置面板.mp3 */,
+				24D96E4C16F36CAE00C47E9D /* 语音提示.mp3 */,
+			);
+			name = "设置";
+			path = "音效/设置";
 			sourceTree = "<group>";
 		};
 		24E4C51616E9FA170052300A /* 帮助 */ = {
@@ -1990,7 +2118,7 @@
 		24E7CEEE16F0940D00233E66 /* ScrollLayer */ = {
 			isa = PBXGroup;
 			children = (
-				24E7CEF216F094AC00233E66 /* ByymChooseLevelLayer.h */,
+				24E7CEF216F094AC00233E66 /* ByymChooseLevelScrollLayer.h */,
 				24E7CEF316F094AC00233E66 /* ByymChooseLevelLayer.m */,
 			);
 			name = ScrollLayer;
@@ -2252,7 +2380,6 @@
 				2465FBC716ECCD5C00394BB6 /* 模板所用时间  太阳数量.mp3 in Resources */,
 				2465FBC816ECCD5C00394BB6 /* 模板排名第二.mp3 in Resources */,
 				242351A416ED9BB9009986A7 /* SettingBackground.png in Resources */,
-				242351A516ED9BB9009986A7 /* Switch.png in Resources */,
 				242351C816EF0D0F009986A7 /* 二难度中等.mp3 in Resources */,
 				242351C916EF0D0F009986A7 /* 排名第一.mp3 in Resources */,
 				242351CA16EF0D0F009986A7 /* 三难度困难.mp3 in Resources */,
@@ -2272,6 +2399,22 @@
 				24E7CEEB16F0666C00233E66 /* 规则说明.mp3 in Resources */,
 				24E7CEEC16F0666C00233E66 /* 上下滚动切换查看不同规则.mp3 in Resources */,
 				24E7CEED16F0666C00233E66 /* 向左滑屏切换操作页.mp3 in Resources */,
+				24122B8216F1B6350058B50D /* 倒下的树.mp3 in Resources */,
+				24122B8316F1B6350058B50D /* 车辆.mp3 in Resources */,
+				24122B8416F1B6350058B50D /* 雷声.mp3 in Resources */,
+				24122B8516F1B6350058B50D /* 雷声背景.mp3 in Resources */,
+				24122B8616F1B6350058B50D /* 雷电.mp3 in Resources */,
+				24D96E4016F349CE00C47E9D /* SwitchOff.png in Resources */,
+				24D96E4116F349CE00C47E9D /* SwitchOn.png in Resources */,
+				24D96E4316F34EF400C47E9D /* 0.mp3 in Resources */,
+				24D96E4D16F36CAE00C47E9D /* 关.mp3 in Resources */,
+				24D96E4E16F36CAE00C47E9D /* 否.mp3 in Resources */,
+				24D96E4F16F36CAE00C47E9D /* 开.mp3 in Resources */,
+				24D96E5016F36CAE00C47E9D /* 是.mp3 in Resources */,
+				24D96E5116F36CAE00C47E9D /* 确定重置游戏.mp3 in Resources */,
+				24D96E5216F36CAE00C47E9D /* 背景音乐.mp3 in Resources */,
+				24D96E5316F36CAE00C47E9D /* 设置面板.mp3 in Resources */,
+				24D96E5416F36CAE00C47E9D /* 语音提示.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2422,6 +2565,12 @@
 				24E7CEFE16F0987F00233E66 /* ByymMidiumLevelLayer.m in Sources */,
 				24E7CF0216F0998500233E66 /* ByymHardLevelLayer.m in Sources */,
 				24E7CF0816F09A2600233E66 /* Load.m in Sources */,
+				24122B8916F1C7180058B50D /* ChooseLevelScene.m in Sources */,
+				24122B8D16F1DAFA0058B50D /* MwtjChooseLevelScene.m in Sources */,
+				24122B9116F1DC970058B50D /* MwtjChooseLayerScrollLayer.m in Sources */,
+				24122B9716F1DE920058B50D /* MwtjEasyLevelLayer.m in Sources */,
+				24122B9A16F1E13D0058B50D /* MwtjMidiumLevelLayer.m in Sources */,
+				24122B9D16F1E2C20058B50D /* MwtjHardLevelLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2482,10 +2631,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				COPY_PHASE_STRIP = NO;
+				COPY_PHASE_STRIP = YES;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = SpeedGlowTest/Prefix.pch;
 				HEADER_SEARCH_PATHS = "\"SpeedGlowTest/libs/kazmath/include\"";
 				INFOPLIST_FILE = SpeedGlowTest/Resources/Info.plist;
 				OTHER_LDFLAGS = (
@@ -2503,7 +2651,6 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = SpeedGlowTest/Prefix.pch;
 				HEADER_SEARCH_PATHS = "\"SpeedGlowTest/libs/kazmath/include\"";
 				INFOPLIST_FILE = SpeedGlowTest/Resources/Info.plist;
 				OTHER_LDFLAGS = (

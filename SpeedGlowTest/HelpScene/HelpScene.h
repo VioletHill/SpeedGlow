@@ -10,9 +10,12 @@
 #import "cocos2d.h"
 
 @interface HelpScene : CCLayer
+{
+}
 
 +(CCScene *) scene;
-@property (nonatomic, retain) NSInvocation *onPageMoved;
+
 @property (nonatomic, strong) NSMutableArray* helpLayer;
+@property (nonatomic, retain) NSInvocation *onPageMoved;
 
 @end

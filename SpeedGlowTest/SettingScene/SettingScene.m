@@ -9,19 +9,20 @@
 #import "SettingScene.h"
 #import "SimpleAudioEngine.h"
 #import "Setting.h"
+#import "UserData.h"
 
 @implementation SettingScene
 {
     CGSize screenSize;
     
-    CCSprite* backgroundMusic;
-    CCSprite* effectMusic;
-    CCSprite* clearRecord;
+    CCSprite* labelSprite[3];
     
-    CCProgressTimer* closeSprite[2];
-    CCProgressTimer* openSprite[2];
+    CCSprite* switchSprite[2];
     
     int indexOrder;
+    
+    ALuint nowEffect;
+    CCAction* playEffectAction;
 }
 
 
@@ -45,34 +46,98 @@
     
     // 背景音乐
     CCSprite* blackScreenBackgroundMusic=[CCSprite spriteWithTexture:backgroundTexture rect:CGRectMake(492, 266, 224, 84)];
-    backgroundMusic=[CCSprite spriteWithTexture:backgroundTexture rect:CGRectMake(268, 266, 224, 84)];
+    labelSprite[0]=[CCSprite spriteWithTexture:backgroundTexture rect:CGRectMake(268, 266, 224, 84)];
     
-    blackScreenBackgroundMusic.position=backgroundMusic.position=ccp(380,screenSize.height-308);
+    blackScreenBackgroundMusic.position=labelSprite[0].position=ccp(380,screenSize.height-308);
     [self addChild:blackScreenBackgroundMusic];
-    [self addChild:backgroundMusic];
+    [self addChild:labelSprite[0]];
     
     // 语音提示
     CCSprite* blackScreenEffect=[CCSprite spriteWithTexture:backgroundTexture rect:CGRectMake(492, 266, 224, 84)];
-    effectMusic=[CCSprite spriteWithTexture:backgroundTexture rect:CGRectMake(274, 373, 224, 84)];
-    effectMusic.opacity=255/2;
+    labelSprite[1]=[CCSprite spriteWithTexture:backgroundTexture rect:CGRectMake(274, 373, 224, 84)];
+    labelSprite[1].opacity=255/2;
     
-    blackScreenEffect.position=effectMusic.position=ccp(386,screenSize.height-415);
+    blackScreenEffect.position=labelSprite[1].position=ccp(386,screenSize.height-415);
     [self addChild:blackScreenEffect];
-    [self addChild:effectMusic];
+    [self addChild:labelSprite[1]];
     
     //重置记录
     CCSprite* blackScreenRecord=[CCSprite spriteWithTexture:backgroundTexture rect:CGRectMake(492, 266, 224, 84)];
-    clearRecord=[CCSprite spriteWithTexture:backgroundTexture rect:CGRectMake(389, 463, 224, 84)];
-    clearRecord.position=blackScreenRecord.position=ccp(501,screenSize.height-505);
-    clearRecord.opacity=255/2;
+    labelSprite[2]=[CCSprite spriteWithTexture:backgroundTexture rect:CGRectMake(389, 463, 224, 84)];
+    labelSprite[2].position=blackScreenRecord.position=ccp(501,screenSize.height-505);
+    labelSprite[2].opacity=255/2;
     [self addChild:blackScreenRecord];
-    [self addChild:clearRecord];
+    [self addChild:labelSprite[2]];
 }
 
 -(void) addSwitch
 {
-    CCSprite* sprite=[CCSprite spriteWithFile:@"Switch.png"];
-    closeSprite[0]=[CCProgressTimer progressWithSprite:sprite];
+    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFrame:[CCSpriteFrame frameWithTextureFilename:@"SwitchOff.png" rect:CGRectMake(0, 0, 249, 92)] name:@"SwitchOff"];
+    [[CCSpriteFrameCache sharedSpriteFrameCache] addSpriteFrame:[CCSpriteFrame frameWithTextureFilename:@"SwitchOn.png" rect:CGRectMake(0, 0, 249, 92)] name:@"SwitchOn"];
+    
+    if (![Setting sharedSetting].isNeedBackgroundMusic)
+    {
+        switchSprite[0]=[CCSprite spriteWithSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"SwitchOff"]];
+    }
+    else
+    {
+        switchSprite[0]=[CCSprite spriteWithSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"SwitchOn"]];
+    }
+    switchSprite[0].position=ccp(600,screenSize.height-330);
+    [self addChild:switchSprite[0]];
+    
+    if (![Setting sharedSetting].isNeedEffect)
+    {
+        switchSprite[1]=[CCSprite spriteWithSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"SwitchOff"]];
+    }
+    else
+    {
+        switchSprite[1]=[CCSprite spriteWithSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"SwitchOn"]];
+    }
+    switchSprite[1].position=ccp(600,screenSize.height-437);
+    [self addChild:switchSprite[1]];
+}
+
+-(CCAction*) CCMoveByPosition:(CGPoint)point AndFadeOutWithTime:(ccTime)time
+{
+    CCAction* action;
+    action=[CCSpawn actions:[CCMoveBy actionWithDuration:1 position:point], nil];
+    return action;
+}
+
+-(void) changeSwitch
+{
+    if (indexOrder==0)
+    {
+        if ([Setting sharedSetting].isNeedBackgroundMusic)
+        {
+            [Setting sharedSetting].isNeedBackgroundMusic=false;
+            [[UserData sharedUserData] setIsNeedBg:false];
+            [switchSprite[0] setDisplayFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"SwitchOff"]];
+        }
+        else
+        {
+            [Setting sharedSetting].isNeedBackgroundMusic=true;
+            [[UserData sharedUserData] setIsNeedBg:true];
+            [switchSprite[0] setDisplayFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"SwitchOn"]];
+        }
+    }
+    else
+    {
+        if ([Setting sharedSetting].isNeedEffect)
+        {
+            [Setting sharedSetting].isNeedEffect=false;
+            [[UserData sharedUserData] setIsNeedEffect:false];
+            [switchSprite[1] setDisplayFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"SwitchOff"]];
+        }
+        else
+        {
+            [Setting sharedSetting].isNeedEffect=true;
+            [[UserData sharedUserData] setIsNeedEffect:true];
+            [switchSprite[1] setDisplayFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:@"SwitchOn"]];
+        }
+    }
+    [self resetIndex];
 }
 
 -(void) addBack
@@ -84,8 +149,22 @@
     [self addChild:backMenu];
 }
 
--(void) preloadMusic
+-(void) addNextAndLast
 {
+    //上一条
+    CCMenuItemImage* lastOrderMenuItem=[CCMenuItemImage itemWithNormalImage:@"LastOrder.png" selectedImage:nil target:self selector:@selector(lastOrder:)];
+    CCMenu* lastOrderMenu=[CCMenu menuWithItems:lastOrderMenuItem, nil];
+    [lastOrderMenuItem setAnchorPoint:ccp(0,0)];
+    lastOrderMenu.position=ccp(0,20);
+    [self addChild:lastOrderMenu];
+    
+    //下一条
+    CCMenuItemImage* nextOrderMenuItem=[CCMenuItemImage itemWithNormalImage:@"NextOrder.png" selectedImage:nil target:self selector:@selector(nextOrder:)];
+    CCMenu* nextOrderMenu=[CCMenu menuWithItems:nextOrderMenuItem, nil];
+    [nextOrderMenuItem setAnchorPoint:ccp(0, 0)];
+    nextOrderMenu.position=ccp(screenSize.width-[nextOrderMenuItem contentSize].width,20);
+    [self addChild:nextOrderMenu];
+
 }
 
 -(id) init
@@ -103,7 +182,7 @@
         
         [self addBack];
         
-        [self preloadMusic];
+        [self addNextAndLast];
     }
     return self;
 }
@@ -125,25 +204,152 @@
     [[[CCDirector sharedDirector] runningScene] runAction:action];
 }
 
+-(void) resetIndex
+{
+    [self stopAllActions];
+    [[SimpleAudioEngine sharedEngine] stopEffect:nowEffect];
+    switch (indexOrder)
+    {
+        case 0:
+            playEffectAction=[self playEffectBGM];
+            break;
+        case 1:
+            playEffectAction=[self playEffectSpeak];
+            break;
+        default:
+            playEffectAction=nil;
+            break;
+    }
+    if ([Setting sharedSetting].isNeedEffect)
+    {
+        if (playEffectAction!=nil)  [self runAction:playEffectAction];
+    }
+}
+
+-(void) lastOrder:(id)pSender
+{
+    if (indexOrder==0) return;
+    if ([Setting sharedSetting].isNeedEffect)
+    {
+        [[SimpleAudioEngine sharedEngine] playEffect:@"按键音一单击.mp3"];
+    }
+    labelSprite[indexOrder].opacity=255/2;
+    labelSprite[--indexOrder].opacity=255;
+    
+    [self resetIndex];
+}
+
+-(void) nextOrder:(id)pSender
+{
+    if (indexOrder==2) return;
+    if ([Setting sharedSetting].isNeedEffect)
+    {
+        [[SimpleAudioEngine sharedEngine] playEffect:@"按键音一单击.mp3"];
+    }
+    labelSprite[indexOrder].opacity=255/2;
+    labelSprite[++indexOrder].opacity=255;
+    
+    [self resetIndex];
+}
 
 -(BOOL) ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event
 {
     if ([touch tapCount]==2)
     {
+        if ([Setting sharedSetting].isNeedEffect)
+        {
+            [[SimpleAudioEngine sharedEngine] playEffect:@"按键音二双击.mp3"];
+        }
         
+        if (indexOrder<2)
+        {
+            [self changeSwitch];
+        }
     }
     return false;
 }
 
+-(void) playEffectOnEnter:(id)pSender
+{
+    if ([Setting sharedSetting].isNeedEffect)
+    {
+        nowEffect=[[SimpleAudioEngine sharedEngine] playEffect:@"设置面板.mp3"];
+    }
+}
+
+-(void) playEffectBGM:(id)pSender
+{
+    if ([Setting sharedSetting].isNeedEffect)
+    {
+        nowEffect=[[SimpleAudioEngine sharedEngine] playEffect:@"背景音乐.mp3"];
+    }
+}
+
+-(void) playEffectOpen:(id)pSender
+{
+    if ([Setting sharedSetting].isNeedEffect)
+    {
+        nowEffect=[[SimpleAudioEngine sharedEngine] playEffect:@"开.mp3"];
+    }
+}
+
+-(void) playEffectClose:(id)pSender
+{
+    if ([Setting sharedSetting].isNeedEffect)
+    {
+        nowEffect=[[SimpleAudioEngine sharedEngine] playEffect:@"关.mp3"];
+    }
+}
+
+-(void) playEffectSpeak:(id)pSender
+{
+    if ([Setting sharedSetting].isNeedEffect)
+    {
+        nowEffect=[[SimpleAudioEngine sharedEngine] playEffect:@"语音提示.mp3"];
+    }
+}
+
+-(CCAction*) playEffectBGM
+{
+    if (![Setting sharedSetting].isNeedBackgroundMusic)
+    {
+        return [CCSequence actions:[CCCallFunc actionWithTarget:self selector:@selector(playEffectBGM:)],[CCDelayTime actionWithDuration:1.5], [CCCallFunc actionWithTarget:self selector:@selector(playEffectClose:)],nil];
+    }
+    else
+    {
+        return [CCSequence actions:[CCCallFunc actionWithTarget:self selector:@selector(playEffectBGM:)],[CCDelayTime actionWithDuration:1.5], [CCCallFunc actionWithTarget:self selector:@selector(playEffectOpen:)],nil];
+    }
+}
+
+-(CCAction*) playEffectSpeak
+{
+    if (![Setting sharedSetting].isNeedEffect)
+    {
+        return [CCSequence actions:[CCCallFunc actionWithTarget:self selector:@selector(playEffectSpeak:)],[CCDelayTime actionWithDuration:1.5], [CCCallFunc actionWithTarget:self selector:@selector(playEffectClose:)],nil];
+    }
+    else
+    {
+        return [CCSequence actions:[CCCallFunc actionWithTarget:self selector:@selector(playEffectSpeak:)],[CCDelayTime actionWithDuration:1.5], [CCCallFunc actionWithTarget:self selector:@selector(playEffectOpen:)],nil];
+    }
+}
 
 -(void) onEnter
 {
     [super onEnter];
+    if ([Setting sharedSetting].isNeedEffect)
+    {
+        playEffectAction=[CCSequence actions:[CCDelayTime actionWithDuration:0.5],[CCCallFunc actionWithTarget:self selector:@selector(playEffectOnEnter:)],[CCDelayTime actionWithDuration:13],[self playEffectBGM],nil];
+        [self runAction:playEffectAction];
+    }
 }
 
 -(void) onExit
 {
+    [[CCSpriteFrameCache sharedSpriteFrameCache] removeSpriteFrameByName:@"SwitchOff"];
+    [[CCSpriteFrameCache sharedSpriteFrameCache] removeSpriteFrameByName:@"SwitchOn"];
     [[[CCDirector sharedDirector] touchDispatcher] removeDelegate:self];
+    [[SimpleAudioEngine sharedEngine] stopAllEffect];
+    [self stopAllActions];
     [super onExit];
 }
 

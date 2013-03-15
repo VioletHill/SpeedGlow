@@ -60,9 +60,8 @@ typedef enum
 -(void) startTurnTwoLeft;
 -(void) startTurnTwoRight;
 
--(double) getRotationRate;
--(double) getRotationRateByAcceleor;
-
+-(void) startTurnOneLeft;
+-(void) startTurnOneRight;
 
 -(void) startRed2Green;
 -(void) startGreen2Red;

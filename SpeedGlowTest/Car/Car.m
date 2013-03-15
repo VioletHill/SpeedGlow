@@ -61,6 +61,25 @@ static Car* car;
     [self carStopWithTime:stopNormlSignTime];
 }
 
+//撞到倒下的树
+-(void) collisionTree
+{
+    [self carStopWithTime:stopNormlSignTime];
+}
+
+//撞到车
+-(void) collisionCar
+{
+    [self carStopWithTime:stopNormlSignTime];
+}
+
+//撞到雷电
+-(void) collisionThunder
+{
+    [[SimpleAudioEngine sharedEngine] playEffect:@"重启间隙4s.mp3"];
+    [self carStopWithTime:stopRedLight];
+}
+
 //吃到太阳
 -(void) eatSun
 {

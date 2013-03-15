@@ -9,6 +9,7 @@
 #import "EffectLayer.h"
 #import "SimpleAudioEngine.h"
 #import "Setting.h"
+#import "HelpScene.h"
 
 
 
@@ -33,8 +34,9 @@
     
     CCAction* playEffectAction;
     
-    bool isChangeOrder;
+    BOOL isChangeOrder;
 }
+
 
 -(void) addMusicEffectLabel
 {
@@ -75,9 +77,6 @@
     
 }
 
--(void) preloadMusic
-{
-}
 
 -(id) init
 {
@@ -92,8 +91,6 @@
         [self addChild:bg];
         
         [self addMusicEffectLabel];
-        
-        [self preloadMusic];
     }
     return self;
 }
@@ -160,8 +157,6 @@
 
     if (effectCurrent==totalEffect-1) return;
     isChangeOrder=true;
-    [self stopAction:playEffectAction];
-    
     
     for (int i=0; i<totalEffect; i++)
     {
@@ -183,9 +178,6 @@
     
     if (effectCurrent==0) return;
     isChangeOrder=true;
-    
-    [[SimpleAudioEngine sharedEngine] stopEffect:nowEffect];
-    [self stopAction:playEffectAction];
     
     for (int i=0; i<totalEffect; i++)
     {

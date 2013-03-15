@@ -39,9 +39,15 @@ typedef enum
 
 -(void) start:(TrafficLand)land;
 
+//场景一
 -(void) collisionBox;
 -(void) collisionSign;
 -(void) collisionCat;
+
+//场景二
+-(void) collisionTree;
+-(void) collisionCar;
+-(void) collisionThunder;
 
 -(void) turnFail;
 -(void) breakRedLight;

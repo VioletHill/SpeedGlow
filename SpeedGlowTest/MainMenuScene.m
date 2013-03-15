@@ -13,6 +13,7 @@
 #import "ChooseScene.h"
 #import "SimpleAudioEngine.h"
 #import "Setting.h"
+#import "UserData.h"
 
 
 @implementation MainMenuScene

@@ -75,25 +75,23 @@
     
 }
 
--(void) loadYlfcSceneMap
+
+-(void) loadMapWithBarrier:(int)barrierTot Trun:(int)turnTot Sun:(int)sunTot TrafficLight:(int)lightTot
 {
-    totalObstacle=26;
-    
+    //障碍物总数
+    totalObstacle=barrierTot+turnTot+sunTot+lightTot;
     
     //随机载入地图
-    //10个障碍
-    //10个拐角
-    //4个太阳
-    //2个红绿灯
-    
     
     //辅助数组  让产生随机数不重复，并且一次产生结束
     WhichObstacle obstacleArray[totalObstacle];
-    for (int i=0; i<10; i++)   obstacleArray[i]=kBARRIER;
-    for (int i=0; i<10; i++)   obstacleArray[i+10]=kTURN;
-    for (int i=0; i<4; i++)    obstacleArray[i+20]=kSUN;
-    for (int i=0; i<2; i++)    obstacleArray[i+24]=kTRAFFIC_LIGHT;
-
+    
+    
+    for (int i=0; i<barrierTot; i++)   obstacleArray[i]=kBARRIER;
+    for (int i=0; i<turnTot; i++)   obstacleArray[i+barrierTot]=kTURN;
+    for (int i=0; i<sunTot; i++)    obstacleArray[i+barrierTot+turnTot]=kSUN;
+    for (int i=0; i<lightTot; i++)    obstacleArray[i+barrierTot+turnTot+sunTot]=kTRAFFIC_LIGHT;
+    
     int x=totalObstacle;
     float distance=0;
     for (int i=0; i<totalObstacle; i++,x--)
@@ -106,21 +104,32 @@
                 obstacleDistance[i]=distance+[self getRandomDistance];
                 distance=obstacleDistance[i]+barrierTotalTime*accelerateSpeed;
                 break;
+                
             case kTURN:
                 obstacle[i]=kTURN;
                 obstacleDistance[i]=distance+[self getRandomDistance];
-                distance=obstacleDistance[i]+turnTwoTotalTime*accelerateSpeed;
+                if ([Obstacle sharedObstacle].gameScene==kYLFC)
+                {
+                    distance=obstacleDistance[i]+turnTwoTotalTime*accelerateSpeed;
+                }
+                else
+                {
+                    distance=obstacleDistance[i]+turnOneTotalTime*accelerateSpeed;
+                }
                 break;
+                
             case kSUN:
                 obstacle[i]=kSUN;
                 obstacleDistance[i]=distance+[self getRandomDistance];
                 distance=obstacleDistance[i]+sunTotalTime*accelerateSpeed;
                 break;
+                
             case kTRAFFIC_LIGHT:
                 obstacle[i]=kTRAFFIC_LIGHT;
                 obstacleDistance[i]=distance+[self getRandomDistance];
                 distance=obstacleDistance[i]+trafficTotalTime*accelerateSpeed;
                 break;
+                
             default:
                 break;
         }
@@ -130,13 +139,46 @@
     //终点
     obstacle[totalObstacle++]=kFINAL;
     obstacleDistance[totalObstacle-1]=distance+[self getRandomDistance];
-    
+
+}
+-(void) loadYlfcSceneMap
+{
+    //10个障碍
+    //10个拐角
+    //4个太阳
+    //2个红绿灯
+    [self loadMapWithBarrier:10 Trun:10 Sun:4 TrafficLight:2];
 }
 
 
 -(void) loadByymSceneMap
 {
+    //7个障碍
+    //13个拐角
+    //4个太阳
+    //3个红绿灯
     
+    //辅助数组  让产生随机数不重复，并且一次产生结束
+    [self loadMapWithBarrier:7 Trun:13 Sun:4 TrafficLight:3];
+}
+
+
+-(void) loadMwtjSceneMap
+{
+    //10个障碍
+    //13个拐角
+    //4个太阳
+    //3个红绿灯
+    [self loadMapWithBarrier:8 Trun:13 Sun:4 TrafficLight:3];
+}
+
+-(void) loadXbtwSceneMap
+{
+    //15个障碍
+    //15个拐角
+    //4个太阳
+    //5个红绿灯
+    [self loadMapWithBarrier:15 Trun:15 Sun:4 TrafficLight:5];
 }
 
 #pragma mark startGo
@@ -190,6 +232,12 @@
             break;
         case kBYYM:
             [self loadByymSceneMap];
+            break;
+        case kMWTJ:
+            [self loadMwtjSceneMap];
+            break;
+        case  kXBTW:
+            [self loadXbtwSceneMap];
             break;
         default:
             break;
@@ -471,7 +519,11 @@
         }
         else
         {
+            CCAction* removeSprite=[CCSequence actions:[CCDelayTime actionWithDuration:turnOneTotalTime],[CCCallFunc actionWithTarget:self selector:@selector(endTurnLeft:)],nil];
+            [[[CCDirector sharedDirector] runningScene] runAction:removeSprite];
             
+            [[Obstacle sharedObstacle] startTurnOneLeft];
+
         }
     }
     else
@@ -488,7 +540,10 @@
         }
         else
         {
+            CCAction* removeSprite=[CCSequence actions:[CCDelayTime actionWithDuration:turnOneTotalTime],[CCCallFunc actionWithTarget:self selector:@selector(endTurnRight:)],nil];
+            [[[CCDirector sharedDirector] runningScene] runAction:removeSprite];
             
+            [[Obstacle sharedObstacle] startTurnOneRight];
         }
     }
   

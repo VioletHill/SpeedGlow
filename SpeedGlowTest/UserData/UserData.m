@@ -135,6 +135,7 @@ static UserData* userData;
     [self getDate];
     return isUnlock[scene];
 }
+
 -(void) reflushSunAtScene:(GameScene)scene andLevel:(GameLevel)level withSunNumber:(int)sunNumber
 {
     [self getDate];
@@ -183,6 +184,34 @@ static UserData* userData;
 {
     [self getDate];
     return bestTime[scene][level];
+}
+
+-(BOOL) isNeedBg
+{
+    NSUserDefaults *defaults=[NSUserDefaults standardUserDefaults];
+    NSNumber* num=[defaults objectForKey:@"IsNeedBg"];
+    if (num!=nil)   return num.boolValue;
+    else return true;
+}
+
+-(BOOL) isNeedEffect
+{
+    NSUserDefaults *defaults=[NSUserDefaults standardUserDefaults];
+    NSNumber* num=[defaults objectForKey:@"IsNeedEffect"];
+    if (num!=nil)   return num.boolValue;
+    else return true;
+}
+
+-(void) setIsNeedBg:(BOOL)isNeedBg
+{
+     NSUserDefaults *defaults=[NSUserDefaults standardUserDefaults];
+    [defaults setObject:[NSNumber numberWithBool:isNeedBg] forKey:@"IsNeedBg"];
+}
+
+-(void) setIsNeedEffect:(BOOL)isNeedEffect
+{
+    NSUserDefaults *defaults=[NSUserDefaults standardUserDefaults];
+    [defaults setObject:[NSNumber numberWithBool:isNeedEffect] forKey:@"IsNeedEffect"];
 }
 
 @end
