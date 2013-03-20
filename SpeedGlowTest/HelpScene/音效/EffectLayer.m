@@ -43,11 +43,11 @@
     isChangeOrder=false;
     effectCurrent=0;
 
-    effectLabel[0]=[CCLabelTTF labelWithString:@"左方有障碍物" fontName:@"Marker Felt" fontSize:labelFontSize];
-    effectLabel[1]=[CCLabelTTF labelWithString:@"右方有障碍物" fontName:@"Marker Felt" fontSize:labelFontSize];
-    effectLabel[2]=[CCLabelTTF labelWithString:@"红灯转绿灯" fontName:@"Marker Felt" fontSize:labelFontSize];
-    effectLabel[3]=[CCLabelTTF labelWithString:@"绿灯转红灯" fontName:@"Marker Felt" fontSize:labelFontSize];
-    effectLabel[4]=[CCLabelTTF labelWithString:@"转弯音效" fontName:@"Marker Felt" fontSize:labelFontSize];
+    effectLabel[0]=[CCLabelTTF labelWithString:@"左方有障碍物" fontName:@"TimesNewRomanPSMT" fontSize:labelFontSize];
+    effectLabel[1]=[CCLabelTTF labelWithString:@"右方有障碍物" fontName:@"Helvetica-Oblique" fontSize:labelFontSize];
+    effectLabel[2]=[CCLabelTTF labelWithString:@"红灯转绿灯" fontName:@"Verdana-BoldItalic" fontSize:labelFontSize];
+    effectLabel[3]=[CCLabelTTF labelWithString:@"绿灯转红灯" fontName:@"HiraKakuProN-W3" fontSize:labelFontSize];
+    effectLabel[4]=[CCLabelTTF labelWithString:@"转弯音效" fontName:@"MarkerFelt-Thin" fontSize:labelFontSize];
 
     
     for (int i=0; i<totalEffect; i++)

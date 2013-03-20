@@ -63,6 +63,10 @@
     [[SimpleAudioEngine sharedEngine] preloadEffect:@"8.mp3"];
     [[SimpleAudioEngine sharedEngine] preloadEffect:@"9.mp3"];
     [[SimpleAudioEngine sharedEngine] preloadEffect:@"10.mp3"];
+    [[SimpleAudioEngine sharedEngine] preloadEffect:@"20.mp3"];
+    [[SimpleAudioEngine sharedEngine] preloadEffect:@"30.mp3"];
+    [[SimpleAudioEngine sharedEngine] preloadEffect:@"40.mp3"];
+    [[SimpleAudioEngine sharedEngine] preloadEffect:@"50.mp3"];
     
     
     //加载选择关卡的音效
@@ -75,10 +79,9 @@
     [[SimpleAudioEngine sharedEngine] preloadEffect:@"排名第一.mp3"];
     
     
-    [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"BGM.mp3"];
-    
     [[SimpleAudioEngine sharedEngine] preloadEffect:@"游戏界面.mp3"];
-    [[SimpleAudioEngine sharedEngine] preloadEffect:@"321Go.mp3"];
+    [[SimpleAudioEngine sharedEngine] preloadEffect:@"开始宣传语.mp3"];
+    [[SimpleAudioEngine sharedEngine] preloadEffect:@"双击进入场景.mp3"];
     
     //车音效
     [[SimpleAudioEngine sharedEngine] preloadEffect:@"变道L2R.mp3"];
@@ -199,8 +202,6 @@
 
 -(void) onEnter
 {
-
-    
 	[super onEnter];
 	[[CCDirector sharedDirector] replaceScene:[CCTransitionFade transitionWithDuration:0.1 scene:[MainMenuScene scene]]];
     

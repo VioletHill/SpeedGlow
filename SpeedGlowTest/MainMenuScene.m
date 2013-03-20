@@ -19,8 +19,8 @@
 @implementation MainMenuScene
 {
     CGSize screenSize ;
-    int nowEffect;
     CCSprite* background;
+    CCAction* playAction;
 }
 
 +(CCScene *) scene
@@ -67,16 +67,11 @@
     
 }
 
--(void) preloadMusic
-{
-    [[SimpleAudioEngine sharedEngine] preloadEffect:@"01主菜单单击屏幕中间开始游戏.mp3"];
-}
 
 -(id) init
 {
     if( (self=[super init]))
     {
-        [self preloadMusic];
         
         screenSize=[[CCDirector sharedDirector] winSize];
         background=[CCSprite spriteWithFile:@"MainMenuBackground.png"];
@@ -89,6 +84,8 @@
         
         [self addPlay];
         
+
+
     }
     return self;
 }
@@ -122,24 +119,31 @@
     {
         [[SimpleAudioEngine sharedEngine] playEffect:@"按键音一单击.mp3"];
     }
-    CCTransitionFade* fade=[CCTransitionShrinkGrow transitionWithDuration:0.1 scene:[ChooseScene scene]];
+    CCTransitionFade* fade=[CCTransitionCrossFade transitionWithDuration:0.1 scene:[ChooseScene scene]];
     [[CCDirector sharedDirector] pushScene:fade];
 }
 
+-(void) playMenuEffect:(id)pSender
+{
+    [[SimpleAudioEngine sharedEngine] playEffect:@"双击进入场景.mp3"];
+    
+}
 
 -(void) onEnter
 {
     [super onEnter];
     if ([Setting sharedSetting].isNeedEffect)
     {
-        nowEffect=[[SimpleAudioEngine sharedEngine] playEffect:@"01主菜单单击屏幕中间开始游戏.mp3"];
-       // nowEffect=[[SimpleAudioEngine sharedEngine] playEffect:@"01主菜单单击屏幕中间开始游戏.mp3" pitch:1.0 pan:0.0 gain:1];
+        [[SimpleAudioEngine sharedEngine] playEffect:@"开始宣传语.mp3"];
+        playAction=[CCSequence actions:[CCSequence actionWithDuration:14.5], [CCCallFunc actionWithTarget:self selector:@selector(playMenuEffect:)],nil];
+        [self runAction:playAction];
     }
 }
 
 -(void) onExit
 {
-    [[SimpleAudioEngine sharedEngine] stopEffect:nowEffect];
+    [[SimpleAudioEngine sharedEngine] stopAllEffect];
+    [self stopAllActions];
     [super onExit];
 }
 

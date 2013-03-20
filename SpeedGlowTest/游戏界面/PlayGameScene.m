@@ -47,6 +47,8 @@
     
     CCSprite* pauseBackgroundSprite;
     CCMenu* resumeMenu;
+    CCMenu* againMenu;
+    CCMenu* mainMenu;
     
     CCMenu* normalSpeedMenu;
     CCMenu* speedUpMenu;
@@ -54,7 +56,6 @@
     CMMotionManager* motionManager;
     BOOL isTurn;
     
-    BOOL isPause;
 }
 
 +(CCScene *) scene
@@ -91,6 +92,27 @@
     for (int i=0; i<turnTot; i++)   obstacleArray[i+barrierTot]=kTURN;
     for (int i=0; i<sunTot; i++)    obstacleArray[i+barrierTot+turnTot]=kSUN;
     for (int i=0; i<lightTot; i++)    obstacleArray[i+barrierTot+turnTot+sunTot]=kTRAFFIC_LIGHT;
+        
+    switch ([[Obstacle sharedObstacle] gameLevel])
+    {
+        case kEASY:
+            [Obstacle sharedObstacle].sunTotalTime=sunSingleTime*4;
+            [Obstacle sharedObstacle].barrierTotalTime=barrierSingleTime*2;
+            [Obstacle sharedObstacle].turnTotalTime=turnSingleTime*2;
+            break;
+        case kMIDIUM:
+            [Obstacle sharedObstacle].sunTotalTime=sunSingleTime*3;
+            [Obstacle sharedObstacle].barrierTotalTime=barrierSingleTime*1.5;
+            [Obstacle sharedObstacle].turnTotalTime=turnSingleTime*2;
+            break;
+        case kHARD:
+            [Obstacle sharedObstacle].sunTotalTime=sunSingleTime*2;
+            [Obstacle sharedObstacle].barrierTotalTime=barrierSingleTime*1;
+            [Obstacle sharedObstacle].turnTotalTime=turnSingleTime*1;
+            break;
+        default:
+            break;
+    }
     
     int x=totalObstacle;
     float distance=0;
@@ -102,26 +124,19 @@
             case kBARRIER:
                 obstacle[i]=kBARRIER;
                 obstacleDistance[i]=distance+[self getRandomDistance];
-                distance=obstacleDistance[i]+barrierTotalTime*accelerateSpeed;
+                distance=obstacleDistance[i]+[Obstacle sharedObstacle].barrierTotalTime*accelerateSpeed;
                 break;
                 
             case kTURN:
                 obstacle[i]=kTURN;
                 obstacleDistance[i]=distance+[self getRandomDistance];
-                if ([Obstacle sharedObstacle].gameScene==kYLFC)
-                {
-                    distance=obstacleDistance[i]+turnTwoTotalTime*accelerateSpeed;
-                }
-                else
-                {
-                    distance=obstacleDistance[i]+turnOneTotalTime*accelerateSpeed;
-                }
+                distance=obstacleDistance[i]+[Obstacle sharedObstacle].turnTotalTime*accelerateSpeed;
                 break;
                 
             case kSUN:
                 obstacle[i]=kSUN;
                 obstacleDistance[i]=distance+[self getRandomDistance];
-                distance=obstacleDistance[i]+sunTotalTime*accelerateSpeed;
+                distance=obstacleDistance[i]+[Obstacle sharedObstacle].sunTotalTime*accelerateSpeed;
                 break;
                 
             case kTRAFFIC_LIGHT:
@@ -186,7 +201,8 @@
 -(void) startGo:(id)pSender
 {
     [[Car sharedCar] start:kLEFT_LAND];
-
+    
+    [[SimpleAudioEngine sharedEngine] setBackgroundMusicVolume:1];
     //初始化时间
     raceTime=0;
     
@@ -211,13 +227,28 @@
 
 -(void) ready:(id)pSender
 {
-    [[SimpleAudioEngine sharedEngine] playEffect:@"321Go.mp3"];
-    [self runAction:[CCSequence actions:[CCDelayTime actionWithDuration:3],[CCCallFunc actionWithTarget:self selector:@selector(startGo:)],nil]];
+    switch ([Obstacle sharedObstacle].gameScene) {
+        case kYLFC:
+            [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"1夜路飞车.mp3"];
+            [self runAction:[CCSequence actions:[CCDelayTime actionWithDuration:14],[CCCallFunc actionWithTarget:self selector:@selector(startGo:)],nil]];
+            break;
+        case kBYYM:
+            [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"2暴雨要密.mp3"];
+            [self runAction:[CCSequence actions:[CCDelayTime actionWithDuration:27.5],[CCCallFunc actionWithTarget:self selector:@selector(startGo:)],nil]];
+            break;
+        case kMWTJ:
+            [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"3迷雾通缉.mp3"];
+            [self runAction:[CCSequence actions:[CCDelayTime actionWithDuration:20],[CCCallFunc actionWithTarget:self selector:@selector(startGo:)],nil]];
+            break;
+        default:
+            break;
+    }
+
+
 }
 
 -(void) start
 {
-    isPause=false;
     indexObstacle=0;
     [Car sharedCar].nowDistance=0;
     [Car sharedCar].speed=noSpeed;
@@ -323,6 +354,46 @@
     [self addChild:speedUpMenu];
 }
 
+-(void) addPause
+{
+    
+    //暂停按键
+    CCMenuItemImage *pauseItem=[CCMenuItemImage itemWithNormalImage:@"Pause.png" selectedImage:nil target:self selector:@selector(pauseGame:)];
+    CCMenu *pauseMenu=[CCMenu menuWithItems:pauseItem, nil];
+    pauseItem.anchorPoint=ccp(0,1);
+    pauseMenu.anchorPoint=ccp(0,1);
+    pauseMenu.position=ccp(0,screenSize.height);
+    [self addChild:pauseMenu];
+
+    
+    //暂停界面
+    pauseBackgroundSprite=[CCSprite spriteWithFile:@"PauseBackground.png"];
+    pauseBackgroundSprite.position=ccp(screenSize.width/2,screenSize.height/2);
+    [pauseBackgroundSprite setVisible:false];
+    [self addChild:pauseBackgroundSprite];
+    
+    CCMenuItemImage* resumeItem=[CCMenuItemImage itemWithNormalImage:@"Resume.png" selectedImage:nil target:self selector:@selector(resumeGame:)];
+    
+    resumeMenu=[CCMenu menuWithItems:resumeItem, nil];
+    resumeMenu.position=ccp(screenSize.width/2,screenSize.height/2);
+    [resumeMenu setVisible:false];
+    [resumeMenu setEnabled:false];
+    [self addChild:resumeMenu];
+    
+    //重新开始
+    againMenu=[CCMenu menuWithItems:[CCMenuItemLabel itemWithLabel:[CCLabelTTF labelWithString:@"重新游戏" fontName:@"TimesNewRomanPSMT" fontSize:30] target:self selector:@selector(againMenu:)], nil];
+    [againMenu setPosition:ccp(100,100)];
+    [self addChild:againMenu];
+    [againMenu setVisible:false];
+    [againMenu setEnabled:false];
+    
+    //主菜单
+    mainMenu=[CCMenu menuWithItems:[CCMenuItemLabel itemWithLabel:[CCLabelTTF labelWithString:@"主菜单" fontName:@"TimesNewRomanPSMT" fontSize:30] target:self selector:@selector(mainMenu:)], nil];
+    [mainMenu setPosition:ccp(screenSize.width-mainMenu.contentSize.height,100)];
+    [mainMenu setVisible:false];
+    [mainMenu setEnabled:false];
+    [self addChild:mainMenu];
+}
 -(id) init
 {
     if (self=[super init])
@@ -331,39 +402,13 @@
         
         [self addSpeedMenu];
         
-        //暂停按键
-        CCMenuItemImage *pauseItem=[CCMenuItemImage itemWithNormalImage:@"Pause.png" selectedImage:nil target:self selector:@selector(pauseGame:)];
-        CCMenu *pauseMenu=[CCMenu menuWithItems:pauseItem, nil];
-        pauseItem.anchorPoint=ccp(0,1);
-        pauseMenu.anchorPoint=ccp(0,1);
-        pauseMenu.position=ccp(0,screenSize.height);
-        [self addChild:pauseMenu];
-//        
-//        SpecialButton* pause=[SpecialButton specialButtonWithFile:@"Pause.png" target:self singClick:@selector(pauseGame:)];
-//        pause.anchorPoint=ccp(0,1);
-//        pause.position=ccp(0,screenSize.height);
-//        [self addChild:pause];
-
-        
         //加入raceTime
         [self addRaceTime];
-        
         
         //加入所有障碍物
         [self addBarrier];
     
-        //暂停界面
-        pauseBackgroundSprite=[CCSprite spriteWithFile:@"PauseBackground.png"];
-        pauseBackgroundSprite.position=ccp(screenSize.width/2,screenSize.height/2);
-        [pauseBackgroundSprite setVisible:false];
-        [self addChild:pauseBackgroundSprite];
-        
-        CCMenuItemImage* resumeItem=[CCMenuItemImage itemWithNormalImage:@"Resume.png" selectedImage:nil target:self selector:@selector(resumeGame:)];
-        
-        resumeMenu=[CCMenu menuWithItems:resumeItem, nil];
-        resumeMenu.position=ccp(screenSize.width/2,screenSize.height/2);
-        [resumeMenu setVisible:false];
-        [self addChild:resumeMenu];
+        [self addPause];
         
     }
     return self;
@@ -424,7 +469,7 @@
     CCActionInterval* spriteAction=[CCSequence actions:[CCFadeIn actionWithDuration:0.1],[CCFadeOut actionWithDuration:0.1], nil];
     [barrierSprite runAction:[CCRepeatForever actionWithAction:spriteAction]];
     
-    CCAction* removeSprite=[CCSequence actions:[CCDelayTime actionWithDuration:barrierTotalTime],[CCCallFunc actionWithTarget:self selector:@selector(endBarrer:)],nil];
+    CCAction* removeSprite=[CCSequence actions:[CCDelayTime actionWithDuration:[Obstacle sharedObstacle].barrierTotalTime],[CCCallFunc actionWithTarget:self selector:@selector(endBarrer:)],nil];
     [[[CCDirector sharedDirector] runningScene] runAction:removeSprite];
     
     int random=arc4random()%2;
@@ -453,7 +498,7 @@
     [sunSprite setVisible:true];
     CCActionInterval* spriteAction=[CCSequence actions:[CCFadeIn actionWithDuration:0.1],[CCFadeOut actionWithDuration:0.1], nil];
     [sunSprite runAction:[CCRepeatForever actionWithAction:spriteAction]];
-    CCAction* removeSprite=[CCSequence actions:[CCDelayTime actionWithDuration:sunTotalTime+0.05],[CCCallFunc actionWithTarget:self selector:@selector(endSun:)],nil];
+    CCAction* removeSprite=[CCSequence actions:[CCDelayTime actionWithDuration:[Obstacle sharedObstacle].sunTotalTime+0.05],[CCCallFunc actionWithTarget:self selector:@selector(endSun:)],nil];
     [[[CCDirector sharedDirector] runningScene] runAction:removeSprite];
     
     int random=arc4random()%2;
@@ -479,7 +524,7 @@
 {
     if (![Car sharedCar].isFinishSun)    //如果太阳检测时间没有结束 0.1s后回调自己
     {
-        CCAction* removeSprite=[CCSequence actions:[CCDelayTime actionWithDuration:sunTotalTime+0.1],[CCCallFunc actionWithTarget:self selector:@selector(endSun:)],nil];
+        CCAction* removeSprite=[CCSequence actions:[CCDelayTime actionWithDuration:[Obstacle sharedObstacle].sunTotalTime+0.1],[CCCallFunc actionWithTarget:self selector:@selector(endSun:)],nil];
         [[[CCDirector sharedDirector] runningScene] runAction:removeSprite];
     }
     else
@@ -489,9 +534,14 @@
         else                            //吃到太阳 播放动作  
         {
             [sunSprite stopAllActions];
+            
             ccBezierConfig bezier;
             bezier.controlPoint_1 = sunSprite.position;
-            bezier.controlPoint_2 = ccp(900, 600);
+            int sx=sunSprite.position.x;
+            int ex=1050;
+            int ey=750;
+            int sy=sunSprite.position.y;
+            bezier.controlPoint_2 = ccp(sx+(ex-sx)*0.5, sy+(ey-sy)*0.5+200);
             bezier.endPosition = sunCountPosition;
             CCAction* action=[CCSequence actions:[CCSpawn actions:[CCBezierTo actionWithDuration:0.5 bezier:bezier], [CCScaleTo actionWithDuration:0.5 scale:0.5],nil], [CCCallFunc actionWithTarget:self selector:@selector(bezierDone:)],nil];
             [sunSprite runAction:action];
@@ -510,41 +560,21 @@
          CCActionInterval* spriteAction=[CCSequence actions:[CCFadeIn actionWithDuration:0.1],[CCFadeOut actionWithDuration:0.1], nil];
         [turnLeftSprite runAction:[CCRepeatForever actionWithAction:spriteAction]];
         
-        if ([Obstacle sharedObstacle].gameScene==kYLFC)
-        {
-            CCAction* removeSprite=[CCSequence actions:[CCDelayTime actionWithDuration:turnTwoTotalTime],[CCCallFunc actionWithTarget:self selector:@selector(endTurnLeft:)],nil];
-            [[[CCDirector sharedDirector] runningScene] runAction:removeSprite];
+        CCAction* removeSprite=[CCSequence actions:[CCDelayTime actionWithDuration:[Obstacle sharedObstacle].turnTotalTime],[CCCallFunc actionWithTarget:self selector:@selector(endTurnLeft:)],nil];
+        [[[CCDirector sharedDirector] runningScene] runAction:removeSprite];
             
-            [[Obstacle sharedObstacle] startTurnTwoLeft];
-        }
-        else
-        {
-            CCAction* removeSprite=[CCSequence actions:[CCDelayTime actionWithDuration:turnOneTotalTime],[CCCallFunc actionWithTarget:self selector:@selector(endTurnLeft:)],nil];
-            [[[CCDirector sharedDirector] runningScene] runAction:removeSprite];
-            
-            [[Obstacle sharedObstacle] startTurnOneLeft];
-
-        }
+        [[Obstacle sharedObstacle] startTurnLeft];
     }
     else
     {
         [turnRightSprite setVisible:true];
         CCActionInterval* spriteAction=[CCSequence actions:[CCFadeIn actionWithDuration:0.1],[CCFadeOut actionWithDuration:0.1], nil];
         [turnRightSprite runAction:[CCRepeatForever actionWithAction:spriteAction]];
-        if ([Obstacle sharedObstacle].gameScene==kYLFC)
-        {
-            CCAction* removeSprite=[CCSequence actions:[CCDelayTime actionWithDuration:turnTwoTotalTime],[CCCallFunc actionWithTarget:self selector:@selector(endTurnRight:)],nil];
-            [[[CCDirector sharedDirector] runningScene] runAction:removeSprite];
+        
+        CCAction* removeSprite=[CCSequence actions:[CCDelayTime actionWithDuration:[Obstacle sharedObstacle].turnTotalTime],[CCCallFunc actionWithTarget:self selector:@selector(endTurnRight:)],nil];
+        [[[CCDirector sharedDirector] runningScene] runAction:removeSprite];
             
-            [[Obstacle sharedObstacle] startTurnTwoRight];
-        }
-        else
-        {
-            CCAction* removeSprite=[CCSequence actions:[CCDelayTime actionWithDuration:turnOneTotalTime],[CCCallFunc actionWithTarget:self selector:@selector(endTurnRight:)],nil];
-            [[[CCDirector sharedDirector] runningScene] runAction:removeSprite];
-            
-            [[Obstacle sharedObstacle] startTurnOneRight];
-        }
+        [[Obstacle sharedObstacle] startTurnRight];
     }
   
 }
@@ -603,7 +633,7 @@
 
 -(BOOL) ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event
 {
-    if (isPause) return NO;
+    if ([[CCDirector sharedDirector] isPaused]) return NO;
     
     CGPoint touchPoint = [touch locationInView:[touch view]];
 	touchPoint = [[CCDirector sharedDirector] convertToGL:touchPoint];
@@ -665,6 +695,16 @@
 
 #pragma mark  pause
 
+-(void) againMenu:(id)pSender
+{
+    [[CCDirector sharedDirector] popScene];
+}
+
+-(void) mainMenu:(id)pSender
+{
+    [[CCDirector sharedDirector] popToRootScene];
+}
+
 -(void) speedUpMenu:(id) pSender
 {
     if ([Car sharedCar].isNeedStop) return;
@@ -683,23 +723,28 @@
 
 -(void) resumeGame:(id)pSender
 {
-    [[CCDirector sharedDirector] resume];
-    [[SimpleAudioEngine sharedEngine] resumeAllEffect];
-   // [[SimpleAudioEngine sharedEngine] resumeBackgroundMusic];
-    
     [pauseBackgroundSprite setVisible:false];
 
     [normalSpeedMenu setEnabled:true];
     [speedUpMenu setEnabled:true];
     
     [resumeMenu setVisible:false];
+    [resumeMenu setEnabled:false];
     
-    isPause=false;
+    [againMenu setEnabled:false];
+    [againMenu setVisible:false];
+    
+    [mainMenu setEnabled:false];
+    [mainMenu setVisible:false];
+    
+    [[CCDirector sharedDirector] resume];
+    [[SimpleAudioEngine sharedEngine] resumeAllEffect];
+    [[SimpleAudioEngine sharedEngine] resumeBackgroundMusic];
+
 }
 
 -(void) pauseGame:(id)pSender
 {
-    isPause=true;
     [[CCDirector sharedDirector] pause];
     [[SimpleAudioEngine sharedEngine] pauseAllEffect];
     [[SimpleAudioEngine sharedEngine] pauseBackgroundMusic];
@@ -708,21 +753,29 @@
     [speedUpMenu setEnabled:false];
     
     [pauseBackgroundSprite setVisible:true];
+    
+    [resumeMenu setEnabled:true];
     [resumeMenu setVisible:true];
+    
+    [againMenu setVisible:true];
+    [againMenu setEnabled:true];
+    
+    [mainMenu setVisible:true];
+    [mainMenu setEnabled:true];
 }
 
 -(void) onEnter
 {
     [super onEnter];
     [self start];
-    //  [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"BGM.mp3"];
-    // [[SimpleAudioEngine sharedEngine] setBackgroundMusicVolume:0.1];
 }
 
 -(void) onExit
 {
+    if ([[CCDirector sharedDirector] isPaused]) [[CCDirector sharedDirector] resume];
     [[[CCDirector sharedDirector] touchDispatcher] removeDelegate:self];
     [[SimpleAudioEngine sharedEngine] stopAllEffect];
+    [self stopAllActions];
     [super onExit];
 }
 

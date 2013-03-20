@@ -93,17 +93,17 @@
 
 -(void) onEnterLayer
 {
-    if ([[UserData sharedUserData] getIsUnlockAtScene:kXBTW])
-    {
-        isLock=false;
-        [self unlockScene];
-    }
-    else
-    {
-        isLock=true;
-        [self lockScene];
-    }
-   // [self unlockScene];
+//    if ([[UserData sharedUserData] getIsUnlockAtScene:kXBTW])
+//    {
+//        isLock=false;
+//        [self unlockScene];
+//    }
+//    else
+//    {
+//        isLock=true;
+//        [self lockScene];
+//    }
+    [self unlockScene];
 }
 
 -(void) onExitLayer

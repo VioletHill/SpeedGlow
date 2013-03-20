@@ -180,6 +180,7 @@
 //    CCAction* action=[CCSequence actions:[CCScaleTo actionWithDuration:0.1 scale:0.25],[CCScaleTo actionWithDuration:0.05 scale:1],[CCCallFunc actionWithTarget:self selector:@selector(callReturnLastScene:)],
 //                      nil];
 //    [[[CCDirector sharedDirector] runningScene] runAction:action];
+
     [[CCDirector sharedDirector] popScene];
 }
 

@@ -166,6 +166,23 @@
 		2416200016DCC1E2008BE1B3 /* Easy.png in Resources */ = {isa = PBXBuildFile; fileRef = 24161FFD16DCC1E1008BE1B3 /* Easy.png */; };
 		2416200116DCC1E2008BE1B3 /* Hard.png in Resources */ = {isa = PBXBuildFile; fileRef = 24161FFE16DCC1E1008BE1B3 /* Hard.png */; };
 		2416200916DCC72E008BE1B3 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2416200816DCC72E008BE1B3 /* CoreMotion.framework */; };
+		2422D18E16F9C56C00448FE5 /* 10.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2422D18616F9C56C00448FE5 /* 10.mp3 */; };
+		2422D18F16F9C56C00448FE5 /* 20.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2422D18716F9C56C00448FE5 /* 20.mp3 */; };
+		2422D19016F9C56C00448FE5 /* 30.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2422D18816F9C56C00448FE5 /* 30.mp3 */; };
+		2422D19116F9C56C00448FE5 /* 40.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2422D18916F9C56C00448FE5 /* 40.mp3 */; };
+		2422D19216F9C56C00448FE5 /* 50.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2422D18A16F9C56C00448FE5 /* 50.mp3 */; };
+		2422D19316F9C56C00448FE5 /* 70.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2422D18B16F9C56C00448FE5 /* 70.mp3 */; };
+		2422D19416F9C56C00448FE5 /* 80.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2422D18C16F9C56C00448FE5 /* 80.mp3 */; };
+		2422D19516F9C56C00448FE5 /* 90.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2422D18D16F9C56C00448FE5 /* 90.mp3 */; };
+		2422D19B16F9CA6900448FE5 /* 1夜路飞车.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2422D19716F9CA6900448FE5 /* 1夜路飞车.mp3 */; };
+		2422D19C16F9CA6900448FE5 /* 2暴雨要密.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2422D19816F9CA6900448FE5 /* 2暴雨要密.mp3 */; };
+		2422D19E16F9CA6900448FE5 /* 4雪崩逃亡.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2422D19A16F9CA6900448FE5 /* 4雪崩逃亡.mp3 */; };
+		2422D1A116F9D5C700448FE5 /* 开始宣传语.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2422D19F16F9D5C700448FE5 /* 开始宣传语.mp3 */; };
+		2422D1A216F9D5C700448FE5 /* 双击进入场景.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2422D1A016F9D5C700448FE5 /* 双击进入场景.mp3 */; };
+		2422D1A816F9F75300448FE5 /* 大石头.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2422D1A416F9F75300448FE5 /* 大石头.mp3 */; };
+		2422D1A916F9F75300448FE5 /* 自行车声音.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2422D1A516F9F75300448FE5 /* 自行车声音.mp3 */; };
+		2422D1AB16F9F75300448FE5 /* 自行车.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2422D1A716F9F75300448FE5 /* 自行车.mp3 */; };
+		2422D1AD16F9F7A000448FE5 /* 3迷雾通缉.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2422D1AC16F9F7A000448FE5 /* 3迷雾通缉.mp3 */; };
 		242351A416ED9BB9009986A7 /* SettingBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 242351A216ED9BB9009986A7 /* SettingBackground.png */; };
 		242351C816EF0D0F009986A7 /* 二难度中等.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 242351C116EF0D0F009986A7 /* 二难度中等.mp3 */; };
 		242351C916EF0D0F009986A7 /* 排名第一.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 242351C216EF0D0F009986A7 /* 排名第一.mp3 */; };
@@ -178,7 +195,6 @@
 		2424E11316DF74190060ED9E /* 当前页音效页.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2424E11016DF74190060ED9E /* 当前页音效页.mp3 */; };
 		2424E11416DF74190060ED9E /* 上下滚动切换查看不同音效.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2424E11116DF74190060ED9E /* 上下滚动切换查看不同音效.mp3 */; };
 		2424E11516DF74190060ED9E /* 向右滑屏切换操作页.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2424E11216DF74190060ED9E /* 向右滑屏切换操作页.mp3 */; };
-		242512B516DDD6C300273A27 /* 01主菜单单击屏幕中间开始游戏.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 242512B416DDD6C300273A27 /* 01主菜单单击屏幕中间开始游戏.mp3 */; };
 		2425455616EAF13D0025293E /* 拐弯音效 .mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2425455516EAF13D0025293E /* 拐弯音效 .mp3 */; };
 		2425455D16EB08600025293E /* fog.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2425455B16EB08600025293E /* fog.plist */; };
 		2425455E16EB08600025293E /* fog.png in Resources */ = {isa = PBXBuildFile; fileRef = 2425455C16EB08600025293E /* fog.png */; };
@@ -228,7 +244,6 @@
 		2465FBBA16ECCD5C00394BB6 /* 已获得太阳数量.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2465FB9F16ECCD5C00394BB6 /* 已获得太阳数量.mp3 */; };
 		2465FBBB16ECCD5C00394BB6 /* 已获得所有的太阳.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2465FBA016ECCD5C00394BB6 /* 已获得所有的太阳.mp3 */; };
 		2465FBBC16ECCD5C00394BB6 /* 1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2465FBA216ECCD5C00394BB6 /* 1.mp3 */; };
-		2465FBBD16ECCD5C00394BB6 /* 10.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2465FBA316ECCD5C00394BB6 /* 10.mp3 */; };
 		2465FBBE16ECCD5C00394BB6 /* 2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2465FBA416ECCD5C00394BB6 /* 2.mp3 */; };
 		2465FBBF16ECCD5C00394BB6 /* 3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2465FBA516ECCD5C00394BB6 /* 3.mp3 */; };
 		2465FBC016ECCD5C00394BB6 /* 4.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2465FBA616ECCD5C00394BB6 /* 4.mp3 */; };
@@ -292,7 +307,6 @@
 		2496C12316E5D37000C727E2 /* 启动发车.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2496C12016E5D37000C727E2 /* 启动发车.mp3 */; };
 		2496C12416E5D37000C727E2 /* 常速行驶音效.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2496C12116E5D37000C727E2 /* 常速行驶音效.mp3 */; };
 		2496C12616E5DA2600C727E2 /* 重启间隙2s.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2496C12516E5DA2600C727E2 /* 重启间隙2s.mp3 */; };
-		2496C12816E5DFA300C727E2 /* 321Go.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2496C12716E5DFA300C727E2 /* 321Go.mp3 */; };
 		24976EAE16DF35F40060D105 /* 场景二.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 24976EA716DF35F40060D105 /* 场景二.mp3 */; };
 		24976EAF16DF35F40060D105 /* 场景三.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 24976EA816DF35F40060D105 /* 场景三.mp3 */; };
 		24976EB016DF35F40060D105 /* 场景四.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 24976EA916DF35F40060D105 /* 场景四.mp3 */; };
@@ -325,7 +339,6 @@
 		24D96E5216F36CAE00C47E9D /* 背景音乐.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 24D96E4A16F36CAE00C47E9D /* 背景音乐.mp3 */; };
 		24D96E5316F36CAE00C47E9D /* 设置面板.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 24D96E4B16F36CAE00C47E9D /* 设置面板.mp3 */; };
 		24D96E5416F36CAE00C47E9D /* 语音提示.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 24D96E4C16F36CAE00C47E9D /* 语音提示.mp3 */; };
-		24E4C51516E9E4890052300A /* BGM.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 24E4C51416E9E4890052300A /* BGM.mp3 */; };
 		24E4C51B16E9FBD60052300A /* HelpBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 24E4C51816E9FBD60052300A /* HelpBackground.png */; };
 		24E4C51C16E9FBD60052300A /* NextOrder.png in Resources */ = {isa = PBXBuildFile; fileRef = 24E4C51916E9FBD60052300A /* NextOrder.png */; };
 		24E4C51F16E9FBE40052300A /* EffectBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 24E4C51E16E9FBE40052300A /* EffectBackground.png */; };
@@ -681,6 +694,23 @@
 		24161FFD16DCC1E1008BE1B3 /* Easy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Easy.png; path = Resources/MainMenuScene/MainMenu/Play/Easy.png; sourceTree = "<group>"; };
 		24161FFE16DCC1E1008BE1B3 /* Hard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Hard.png; path = Resources/MainMenuScene/MainMenu/Play/Hard.png; sourceTree = "<group>"; };
 		2416200816DCC72E008BE1B3 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		2422D18616F9C56C00448FE5 /* 10.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 10.mp3; sourceTree = "<group>"; };
+		2422D18716F9C56C00448FE5 /* 20.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 20.mp3; sourceTree = "<group>"; };
+		2422D18816F9C56C00448FE5 /* 30.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 30.mp3; sourceTree = "<group>"; };
+		2422D18916F9C56C00448FE5 /* 40.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 40.mp3; sourceTree = "<group>"; };
+		2422D18A16F9C56C00448FE5 /* 50.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 50.mp3; sourceTree = "<group>"; };
+		2422D18B16F9C56C00448FE5 /* 70.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 70.mp3; sourceTree = "<group>"; };
+		2422D18C16F9C56C00448FE5 /* 80.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 80.mp3; sourceTree = "<group>"; };
+		2422D18D16F9C56C00448FE5 /* 90.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 90.mp3; sourceTree = "<group>"; };
+		2422D19716F9CA6900448FE5 /* 1夜路飞车.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "1夜路飞车.mp3"; path = "音效/系统游戏音效/背景音乐/1夜路飞车.mp3"; sourceTree = "<group>"; };
+		2422D19816F9CA6900448FE5 /* 2暴雨要密.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "2暴雨要密.mp3"; path = "音效/系统游戏音效/背景音乐/2暴雨要密.mp3"; sourceTree = "<group>"; };
+		2422D19A16F9CA6900448FE5 /* 4雪崩逃亡.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "4雪崩逃亡.mp3"; path = "音效/系统游戏音效/背景音乐/4雪崩逃亡.mp3"; sourceTree = "<group>"; };
+		2422D19F16F9D5C700448FE5 /* 开始宣传语.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "开始宣传语.mp3"; path = "音效/语音/开始宣传语.mp3"; sourceTree = "<group>"; };
+		2422D1A016F9D5C700448FE5 /* 双击进入场景.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "双击进入场景.mp3"; path = "音效/语音/双击进入场景.mp3"; sourceTree = "<group>"; };
+		2422D1A416F9F75300448FE5 /* 大石头.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "大石头.mp3"; sourceTree = "<group>"; };
+		2422D1A516F9F75300448FE5 /* 自行车声音.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "自行车声音.mp3"; sourceTree = "<group>"; };
+		2422D1A716F9F75300448FE5 /* 自行车.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "自行车.mp3"; sourceTree = "<group>"; };
+		2422D1AC16F9F7A000448FE5 /* 3迷雾通缉.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "3迷雾通缉.mp3"; path = "音效/系统游戏音效/背景音乐/3迷雾通缉.mp3"; sourceTree = "<group>"; };
 		242351A216ED9BB9009986A7 /* SettingBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = SettingBackground.png; path = "Resources/MainMenuScene/设置/SettingBackground.png"; sourceTree = "<group>"; };
 		242351C116EF0D0F009986A7 /* 二难度中等.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "二难度中等.mp3"; path = "音效/选择关卡/选择难度/二难度中等.mp3"; sourceTree = "<group>"; };
 		242351C216EF0D0F009986A7 /* 排名第一.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "排名第一.mp3"; path = "音效/选择关卡/选择难度/排名第一.mp3"; sourceTree = "<group>"; };
@@ -694,7 +724,6 @@
 		2424E11016DF74190060ED9E /* 当前页音效页.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "当前页音效页.mp3"; path = "音效/帮助/音效页/当前页音效页.mp3"; sourceTree = "<group>"; };
 		2424E11116DF74190060ED9E /* 上下滚动切换查看不同音效.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "上下滚动切换查看不同音效.mp3"; path = "音效/帮助/音效页/上下滚动切换查看不同音效.mp3"; sourceTree = "<group>"; };
 		2424E11216DF74190060ED9E /* 向右滑屏切换操作页.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "向右滑屏切换操作页.mp3"; path = "音效/帮助/音效页/向右滑屏切换操作页.mp3"; sourceTree = "<group>"; };
-		242512B416DDD6C300273A27 /* 01主菜单单击屏幕中间开始游戏.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "01主菜单单击屏幕中间开始游戏.mp3"; path = "音效/语音/01主菜单单击屏幕中间开始游戏.mp3"; sourceTree = "<group>"; };
 		2425455516EAF13D0025293E /* 拐弯音效 .mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "拐弯音效 .mp3"; sourceTree = "<group>"; };
 		2425455B16EB08600025293E /* fog.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = fog.plist; path = "Resources/MainMenuScene/MainMenu/Play/迷雾通缉/fog.plist"; sourceTree = "<group>"; };
 		2425455C16EB08600025293E /* fog.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = fog.png; path = "Resources/MainMenuScene/MainMenu/Play/迷雾通缉/fog.png"; sourceTree = "<group>"; };
@@ -750,7 +779,6 @@
 		2465FB9F16ECCD5C00394BB6 /* 已获得太阳数量.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "已获得太阳数量.mp3"; sourceTree = "<group>"; };
 		2465FBA016ECCD5C00394BB6 /* 已获得所有的太阳.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "已获得所有的太阳.mp3"; sourceTree = "<group>"; };
 		2465FBA216ECCD5C00394BB6 /* 1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 1.mp3; sourceTree = "<group>"; };
-		2465FBA316ECCD5C00394BB6 /* 10.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 10.mp3; sourceTree = "<group>"; };
 		2465FBA416ECCD5C00394BB6 /* 2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 2.mp3; sourceTree = "<group>"; };
 		2465FBA516ECCD5C00394BB6 /* 3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 3.mp3; sourceTree = "<group>"; };
 		2465FBA616ECCD5C00394BB6 /* 4.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 4.mp3; sourceTree = "<group>"; };
@@ -822,7 +850,6 @@
 		2496C12016E5D37000C727E2 /* 启动发车.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "启动发车.mp3"; sourceTree = "<group>"; };
 		2496C12116E5D37000C727E2 /* 常速行驶音效.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "常速行驶音效.mp3"; sourceTree = "<group>"; };
 		2496C12516E5DA2600C727E2 /* 重启间隙2s.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "重启间隙2s.mp3"; sourceTree = "<group>"; };
-		2496C12716E5DFA300C727E2 /* 321Go.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = 321Go.mp3; path = "音效/语音/321Go.mp3"; sourceTree = "<group>"; };
 		24976EA716DF35F40060D105 /* 场景二.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "场景二.mp3"; path = "音效/选择关卡/场景二.mp3"; sourceTree = "<group>"; };
 		24976EA816DF35F40060D105 /* 场景三.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "场景三.mp3"; path = "音效/选择关卡/场景三.mp3"; sourceTree = "<group>"; };
 		24976EA916DF35F40060D105 /* 场景四.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "场景四.mp3"; path = "音效/选择关卡/场景四.mp3"; sourceTree = "<group>"; };
@@ -859,7 +886,6 @@
 		24D96E4A16F36CAE00C47E9D /* 背景音乐.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "背景音乐.mp3"; sourceTree = "<group>"; };
 		24D96E4B16F36CAE00C47E9D /* 设置面板.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "设置面板.mp3"; sourceTree = "<group>"; };
 		24D96E4C16F36CAE00C47E9D /* 语音提示.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "语音提示.mp3"; sourceTree = "<group>"; };
-		24E4C51416E9E4890052300A /* BGM.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = BGM.mp3; path = "音效/系统游戏音效/BGM.mp3"; sourceTree = "<group>"; };
 		24E4C51816E9FBD60052300A /* HelpBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = HelpBackground.png; path = "Resources/MainMenuScene/帮助/HelpBackground.png"; sourceTree = "<group>"; };
 		24E4C51916E9FBD60052300A /* NextOrder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = NextOrder.png; path = "Resources/MainMenuScene/帮助/NextOrder.png"; sourceTree = "<group>"; };
 		24E4C51E16E9FBE40052300A /* EffectBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = EffectBackground.png; path = "Resources/MainMenuScene/帮助/音效/EffectBackground.png"; sourceTree = "<group>"; };
@@ -1504,6 +1530,28 @@
 			name = "困难";
 			sourceTree = "<group>";
 		};
+		2422D19616F9CA5200448FE5 /* 背景音效 */ = {
+			isa = PBXGroup;
+			children = (
+				2422D19716F9CA6900448FE5 /* 1夜路飞车.mp3 */,
+				2422D19816F9CA6900448FE5 /* 2暴雨要密.mp3 */,
+				2422D1AC16F9F7A000448FE5 /* 3迷雾通缉.mp3 */,
+				2422D19A16F9CA6900448FE5 /* 4雪崩逃亡.mp3 */,
+			);
+			name = "背景音效";
+			sourceTree = "<group>";
+		};
+		2422D1A316F9F75300448FE5 /* 场景三 */ = {
+			isa = PBXGroup;
+			children = (
+				2422D1A416F9F75300448FE5 /* 大石头.mp3 */,
+				2422D1A516F9F75300448FE5 /* 自行车声音.mp3 */,
+				2422D1A716F9F75300448FE5 /* 自行车.mp3 */,
+			);
+			name = "场景三";
+			path = "音效/系统游戏音效/障碍物音效/场景三";
+			sourceTree = "<group>";
+		};
 		242351A116ED9BAF009986A7 /* 音效 */ = {
 			isa = PBXGroup;
 			children = (
@@ -1605,10 +1653,10 @@
 		242512B316DDD6B700273A27 /* 语音 */ = {
 			isa = PBXGroup;
 			children = (
-				2496C12716E5DFA300C727E2 /* 321Go.mp3 */,
+				2422D19F16F9D5C700448FE5 /* 开始宣传语.mp3 */,
+				2422D1A016F9D5C700448FE5 /* 双击进入场景.mp3 */,
 				249898BD16E4EEE400E0531F /* 游戏界面.mp3 */,
 				249898BE16E4EEE400E0531F /* 载入中-.mp3 */,
-				242512B416DDD6C300273A27 /* 01主菜单单击屏幕中间开始游戏.mp3 */,
 			);
 			name = "语音";
 			sourceTree = "<group>";
@@ -1729,7 +1777,6 @@
 			children = (
 				24D96E4216F34EF400C47E9D /* 0.mp3 */,
 				2465FBA216ECCD5C00394BB6 /* 1.mp3 */,
-				2465FBA316ECCD5C00394BB6 /* 10.mp3 */,
 				2465FBA416ECCD5C00394BB6 /* 2.mp3 */,
 				2465FBA516ECCD5C00394BB6 /* 3.mp3 */,
 				2465FBA616ECCD5C00394BB6 /* 4.mp3 */,
@@ -1738,6 +1785,14 @@
 				2465FBA916ECCD5C00394BB6 /* 7.mp3 */,
 				2465FBAA16ECCD5C00394BB6 /* 8.mp3 */,
 				2465FBAB16ECCD5C00394BB6 /* 9.mp3 */,
+				2422D18616F9C56C00448FE5 /* 10.mp3 */,
+				2422D18716F9C56C00448FE5 /* 20.mp3 */,
+				2422D18816F9C56C00448FE5 /* 30.mp3 */,
+				2422D18916F9C56C00448FE5 /* 40.mp3 */,
+				2422D18A16F9C56C00448FE5 /* 50.mp3 */,
+				2422D18B16F9C56C00448FE5 /* 70.mp3 */,
+				2422D18C16F9C56C00448FE5 /* 80.mp3 */,
+				2422D18D16F9C56C00448FE5 /* 90.mp3 */,
 			);
 			path = "数字";
 			sourceTree = "<group>";
@@ -1873,6 +1928,7 @@
 				2493BED716E78E1100BB0A4C /* 撞到路障.mp3 */,
 				2493BECA16E7848000BB0A4C /* 场景一 */,
 				24122B7C16F1B6350058B50D /* 场景二 */,
+				2422D1A316F9F75300448FE5 /* 场景三 */,
 			);
 			name = "障碍物音效";
 			sourceTree = "<group>";
@@ -1975,9 +2031,9 @@
 		24C1344D16E1F8300017EBCF /* 游戏音效 */ = {
 			isa = PBXGroup;
 			children = (
-				24E4C51416E9E4890052300A /* BGM.mp3 */,
 				2465FB5916ECAFF700394BB6 /* 欢呼.mp3 */,
 				2465FB5A16ECAFF700394BB6 /* 嘘声.mp3 */,
+				2422D19616F9CA5200448FE5 /* 背景音效 */,
 				2493BEEF16E7956E00BB0A4C /* 转弯 */,
 				2493BEE616E7955C00BB0A4C /* 红绿灯 */,
 				2493BEDD16E7953100BB0A4C /* 太阳 */,
@@ -2246,7 +2302,6 @@
 				24161FFF16DCC1E2008BE1B3 /* Medium.png in Resources */,
 				2416200016DCC1E2008BE1B3 /* Easy.png in Resources */,
 				2416200116DCC1E2008BE1B3 /* Hard.png in Resources */,
-				242512B516DDD6C300273A27 /* 01主菜单单击屏幕中间开始游戏.mp3 in Resources */,
 				24976EAE16DF35F40060D105 /* 场景二.mp3 in Resources */,
 				24976EAF16DF35F40060D105 /* 场景三.mp3 in Resources */,
 				24976EB016DF35F40060D105 /* 场景四.mp3 in Resources */,
@@ -2276,7 +2331,6 @@
 				2496C12316E5D37000C727E2 /* 启动发车.mp3 in Resources */,
 				2496C12416E5D37000C727E2 /* 常速行驶音效.mp3 in Resources */,
 				2496C12616E5DA2600C727E2 /* 重启间隙2s.mp3 in Resources */,
-				2496C12816E5DFA300C727E2 /* 321Go.mp3 in Resources */,
 				2493BEC616E75ADE00BB0A4C /* 重启间隙4s.mp3 in Resources */,
 				2493BEC816E77DE600BB0A4C /* Barrier.png in Resources */,
 				2493BECF16E7849600BB0A4C /* 货箱.mp3 in Resources */,
@@ -2309,7 +2363,6 @@
 				240D6B3716E8B4F600CF51FA /* TurnRight.png in Resources */,
 				24FF140B16E9D816006B1214 /* PauseBackground.png in Resources */,
 				24FF140E16E9D839006B1214 /* Resume.png in Resources */,
-				24E4C51516E9E4890052300A /* BGM.mp3 in Resources */,
 				24E4C51B16E9FBD60052300A /* HelpBackground.png in Resources */,
 				24E4C51C16E9FBD60052300A /* NextOrder.png in Resources */,
 				24E4C51F16E9FBE40052300A /* EffectBackground.png in Resources */,
@@ -2367,7 +2420,6 @@
 				2465FBBA16ECCD5C00394BB6 /* 已获得太阳数量.mp3 in Resources */,
 				2465FBBB16ECCD5C00394BB6 /* 已获得所有的太阳.mp3 in Resources */,
 				2465FBBC16ECCD5C00394BB6 /* 1.mp3 in Resources */,
-				2465FBBD16ECCD5C00394BB6 /* 10.mp3 in Resources */,
 				2465FBBE16ECCD5C00394BB6 /* 2.mp3 in Resources */,
 				2465FBBF16ECCD5C00394BB6 /* 3.mp3 in Resources */,
 				2465FBC016ECCD5C00394BB6 /* 4.mp3 in Resources */,
@@ -2415,6 +2467,23 @@
 				24D96E5216F36CAE00C47E9D /* 背景音乐.mp3 in Resources */,
 				24D96E5316F36CAE00C47E9D /* 设置面板.mp3 in Resources */,
 				24D96E5416F36CAE00C47E9D /* 语音提示.mp3 in Resources */,
+				2422D18E16F9C56C00448FE5 /* 10.mp3 in Resources */,
+				2422D18F16F9C56C00448FE5 /* 20.mp3 in Resources */,
+				2422D19016F9C56C00448FE5 /* 30.mp3 in Resources */,
+				2422D19116F9C56C00448FE5 /* 40.mp3 in Resources */,
+				2422D19216F9C56C00448FE5 /* 50.mp3 in Resources */,
+				2422D19316F9C56C00448FE5 /* 70.mp3 in Resources */,
+				2422D19416F9C56C00448FE5 /* 80.mp3 in Resources */,
+				2422D19516F9C56C00448FE5 /* 90.mp3 in Resources */,
+				2422D19B16F9CA6900448FE5 /* 1夜路飞车.mp3 in Resources */,
+				2422D19C16F9CA6900448FE5 /* 2暴雨要密.mp3 in Resources */,
+				2422D19E16F9CA6900448FE5 /* 4雪崩逃亡.mp3 in Resources */,
+				2422D1A116F9D5C700448FE5 /* 开始宣传语.mp3 in Resources */,
+				2422D1A216F9D5C700448FE5 /* 双击进入场景.mp3 in Resources */,
+				2422D1A816F9F75300448FE5 /* 大石头.mp3 in Resources */,
+				2422D1A916F9F75300448FE5 /* 自行车声音.mp3 in Resources */,
+				2422D1AB16F9F75300448FE5 /* 自行车.mp3 in Resources */,
+				2422D1AD16F9F7A000448FE5 /* 3迷雾通缉.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

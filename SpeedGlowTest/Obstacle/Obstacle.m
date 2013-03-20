@@ -14,14 +14,19 @@
 
 @implementation Obstacle
 {
- 
-    CMMotionManager* motionManager;
     float startDistance;
+    
+    ALuint barrierEffect;
+    ALuint turnEffect;
+    ALuint sunEffect;
 }
 
 @synthesize barrierL=_barrierL;
 @synthesize barrierR=_barrierR;
 @synthesize gameScene=_gameScene;
+@synthesize sunTotalTime=_sunTotalTime;
+@synthesize barrierTotalTime=_barrierTotalTime;
+@synthesize turnTotalTime=_turnTotalTime;
 
 static Obstacle* obstacle;
 
@@ -38,15 +43,11 @@ static Obstacle* obstacle;
 
 -(id) init
 {
-    self.barrierL=false;
-    self.barrierR=false;
+    if (self=[super init])
+    {
+        
+    }
     
-    motionManager=[[CMMotionManager alloc] init];
-    motionManager.accelerometerUpdateInterval=0.1;
-    motionManager.deviceMotionUpdateInterval=0.1;
-   // motionManager.
-    [motionManager startDeviceMotionUpdates];
-    [motionManager startAccelerometerUpdates];
     return  self;
 }
 
@@ -111,12 +112,22 @@ static Obstacle* obstacle;
 
 -(void) playEffectCar:(id)pSender
 {
-    [[SimpleAudioEngine sharedEngine] playEffect:@"车辆"];
+    [[SimpleAudioEngine sharedEngine] playEffect:@"车辆.mp3"];
 }
 
 -(void) playEffectThunder:(id)pSender
 {
     [[SimpleAudioEngine sharedEngine] playEffect:@"雷电.mp3"];
+}
+
+-(void) playEffectStone:(id)pSender
+{
+    [[SimpleAudioEngine sharedEngine] playEffect:@"大石头.mp3"];
+}
+
+-(void) playEffectBicycle:(id)pSender
+{
+    [[SimpleAudioEngine sharedEngine] playEffect:@"自行车.mp3"];
 }
 
 -(void) collisionBarrier
@@ -154,10 +165,10 @@ static Obstacle* obstacle;
             case 0:
                 [[Car sharedCar] collisionBox];
                 [[SimpleAudioEngine sharedEngine] playEffect:@"撞到路障.mp3"];
-                action=[CCSequence actions:[CCDelayTime actionWithDuration:1],[CCCallFunc actionWithTarget:self selector:@selector(playEffectTree:)], nil];
+                action=[CCSequence actions:[CCDelayTime actionWithDuration:1],[CCCallFunc actionWithTarget:self selector:@selector(playEffectBox:)], nil];
                 break;
             case 1:
-                [[Car sharedCar] collisionBox];
+                [[Car sharedCar] collisionCar];
                 [[SimpleAudioEngine sharedEngine] playEffect:@"撞到路障.mp3"];
                 action=[CCSequence actions:[CCDelayTime actionWithDuration:1],[CCCallFunc actionWithTarget:self selector:@selector(playEffectCar:)], nil];
                 break;
@@ -168,12 +179,41 @@ static Obstacle* obstacle;
                 break;
         }
         [[[CCDirector sharedDirector] runningScene] runAction:action];
+    }
+    else if (self.gameScene==kMWTJ)
+    {
+        int value = arc4random() % 3;
+        CCAction* action;
+        switch (value)
+        {
+            case 0:
+                [[Car sharedCar] collisionBox];
+                [[SimpleAudioEngine sharedEngine] playEffect:@"撞到路障.mp3"];
+                action=[CCSequence actions:[CCDelayTime actionWithDuration:1],[CCCallFunc actionWithTarget:self selector:@selector(playEffectBox:)], nil];
+                break;
+            case 1:
+                [[Car sharedCar] collisionStone];
+                [[SimpleAudioEngine sharedEngine] playEffect:@"撞到路障.mp3"];
+                action=[CCSequence actions:[CCDelayTime actionWithDuration:1],[CCCallFunc actionWithTarget:self selector:@selector(playEffectStone:)], nil];
+                break;
+            case 2:
+                [[Car sharedCar] collisionBicycle];
+                [[SimpleAudioEngine sharedEngine] playEffect:@"自行车声音.mp3"];
+                action=[CCSequence actions:[CCDelayTime actionWithDuration:1],[CCCallFunc actionWithTarget:self selector:@selector(playEffectBicycle:)],nil];
+                break;
+        }
+        [[[CCDirector sharedDirector] runningScene] runAction:action];
 
+    }
+    else if (self.gameScene==kXBTW)
+    {
+        
     }
 }
 
 -(void) checkCollisionL:(id)pSender
 {
+    [[SimpleAudioEngine sharedEngine] stopEffect:barrierEffect];
     if ([Car sharedCar].lane==kLEFT_LAND)
     {
         [self collisionBarrier];
@@ -187,16 +227,17 @@ static Obstacle* obstacle;
 
 -(void) startBarrierL
 {
-    [[SimpleAudioEngine sharedEngine] playEffect:@"路障提示音_L.mp3"];
+    barrierEffect=[[SimpleAudioEngine sharedEngine] playEffect:@"路障提示音_L.mp3" loop:true];
     
     self.barrierL=true;
     
-    CCAction* action=[CCSequence actions:[CCDelayTime actionWithDuration:barrierTotalTime], [CCCallFunc actionWithTarget:self selector:@selector(checkCollisionL:)],nil];
+    CCAction* action=[CCSequence actions:[CCDelayTime actionWithDuration:[Obstacle sharedObstacle].barrierTotalTime], [CCCallFunc actionWithTarget:self selector:@selector(checkCollisionL:)],nil];
     [[[CCDirector sharedDirector] runningScene] runAction:action];
 }
 
 -(void) checkCollisionR:(id)pSender
 {
+    [[SimpleAudioEngine sharedEngine] stopEffect:barrierEffect];
     if ([Car sharedCar].lane==kRIGHT_LAND)
     {
         [self collisionBarrier];
@@ -210,11 +251,11 @@ static Obstacle* obstacle;
 
 -(void) startBarrierR
 {
-    [[SimpleAudioEngine sharedEngine] playEffect:@"路障提示音_R.mp3"];
+    barrierEffect=[[SimpleAudioEngine sharedEngine] playEffect:@"路障提示音_R.mp3" loop:true];
     
     self.barrierR=true;
     
-    CCAction* action=[CCSequence actions:[CCDelayTime actionWithDuration:barrierTotalTime], [CCCallFunc actionWithTarget:self selector:@selector(checkCollisionR:)],nil];
+    CCAction* action=[CCSequence actions:[CCDelayTime actionWithDuration:[Obstacle sharedObstacle].barrierTotalTime], [CCCallFunc actionWithTarget:self selector:@selector(checkCollisionR:)],nil];
     
     [[[CCDirector sharedDirector] runningScene] runAction:action];
 }
@@ -226,6 +267,7 @@ static Obstacle* obstacle;
  */
 -(void) checkSunL:(id)pSender
 {
+    [[SimpleAudioEngine sharedEngine] stopEffect:sunEffect];
     if ([Car sharedCar].lane==kLEFT_LAND)
     {
         [[SimpleAudioEngine sharedEngine] playEffect:@"SunEatenL.mp3"];
@@ -237,9 +279,9 @@ static Obstacle* obstacle;
 
 -(void) startSunL
 {
-    [[SimpleAudioEngine sharedEngine] playEffect:@"sun提示L.mp3"];
+    sunEffect=[[SimpleAudioEngine sharedEngine] playEffect:@"sun提示L.mp3" loop:true];
     
-    CCAction* action=[CCSequence actions:[CCDelayTime actionWithDuration:sunTotalTime], [CCCallFunc actionWithTarget:self selector:@selector(checkSunL:)],nil];
+    CCAction* action=[CCSequence actions:[CCDelayTime actionWithDuration:[Obstacle sharedObstacle].sunTotalTime], [CCCallFunc actionWithTarget:self selector:@selector(checkSunL:)],nil];
     
     [[[CCDirector sharedDirector] runningScene] runAction:action];
     
@@ -247,6 +289,7 @@ static Obstacle* obstacle;
 
 -(void) checkSunR:(id)pSender
 {
+    [[SimpleAudioEngine sharedEngine] stopEffect:sunEffect];
     if ([Car sharedCar].lane==kRIGHT_LAND)
     {
         [[SimpleAudioEngine sharedEngine] playEffect:@"SunEatenR.mp3"];
@@ -258,10 +301,11 @@ static Obstacle* obstacle;
 
 -(void) startSunR
 {
-    [[SimpleAudioEngine sharedEngine] playEffect:@"sun提示R.mp3"];
+    
+    sunEffect=[[SimpleAudioEngine sharedEngine] playEffect:@"sun提示R.mp3" loop:true];
 
     
-    CCAction* action=[CCSequence actions:[CCDelayTime actionWithDuration:sunTotalTime], [CCCallFunc actionWithTarget:self selector:@selector(checkSunR:)],nil];
+    CCAction* action=[CCSequence actions:[CCDelayTime actionWithDuration:[Obstacle sharedObstacle].sunTotalTime], [CCCallFunc actionWithTarget:self selector:@selector(checkSunR:)],nil];
     
     [[[CCDirector sharedDirector] runningScene] runAction:action];
 
@@ -346,6 +390,7 @@ static Obstacle* obstacle;
 #pragma turn
 -(void) checkTurnLeft:(id)pSender
 {
+    [[SimpleAudioEngine sharedEngine] stopEffect:turnEffect];
     if (![Car sharedCar].isNeedTurnLeft)
     {
         [[SimpleAudioEngine sharedEngine] playEffect:@"完成转弯提示音.mp3"];
@@ -358,21 +403,10 @@ static Obstacle* obstacle;
     }
 }
 
--(void) playTurnLeftEffect:(id)pSender
-{
-    [[SimpleAudioEngine sharedEngine] playEffect:@"向左转提示音单位.mp3"];
-}
-
--(void) startTurnTwoLeft
-{
-    [Car sharedCar].isNeedTurnLeft=true;
-    [[SimpleAudioEngine sharedEngine] playEffect:@"向左转提示音单位.mp3"];
-    CCAction* action=[CCSequence actions:[CCDelayTime actionWithDuration:turnOneTotalTime], [CCCallFunc actionWithTarget:self selector:@selector(playTurnLeftEffect:)],[CCDelayTime actionWithDuration:turnOneTotalTime],[CCCallFunc actionWithTarget:self selector:@selector(checkTurnLeft:)],nil];
-    [[[CCDirector sharedDirector] runningScene] runAction:action];
-}
 
 -(void) checkTurnRight
 {
+    [[SimpleAudioEngine sharedEngine] stopEffect:turnEffect];
     if (![Car sharedCar].isNeedTurnRight)
     {
         [[SimpleAudioEngine sharedEngine] playEffect:@"完成转弯提示音.mp3"];
@@ -385,32 +419,19 @@ static Obstacle* obstacle;
     }
 }
 
--(void) playTurnRightEfect:(id)pSender
-{
-    [[SimpleAudioEngine sharedEngine] playEffect:@"向右转提示音单位.mp3"];
-}
-
--(void) startTurnTwoRight
-{
-    [Car sharedCar].isNeedTurnRight=true;
-    [[SimpleAudioEngine sharedEngine] playEffect:@"向右转提示音单位.mp3"];
-    CCAction* action=[CCSequence actions:[CCDelayTime actionWithDuration:turnOneTotalTime], [CCCallFunc actionWithTarget:self selector:@selector(playTurnRightEfect:)],[CCDelayTime actionWithDuration:turnOneTotalTime],[CCCallFunc actionWithTarget:self selector:@selector(checkTurnRight)],nil];
-    [[[CCDirector sharedDirector] runningScene] runAction:action];
-}
-
--(void) startTurnOneLeft
+-(void) startTurnLeft
 {
     [Car sharedCar].isNeedTurnLeft=true;
-    [[SimpleAudioEngine sharedEngine] playEffect:@"向左转提示音单位.mp3"];
-    CCAction* action=[CCSequence actions:[CCDelayTime actionWithDuration:turnOneTotalTime],[CCCallFunc actionWithTarget:self selector:@selector(checkTurnLeft:)],nil];
+    turnEffect=[[SimpleAudioEngine sharedEngine] playEffect:@"向左转提示音单位.mp3" loop:true];
+    CCAction* action=[CCSequence actions:[CCDelayTime actionWithDuration:[Obstacle sharedObstacle].turnTotalTime],[CCCallFunc actionWithTarget:self selector:@selector(checkTurnLeft:)],nil];
     [[[CCDirector sharedDirector] runningScene] runAction:action];
 }
 
--(void) startTurnOneRight
+-(void) startTurnRight
 {
     [Car sharedCar].isNeedTurnRight=true;
-    [[SimpleAudioEngine sharedEngine] playEffect:@"向右转提示音单位.mp3"];
-    CCAction* action=[CCSequence actions:[CCDelayTime actionWithDuration:turnOneTotalTime], [CCCallFunc actionWithTarget:self selector:@selector(checkTurnRight)],nil];
+    turnEffect=[[SimpleAudioEngine sharedEngine] playEffect:@"向右转提示音单位.mp3" loop:true];
+    CCAction* action=[CCSequence actions:[CCDelayTime actionWithDuration:[Obstacle sharedObstacle].turnTotalTime], [CCCallFunc actionWithTarget:self selector:@selector(checkTurnRight)],nil];
     [[[CCDirector sharedDirector] runningScene] runAction:action];
 
 }

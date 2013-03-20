@@ -80,6 +80,18 @@ static Car* car;
     [self carStopWithTime:stopRedLight];
 }
 
+//撞到石头
+-(void) collisionStone
+{
+    [self carStopWithTime:stopNormlSignTime];
+}
+
+//撞到自行车
+-(void) collisionBicycle
+{
+    [self carStopWithTime:stopNormlSignTime];
+}
+
 //吃到太阳
 -(void) eatSun
 {
@@ -179,7 +191,7 @@ static Car* car;
 -(void) restartCar:(id)pSender
 {
     carSpeedSoundId=[[SimpleAudioEngine sharedEngine] playEffect:@"常速行驶音效.mp3" loop:true];
-   // [[SimpleAudioEngine sharedEngine] resumeBackgroundMusic];
+    [[SimpleAudioEngine sharedEngine] resumeBackgroundMusic];
     self.speed=normalSpeed;
     self.isNeedStop=false;
 }

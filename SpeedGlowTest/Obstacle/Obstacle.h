@@ -9,10 +9,9 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 
-#define barrierTotalTime 0.8
-#define sunTotalTime 1.6
-#define turnOneTotalTime 0.7
-#define turnTwoTotalTime 1.4
+#define barrierSingleTime 0.8
+#define sunSingleTime 0.4
+#define turnSingleTime 0.7
 #define trafficLightTime 3
 #define trafficReadyTime 2.1
 #define trafficTotalTime 5.1
@@ -42,12 +41,16 @@ typedef enum
     kFINAL=4
 }WhichObstacle;
 
+
 @interface Obstacle : NSObject
 
 @property (nonatomic,readwrite) BOOL barrierL;
 @property (nonatomic,readwrite) BOOL barrierR;
 @property (nonatomic,readwrite) GameScene gameScene;
 @property (nonatomic,readwrite) GameLevel gameLevel;
+@property (nonatomic,readwrite) float sunTotalTime;
+@property (nonatomic,readwrite) float barrierTotalTime;
+@property (nonatomic,readwrite) float turnTotalTime;
 
 +(Obstacle*) sharedObstacle;
 
@@ -57,11 +60,8 @@ typedef enum
 -(void) startSunL;
 -(void) startSunR;
 
--(void) startTurnTwoLeft;
--(void) startTurnTwoRight;
-
--(void) startTurnOneLeft;
--(void) startTurnOneRight;
+-(void) startTurnLeft;
+-(void) startTurnRight;
 
 -(void) startRed2Green;
 -(void) startGreen2Red;

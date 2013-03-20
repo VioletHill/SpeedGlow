@@ -58,7 +58,6 @@
 
 -(void) addSun
 {
-    NSLog(@"addSun");
     CCSprite* sun=[CCSprite spriteWithFile:@"Sun.png"];
     sun.anchorPoint=ccp(0,1);
     sun.position=ccp(372,screenSize.height-636);
