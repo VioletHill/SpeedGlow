@@ -130,6 +130,21 @@ static Obstacle* obstacle;
     [[SimpleAudioEngine sharedEngine] playEffect:@"自行车.mp3"];
 }
 
+-(void) playEffectHouse:(id)pSender
+{
+    [[SimpleAudioEngine sharedEngine] playEffect:@"木屋.mp3"];
+}
+
+-(void) playEffectSnow:(id)pSender
+{
+    [[SimpleAudioEngine sharedEngine] playEffect:@"陷入雪堆.mp3"];
+}
+
+-(void) playEffectHuman:(id)pSender
+{
+    [[SimpleAudioEngine sharedEngine] playEffect:@"行人.mp3"];
+}
+
 -(void) collisionBarrier
 {
     if (self.gameScene==kYLFC)
@@ -207,7 +222,27 @@ static Obstacle* obstacle;
     }
     else if (self.gameScene==kXBTW)
     {
-        
+        int value = arc4random() % 3;
+        CCAction* action;
+        switch (value)
+        {
+            case 0:
+                [[Car sharedCar] collisionHouse];
+                [[SimpleAudioEngine sharedEngine] playEffect:@"撞到路障.mp3"];
+                action=[CCSequence actions:[CCDelayTime actionWithDuration:1],[CCCallFunc actionWithTarget:self selector:@selector(playEffectHouse:)], nil];
+                break;
+            case 1:
+                [[Car sharedCar] collisionSnow];
+                [[SimpleAudioEngine sharedEngine] playEffect:@"撞到路障.mp3"];
+                action=[CCSequence actions:[CCCallFunc actionWithTarget:self selector:@selector(playEffectSnow:)], nil];
+                break;
+            case 2:
+                [[Car sharedCar] collisionHuman];
+                [[SimpleAudioEngine sharedEngine] playEffect:@"惨叫.mp3"];
+                action=[CCSequence actions:[CCDelayTime actionWithDuration:1],[CCCallFunc actionWithTarget:self selector:@selector(playEffectHuman:)],nil];
+                break;
+        }
+        [[[CCDirector sharedDirector] runningScene] runAction:action];
     }
 }
 

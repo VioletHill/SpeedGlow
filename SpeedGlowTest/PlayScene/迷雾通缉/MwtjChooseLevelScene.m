@@ -9,7 +9,7 @@
 #import "MwtjChooseLevelScene.h"
 #import "CCScrollLayer.h"
 #import "UserData.h"
-#import "MwtjChooseLevelScrollLayer.h"
+#import "ChooseLevelScrollLayer.h"
 #import "MwtjEasyLevelLayer.h"
 #import "MwtjMidiumLevelLayer.h"
 #import "MwtjHardLevelLayer.h"
@@ -18,7 +18,7 @@
 
 @implementation MwtjChooseLevelScene
 {
-    MwtjChooseLevelScrollLayer* nowLayer;
+    ChooseLevelScrollLayer* nowLayer;
     CCScrollLayer* scroller;
 }
 @synthesize level=_level;
@@ -55,7 +55,7 @@
 	[self setPageIndex:scrollLayer.currentScreen - 1];
 }
 
--(MwtjChooseLevelScrollLayer*) getEasyLevel
+-(ChooseLevelScrollLayer*) getEasyLevel
 {
     if ([self.level count]<1)
     {
@@ -64,7 +64,7 @@
     return [self.level objectAtIndex:0];
 }
 
--(MwtjChooseLevelScrollLayer*) getMiddleLevel
+-(ChooseLevelScrollLayer*) getMiddleLevel
 {
     if ([self.level count]<2)
     {
@@ -73,7 +73,7 @@
     return [self.level objectAtIndex:1];
 }
 
--(MwtjChooseLevelScrollLayer*) getHardLevel
+-(ChooseLevelScrollLayer*) getHardLevel
 {
     if ([self.level count]<3)
     {

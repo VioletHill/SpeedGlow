@@ -12,6 +12,7 @@
 
 @implementation ChooseLevelScrollLayer
 
+
 -(void) playLeftRightEffect:(id)pSender
 {
     if ([Setting sharedSetting].isNeedEffect)
@@ -57,6 +58,13 @@
     }
 }
 
+-(void) playLockLevel:(id)pSender
+{
+    if ([Setting sharedSetting].isNeedEffect)
+    {
+        nowEffect=[[SimpleAudioEngine sharedEngine] playEffect:@"该难度未解锁.mp3"];
+    }
+}
 
 -(void) playNum:(id)pSender data:(void*)num
 {
@@ -92,6 +100,41 @@
     {
         nowEffect=[[SimpleAudioEngine sharedEngine] playEffect:[NSString stringWithFormat:@"%d.mp3",playNum]];
     }
+}
+
+-(void) lockLevel
+{
+    lock=[CCSprite spriteWithFile:@"Lock.png"];
+    lock.position=ccp(layerSize.width/2,layerSize.height/2);
+    [self addChild:lock];
+    if ([Setting sharedSetting].isNeedEffect)
+    {
+        playEffectAction=[CCSequence actions:
+                          [CCDelayTime actionWithDuration:1],[CCCallFunc actionWithTarget:self selector:@selector(playEasyEffect:)],
+                          [CCDelayTime actionWithDuration:2],[CCCallFunc actionWithTarget:self selector:@selector(playLockLevel:)],
+                          [CCDelayTime actionWithDuration:1.5],[CCCallFunc actionWithTarget:self selector:@selector(playLeftRightEffect:)],
+                          [CCDelayTime actionWithDuration:2],[CCCallFunc actionWithTarget:self selector:@selector(playReturnAndHelpEffect:)],nil];
+        [self runAction:playEffectAction];
+    }
+    
+}
+
+
+-(void) onEnterLayer
+{
+    
+}
+
+-(void) onExitLayer
+{
+    [self stopAllActions];
+    [self removeChild:lock cleanup:true];
+    [[SimpleAudioEngine sharedEngine] stopEffect:nowEffect];
+}
+
+-(void) onClick
+{
+    
 }
 
 @end

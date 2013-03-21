@@ -64,10 +64,6 @@
 {
     if (self.onClick!=nil)
     {
-        if ([Setting sharedSetting].isNeedEffect)
-        {
-            [[SimpleAudioEngine sharedEngine] playEffect:@"按键音二双击.mp3"];
-        }
         [self.onClick setArgument:&self atIndex:2];
         [self.onClick invoke];
     }
@@ -164,18 +160,12 @@
 	
         if ( (newX - startSwipe) < -100 && (currentScreen+1) <= totalScreens )
         {
-            if ([[Setting sharedSetting] isNeedEffect])
-            {
-                [[SimpleAudioEngine sharedEngine] playEffect:@"滑屏音.mp3"];
-            }
+            [[SimpleAudioEngine sharedEngine] playEffect:@"滑屏音.mp3"];
             [self moveToNextPage];
         }
         else if ( (newX - startSwipe) > 100 && (currentScreen-1) > 0 )
         {
-            if ([[Setting sharedSetting] isNeedEffect])
-            {
-                [[SimpleAudioEngine sharedEngine] playEffect:@"滑屏音.mp3"];
-            }
+            [[SimpleAudioEngine sharedEngine] playEffect:@"滑屏音.mp3"];
             [self moveToPreviousPage];
         }
         else

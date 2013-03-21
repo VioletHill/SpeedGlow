@@ -38,6 +38,8 @@
 
 -(void) preloadEffect
 {
+    [[SimpleAudioEngine sharedEngine] preloadEffect:@"欢呼.mp3"];
+    [[SimpleAudioEngine sharedEngine] preloadEffect:@"嘘声.mp3"];
     if ([Obstacle sharedObstacle].gameScene==kYLFC)
     {
         [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"1夜路飞车.mp3"];
@@ -62,6 +64,16 @@
         [[SimpleAudioEngine sharedEngine] preloadEffect:@"自行车.mp3"];
         [[SimpleAudioEngine sharedEngine] preloadEffect:@"货箱.mp3"];
         [[SimpleAudioEngine sharedEngine] preloadEffect:@"自行车声音.mp3"];
+    }
+    else if ([Obstacle sharedObstacle].gameScene==kXBTW)
+    {
+        [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"4雪崩逃亡.mp3"];
+        [[SimpleAudioEngine sharedEngine] preloadEffect:@"惨叫.mp3"];
+        [[SimpleAudioEngine sharedEngine] preloadEffect:@"木屋.mp3"];
+        [[SimpleAudioEngine sharedEngine] preloadEffect:@"树林.mp3"];
+        [[SimpleAudioEngine sharedEngine] preloadEffect:@"行人.mp3"];
+        [[SimpleAudioEngine sharedEngine] preloadEffect:@"陨石.mp3"];
+        [[SimpleAudioEngine sharedEngine] preloadEffect:@"陷入雪堆.mp3"];
     }
     
 }

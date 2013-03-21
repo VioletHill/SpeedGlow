@@ -13,11 +13,7 @@
 
 
 @implementation MwtjEasyLevelLayer
-{
-    CGSize layerSize;
-    
-    CCAction* playEffectAction;
-}
+
 
 -(id) init
 {
@@ -58,10 +54,12 @@
     
 }
 
--(void) onEnterLayer
+-(void) unlockLevel
 {
     int sun=[[UserData sharedUserData] getSunByScene:kMWTJ andLevel:kEASY];
-    playEffectAction=[CCSequence actions:
+    if ([Setting sharedSetting].isNeedEffect)
+    {
+        playEffectAction=[CCSequence actions:
                       [CCDelayTime actionWithDuration:1.2],[CCCallFunc actionWithTarget:self selector:@selector(playEasyEffect:)],
                       [CCDelayTime actionWithDuration:2], [CCCallFunc actionWithTarget:self selector:@selector(playAllSunEffect:)],
                       [CCDelayTime actionWithDuration:1.5],[CCCallFuncND actionWithTarget:self selector:@selector(playNum:data:) data:(void*)MwtjEasySunNum],
@@ -69,14 +67,16 @@
                       [CCDelayTime actionWithDuration:2],[CCCallFuncND actionWithTarget:self selector:@selector(playNum:data:) data:(void*)sun],
                       [CCDelayTime actionWithDuration:1.5],[CCCallFunc actionWithTarget:self selector:@selector(playLeftRightEffect:)],
                       [CCDelayTime actionWithDuration:2],[CCCallFunc actionWithTarget:self selector:@selector(playReturnAndHelpEffect:)],nil];
-    [self runAction:playEffectAction];
-    
+        [self runAction:playEffectAction];
+    }
+}
+-(void) onEnterLayer
+{
+    [self unlockLevel];
 }
 
 -(void) onExitLayer
 {
-    [self stopAllActions];
-    [[SimpleAudioEngine sharedEngine] stopEffect:nowEffect];
     [super onExitLayer];
     
 }

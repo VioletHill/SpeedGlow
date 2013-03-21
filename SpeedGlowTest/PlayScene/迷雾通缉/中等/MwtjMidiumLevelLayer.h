@@ -8,9 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
-#import "MwtjChooseLevelScrollLayer.h"
+#import "ChooseLevelScrollLayer.h"
 
-@interface MwtjMidiumLevelLayer : MwtjChooseLevelScrollLayer
+@interface MwtjMidiumLevelLayer : ChooseLevelScrollLayer
 {
     
 }

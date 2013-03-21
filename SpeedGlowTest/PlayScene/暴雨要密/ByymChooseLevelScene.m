@@ -7,7 +7,6 @@
 //
 
 #import "ByymChooseLevelScene.h"
-#import "ByymChooseLevelScrollLayer.h"
 #import "CCScrollLayer.h"
 #import "ByymEasyLevelLayer.h"
 #import "ByymMidiumLevelLayer.h"
@@ -17,7 +16,7 @@
 
 @implementation ByymChooseLevelScene
 {
-    ByymChooseLevelScrollLayer* nowLayer;
+    ChooseLevelScrollLayer* nowLayer;
     CCScrollLayer *scroller ;
 }
 @synthesize level=_level;
@@ -54,7 +53,7 @@
 	[self setPageIndex:scrollLayer.currentScreen - 1];
 }
 
--(ByymChooseLevelScrollLayer*) getEasyLevel
+-(ChooseLevelScrollLayer*) getEasyLevel
 {
     if ([self.level count]<1)
     {
@@ -63,7 +62,7 @@
     return [self.level objectAtIndex:0];
 }
 
--(ByymChooseLevelScrollLayer*) getMiddleLevel
+-(ChooseLevelScrollLayer*) getMiddleLevel
 {
     if ([self.level count]<2)
     {
@@ -72,7 +71,7 @@
     return [self.level objectAtIndex:1];
 }
 
--(ByymChooseLevelScrollLayer*) getHardLevel
+-(ChooseLevelScrollLayer*) getHardLevel
 {
     if ([self.level count]<3)
     {

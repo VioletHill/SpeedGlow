@@ -55,6 +55,11 @@ typedef enum
 -(void) collisionStone;
 -(void) collisionBicycle;
 
+//场景四
+-(void) collisionHuman;
+-(void) collisionHouse;
+-(void) collisionSnow;
+
 -(void) turnFail;
 -(void) breakRedLight;
 

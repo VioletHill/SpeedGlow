@@ -240,6 +240,10 @@
             [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"3迷雾通缉.mp3"];
             [self runAction:[CCSequence actions:[CCDelayTime actionWithDuration:20],[CCCallFunc actionWithTarget:self selector:@selector(startGo:)],nil]];
             break;
+        case kXBTW:
+            [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"4雪崩逃亡.mp3"];
+            [self runAction:[CCSequence actions:[CCDelayTime actionWithDuration:36],[CCCallFunc actionWithTarget:self selector:@selector(startGo:)] ,nil]];
+            break;
         default:
             break;
     }

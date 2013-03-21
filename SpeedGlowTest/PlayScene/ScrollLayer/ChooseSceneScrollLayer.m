@@ -58,6 +58,13 @@
     }
 }
 
+-(void) playLockEffect:(id)pSender
+{
+    if ([Setting sharedSetting].isNeedEffect)
+    {
+        nowEffect=[[SimpleAudioEngine sharedEngine] playEffect:@"该场景未解锁.mp3"];
+    }
+}
 ///目前数字与数字间隔为0.4  0.3~0.4效果最佳
 
 //数字有待调整

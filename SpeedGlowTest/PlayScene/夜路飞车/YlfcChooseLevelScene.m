@@ -16,7 +16,7 @@
 @implementation YlfcChooseLevelScene
 {
 
-    YlfcChooseLevelScrollLayer* nowLayer;
+    ChooseLevelScrollLayer* nowLayer;
     CCScrollLayer *scroller;
 
 }
@@ -54,7 +54,7 @@
 	[self setPageIndex:scrollLayer.currentScreen - 1];
 }
 
--(YlfcChooseLevelScrollLayer*) getEasyLevel
+-(ChooseLevelScrollLayer*) getEasyLevel
 {
     if ([self.level count]<1)
     {
@@ -63,7 +63,7 @@
     return [self.level objectAtIndex:0];
 }
 
--(YlfcChooseLevelScrollLayer*) getMiddleLevel
+-(ChooseLevelScrollLayer*) getMiddleLevel
 {
     if ([self.level count]<2)
     {
@@ -72,7 +72,7 @@
     return [self.level objectAtIndex:1];
 }
 
--(YlfcChooseLevelScrollLayer*) getHardLevel
+-(ChooseLevelScrollLayer*) getHardLevel
 {
     if ([self.level count]<3)
     {

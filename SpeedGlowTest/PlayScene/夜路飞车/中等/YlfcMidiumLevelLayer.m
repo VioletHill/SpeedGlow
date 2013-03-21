@@ -15,9 +15,9 @@
 
 @implementation YlfcMidiumLevelLayer
 {
-    CGSize layerSize;
-    CCAction* playEffectAction;
+    bool isLock;
 }
+
 
 -(id) init
 {
@@ -56,10 +56,12 @@
     
 }
 
--(void) onEnterLayer
+-(void) unlockLevel
 {
-    int sun=[[UserData sharedUserData] getSunByScene:kYLFC andLevel:kMIDIUM];
-    playEffectAction=[CCSequence actions:
+    if ([Setting sharedSetting].isNeedEffect)
+    {
+        int sun=[[UserData sharedUserData] getSunByScene:kYLFC andLevel:kMIDIUM];
+        playEffectAction=[CCSequence actions:
                       [CCDelayTime actionWithDuration:1],[CCCallFunc actionWithTarget:self selector:@selector(playEasyEffect:)],
                       [CCDelayTime actionWithDuration:2], [CCCallFunc actionWithTarget:self selector:@selector(playAllSunEffect:)],
                       [CCDelayTime actionWithDuration:1.5],[CCCallFuncND actionWithTarget:self selector:@selector(playNum:data:) data:(void*)YlfcMidiumSunNum],
@@ -67,20 +69,34 @@
                       [CCDelayTime actionWithDuration:2],[CCCallFuncND actionWithTarget:self selector:@selector(playNum:data:) data:(void*)sun],
                       [CCDelayTime actionWithDuration:1.5],[CCCallFunc actionWithTarget:self selector:@selector(playLeftRightEffect:)],
                       [CCDelayTime actionWithDuration:2],[CCCallFunc actionWithTarget:self selector:@selector(playReturnAndHelpEffect:)],nil];
-    [self runAction:playEffectAction];
-    
+        [self runAction:playEffectAction];
+    }
+}
+
+
+-(void) onEnterLayer
+{
+    if ([[UserData sharedUserData] getIsUnlockAtScene:kYLFC andLevel:kMIDIUM])
+    {
+        [self unlockLevel];
+        isLock=false;
+    }
+    else
+    {
+        [super lockLevel];
+        isLock=true;
+    }
 }
 
 -(void) onExitLayer
 {
-    [self stopAllActions];
-    [[SimpleAudioEngine sharedEngine] stopEffect:nowEffect];
     [super onExitLayer];
-    
 }
 
 -(void) onClick
 {
+    if (isLock) return;
+    [[SimpleAudioEngine sharedEngine] playEffect:@"按键音二双击.mp3"];
     [self startGame];
 }
 

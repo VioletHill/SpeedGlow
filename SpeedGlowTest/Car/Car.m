@@ -9,6 +9,7 @@
 #import "Car.h"
 #import "cocos2d.h"
 #import "SimpleAudioEngine.h"
+#import "Gameover.h"
 
 
 #define stopNormlSignTime 2.0
@@ -90,6 +91,22 @@ static Car* car;
 -(void) collisionBicycle
 {
     [self carStopWithTime:stopNormlSignTime];
+}
+
+-(void) collisionHuman
+{
+   // [[CCDirector sharedDirector] replaceScene:[Gameover scene]];
+}
+
+-(void) collisionSnow
+{
+    [self carStopWithTime:stopRedLight];
+}
+
+-(void) collisionHouse
+{
+    [[SimpleAudioEngine sharedEngine] playEffect:@"重启间隙4s.mp3"];
+    [self carStopWithTime:stopRedLight];
 }
 
 //吃到太阳
@@ -191,7 +208,7 @@ static Car* car;
 -(void) restartCar:(id)pSender
 {
     carSpeedSoundId=[[SimpleAudioEngine sharedEngine] playEffect:@"常速行驶音效.mp3" loop:true];
-    [[SimpleAudioEngine sharedEngine] resumeBackgroundMusic];
+  //  [[SimpleAudioEngine sharedEngine] resumeBackgroundMusic];
     self.speed=normalSpeed;
     self.isNeedStop=false;
 }
@@ -201,7 +218,7 @@ static Car* car;
     self.isNeedStop=true;
     self.speed=noSpeed;
     [[SimpleAudioEngine sharedEngine] stopEffect:carSpeedSoundId];
-    [[SimpleAudioEngine sharedEngine] pauseBackgroundMusic];
+   // [[SimpleAudioEngine sharedEngine] pauseBackgroundMusic];
     
     CCAction* action=[CCSequence actions:[CCDelayTime actionWithDuration:time], [CCCallFunc actionWithTarget:self selector:@selector(restartCar:) ],nil];
     [[[CCDirector sharedDirector] runningScene] runAction:action];

@@ -13,6 +13,15 @@
 @interface ChooseLevelScrollLayer: CCLayerColor
 {
     ALuint nowEffect;
+    CCSprite* lock;
+    CCAction* playEffectAction;
+    CGSize layerSize;
 }
+
+-(void) onEnterLayer;
+-(void) onExitLayer;
+-(void) onClick;
+
+-(void) lockLevel;
 
 @end

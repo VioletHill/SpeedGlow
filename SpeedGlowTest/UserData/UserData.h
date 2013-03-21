@@ -40,10 +40,10 @@
 
 -(int*) getTimeByScene:(GameScene)scene andLevel:(GameLevel)level;
 -(BOOL) getIsUnlockAtScene:(GameScene) scene;
+-(BOOL) getIsUnlockAtScene:(GameScene)scene andLevel:(GameLevel)level;
 
 -(void) reflushTime:(int)time atScene:(GameScene)scene andLevel:(GameLevel)level;
 -(void) reflushSunAtScene:(GameScene)scene andLevel:(GameLevel)level withSunNumber:(int)sunNumber;
--(void) reflushLockAtScene:(GameScene)scene withLock:(BOOL)lock;
 
 -(BOOL) isNeedBg;
 -(BOOL) isNeedEffect;

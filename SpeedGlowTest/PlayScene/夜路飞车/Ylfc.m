@@ -57,6 +57,7 @@
 
 -(void) pushToChooseLevel
 {
+
     CCTransitionFade* fade=[CCTransitionShrinkGrow transitionWithDuration:0.1 scene:[YlfcChooseLevelScene scene]];
     [[CCDirector sharedDirector] pushScene:fade];
 }
@@ -96,6 +97,7 @@
 
 -(void) onClick
 {
+    [[SimpleAudioEngine sharedEngine] playEffect:@"按键音二双击.mp3"];
     [self pushToChooseLevel];
 }
 

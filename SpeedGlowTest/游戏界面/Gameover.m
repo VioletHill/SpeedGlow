@@ -13,9 +13,20 @@
 #import "SimpleAudioEngine.h"
 
 
-#define YlfcTime 150
 
 @implementation Gameover
+
+static GameState _gameState;
+
++(void) setGameState:(GameState)gameState
+{
+    _gameState=gameState;
+}
+
++(GameState) getGameState
+{
+    return _gameState;
+}
 
 +(CCScene *) scene
 {
@@ -42,15 +53,15 @@
     if (self=[super init])
     {
         [[UserData sharedUserData] reflushSunAtScene:[Obstacle sharedObstacle].gameScene andLevel:[Obstacle sharedObstacle].gameLevel withSunNumber:[Car sharedCar].sun];
-        if ([Car sharedCar].finishGameTime>YlfcTime)    //失败
+        
+        if ([Gameover getGameState]==kSUCCESS)
         {
-            [[SimpleAudioEngine sharedEngine] playEffect:@"嘘声.mp3"];
+            [[SimpleAudioEngine sharedEngine] playEffect:@"欢呼.mp3"];
+            [self addSuccess];
         }
         else
         {
-            [[SimpleAudioEngine sharedEngine] playEffect:@"欢呼.mp3"];
-       
-            [self addSuccess];
+            [[SimpleAudioEngine sharedEngine] playEffect:@"嘘声.mp3"];
         }
     }
     return self;

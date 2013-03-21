@@ -9,8 +9,17 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 
+typedef enum
+{
+    kSUCCESS,
+    kFAIL,
+}GameState;
+
 @interface Gameover : CCLayer
 
 +(CCScene *) scene;
+
++(void) setGameState:(GameState)gameState;
++(GameState) getGameState;
 
 @end

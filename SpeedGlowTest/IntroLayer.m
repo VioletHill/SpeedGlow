@@ -41,6 +41,7 @@
     [[SimpleAudioEngine sharedEngine] preloadBackgroundMusic:@"滑屏音.mp3"];
     
     //场景音效
+    [[SimpleAudioEngine sharedEngine] preloadEffect:@"该场景未解锁.mp3"];
     [[SimpleAudioEngine sharedEngine] preloadEffect:@"选择关卡.mp3"];
     [[SimpleAudioEngine sharedEngine] preloadEffect:@"场景一.mp3"];
     [[SimpleAudioEngine sharedEngine] preloadEffect:@"场景二.mp3"];
@@ -70,6 +71,7 @@
     
     
     //加载选择关卡的音效
+    [[SimpleAudioEngine sharedEngine] preloadEffect:@"该难度未解锁.mp3"];
     [[SimpleAudioEngine sharedEngine] preloadEffect:@"选择难度.mp3"];
     [[SimpleAudioEngine sharedEngine] preloadEffect:@"左上角返回主菜单右上角帮助文档.mp3"];
     [[SimpleAudioEngine sharedEngine] preloadEffect:@"左右滑屏切换难度选择.mp3"];
@@ -118,8 +120,6 @@
     [[SimpleAudioEngine sharedEngine] preloadEffect:@"向右转提示音单位.mp3"];
     [[SimpleAudioEngine sharedEngine] preloadEffect:@"向左转提示音单位.mp3"];
     
-    [[SimpleAudioEngine sharedEngine] preloadEffect:@"欢呼.mp3"];
-    [[SimpleAudioEngine sharedEngine] preloadEffect:@"嘘声.mp3"];
     
     //帮助-音效
     [[SimpleAudioEngine sharedEngine] preloadEffect:@"当前页音效页.mp3"];
