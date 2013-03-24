@@ -1,15 +1,15 @@
 //
-//  MwtjHardLevelLayer.m
-//  SpeedGlow
+//  HardLevelLayer.m
+//  SpeedGlowTest
 //
-//  Created by VioletHill on 13-3-14.
+//  Created by VioletHill on 13-2-25.
 //  Copyright 2013年 VioletHill. All rights reserved.
 //
 
-#import "MwtjHardLayer.h"
-#import "UserData.h"
+#import "YlfcHardLayer.h"
+#import "Obstacle.h"
 
-@implementation MwtjHardLayer
+@implementation YlfcHardLayer
 
 -(id) init
 {
@@ -31,22 +31,22 @@
     return self;
 }
 
-
 -(void) onEnterLayer
 {
     [Obstacle sharedObstacle].gameLevel=kHARD;
     [super onEnterLayer];
 }
 
+
+
 -(void) onExitLayer
 {
     [super onExitLayer];
-    
 }
 
 -(void) onClick
 {
-    [self startGame];
+    [super startGame];
 }
 
 @end

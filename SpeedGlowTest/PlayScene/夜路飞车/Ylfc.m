@@ -14,13 +14,6 @@
 
 @implementation Ylfc
 {
-    CGSize screenSize;
-    CGSize layerSize;
-    
-    CCSprite* background;
-    
-    CCAction* playEffectAction;
-    
     CCParticleSystemQuad* start;
 }
 
@@ -70,28 +63,15 @@
 
 -(void) onEnterLayer
 {
+    [Obstacle sharedObstacle].gameScene=kYLFC;
     [self onStart];
-    
-    [background setOpacity:255];
-    
-    int sun=[[UserData sharedUserData] getSunByScene:kYLFC];
-    playEffectAction=[CCSequence actions:
-                      [CCDelayTime actionWithDuration:1],[CCCallFunc actionWithTarget:self selector:@selector(playSceneEffect:)],
-                      [CCDelayTime actionWithDuration:2.5], [CCCallFunc actionWithTarget:self selector:@selector(playAllSunEffect:)],
-                      [CCDelayTime actionWithDuration:1.5],[CCCallFuncND actionWithTarget:self selector:@selector(playNum:data:) data:(void*)YlfcMaxSunNum],
-                      [CCDelayTime actionWithDuration:1.5],[CCCallFunc actionWithTarget:self selector:@selector(playHaveSunEffect:)],
-                      [CCDelayTime actionWithDuration:2],[CCCallFuncND actionWithTarget:self selector:@selector(playNum:data:) data:(void*)sun],
-                      [CCDelayTime actionWithDuration:1.5],[CCCallFunc actionWithTarget:self selector:@selector(playEnterEffect:)],
-                      [CCDelayTime actionWithDuration:2.5],[CCCallFunc actionWithTarget:self selector:@selector(playLeftRightEffect:)],nil];
-    [self runAction:playEffectAction];
+    [super unlockScene];
+    [super onEnterLayer];
 }
 
 -(void) onExitLayer
 {
     [self removeChild:start cleanup:true];
-    [background setOpacity:255/2];
-    [self stopAllActions];
-    [[SimpleAudioEngine sharedEngine] stopEffect:nowEffect];
     [super onExitLayer];
 }
 

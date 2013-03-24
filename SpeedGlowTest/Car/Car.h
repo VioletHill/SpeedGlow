@@ -75,4 +75,7 @@ typedef enum
 -(void) normalSpeedStart;
 -(void) carStopWithTime:(float)time;
 
+-(BOOL) getIsPlayCarSpeedSound;
+-(void) playCarEffect;
+
 @end

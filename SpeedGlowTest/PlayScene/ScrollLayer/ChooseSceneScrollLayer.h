@@ -13,11 +13,16 @@
 
 @interface ChooseSceneScrollLayer : CCLayerColor
 {
+    CGSize screenSize;
+    CGSize layerSize;
     ALuint nowEffect;
+    CCSprite* background;
 }
 
 -(void) onEnterLayer;
 -(void) onExitLayer;
 -(void) onClick;
 
+-(void) unlockScene;
+-(void) lockScene;
 @end

@@ -973,7 +973,7 @@ static ALuint playingSoundID[10];
 	alGetError();//Clear error in case we stopped any sounds that couldn't be stopped
 }
 
-///fix  by me
+///add  by me
 
 -(void) pauseSounds:(ALuint)sourceID
 {
@@ -997,6 +997,15 @@ static ALuint playingSoundID[10];
             alSourcePause(_sources[i].sourceId);
         }
     }
+}
+
+-(BOOL) isEffectPlay:(ALuint)sourceID
+{
+    ALint state;
+    alGetSourcei(sourceID, AL_SOURCE_STATE, &state);
+    
+    if (state==AL_PLAYING) return true;
+    else return false;
 }
 
 -(void) resumeAllSounds

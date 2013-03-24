@@ -157,8 +157,8 @@
 		24122B8616F1B6350058B50D /* 雷电.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 24122B8116F1B6350058B50D /* 雷电.mp3 */; };
 		24122B8916F1C7180058B50D /* ChooseLevelScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 24122B8816F1C7180058B50D /* ChooseLevelScene.m */; };
 		24122B8D16F1DAFA0058B50D /* MwtjChooseLevelScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 24122B8C16F1DAFA0058B50D /* MwtjChooseLevelScene.m */; };
-		24122B9716F1DE920058B50D /* MwtjEasyLevelLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 24122B9616F1DE920058B50D /* MwtjEasyLevelLayer.m */; };
-		24122B9A16F1E13D0058B50D /* MwtjMidiumLevelLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 24122B9916F1E13D0058B50D /* MwtjMidiumLevelLayer.m */; };
+		24122B9716F1DE920058B50D /* MwtjEasyLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 24122B9616F1DE920058B50D /* MwtjEasyLayer.m */; };
+		24122B9A16F1E13D0058B50D /* MwtjMdiumLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 24122B9916F1E13D0058B50D /* MwtjMdiumLayer.m */; };
 		24122B9D16F1E2C20058B50D /* MwtjHardLevelLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 24122B9C16F1E2C20058B50D /* MwtjHardLevelLayer.m */; };
 		24161FFB16DCA1A7008BE1B3 /* Obstacle.m in Sources */ = {isa = PBXBuildFile; fileRef = 24161FFA16DCA1A7008BE1B3 /* Obstacle.m */; };
 		24161FFF16DCC1E2008BE1B3 /* Medium.png in Resources */ = {isa = PBXBuildFile; fileRef = 24161FFC16DCC1E0008BE1B3 /* Medium.png */; };
@@ -189,11 +189,12 @@
 		2422D1B916FAE25000448FE5 /* 陨石.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2422D1B316FAE25000448FE5 /* 陨石.mp3 */; };
 		2422D1BA16FAE25000448FE5 /* 陷入雪堆.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2422D1B416FAE25000448FE5 /* 陷入雪堆.mp3 */; };
 		2422D1BD16FAE56D00448FE5 /* XbtwChooseLevelScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 2422D1BC16FAE56C00448FE5 /* XbtwChooseLevelScene.m */; };
-		2422D1C716FAE78300448FE5 /* XbtwEasyLevelLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2422D1C616FAE78300448FE5 /* XbtwEasyLevelLayer.m */; };
-		2422D1CA16FAE83A00448FE5 /* XbtwMidiumLevelLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2422D1C916FAE83A00448FE5 /* XbtwMidiumLevelLayer.m */; };
-		2422D1CD16FAE8DC00448FE5 /* XbtwHardLevelLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2422D1CC16FAE8DC00448FE5 /* XbtwHardLevelLayer.m */; };
+		2422D1C716FAE78300448FE5 /* XbtwEasyLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2422D1C616FAE78300448FE5 /* XbtwEasyLayer.m */; };
+		2422D1CA16FAE83A00448FE5 /* XbtwMediumLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2422D1C916FAE83A00448FE5 /* XbtwMediumLayer.m */; };
+		2422D1CD16FAE8DC00448FE5 /* XbtwHardLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2422D1CC16FAE8DC00448FE5 /* XbtwHardLayer.m */; };
 		2422D1D516FB17E200448FE5 /* 该场景未解锁.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2422D1D416FB17E200448FE5 /* 该场景未解锁.mp3 */; };
 		2422D1D716FB17EF00448FE5 /* 该难度未解锁.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2422D1D616FB17EF00448FE5 /* 该难度未解锁.mp3 */; };
+		2422D1DA16FC480900448FE5 /* Successful.png in Resources */ = {isa = PBXBuildFile; fileRef = 2422D1D916FC480900448FE5 /* Successful.png */; };
 		242351A416ED9BB9009986A7 /* SettingBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 242351A216ED9BB9009986A7 /* SettingBackground.png */; };
 		242351C816EF0D0F009986A7 /* 二难度中等.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 242351C116EF0D0F009986A7 /* 二难度中等.mp3 */; };
 		242351C916EF0D0F009986A7 /* 排名第一.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 242351C216EF0D0F009986A7 /* 排名第一.mp3 */; };
@@ -216,15 +217,16 @@
 		2425456B16EB16890025293E /* mySnow.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2425456916EB16890025293E /* mySnow.plist */; };
 		2425456C16EB16890025293E /* mySnow.png in Resources */ = {isa = PBXBuildFile; fileRef = 2425456A16EB16890025293E /* mySnow.png */; };
 		2425456F16EB357D0025293E /* MyMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2425456E16EB357D0025293E /* MyMenuItem.m */; };
-		2425458216EB74A10025293E /* YlfcHardLevelLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2425458116EB70C30025293E /* YlfcHardLevelLayer.m */; };
-		2425458316EB74A50025293E /* YlfcEasyLevelLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2425457616EB6EC80025293E /* YlfcEasyLevelLayer.m */; };
-		2425458416EB74AA0025293E /* YlfcMidiumLevelLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2425457F16EB70B90025293E /* YlfcMidiumLevelLayer.m */; };
+		2425458216EB74A10025293E /* YlfcHardLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2425458116EB70C30025293E /* YlfcHardLayer.m */; };
+		2425458316EB74A50025293E /* YlfcEasyLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2425457616EB6EC80025293E /* YlfcEasyLayer.m */; };
+		2425458416EB74AA0025293E /* YlfcMediumLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2425457F16EB70B90025293E /* YlfcMediumLayer.m */; };
 		2435018D16DB94CC00D55106 /* Xbtw.m in Sources */ = {isa = PBXBuildFile; fileRef = 2435018C16DB94CC00D55106 /* Xbtw.m */; };
 		2435019116DB95F400D55106 /* XbtwTitle.png in Resources */ = {isa = PBXBuildFile; fileRef = 2435018F16DB95F400D55106 /* XbtwTitle.png */; };
 		2435019316DBA17B00D55106 /* ByymTitle.png in Resources */ = {isa = PBXBuildFile; fileRef = 2435019216DBA17B00D55106 /* ByymTitle.png */; };
 		2435019816DBA2D700D55106 /* MwtjScrollLayer.png in Resources */ = {isa = PBXBuildFile; fileRef = 2435019616DBA2D700D55106 /* MwtjScrollLayer.png */; };
 		2435019916DBA2D700D55106 /* MwtjTitle.png in Resources */ = {isa = PBXBuildFile; fileRef = 2435019716DBA2D700D55106 /* MwtjTitle.png */; };
 		2435019C16DBA2FF00D55106 /* Mwtj.m in Sources */ = {isa = PBXBuildFile; fileRef = 2435019B16DBA2FF00D55106 /* Mwtj.m */; };
+		2446A1AE16FEBA4D007B3D15 /* FirstRank.png in Resources */ = {isa = PBXBuildFile; fileRef = 2446A1AD16FEBA4D007B3D15 /* FirstRank.png */; };
 		2465FB4F16EC487000394BB6 /* LastOrder.png in Resources */ = {isa = PBXBuildFile; fileRef = 2465FB4E16EC487000394BB6 /* LastOrder.png */; };
 		2465FB5816EC607800394BB6 /* Lock.png in Resources */ = {isa = PBXBuildFile; fileRef = 2465FB5716EC607700394BB6 /* Lock.png */; };
 		2465FB5B16ECAFF700394BB6 /* 欢呼.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2465FB5916ECAFF700394BB6 /* 欢呼.mp3 */; };
@@ -294,8 +296,7 @@
 		2493BEDA16E78E1100BB0A4C /* 路障提示音_L.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2493BED516E78E1100BB0A4C /* 路障提示音_L.mp3 */; };
 		2493BEDB16E78E1100BB0A4C /* 路障提示音_R.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2493BED616E78E1100BB0A4C /* 路障提示音_R.mp3 */; };
 		2493BEDC16E78E1100BB0A4C /* 撞到路障.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2493BED716E78E1100BB0A4C /* 撞到路障.mp3 */; };
-		2493BEE216E7953F00BB0A4C /* SunEatenL.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2493BEDE16E7953F00BB0A4C /* SunEatenL.mp3 */; };
-		2493BEE316E7953F00BB0A4C /* SunEatenR.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2493BEDF16E7953F00BB0A4C /* SunEatenR.mp3 */; };
+		2493BEE316E7953F00BB0A4C /* SunEaten.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2493BEDF16E7953F00BB0A4C /* SunEaten.mp3 */; };
 		2493BEE416E7953F00BB0A4C /* sun提示L.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2493BEE016E7953F00BB0A4C /* sun提示L.mp3 */; };
 		2493BEE516E7953F00BB0A4C /* sun提示R.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2493BEE116E7953F00BB0A4C /* sun提示R.mp3 */; };
 		2493BEEB16E7956500BB0A4C /* 交通信号灯红灯03.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2493BEE716E7956500BB0A4C /* 交通信号灯红灯03.mp3 */; };
@@ -383,9 +384,9 @@
 		24E7CEEC16F0666C00233E66 /* 上下滚动切换查看不同规则.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 24E7CEE016F0666C00233E66 /* 上下滚动切换查看不同规则.mp3 */; };
 		24E7CEED16F0666C00233E66 /* 向左滑屏切换操作页.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 24E7CEE116F0666C00233E66 /* 向左滑屏切换操作页.mp3 */; };
 		24E7CEF616F094D000233E66 /* ByymChooseLevelScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 24E7CEF516F094CF00233E66 /* ByymChooseLevelScene.m */; };
-		24E7CEFA16F0965700233E66 /* ByymEasyLevelLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 24E7CEF916F0965700233E66 /* ByymEasyLevelLayer.m */; };
-		24E7CEFE16F0987F00233E66 /* ByymMidiumLevelLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 24E7CEFD16F0987F00233E66 /* ByymMidiumLevelLayer.m */; };
-		24E7CF0216F0998500233E66 /* ByymHardLevelLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 24E7CF0116F0998500233E66 /* ByymHardLevelLayer.m */; };
+		24E7CEFA16F0965700233E66 /* ByymEasyLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 24E7CEF916F0965700233E66 /* ByymEasyLayer.m */; };
+		24E7CEFE16F0987F00233E66 /* ByymMediumLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 24E7CEFD16F0987F00233E66 /* ByymMediumLayer.m */; };
+		24E7CF0216F0998500233E66 /* ByymHardLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 24E7CF0116F0998500233E66 /* ByymHardLayer.m */; };
 		24E7CF0816F09A2600233E66 /* Load.m in Sources */ = {isa = PBXBuildFile; fileRef = 24E7CF0716F09A2600233E66 /* Load.m */; };
 		24FF140B16E9D816006B1214 /* PauseBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 24FF140916E9D816006B1214 /* PauseBackground.png */; };
 		24FF140E16E9D839006B1214 /* Resume.png in Resources */ = {isa = PBXBuildFile; fileRef = 24FF140D16E9D839006B1214 /* Resume.png */; };
@@ -689,11 +690,11 @@
 		24122B8816F1C7180058B50D /* ChooseLevelScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ChooseLevelScene.m; path = PlayScene/ScrollLayer/ChooseLevelScene.m; sourceTree = "<group>"; };
 		24122B8B16F1DAFA0058B50D /* MwtjChooseLevelScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MwtjChooseLevelScene.h; path = "PlayScene/迷雾通缉/MwtjChooseLevelScene.h"; sourceTree = "<group>"; };
 		24122B8C16F1DAFA0058B50D /* MwtjChooseLevelScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MwtjChooseLevelScene.m; path = "PlayScene/迷雾通缉/MwtjChooseLevelScene.m"; sourceTree = "<group>"; };
-		24122B9516F1DE920058B50D /* MwtjEasyLevelLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MwtjEasyLevelLayer.h; sourceTree = "<group>"; };
-		24122B9616F1DE920058B50D /* MwtjEasyLevelLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MwtjEasyLevelLayer.m; sourceTree = "<group>"; };
-		24122B9816F1E13D0058B50D /* MwtjMidiumLevelLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MwtjMidiumLevelLayer.h; sourceTree = "<group>"; };
-		24122B9916F1E13D0058B50D /* MwtjMidiumLevelLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MwtjMidiumLevelLayer.m; sourceTree = "<group>"; };
-		24122B9B16F1E2C20058B50D /* MwtjHardLevelLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MwtjHardLevelLayer.h; sourceTree = "<group>"; };
+		24122B9516F1DE920058B50D /* MwtjEasyLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MwtjEasyLayer.h; sourceTree = "<group>"; };
+		24122B9616F1DE920058B50D /* MwtjEasyLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MwtjEasyLayer.m; sourceTree = "<group>"; };
+		24122B9816F1E13D0058B50D /* MwtjMediumLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MwtjMediumLayer.h; sourceTree = "<group>"; };
+		24122B9916F1E13D0058B50D /* MwtjMdiumLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MwtjMdiumLayer.m; sourceTree = "<group>"; };
+		24122B9B16F1E2C20058B50D /* MwtjHardLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MwtjHardLayer.h; sourceTree = "<group>"; };
 		24122B9C16F1E2C20058B50D /* MwtjHardLevelLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MwtjHardLevelLayer.m; sourceTree = "<group>"; };
 		24161FF916DCA1A7008BE1B3 /* Obstacle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Obstacle.h; path = Obstacle/Obstacle.h; sourceTree = "<group>"; };
 		24161FFA16DCA1A7008BE1B3 /* Obstacle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Obstacle.m; path = Obstacle/Obstacle.m; sourceTree = "<group>"; };
@@ -726,14 +727,15 @@
 		2422D1B416FAE25000448FE5 /* 陷入雪堆.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "陷入雪堆.mp3"; sourceTree = "<group>"; };
 		2422D1BB16FAE56C00448FE5 /* XbtwChooseLevelScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XbtwChooseLevelScene.h; path = "PlayScene/雪崩逃亡/XbtwChooseLevelScene.h"; sourceTree = "<group>"; };
 		2422D1BC16FAE56C00448FE5 /* XbtwChooseLevelScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XbtwChooseLevelScene.m; path = "PlayScene/雪崩逃亡/XbtwChooseLevelScene.m"; sourceTree = "<group>"; };
-		2422D1C516FAE78300448FE5 /* XbtwEasyLevelLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XbtwEasyLevelLayer.h; path = "PlayScene/雪崩逃亡/简单/XbtwEasyLevelLayer.h"; sourceTree = "<group>"; };
-		2422D1C616FAE78300448FE5 /* XbtwEasyLevelLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XbtwEasyLevelLayer.m; path = "PlayScene/雪崩逃亡/简单/XbtwEasyLevelLayer.m"; sourceTree = "<group>"; };
-		2422D1C816FAE83A00448FE5 /* XbtwMidiumLevelLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XbtwMidiumLevelLayer.h; path = "PlayScene/雪崩逃亡/中等/XbtwMidiumLevelLayer.h"; sourceTree = "<group>"; };
-		2422D1C916FAE83A00448FE5 /* XbtwMidiumLevelLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XbtwMidiumLevelLayer.m; path = "PlayScene/雪崩逃亡/中等/XbtwMidiumLevelLayer.m"; sourceTree = "<group>"; };
-		2422D1CB16FAE8DC00448FE5 /* XbtwHardLevelLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XbtwHardLevelLayer.h; path = "PlayScene/雪崩逃亡/困难/XbtwHardLevelLayer.h"; sourceTree = "<group>"; };
-		2422D1CC16FAE8DC00448FE5 /* XbtwHardLevelLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XbtwHardLevelLayer.m; path = "PlayScene/雪崩逃亡/困难/XbtwHardLevelLayer.m"; sourceTree = "<group>"; };
+		2422D1C516FAE78300448FE5 /* XbtwEasyLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XbtwEasyLayer.h; path = "PlayScene/雪崩逃亡/简单/XbtwEasyLayer.h"; sourceTree = "<group>"; };
+		2422D1C616FAE78300448FE5 /* XbtwEasyLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XbtwEasyLayer.m; path = "PlayScene/雪崩逃亡/简单/XbtwEasyLayer.m"; sourceTree = "<group>"; };
+		2422D1C816FAE83A00448FE5 /* XbtwMediumLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XbtwMediumLayer.h; path = "PlayScene/雪崩逃亡/中等/XbtwMediumLayer.h"; sourceTree = "<group>"; };
+		2422D1C916FAE83A00448FE5 /* XbtwMediumLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XbtwMediumLayer.m; path = "PlayScene/雪崩逃亡/中等/XbtwMediumLayer.m"; sourceTree = "<group>"; };
+		2422D1CB16FAE8DC00448FE5 /* XbtwHardLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XbtwHardLayer.h; path = "PlayScene/雪崩逃亡/困难/XbtwHardLayer.h"; sourceTree = "<group>"; };
+		2422D1CC16FAE8DC00448FE5 /* XbtwHardLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XbtwHardLayer.m; path = "PlayScene/雪崩逃亡/困难/XbtwHardLayer.m"; sourceTree = "<group>"; };
 		2422D1D416FB17E200448FE5 /* 该场景未解锁.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "该场景未解锁.mp3"; path = "音效/选择关卡/该场景未解锁.mp3"; sourceTree = "<group>"; };
 		2422D1D616FB17EF00448FE5 /* 该难度未解锁.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "该难度未解锁.mp3"; path = "音效/选择关卡/选择难度/该难度未解锁.mp3"; sourceTree = "<group>"; };
+		2422D1D916FC480900448FE5 /* Successful.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Successful.png; sourceTree = "<group>"; };
 		242351A216ED9BB9009986A7 /* SettingBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = SettingBackground.png; path = "Resources/MainMenuScene/设置/SettingBackground.png"; sourceTree = "<group>"; };
 		242351C116EF0D0F009986A7 /* 二难度中等.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "二难度中等.mp3"; path = "音效/选择关卡/选择难度/二难度中等.mp3"; sourceTree = "<group>"; };
 		242351C216EF0D0F009986A7 /* 排名第一.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "排名第一.mp3"; path = "音效/选择关卡/选择难度/排名第一.mp3"; sourceTree = "<group>"; };
@@ -758,12 +760,12 @@
 		2425456A16EB16890025293E /* mySnow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mySnow.png; path = "Resources/MainMenuScene/MainMenu/Play/雪崩逃亡/mySnow.png"; sourceTree = "<group>"; };
 		2425456D16EB357D0025293E /* MyMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyMenuItem.h; path = MyLibs/MyMenuItem.h; sourceTree = "<group>"; };
 		2425456E16EB357D0025293E /* MyMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyMenuItem.m; path = MyLibs/MyMenuItem.m; sourceTree = "<group>"; };
-		2425457516EB6EC80025293E /* YlfcEasyLevelLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = YlfcEasyLevelLayer.h; path = "PlayScene/夜路飞车/简单/YlfcEasyLevelLayer.h"; sourceTree = "<group>"; };
-		2425457616EB6EC80025293E /* YlfcEasyLevelLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = YlfcEasyLevelLayer.m; path = "PlayScene/夜路飞车/简单/YlfcEasyLevelLayer.m"; sourceTree = "<group>"; };
-		2425457E16EB70B90025293E /* YlfcMidiumLevelLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = YlfcMidiumLevelLayer.h; path = "PlayScene/夜路飞车/中等/YlfcMidiumLevelLayer.h"; sourceTree = "<group>"; };
-		2425457F16EB70B90025293E /* YlfcMidiumLevelLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = YlfcMidiumLevelLayer.m; path = "PlayScene/夜路飞车/中等/YlfcMidiumLevelLayer.m"; sourceTree = "<group>"; };
-		2425458016EB70C30025293E /* YlfcHardLevelLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = YlfcHardLevelLayer.h; path = "PlayScene/夜路飞车/困难/YlfcHardLevelLayer.h"; sourceTree = "<group>"; };
-		2425458116EB70C30025293E /* YlfcHardLevelLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = YlfcHardLevelLayer.m; path = "PlayScene/夜路飞车/困难/YlfcHardLevelLayer.m"; sourceTree = "<group>"; };
+		2425457516EB6EC80025293E /* YlfcEasyLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = YlfcEasyLayer.h; path = "PlayScene/夜路飞车/简单/YlfcEasyLayer.h"; sourceTree = "<group>"; };
+		2425457616EB6EC80025293E /* YlfcEasyLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = YlfcEasyLayer.m; path = "PlayScene/夜路飞车/简单/YlfcEasyLayer.m"; sourceTree = "<group>"; };
+		2425457E16EB70B90025293E /* YlfcMediumLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = YlfcMediumLayer.h; path = "PlayScene/夜路飞车/中等/YlfcMediumLayer.h"; sourceTree = "<group>"; };
+		2425457F16EB70B90025293E /* YlfcMediumLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = YlfcMediumLayer.m; path = "PlayScene/夜路飞车/中等/YlfcMediumLayer.m"; sourceTree = "<group>"; };
+		2425458016EB70C30025293E /* YlfcHardLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = YlfcHardLayer.h; path = "PlayScene/夜路飞车/困难/YlfcHardLayer.h"; sourceTree = "<group>"; };
+		2425458116EB70C30025293E /* YlfcHardLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = YlfcHardLayer.m; path = "PlayScene/夜路飞车/困难/YlfcHardLayer.m"; sourceTree = "<group>"; };
 		2435018B16DB94CC00D55106 /* Xbtw.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Xbtw.h; path = "PlayScene/雪崩逃亡/Xbtw.h"; sourceTree = "<group>"; };
 		2435018C16DB94CC00D55106 /* Xbtw.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Xbtw.m; path = "PlayScene/雪崩逃亡/Xbtw.m"; sourceTree = "<group>"; };
 		2435018F16DB95F400D55106 /* XbtwTitle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = XbtwTitle.png; path = "Resources/MainMenuScene/MainMenu/Play/雪崩逃亡/XbtwTitle.png"; sourceTree = "<group>"; };
@@ -772,6 +774,7 @@
 		2435019716DBA2D700D55106 /* MwtjTitle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = MwtjTitle.png; path = "Resources/MainMenuScene/MainMenu/Play/迷雾通缉/MwtjTitle.png"; sourceTree = "<group>"; };
 		2435019A16DBA2FF00D55106 /* Mwtj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Mwtj.h; path = "PlayScene/迷雾通缉/Mwtj.h"; sourceTree = "<group>"; };
 		2435019B16DBA2FF00D55106 /* Mwtj.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Mwtj.m; path = "PlayScene/迷雾通缉/Mwtj.m"; sourceTree = "<group>"; };
+		2446A1AD16FEBA4D007B3D15 /* FirstRank.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = FirstRank.png; sourceTree = "<group>"; };
 		2465FB4E16EC487000394BB6 /* LastOrder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = LastOrder.png; path = "Resources/MainMenuScene/帮助/LastOrder.png"; sourceTree = "<group>"; };
 		2465FB5716EC607700394BB6 /* Lock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Lock.png; path = Resources/MainMenuScene/MainMenu/Play/Lock.png; sourceTree = "<group>"; };
 		2465FB5916ECAFF700394BB6 /* 欢呼.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "欢呼.mp3"; path = "音效/系统游戏音效/欢呼.mp3"; sourceTree = "<group>"; };
@@ -845,8 +848,7 @@
 		2493BED516E78E1100BB0A4C /* 路障提示音_L.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "路障提示音_L.mp3"; path = "音效/系统游戏音效/障碍物音效/路障提示音_L.mp3"; sourceTree = "<group>"; };
 		2493BED616E78E1100BB0A4C /* 路障提示音_R.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "路障提示音_R.mp3"; path = "音效/系统游戏音效/障碍物音效/路障提示音_R.mp3"; sourceTree = "<group>"; };
 		2493BED716E78E1100BB0A4C /* 撞到路障.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "撞到路障.mp3"; path = "音效/系统游戏音效/障碍物音效/撞到路障.mp3"; sourceTree = "<group>"; };
-		2493BEDE16E7953F00BB0A4C /* SunEatenL.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = SunEatenL.mp3; path = "音效/系统游戏音效/太阳/SunEatenL.mp3"; sourceTree = "<group>"; };
-		2493BEDF16E7953F00BB0A4C /* SunEatenR.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = SunEatenR.mp3; path = "音效/系统游戏音效/太阳/SunEatenR.mp3"; sourceTree = "<group>"; };
+		2493BEDF16E7953F00BB0A4C /* SunEaten.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = SunEaten.mp3; path = "音效/系统游戏音效/太阳/SunEaten.mp3"; sourceTree = "<group>"; };
 		2493BEE016E7953F00BB0A4C /* sun提示L.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "sun提示L.mp3"; path = "音效/系统游戏音效/太阳/sun提示L.mp3"; sourceTree = "<group>"; };
 		2493BEE116E7953F00BB0A4C /* sun提示R.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "sun提示R.mp3"; path = "音效/系统游戏音效/太阳/sun提示R.mp3"; sourceTree = "<group>"; };
 		2493BEE716E7956500BB0A4C /* 交通信号灯红灯03.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "交通信号灯红灯03.mp3"; path = "音效/系统游戏音效/红绿灯/交通信号灯红灯03.mp3"; sourceTree = "<group>"; };
@@ -945,12 +947,12 @@
 		24E7CEE116F0666C00233E66 /* 向左滑屏切换操作页.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "向左滑屏切换操作页.mp3"; path = "音效/帮助/规则页/向左滑屏切换操作页.mp3"; sourceTree = "<group>"; };
 		24E7CEF416F094CF00233E66 /* ByymChooseLevelScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ByymChooseLevelScene.h; path = "PlayScene/暴雨要密/ByymChooseLevelScene.h"; sourceTree = "<group>"; };
 		24E7CEF516F094CF00233E66 /* ByymChooseLevelScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ByymChooseLevelScene.m; path = "PlayScene/暴雨要密/ByymChooseLevelScene.m"; sourceTree = "<group>"; };
-		24E7CEF816F0965700233E66 /* ByymEasyLevelLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ByymEasyLevelLayer.h; path = "PlayScene/暴雨要密/简单/ByymEasyLevelLayer.h"; sourceTree = "<group>"; };
-		24E7CEF916F0965700233E66 /* ByymEasyLevelLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ByymEasyLevelLayer.m; path = "PlayScene/暴雨要密/简单/ByymEasyLevelLayer.m"; sourceTree = "<group>"; };
-		24E7CEFC16F0987F00233E66 /* ByymMidiumLevelLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ByymMidiumLevelLayer.h; path = "PlayScene/暴雨要密/中等/ByymMidiumLevelLayer.h"; sourceTree = "<group>"; };
-		24E7CEFD16F0987F00233E66 /* ByymMidiumLevelLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ByymMidiumLevelLayer.m; path = "PlayScene/暴雨要密/中等/ByymMidiumLevelLayer.m"; sourceTree = "<group>"; };
-		24E7CF0016F0998500233E66 /* ByymHardLevelLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ByymHardLevelLayer.h; path = "PlayScene/暴雨要密/困难/ByymHardLevelLayer.h"; sourceTree = "<group>"; };
-		24E7CF0116F0998500233E66 /* ByymHardLevelLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ByymHardLevelLayer.m; path = "PlayScene/暴雨要密/困难/ByymHardLevelLayer.m"; sourceTree = "<group>"; };
+		24E7CEF816F0965700233E66 /* ByymEasyLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ByymEasyLayer.h; path = "PlayScene/暴雨要密/简单/ByymEasyLayer.h"; sourceTree = "<group>"; };
+		24E7CEF916F0965700233E66 /* ByymEasyLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ByymEasyLayer.m; path = "PlayScene/暴雨要密/简单/ByymEasyLayer.m"; sourceTree = "<group>"; };
+		24E7CEFC16F0987F00233E66 /* ByymMediumLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ByymMediumLayer.h; path = "PlayScene/暴雨要密/中等/ByymMediumLayer.h"; sourceTree = "<group>"; };
+		24E7CEFD16F0987F00233E66 /* ByymMediumLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ByymMediumLayer.m; path = "PlayScene/暴雨要密/中等/ByymMediumLayer.m"; sourceTree = "<group>"; };
+		24E7CF0016F0998500233E66 /* ByymHardLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ByymHardLayer.h; path = "PlayScene/暴雨要密/困难/ByymHardLayer.h"; sourceTree = "<group>"; };
+		24E7CF0116F0998500233E66 /* ByymHardLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ByymHardLayer.m; path = "PlayScene/暴雨要密/困难/ByymHardLayer.m"; sourceTree = "<group>"; };
 		24E7CF0616F09A2600233E66 /* Load.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Load.h; path = "游戏界面/Load.h"; sourceTree = "<group>"; };
 		24E7CF0716F09A2600233E66 /* Load.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Load.m; path = "游戏界面/Load.m"; sourceTree = "<group>"; };
 		24FF140916E9D816006B1214 /* PauseBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = PauseBackground.png; path = "Resources/MainMenuScene/MainMenu/Play/游戏界面/暂停/PauseBackground.png"; sourceTree = "<group>"; };
@@ -1477,8 +1479,8 @@
 		24122B9216F1DE4A0058B50D /* 简单 */ = {
 			isa = PBXGroup;
 			children = (
-				24122B9516F1DE920058B50D /* MwtjEasyLevelLayer.h */,
-				24122B9616F1DE920058B50D /* MwtjEasyLevelLayer.m */,
+				24122B9516F1DE920058B50D /* MwtjEasyLayer.h */,
+				24122B9616F1DE920058B50D /* MwtjEasyLayer.m */,
 			);
 			name = "简单";
 			path = "PlayScene/迷雾通缉/简单";
@@ -1487,7 +1489,7 @@
 		24122B9316F1DE510058B50D /* 困难 */ = {
 			isa = PBXGroup;
 			children = (
-				24122B9B16F1E2C20058B50D /* MwtjHardLevelLayer.h */,
+				24122B9B16F1E2C20058B50D /* MwtjHardLayer.h */,
 				24122B9C16F1E2C20058B50D /* MwtjHardLevelLayer.m */,
 			);
 			name = "困难";
@@ -1497,8 +1499,8 @@
 		24122B9416F1DE720058B50D /* 中等 */ = {
 			isa = PBXGroup;
 			children = (
-				24122B9816F1E13D0058B50D /* MwtjMidiumLevelLayer.h */,
-				24122B9916F1E13D0058B50D /* MwtjMidiumLevelLayer.m */,
+				24122B9816F1E13D0058B50D /* MwtjMediumLayer.h */,
+				24122B9916F1E13D0058B50D /* MwtjMdiumLayer.m */,
 			);
 			name = "中等";
 			path = "PlayScene/迷雾通缉/中等";
@@ -1516,8 +1518,8 @@
 		2416200216DCC3F9008BE1B3 /* 简单 */ = {
 			isa = PBXGroup;
 			children = (
-				2425457516EB6EC80025293E /* YlfcEasyLevelLayer.h */,
-				2425457616EB6EC80025293E /* YlfcEasyLevelLayer.m */,
+				2425457516EB6EC80025293E /* YlfcEasyLayer.h */,
+				2425457616EB6EC80025293E /* YlfcEasyLayer.m */,
 			);
 			name = "简单";
 			sourceTree = "<group>";
@@ -1525,8 +1527,8 @@
 		2416200316DCC40C008BE1B3 /* 中等 */ = {
 			isa = PBXGroup;
 			children = (
-				2425457E16EB70B90025293E /* YlfcMidiumLevelLayer.h */,
-				2425457F16EB70B90025293E /* YlfcMidiumLevelLayer.m */,
+				2425457E16EB70B90025293E /* YlfcMediumLayer.h */,
+				2425457F16EB70B90025293E /* YlfcMediumLayer.m */,
 			);
 			name = "中等";
 			sourceTree = "<group>";
@@ -1534,8 +1536,8 @@
 		2416200416DCC41E008BE1B3 /* 困难 */ = {
 			isa = PBXGroup;
 			children = (
-				2425458016EB70C30025293E /* YlfcHardLevelLayer.h */,
-				2425458116EB70C30025293E /* YlfcHardLevelLayer.m */,
+				2425458016EB70C30025293E /* YlfcHardLayer.h */,
+				2425458116EB70C30025293E /* YlfcHardLayer.m */,
 			);
 			name = "困难";
 			sourceTree = "<group>";
@@ -1579,8 +1581,8 @@
 		2422D1C216FAE75800448FE5 /* 简单 */ = {
 			isa = PBXGroup;
 			children = (
-				2422D1C516FAE78300448FE5 /* XbtwEasyLevelLayer.h */,
-				2422D1C616FAE78300448FE5 /* XbtwEasyLevelLayer.m */,
+				2422D1C516FAE78300448FE5 /* XbtwEasyLayer.h */,
+				2422D1C616FAE78300448FE5 /* XbtwEasyLayer.m */,
 			);
 			name = "简单";
 			sourceTree = "<group>";
@@ -1588,8 +1590,8 @@
 		2422D1C316FAE75E00448FE5 /* 中等 */ = {
 			isa = PBXGroup;
 			children = (
-				2422D1C816FAE83A00448FE5 /* XbtwMidiumLevelLayer.h */,
-				2422D1C916FAE83A00448FE5 /* XbtwMidiumLevelLayer.m */,
+				2422D1C816FAE83A00448FE5 /* XbtwMediumLayer.h */,
+				2422D1C916FAE83A00448FE5 /* XbtwMediumLayer.m */,
 			);
 			name = "中等";
 			sourceTree = "<group>";
@@ -1597,10 +1599,20 @@
 		2422D1C416FAE76500448FE5 /* 困难 */ = {
 			isa = PBXGroup;
 			children = (
-				2422D1CB16FAE8DC00448FE5 /* XbtwHardLevelLayer.h */,
-				2422D1CC16FAE8DC00448FE5 /* XbtwHardLevelLayer.m */,
+				2422D1CB16FAE8DC00448FE5 /* XbtwHardLayer.h */,
+				2422D1CC16FAE8DC00448FE5 /* XbtwHardLayer.m */,
 			);
 			name = "困难";
+			sourceTree = "<group>";
+		};
+		2422D1D816FC47A800448FE5 /* 游戏结束 */ = {
+			isa = PBXGroup;
+			children = (
+				2422D1D916FC480900448FE5 /* Successful.png */,
+				2446A1AD16FEBA4D007B3D15 /* FirstRank.png */,
+			);
+			name = "游戏结束";
+			path = "Resources/MainMenuScene/MainMenu/Play/游戏界面/游戏结束";
 			sourceTree = "<group>";
 		};
 		242351A116ED9BAF009986A7 /* 音效 */ = {
@@ -1947,6 +1959,7 @@
 				240D6B3016E8B4F600CF51FA /* TurnRight.png */,
 				2493BEC716E77DE600BB0A4C /* Barrier.png */,
 				24FF140816E9D7EC006B1214 /* 暂停 */,
+				2422D1D816FC47A800448FE5 /* 游戏结束 */,
 			);
 			name = "游戏界面";
 			sourceTree = "<group>";
@@ -1994,8 +2007,7 @@
 		2493BEDD16E7953100BB0A4C /* 太阳 */ = {
 			isa = PBXGroup;
 			children = (
-				2493BEDE16E7953F00BB0A4C /* SunEatenL.mp3 */,
-				2493BEDF16E7953F00BB0A4C /* SunEatenR.mp3 */,
+				2493BEDF16E7953F00BB0A4C /* SunEaten.mp3 */,
 				2493BEE016E7953F00BB0A4C /* sun提示L.mp3 */,
 				2493BEE116E7953F00BB0A4C /* sun提示R.mp3 */,
 			);
@@ -2221,8 +2233,8 @@
 		24E7CEF716F095EA00233E66 /* 简单 */ = {
 			isa = PBXGroup;
 			children = (
-				24E7CEF816F0965700233E66 /* ByymEasyLevelLayer.h */,
-				24E7CEF916F0965700233E66 /* ByymEasyLevelLayer.m */,
+				24E7CEF816F0965700233E66 /* ByymEasyLayer.h */,
+				24E7CEF916F0965700233E66 /* ByymEasyLayer.m */,
 			);
 			name = "简单";
 			sourceTree = "<group>";
@@ -2230,8 +2242,8 @@
 		24E7CEFB16F0985300233E66 /* 中等 */ = {
 			isa = PBXGroup;
 			children = (
-				24E7CEFC16F0987F00233E66 /* ByymMidiumLevelLayer.h */,
-				24E7CEFD16F0987F00233E66 /* ByymMidiumLevelLayer.m */,
+				24E7CEFC16F0987F00233E66 /* ByymMediumLayer.h */,
+				24E7CEFD16F0987F00233E66 /* ByymMediumLayer.m */,
 			);
 			name = "中等";
 			sourceTree = "<group>";
@@ -2239,8 +2251,8 @@
 		24E7CEFF16F0994900233E66 /* 困难 */ = {
 			isa = PBXGroup;
 			children = (
-				24E7CF0016F0998500233E66 /* ByymHardLevelLayer.h */,
-				24E7CF0116F0998500233E66 /* ByymHardLevelLayer.m */,
+				24E7CF0016F0998500233E66 /* ByymHardLayer.h */,
+				24E7CF0116F0998500233E66 /* ByymHardLayer.m */,
 			);
 			name = "困难";
 			sourceTree = "<group>";
@@ -2380,8 +2392,7 @@
 				2493BEDA16E78E1100BB0A4C /* 路障提示音_L.mp3 in Resources */,
 				2493BEDB16E78E1100BB0A4C /* 路障提示音_R.mp3 in Resources */,
 				2493BEDC16E78E1100BB0A4C /* 撞到路障.mp3 in Resources */,
-				2493BEE216E7953F00BB0A4C /* SunEatenL.mp3 in Resources */,
-				2493BEE316E7953F00BB0A4C /* SunEatenR.mp3 in Resources */,
+				2493BEE316E7953F00BB0A4C /* SunEaten.mp3 in Resources */,
 				2493BEE416E7953F00BB0A4C /* sun提示L.mp3 in Resources */,
 				2493BEE516E7953F00BB0A4C /* sun提示R.mp3 in Resources */,
 				2493BEEB16E7956500BB0A4C /* 交通信号灯红灯03.mp3 in Resources */,
@@ -2530,6 +2541,8 @@
 				2422D1BA16FAE25000448FE5 /* 陷入雪堆.mp3 in Resources */,
 				2422D1D516FB17E200448FE5 /* 该场景未解锁.mp3 in Resources */,
 				2422D1D716FB17EF00448FE5 /* 该难度未解锁.mp3 in Resources */,
+				2422D1DA16FC480900448FE5 /* Successful.png in Resources */,
+				2446A1AE16FEBA4D007B3D15 /* FirstRank.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2544,9 +2557,9 @@
 				24B5643016EF253B00AA7094 /* ChooseLevelScrollLayer.m in Sources */,
 				24B5642F16EF253200AA7094 /* PlayGameScene.m in Sources */,
 				242351D416EF1441009986A7 /* ChooseSceneScrollLayer.m in Sources */,
-				2425458416EB74AA0025293E /* YlfcMidiumLevelLayer.m in Sources */,
-				2425458316EB74A50025293E /* YlfcEasyLevelLayer.m in Sources */,
-				2425458216EB74A10025293E /* YlfcHardLevelLayer.m in Sources */,
+				2425458416EB74AA0025293E /* YlfcMediumLayer.m in Sources */,
+				2425458316EB74A50025293E /* YlfcEasyLayer.m in Sources */,
+				2425458216EB74A10025293E /* YlfcHardLayer.m in Sources */,
 				24E4C53316E9FE0F0052300A /* EffectLayer.m in Sources */,
 				24E4C53216E9FE0A0052300A /* RegularLayer.m in Sources */,
 				24E4C53116E9FDF20052300A /* OperateLayer.m in Sources */,
@@ -2674,19 +2687,19 @@
 				2492789916E5F9EB001E75B8 /* SpecialButton.m in Sources */,
 				2425456F16EB357D0025293E /* MyMenuItem.m in Sources */,
 				24E7CEF616F094D000233E66 /* ByymChooseLevelScene.m in Sources */,
-				24E7CEFA16F0965700233E66 /* ByymEasyLevelLayer.m in Sources */,
-				24E7CEFE16F0987F00233E66 /* ByymMidiumLevelLayer.m in Sources */,
-				24E7CF0216F0998500233E66 /* ByymHardLevelLayer.m in Sources */,
+				24E7CEFA16F0965700233E66 /* ByymEasyLayer.m in Sources */,
+				24E7CEFE16F0987F00233E66 /* ByymMediumLayer.m in Sources */,
+				24E7CF0216F0998500233E66 /* ByymHardLayer.m in Sources */,
 				24E7CF0816F09A2600233E66 /* Load.m in Sources */,
 				24122B8916F1C7180058B50D /* ChooseLevelScene.m in Sources */,
 				24122B8D16F1DAFA0058B50D /* MwtjChooseLevelScene.m in Sources */,
-				24122B9716F1DE920058B50D /* MwtjEasyLevelLayer.m in Sources */,
-				24122B9A16F1E13D0058B50D /* MwtjMidiumLevelLayer.m in Sources */,
+				24122B9716F1DE920058B50D /* MwtjEasyLayer.m in Sources */,
+				24122B9A16F1E13D0058B50D /* MwtjMdiumLayer.m in Sources */,
 				24122B9D16F1E2C20058B50D /* MwtjHardLevelLayer.m in Sources */,
 				2422D1BD16FAE56D00448FE5 /* XbtwChooseLevelScene.m in Sources */,
-				2422D1C716FAE78300448FE5 /* XbtwEasyLevelLayer.m in Sources */,
-				2422D1CA16FAE83A00448FE5 /* XbtwMidiumLevelLayer.m in Sources */,
-				2422D1CD16FAE8DC00448FE5 /* XbtwHardLevelLayer.m in Sources */,
+				2422D1C716FAE78300448FE5 /* XbtwEasyLayer.m in Sources */,
+				2422D1CA16FAE83A00448FE5 /* XbtwMediumLayer.m in Sources */,
+				2422D1CD16FAE8DC00448FE5 /* XbtwHardLayer.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

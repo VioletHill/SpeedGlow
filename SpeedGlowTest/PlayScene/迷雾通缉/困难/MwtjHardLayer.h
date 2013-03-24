@@ -1,5 +1,5 @@
 //
-//  MwtjEasyLevelLayer.h
+//  MwtjHardLevelLayer.h
 //  SpeedGlow
 //
 //  Created by VioletHill on 13-3-14.
@@ -10,7 +10,7 @@
 #import "cocos2d.h"
 #import "ChooseLevelScrollLayer.h"
 
-@interface MwtjEasyLevelLayer : ChooseLevelScrollLayer
+@interface MwtjHardLayer : ChooseLevelScrollLayer
 {
     
 }

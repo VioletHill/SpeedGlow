@@ -7,9 +7,9 @@
 //
 
 #import "XbtwChooseLevelScene.h"
-#import "XbtwEasyLevelLayer.h"
-#import "XbtwMidiumLevelLayer.h"
-#import "XbtwHardLevelLayer.h"
+#import "XbtwEasyLayer.h"
+#import "XbtwMediumLayer.h"
+#import "XbtwHardLayer.h"
 #import "CCScrollLayer.h"
 #import "UserData.h"
 
@@ -58,7 +58,7 @@
 {
     if ([self.level count]<1)
     {
-        [self.level addObject:[[XbtwEasyLevelLayer alloc] init] ];
+        [self.level addObject:[[XbtwEasyLayer alloc] init] ];
     }
     return [self.level objectAtIndex:0];
 }
@@ -67,7 +67,7 @@
 {
     if ([self.level count]<2)
     {
-        [self.level addObject:[[XbtwMidiumLevelLayer alloc] init]];
+        [self.level addObject:[[XbtwMediumLayer alloc] init]];
     }
     return [self.level objectAtIndex:1];
 }
@@ -76,7 +76,7 @@
 {
     if ([self.level count]<3)
     {
-        [self.level addObject:[[XbtwHardLevelLayer alloc] init]];
+        [self.level addObject:[[XbtwHardLayer alloc] init]];
     }
     return [self.level objectAtIndex:2];
 }
@@ -128,7 +128,7 @@
             [super reflushSunNumAtScene:kXBTW andTotSun:XbtwEasySunNum];
             break;
         case 1:
-            [super reflushSunNumAtScene:kXBTW andTotSun:XbtwMidiumSunNum];
+            [super reflushSunNumAtScene:kXBTW andTotSun:XbtwMediumSunNum];
             break;
         case 2:
             [super reflushSunNumAtScene:kXBTW andTotSun:XbtwHardSunNum];

@@ -7,9 +7,15 @@
 //
 
 #import "ChooseSceneScrollLayer.h"
+#import "Obstacle.h"
+#import "UserData.h"
 
 
 @implementation ChooseSceneScrollLayer
+{
+    CCSprite* lock;
+    CCAction* playEffectAction;
+}
 
 -(void) onEnterLayer
 {
@@ -18,6 +24,10 @@
 
 -(void) onExitLayer
 {
+    [self stopAllActions];
+    [[SimpleAudioEngine sharedEngine] stopEffect:nowEffect];
+    [background setOpacity:255/2];
+    if (lock!=nil)  [self removeChild:lock cleanup:true];
 }
 
 -(void) onClick
@@ -103,6 +113,38 @@
     }
 }
 
+-(void) lockScene
+{
+    lock=[CCSprite spriteWithFile:@"Lock.png"];
+    lock.position=ccp(layerSize.width/2,layerSize.height/2);
+    [self addChild:lock];
+    if ([Setting sharedSetting].isNeedEffect)
+    {
+        playEffectAction=[CCSequence actions:
+                          [CCDelayTime actionWithDuration:1],[CCCallFunc actionWithTarget:self selector:@selector(playSceneEffect:)],
+                          [CCDelayTime actionWithDuration:2.5],[CCCallFunc actionWithTarget:self selector:@selector(playLockEffect:)],
+                          [CCDelayTime actionWithDuration:1.5],[CCCallFunc actionWithTarget:self selector:@selector(playLeftRightEffect:)],nil];
+        [self runAction:playEffectAction];
+    }
+}
 
+-(void) unlockScene
+{
+    [background setOpacity:255];
+    if ([Setting sharedSetting].isNeedEffect)
+    {
+        int sun=[[UserData sharedUserData] getSunAtScene:[Obstacle sharedObstacle].gameScene];
+        playEffectAction=[CCSequence actions:
+                      [CCDelayTime actionWithDuration:1],[CCCallFunc actionWithTarget:self selector:@selector(playSceneEffect:)],
+                      [CCDelayTime actionWithDuration:2.5], [CCCallFunc actionWithTarget:self selector:@selector(playAllSunEffect:)],
+                      [CCDelayTime actionWithDuration:1.5],[CCCallFuncND actionWithTarget:self selector:@selector(playNum:data:) data:(void*)[[UserData sharedUserData] getMaxSunAtScene:[Obstacle sharedObstacle].gameScene]],
+                      [CCDelayTime actionWithDuration:1.5],[CCCallFunc actionWithTarget:self selector:@selector(playHaveSunEffect:)],
+                      [CCDelayTime actionWithDuration:2],[CCCallFuncND actionWithTarget:self selector:@selector(playNum:data:) data:(void*)sun],
+                      [CCDelayTime actionWithDuration:1.5],[CCCallFunc actionWithTarget:self selector:@selector(playEnterEffect:)],
+                      [CCDelayTime actionWithDuration:2.5],[CCCallFunc actionWithTarget:self selector:@selector(playLeftRightEffect:)],nil];
+        [self runAction:playEffectAction];
+    }
+
+}
 
 @end

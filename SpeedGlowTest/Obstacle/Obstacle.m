@@ -305,7 +305,7 @@ static Obstacle* obstacle;
     [[SimpleAudioEngine sharedEngine] stopEffect:sunEffect];
     if ([Car sharedCar].lane==kLEFT_LAND)
     {
-        [[SimpleAudioEngine sharedEngine] playEffect:@"SunEatenL.mp3"];
+        [[SimpleAudioEngine sharedEngine] playEffect:@"SunEaten.mp3"];
         [Car sharedCar].isEatSun=true;
         [[Car sharedCar] eatSun];
     }
@@ -327,7 +327,7 @@ static Obstacle* obstacle;
     [[SimpleAudioEngine sharedEngine] stopEffect:sunEffect];
     if ([Car sharedCar].lane==kRIGHT_LAND)
     {
-        [[SimpleAudioEngine sharedEngine] playEffect:@"SunEatenR.mp3"];
+        [[SimpleAudioEngine sharedEngine] playEffect:@"SunEaten.mp3"];
         [Car sharedCar].isEatSun=true;
         [[Car sharedCar] eatSun];
     }

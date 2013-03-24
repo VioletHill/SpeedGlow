@@ -172,10 +172,8 @@
 
 -(void) returnLastScene:(id)pSender
 {
-    if ([Setting sharedSetting].isNeedEffect)
-    {
-        [[SimpleAudioEngine sharedEngine] playEffect:@"按键音一单击.mp3"];
-    }
+
+    [[SimpleAudioEngine sharedEngine] playEffect:@"按键音一单击.mp3"];
 //    
 //    CCAction* action=[CCSequence actions:[CCScaleTo actionWithDuration:0.1 scale:0.25],[CCScaleTo actionWithDuration:0.05 scale:1],[CCCallFunc actionWithTarget:self selector:@selector(callReturnLastScene:)],
 //                      nil];
@@ -186,19 +184,13 @@
 
 -(void) nextOrder:(id)pSender
 {
-    if ([Setting sharedSetting].isNeedEffect)
-    {
-        [[SimpleAudioEngine sharedEngine] playEffect:@"按键音一单击.mp3"];
-    }
+    [[SimpleAudioEngine sharedEngine] playEffect:@"按键音一单击.mp3"];
     [nowLayer nextOrder];
 }
 
 -(void) lastOrder:(id)pSender
 {
-    if ([Setting sharedSetting].isNeedEffect)
-    {
-        [[SimpleAudioEngine sharedEngine] playEffect:@"按键音一单击.mp3"];
-    }
+    [[SimpleAudioEngine sharedEngine] playEffect:@"按键音一单击.mp3"];
     [nowLayer lastOrder];
 }
 

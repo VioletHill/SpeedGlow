@@ -10,9 +10,9 @@
 #import "CCScrollLayer.h"
 #import "UserData.h"
 #import "ChooseLevelScrollLayer.h"
-#import "MwtjEasyLevelLayer.h"
-#import "MwtjMidiumLevelLayer.h"
-#import "MwtjHardLevelLayer.h"
+#import "MwtjEasyLayer.h"
+#import "MwtjMediumLayer.h"
+#import "MwtjHardLayer.h"
 
 
 
@@ -59,7 +59,7 @@
 {
     if ([self.level count]<1)
     {
-        [self.level addObject:[[MwtjEasyLevelLayer alloc] init] ];
+        [self.level addObject:[[MwtjEasyLayer alloc] init] ];
     }
     return [self.level objectAtIndex:0];
 }
@@ -68,7 +68,7 @@
 {
     if ([self.level count]<2)
     {
-        [self.level addObject:[[MwtjMidiumLevelLayer alloc] init]];
+        [self.level addObject:[[MwtjMediumLayer alloc] init]];
     }
     return [self.level objectAtIndex:1];
 }
@@ -77,7 +77,7 @@
 {
     if ([self.level count]<3)
     {
-        [self.level addObject:[[MwtjHardLevelLayer alloc] init]];
+        [self.level addObject:[[MwtjHardLayer alloc] init]];
     }
     return [self.level objectAtIndex:2];
 }
@@ -129,7 +129,7 @@
             [super reflushSunNumAtScene:kMWTJ andTotSun:MwtjEasySunNum];
             break;
         case 1:
-            [super reflushSunNumAtScene:kMWTJ andTotSun:MwtjMidiumSunNum];
+            [super reflushSunNumAtScene:kMWTJ andTotSun:MwtjMediumSunNum];
             break;
         case 2:
             [super reflushSunNumAtScene:kMWTJ andTotSun:MwtjHardSunNum];

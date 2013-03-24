@@ -1,8 +1,8 @@
 //
-//  XbtwEasyLevelLayer.h
+//  ByymMidiumLevelLayer.h
 //  SpeedGlow
 //
-//  Created by VioletHill on 13-3-21.
+//  Created by VioletHill on 13-3-13.
 //  Copyright 2013年 VioletHill. All rights reserved.
 //
 
@@ -10,9 +10,8 @@
 #import "cocos2d.h"
 #import "ChooseLevelScrollLayer.h"
 
-@interface XbtwEasyLevelLayer : ChooseLevelScrollLayer
-{
-    
+@interface ByymMediumLayer : ChooseLevelScrollLayer
+{    
 }
 
 @end

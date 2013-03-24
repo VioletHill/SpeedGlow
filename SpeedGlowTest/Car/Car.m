@@ -19,6 +19,7 @@
 @implementation Car
 {
     ALint carSpeedSoundId;
+    int carSpeedSoundPlayTime;
 }
 
 static Car* car;
@@ -44,6 +45,20 @@ static Car* car;
     return car;
 }
 
+-(BOOL) getIsPlayCarSpeedSound
+{
+    if ([[SimpleAudioEngine sharedEngine] isEffectPlay:carSpeedSoundId])
+    {
+        if (carSpeedSoundPlayTime>=30) return false;
+        carSpeedSoundPlayTime++;
+        return true;
+    }
+    else
+    {
+ 
+        return false;
+    }
+}
 //撞到货箱
 -(void) collisionBox
 {
@@ -195,6 +210,7 @@ static Car* car;
     self.speed=accelerateSpeed;
     [[SimpleAudioEngine sharedEngine] stopEffect:carSpeedSoundId];
     carSpeedSoundId=[[SimpleAudioEngine sharedEngine] playEffect:@"加速音效.mp3" loop:true];
+    carSpeedSoundPlayTime=0;
 }
 
 -(void) normalSpeedStart
@@ -203,12 +219,13 @@ static Car* car;
     self.speed=normalSpeed;
     [[SimpleAudioEngine sharedEngine] stopEffect:carSpeedSoundId];
     carSpeedSoundId=[[SimpleAudioEngine sharedEngine] playEffect:@"常速行驶音效.mp3" loop:true];
+    carSpeedSoundPlayTime=0;
 }
 
 -(void) restartCar:(id)pSender
 {
     carSpeedSoundId=[[SimpleAudioEngine sharedEngine] playEffect:@"常速行驶音效.mp3" loop:true];
-  //  [[SimpleAudioEngine sharedEngine] resumeBackgroundMusic];
+    carSpeedSoundPlayTime=0;
     self.speed=normalSpeed;
     self.isNeedStop=false;
 }
@@ -218,12 +235,33 @@ static Car* car;
     self.isNeedStop=true;
     self.speed=noSpeed;
     [[SimpleAudioEngine sharedEngine] stopEffect:carSpeedSoundId];
-   // [[SimpleAudioEngine sharedEngine] pauseBackgroundMusic];
     
     CCAction* action=[CCSequence actions:[CCDelayTime actionWithDuration:time], [CCCallFunc actionWithTarget:self selector:@selector(restartCar:) ],nil];
     [[[CCDirector sharedDirector] runningScene] runAction:action];
 }
 
+-(void) playCarEffect
+{
+    if (self.isNeedStop)
+    {
+        return;
+    }
+    else
+    {
+        [[SimpleAudioEngine sharedEngine] stopEffect:carSpeedSoundId];
+        carSpeedSoundPlayTime=0;
+        NSLog(@"replay");
+        if (self.speed==normalSpeed)
+        {
+            carSpeedSoundId=[[SimpleAudioEngine sharedEngine] playEffect:@"常速行驶音效.mp3" loop:true];
+        }
+        else if (self.speed==accelerateSpeed)
+        {
+            carSpeedSoundId=[[SimpleAudioEngine sharedEngine] playEffect:@"加速音效.mp3" loop:true];
+        }
+    }
+    
+}
 
 -(id) init
 {

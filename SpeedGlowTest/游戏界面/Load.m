@@ -10,6 +10,7 @@
 #import "SimpleAudioEngine.h"
 #import "PlayGameScene.h"
 #import "Obstacle.h"
+#import "Gameover.h"
 
 
 @implementation Load
@@ -28,7 +29,8 @@
 
 -(void) enterGame:(id)pSender
 {
-    [[CCDirector sharedDirector] pushScene: [PlayGameScene scene]];
+    [[CCDirector sharedDirector] replaceScene: [PlayGameScene scene]];
+    //[[CCDirector sharedDirector] replaceScene:[Gameover scene]];
 }
 
 -(void) playLoadEffect:(id)pSender

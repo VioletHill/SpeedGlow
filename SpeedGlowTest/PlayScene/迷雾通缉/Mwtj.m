@@ -16,14 +16,6 @@
 @implementation Mwtj
 {
     bool isLock;
-    
-    CGSize layerSize;
-    CGSize screenSize;
-    CCSprite* background;
-    CCSprite* lock;
-    
-    CCAction* playEffectAction;
-    
     CCParticleSystemQuad* fog;
 }
 
@@ -75,52 +67,20 @@
     [self addChild:fog];
 }
 
--(void) unlockScene
-{
-    [self onFog];
-    [background setOpacity:255];
-    int sun=[[UserData sharedUserData] getSunByScene:kMWTJ];
-    if ([Setting sharedSetting].isNeedEffect)
-    {
-        playEffectAction=[CCSequence actions:
-                      [CCDelayTime actionWithDuration:1],[CCCallFunc actionWithTarget:self selector:@selector(playSceneEffect:)],
-                      [CCDelayTime actionWithDuration:2.5], [CCCallFunc actionWithTarget:self selector:@selector(playAllSunEffect:)],
-                      [CCDelayTime actionWithDuration:1.5],[CCCallFuncND actionWithTarget:self selector:@selector(playNum:data:) data:(void*)MwtjMaxSunNum],
-                      [CCDelayTime actionWithDuration:1.5],[CCCallFunc actionWithTarget:self selector:@selector(playHaveSunEffect:)],
-                      [CCDelayTime actionWithDuration:2],[CCCallFuncND actionWithTarget:self selector:@selector(playNum:data:) data:(void*)sun],
-                      [CCDelayTime actionWithDuration:1.5],[CCCallFunc actionWithTarget:self selector:@selector(playEnterEffect:)],
-                      [CCDelayTime actionWithDuration:2.5],[CCCallFunc actionWithTarget:self selector:@selector(playLeftRightEffect:)],nil];
-        [self runAction:playEffectAction];
-    }
-}
-
--(void) lockScene
-{
-    lock=[CCSprite spriteWithFile:@"Lock.png"];
-    lock.position=ccp(layerSize.width/2,layerSize.height/2);
-    [self addChild:lock];
-    
-    if ([Setting sharedSetting].isNeedEffect)
-    {
-        playEffectAction=[CCSequence actions:
-                          [CCDelayTime actionWithDuration:1],[CCCallFunc actionWithTarget:self selector:@selector(playSceneEffect:)],
-                          [CCDelayTime actionWithDuration:2.5],[CCCallFunc actionWithTarget:self selector:@selector(playLockEffect:)],
-                          [CCDelayTime actionWithDuration:1.5],[CCCallFunc actionWithTarget:self selector:@selector(playLeftRightEffect:)],nil];
-        [self runAction:playEffectAction];
-    }
-}
 
 -(void) onEnterLayer
 {
+    [Obstacle sharedObstacle].gameScene=kMWTJ;
     if ([[UserData sharedUserData] getIsUnlockAtScene:kMWTJ])
     {
         isLock=false;
-        [self unlockScene];
+        [super unlockScene];
+        [self onFog];
     }
     else
     {
         isLock=true;
-        [self lockScene];
+        [super lockScene];
     }
    // [self unlockScene];
 }
@@ -128,10 +88,6 @@
 -(void) onExitLayer
 {
     [self removeChild:fog cleanup:true];
-    if (lock!=nil)  [self removeChild:lock cleanup:true];
-    [background setOpacity:255/2];
-    [[SimpleAudioEngine sharedEngine] stopEffect:nowEffect];
-    [self stopAllActions];
     [super onExitLayer];
 
 }

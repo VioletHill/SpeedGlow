@@ -1,5 +1,5 @@
 //
-//  EasyLevelLayer.h
+//  MiddleLevelLayer.h
 //  SpeedGlowTest
 //
 //  Created by VioletHill on 13-2-25.
@@ -10,7 +10,7 @@
 #import "cocos2d.h"
 #import "ChooseLevelScrollLayer.h"
 
-@interface YlfcEasyLevelLayer : ChooseLevelScrollLayer
+@interface YlfcMediumLayer : ChooseLevelScrollLayer
 {
     
 }

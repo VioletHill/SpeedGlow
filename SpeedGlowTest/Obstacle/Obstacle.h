@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 
-#define barrierSingleTime 0.8
+#define barrierSingleTime 0.7
 #define sunSingleTime 0.4
 #define turnSingleTime 0.7
 #define trafficLightTime 3
@@ -28,7 +28,7 @@ typedef enum
 typedef enum
 {
     kEASY=0,
-    kMIDIUM=1,
+    kMEDIUM=1,
     kHARD=2
 }GameLevel;
 

@@ -8,9 +8,9 @@
 
 #import "ByymChooseLevelScene.h"
 #import "CCScrollLayer.h"
-#import "ByymEasyLevelLayer.h"
-#import "ByymMidiumLevelLayer.h"
-#import "ByymHardLevelLayer.h"
+#import "ByymEasyLayer.h"
+#import "ByymMediumLayer.h"
+#import "ByymHardLayer.h"
 #import "UserData.h"
 
 
@@ -57,7 +57,7 @@
 {
     if ([self.level count]<1)
     {
-        [self.level addObject:[[ByymEasyLevelLayer alloc] init] ];
+        [self.level addObject:[[ByymEasyLayer alloc] init] ];
     }
     return [self.level objectAtIndex:0];
 }
@@ -66,7 +66,7 @@
 {
     if ([self.level count]<2)
     {
-        [self.level addObject:[[ByymMidiumLevelLayer alloc] init]];
+        [self.level addObject:[[ByymMediumLayer alloc] init]];
     }
     return [self.level objectAtIndex:1];
 }
@@ -75,7 +75,7 @@
 {
     if ([self.level count]<3)
     {
-        [self.level addObject:[[ByymHardLevelLayer alloc] init]];
+        [self.level addObject:[[ByymHardLayer alloc] init]];
     }
     return [self.level objectAtIndex:2];
 }
@@ -127,7 +127,7 @@
             [super reflushSunNumAtScene:kBYYM andTotSun:ByymEasySunNum];
             break;
         case 1:
-            [super reflushSunNumAtScene:kBYYM andTotSun:ByymMidiumSunNum];
+            [super reflushSunNumAtScene:kBYYM andTotSun:ByymMediumSunNum];
             break;
         case 2:
             [super reflushSunNumAtScene:kBYYM andTotSun:ByymHardSunNum];

@@ -57,19 +57,19 @@
     {
         case 0:
             totSun=YlfcMaxSunNum;
-            haveSun=[[UserData sharedUserData] getSunByScene:kYLFC];
+            haveSun=[[UserData sharedUserData] getSunAtScene:kYLFC];
             break;
         case 1:
             totSun=ByymMaxSunNum;
-            haveSun=[[UserData sharedUserData] getSunByScene:kBYYM];
+            haveSun=[[UserData sharedUserData] getSunAtScene:kBYYM];
             break;
         case 2:
             totSun=MwtjMaxSunNum;
-            haveSun=[[UserData sharedUserData] getSunByScene:kMWTJ];
+            haveSun=[[UserData sharedUserData] getSunAtScene:kMWTJ];
             break;
         case 3:
             totSun=XbtwMaxSunNum;
-            haveSun=[[UserData sharedUserData] getSunByScene:kXBTW];
+            haveSun=[[UserData sharedUserData] getSunAtScene:kXBTW];
             break;
         default:
             totSun=0;

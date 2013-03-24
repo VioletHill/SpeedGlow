@@ -1,15 +1,17 @@
 //
-//  MwtjHardLevelLayer.m
+//  XbtwEasyLevelLayer.m
 //  SpeedGlow
 //
-//  Created by VioletHill on 13-3-14.
+//  Created by VioletHill on 13-3-21.
 //  Copyright 2013年 VioletHill. All rights reserved.
 //
 
-#import "MwtjHardLayer.h"
+#import "XbtwEasyLayer.h"
 #import "UserData.h"
 
-@implementation MwtjHardLayer
+
+@implementation XbtwEasyLayer
+
 
 -(id) init
 {
@@ -24,9 +26,11 @@
         [self addChild:frame];
         
         //title
-        CCSprite* title=[CCSprite spriteWithFile:@"Hard.png"];
+        CCSprite* title=[CCSprite spriteWithFile:@"Easy.png"];
         title.position=ccp(layerSize.width/2,layerSize.height-title.contentSize.height/2-22);
         [self addChild:title];
+        
+        
     }
     return self;
 }
@@ -34,12 +38,14 @@
 
 -(void) onEnterLayer
 {
-    [Obstacle sharedObstacle].gameLevel=kHARD;
+    [Obstacle sharedObstacle].gameLevel=kEASY;
     [super onEnterLayer];
+    
 }
 
 -(void) onExitLayer
 {
+
     [super onExitLayer];
     
 }

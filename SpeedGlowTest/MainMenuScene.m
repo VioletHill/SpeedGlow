@@ -93,10 +93,7 @@
 
 -(void) pushToHelpScene:(id)pSender
 {
-    if ([Setting sharedSetting].isNeedEffect)
-    {
-        [[SimpleAudioEngine sharedEngine] playEffect:@"按键音一单击.mp3"];
-    }
+    [[SimpleAudioEngine sharedEngine] playEffect:@"按键音一单击.mp3"];
     CCTransitionFade* fade=[CCTransitionShrinkGrow transitionWithDuration:0.1 scene:[HelpScene scene]];
     [[CCDirector sharedDirector] pushScene:fade];
 }
@@ -104,10 +101,8 @@
 
 -(void) pushToSettingScene:(id)pSender
 {
-    if ([Setting sharedSetting].isNeedEffect)
-    {
-        [[SimpleAudioEngine sharedEngine] playEffect:@"按键音一单击.mp3"];
-    }
+
+    [[SimpleAudioEngine sharedEngine] playEffect:@"按键音一单击.mp3"];
     CCTransitionFade* fade=[CCTransitionShrinkGrow transitionWithDuration:0.1 scene:[SettingScene scene]];
     [[CCDirector sharedDirector] pushScene:fade];
 
@@ -115,10 +110,8 @@
 
 -(void) pushToPlayScene:(id)pSender
 {
-    if ([Setting sharedSetting].isNeedEffect)
-    {
-        [[SimpleAudioEngine sharedEngine] playEffect:@"按键音一单击.mp3"];
-    }
+
+    [[SimpleAudioEngine sharedEngine] playEffect:@"按键音一单击.mp3"];
     CCTransitionFade* fade=[CCTransitionCrossFade transitionWithDuration:0.1 scene:[ChooseScene scene]];
     [[CCDirector sharedDirector] pushScene:fade];
 }

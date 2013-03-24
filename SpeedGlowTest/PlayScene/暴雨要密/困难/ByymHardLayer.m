@@ -1,15 +1,16 @@
 //
-//  MwtjHardLevelLayer.m
+//  ByymHardLevelLayer.m
 //  SpeedGlow
 //
-//  Created by VioletHill on 13-3-14.
+//  Created by VioletHill on 13-3-13.
 //  Copyright 2013年 VioletHill. All rights reserved.
 //
 
-#import "MwtjHardLayer.h"
+#import "ByymHardLayer.h"
 #import "UserData.h"
 
-@implementation MwtjHardLayer
+
+@implementation ByymHardLayer
 
 -(id) init
 {
@@ -31,7 +32,6 @@
     return self;
 }
 
-
 -(void) onEnterLayer
 {
     [Obstacle sharedObstacle].gameLevel=kHARD;
@@ -41,12 +41,10 @@
 -(void) onExitLayer
 {
     [super onExitLayer];
-    
 }
 
 -(void) onClick
 {
     [self startGame];
 }
-
 @end

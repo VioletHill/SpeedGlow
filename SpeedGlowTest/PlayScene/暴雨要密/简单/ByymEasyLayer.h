@@ -10,7 +10,7 @@
 #import "cocos2d.h"
 #import "ChooseLevelScrollLayer.h"
 
-@interface ByymEasyLevelLayer : ChooseLevelScrollLayer
+@interface ByymEasyLayer : ChooseLevelScrollLayer
 {
     
 }

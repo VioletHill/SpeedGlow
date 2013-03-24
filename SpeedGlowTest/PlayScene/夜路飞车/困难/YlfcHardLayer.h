@@ -1,8 +1,8 @@
 //
-//  XbtwMidiumLevelLayer.h
-//  SpeedGlow
+//  HardLevelLayer.h
+//  SpeedGlowTest
 //
-//  Created by VioletHill on 13-3-21.
+//  Created by VioletHill on 13-2-25.
 //  Copyright 2013年 VioletHill. All rights reserved.
 //
 
@@ -10,7 +10,7 @@
 #import "cocos2d.h"
 #import "ChooseLevelScrollLayer.h"
 
-@interface XbtwMidiumLevelLayer : ChooseLevelScrollLayer
+@interface YlfcHardLayer : ChooseLevelScrollLayer
 {
     
 }

@@ -75,6 +75,7 @@
 -(void) pauseEffect:(ALuint) soundId;
 -(void) pauseAllEffect;
 -(void) resumeAllEffect;
+-(BOOL) isEffectPlay:(ALuint) soundId;
 
 
 ///edit by me

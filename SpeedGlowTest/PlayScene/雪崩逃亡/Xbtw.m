@@ -16,14 +16,6 @@
 @implementation Xbtw
 {
     bool isLock;
-    
-    CGSize layerSize;
-    CGSize screenSize;
-    CCSprite* background;
-    CCSprite* lock;
-    
-    CCAction* playEffectAction;
-    
     CCParticleSystemQuad* snow;
     
 }
@@ -71,47 +63,16 @@
     [self addChild:snow];
 }
 
--(void) unlockScene
-{
-    [self onSnow];
-    [background setOpacity:255];
-    int sun=[[UserData sharedUserData] getSunByScene:kXBTW];
-    if ([Setting sharedSetting].isNeedEffect)
-    {
-        playEffectAction=[CCSequence actions:
-                      [CCDelayTime actionWithDuration:1],[CCCallFunc actionWithTarget:self selector:@selector(playSceneEffect:)],
-                      [CCDelayTime actionWithDuration:2.5], [CCCallFunc actionWithTarget:self selector:@selector(playAllSunEffect:)],
-                      [CCDelayTime actionWithDuration:1.5],[CCCallFuncND actionWithTarget:self selector:@selector(playNum:data:) data:(void*)XbtwMaxSunNum],
-                      [CCDelayTime actionWithDuration:1.5],[CCCallFunc actionWithTarget:self selector:@selector(playHaveSunEffect:)],
-                      [CCDelayTime actionWithDuration:2],[CCCallFuncND actionWithTarget:self selector:@selector(playNum:data:) data:(void*)sun],
-                      [CCDelayTime actionWithDuration:1.5],[CCCallFunc actionWithTarget:self selector:@selector(playEnterEffect:)],
-                      [CCDelayTime actionWithDuration:2.5],[CCCallFunc actionWithTarget:self selector:@selector(playLeftRightEffect:)],nil];
-        [self runAction:playEffectAction];
-    }
-}
 
--(void) lockScene
-{
-    lock=[CCSprite spriteWithFile:@"Lock.png"];
-    lock.position=ccp(layerSize.width/2,layerSize.height/2);
-    [self addChild:lock];
-    
-    if ([Setting sharedSetting].isNeedEffect)
-    {
-        playEffectAction=[CCSequence actions:
-                          [CCDelayTime actionWithDuration:1],[CCCallFunc actionWithTarget:self selector:@selector(playSceneEffect:)],
-                          [CCDelayTime actionWithDuration:2.5],[CCCallFunc actionWithTarget:self selector:@selector(playLockEffect:)],
-                          [CCDelayTime actionWithDuration:1.5],[CCCallFunc actionWithTarget:self selector:@selector(playLeftRightEffect:)],nil];
-        [self runAction:playEffectAction];
-    }
-}
 
 -(void) onEnterLayer
 {
+    [Obstacle sharedObstacle].gameScene=kXBTW;
     if ([[UserData sharedUserData] getIsUnlockAtScene:kXBTW])
     {
         isLock=false;
         [self unlockScene];
+        [self onSnow];
     }
     else
     {
@@ -124,10 +85,6 @@
 -(void) onExitLayer
 {
     [self removeChild:snow cleanup:true];
-    if (lock!=nil)  [self removeChild:lock cleanup:true];
-    [background setOpacity:255/2];
-    [self stopAllActions];
-    [[SimpleAudioEngine sharedEngine] stopEffect:nowEffect];
     [super onExitLayer];
 
 }

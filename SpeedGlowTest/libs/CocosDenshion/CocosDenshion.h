@@ -250,11 +250,12 @@ typedef struct _sourceInfo {
 -(CDSoundSource *) soundSourceForSound:(int) soundId sourceGroupId:(int) sourceGroupId;
 
 
-////////fix by me
+////////add by me
 -(void) pauseSounds:(ALuint) sourceID;
 -(void) resumeSounds:(ALuint) sourceID;
 -(void) pauseAllSounds;
 -(void) resumeAllSounds;
+-(BOOL) isEffectPlay:(ALuint) sourceID;
 
 /** Stops playing a sound */
 - (void) stopSound:(ALuint) sourceId;

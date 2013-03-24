@@ -8,9 +8,17 @@
 
 #import "ChooseLevelScrollLayer.h"
 #import "Setting.h"
+#import "UserData.h"
+#import "Load.h"
 
 
 @implementation ChooseLevelScrollLayer
+{
+    ALuint nowEffect;
+    CCSprite* lock;
+    CCAction* playEffectAction;
+    BOOL isLock;
+}
 
 
 -(void) playLeftRightEffect:(id)pSender
@@ -102,15 +110,42 @@
     }
 }
 
+-(void) playLevelEffect:(id)pSender
+{
+    switch ([Obstacle sharedObstacle].gameLevel)
+    {
+        case kEASY:
+            if ([Setting sharedSetting].isNeedEffect)
+            {
+                nowEffect=[[SimpleAudioEngine sharedEngine] playEffect:@"一难度简单.mp3"];
+            }
+            break;
+        case kMEDIUM:
+            if ([Setting sharedSetting].isNeedEffect)
+            {
+                nowEffect=[[SimpleAudioEngine sharedEngine] playEffect:@"二难度中等.mp3"];
+            }
+            break;
+        case kHARD:
+            if ([Setting sharedSetting].isNeedEffect)
+            {
+                nowEffect=[[SimpleAudioEngine sharedEngine] playEffect:@"三难度困难.mp3"];
+            }
+        default:
+            break;
+    }
+}
+
 -(void) lockLevel
 {
+    isLock=true;
     lock=[CCSprite spriteWithFile:@"Lock.png"];
     lock.position=ccp(layerSize.width/2,layerSize.height/2);
     [self addChild:lock];
     if ([Setting sharedSetting].isNeedEffect)
     {
         playEffectAction=[CCSequence actions:
-                          [CCDelayTime actionWithDuration:1],[CCCallFunc actionWithTarget:self selector:@selector(playEasyEffect:)],
+                          [CCDelayTime actionWithDuration:1],[CCCallFunc actionWithTarget:self selector:@selector(playLevelEffect:)],
                           [CCDelayTime actionWithDuration:2],[CCCallFunc actionWithTarget:self selector:@selector(playLockLevel:)],
                           [CCDelayTime actionWithDuration:1.5],[CCCallFunc actionWithTarget:self selector:@selector(playLeftRightEffect:)],
                           [CCDelayTime actionWithDuration:2],[CCCallFunc actionWithTarget:self selector:@selector(playReturnAndHelpEffect:)],nil];
@@ -119,16 +154,51 @@
     
 }
 
+-(void) unlockLevel
+{
+    isLock=false;
+    if ([Setting sharedSetting].isNeedEffect)
+    {
+        int sun=[[UserData sharedUserData] getSunAtScene:[Obstacle sharedObstacle].gameScene andLevel:[Obstacle sharedObstacle].gameLevel];
+        playEffectAction=[CCSequence actions:
+                          [CCDelayTime actionWithDuration:1],[CCCallFunc actionWithTarget:self selector:@selector(playLevelEffect:)],
+                          [CCDelayTime actionWithDuration:2], [CCCallFunc actionWithTarget:self selector:@selector(playAllSunEffect:)],
+                          [CCDelayTime actionWithDuration:1.5],[CCCallFuncND actionWithTarget:self selector:@selector(playNum:data:) data:(void*)[[UserData sharedUserData] getMaxSunAtScene:[Obstacle sharedObstacle].gameScene andLevel:[Obstacle sharedObstacle].gameLevel]],
+                          [CCDelayTime actionWithDuration:1.5],[CCCallFunc actionWithTarget:self selector:@selector(playHaveSunEffect:)],
+                          [CCDelayTime actionWithDuration:2],[CCCallFuncND actionWithTarget:self selector:@selector(playNum:data:) data:(void*)sun],
+                          [CCDelayTime actionWithDuration:1.5],[CCCallFunc actionWithTarget:self selector:@selector(playLeftRightEffect:)],
+                          [CCDelayTime actionWithDuration:2],[CCCallFunc actionWithTarget:self selector:@selector(playReturnAndHelpEffect:)],nil];
+        [self runAction:playEffectAction];
+
+    }
+}
+
+-(void) startGame
+{
+    if (isLock) return;
+    [[SimpleAudioEngine sharedEngine] playEffect:@"按键音二双击.mp3"];
+    CCTransitionFade* fade=[CCTransitionShrinkGrow transitionWithDuration:0.1 scene:[Load scene]];
+    [[CCDirector sharedDirector] pushScene:fade];
+}
 
 -(void) onEnterLayer
 {
-    
+    if ([[UserData sharedUserData] getIsUnlockAtScene:[Obstacle sharedObstacle].gameScene andLevel:[Obstacle sharedObstacle].gameLevel])
+    {
+        [self unlockLevel];
+        isLock=false;
+    }
+    else
+    {
+        [self lockLevel];
+        isLock=true;
+    }
 }
 
 -(void) onExitLayer
 {
     [self stopAllActions];
-    [self removeChild:lock cleanup:true];
+    if (lock!=nil)  [self removeChild:lock cleanup:true];
     [[SimpleAudioEngine sharedEngine] stopEffect:nowEffect];
 }
 

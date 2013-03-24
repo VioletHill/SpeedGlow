@@ -75,13 +75,13 @@
     switch (nowPageIndex)
     {
         case 0:
-            haveSun=[[UserData sharedUserData] getSunByScene:gameScene andLevel:kEASY];
+            haveSun=[[UserData sharedUserData] getSunAtScene:gameScene andLevel:kEASY];
             break;
         case 1:
-            haveSun=[[UserData sharedUserData] getSunByScene:gameScene andLevel:kMIDIUM];
+            haveSun=[[UserData sharedUserData] getSunAtScene:gameScene andLevel:kMEDIUM];
             break;
         case 2:
-            haveSun=[[UserData sharedUserData] getSunByScene:gameScene andLevel:kHARD];
+            haveSun=[[UserData sharedUserData] getSunAtScene:gameScene andLevel:kHARD];
             break;
         default:
             haveSun=0;
@@ -125,10 +125,8 @@
 
 -(void) pushToHelpScene:(id)pSender
 {
-    if ([Setting sharedSetting].isNeedEffect)
-    {
-        [[SimpleAudioEngine sharedEngine] playEffect:@"按键音一单击.mp3"];
-    }
+
+    [[SimpleAudioEngine sharedEngine] playEffect:@"按键音一单击.mp3"];
     
     CCTransitionFade* fade=[CCTransitionShrinkGrow transitionWithDuration:0.1 scene:[HelpScene scene]];
     [[CCDirector sharedDirector] pushScene:fade];
@@ -141,10 +139,8 @@
 
 -(void) returnLastScene:(id)pSender
 {
-    if ([Setting sharedSetting].isNeedEffect)
-    {
-        [[SimpleAudioEngine sharedEngine] playEffect:@"按键音一单击.mp3"];
-    }
+
+    [[SimpleAudioEngine sharedEngine] playEffect:@"按键音一单击.mp3"];
     
     CCAction* action=[CCSequence actions:[CCScaleTo actionWithDuration:0.1 scale:0.25],[CCScaleTo actionWithDuration:0.05 scale:1],[CCCallFunc actionWithTarget:self selector:@selector(callReturnLastScene:)],
                       nil];

@@ -182,6 +182,11 @@ static CDBufferManager *bufferManager = nil;
 {
     [soundEngine stopAllSounds];
 }
+
+-(BOOL) isEffectPlay:(ALuint)soundId
+{
+    return [soundEngine isEffectPlay:soundId];
+}
 ///////
 
 -(void) preloadEffect:(NSString*) filePath

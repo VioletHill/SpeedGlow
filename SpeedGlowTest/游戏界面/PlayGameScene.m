@@ -13,6 +13,7 @@
 #import "SpecialButton.h"
 #import "UserData.h"
 #import "Gameover.h"
+#import "Load.h"
 #import <CoreMotion/CoreMotion.h>
 
 
@@ -56,6 +57,7 @@
     CMMotionManager* motionManager;
     BOOL isTurn;
     
+    
 }
 
 +(CCScene *) scene
@@ -68,16 +70,49 @@
 }
 
 #pragma mark 载入地图
--(float) getRandomDistance
+-(float) getEasyRandomDistance
 {
     int randomDistance=arc4random()%(1100-165);
     float distance=(float) randomDistance/10.0+16.6;
     return distance;
-    
 }
 
+-(float) getMidiunRandomDistance
+{
+    int randomDistance=arc4random()%(900-165);
+    float distance=(float) randomDistance/10.0+16.6;
+    return distance;
+}
 
--(void) loadMapWithBarrier:(int)barrierTot Trun:(int)turnTot Sun:(int)sunTot TrafficLight:(int)lightTot
+-(float) getHardRandomDistance
+{
+    int randomDistance=arc4random()%(700-165);
+    float distance=(float) randomDistance/10.0+16.6;
+    return distance;
+}
+
+-(float) getRandomDistance
+{
+    float randomDistance;
+    
+    switch ([Obstacle sharedObstacle].gameLevel)
+    {
+        case kEASY:
+            randomDistance=[self getEasyRandomDistance];
+            break;
+        case kMEDIUM:
+            randomDistance=[self getMidiunRandomDistance];
+            break;
+        case kHARD:
+            randomDistance=[self getHardRandomDistance];
+            break;
+        default:
+            break;
+    }
+    return randomDistance;
+}
+
+-(void) loadMapWithBarrier:(int)barrierTot Turn:(int)turnTot Sun:(int)sunTot TrafficLight:(int)lightTot
 {
     //障碍物总数
     totalObstacle=barrierTot+turnTot+sunTot+lightTot;
@@ -93,23 +128,27 @@
     for (int i=0; i<sunTot; i++)    obstacleArray[i+barrierTot+turnTot]=kSUN;
     for (int i=0; i<lightTot; i++)    obstacleArray[i+barrierTot+turnTot+sunTot]=kTRAFFIC_LIGHT;
         
-    switch ([[Obstacle sharedObstacle] gameLevel])
+    switch ([[Obstacle sharedObstacle] gameScene])
     {
-        case kEASY:
+        case kYLFC:
             [Obstacle sharedObstacle].sunTotalTime=sunSingleTime*4;
-            [Obstacle sharedObstacle].barrierTotalTime=barrierSingleTime*2;
+            [Obstacle sharedObstacle].barrierTotalTime=barrierSingleTime*3;
             [Obstacle sharedObstacle].turnTotalTime=turnSingleTime*2;
             break;
-        case kMIDIUM:
+        case kBYYM:
             [Obstacle sharedObstacle].sunTotalTime=sunSingleTime*3;
             [Obstacle sharedObstacle].barrierTotalTime=barrierSingleTime*1.5;
             [Obstacle sharedObstacle].turnTotalTime=turnSingleTime*2;
             break;
-        case kHARD:
+        case kMWTJ:
+            [Obstacle sharedObstacle].sunTotalTime=sunSingleTime*2;
+            [Obstacle sharedObstacle].barrierTotalTime=barrierSingleTime*1.5;
+            [Obstacle sharedObstacle].turnTotalTime=turnSingleTime*1;
+            break;
+        case kXBTW:
             [Obstacle sharedObstacle].sunTotalTime=sunSingleTime*2;
             [Obstacle sharedObstacle].barrierTotalTime=barrierSingleTime*1;
             [Obstacle sharedObstacle].turnTotalTime=turnSingleTime*1;
-            break;
         default:
             break;
     }
@@ -119,6 +158,8 @@
     for (int i=0; i<totalObstacle; i++,x--)
     {
         int which=arc4random()%x;
+
+        
         switch (obstacleArray[which])
         {
             case kBARRIER:
@@ -158,11 +199,20 @@
 }
 -(void) loadYlfcSceneMap
 {
-    //10个障碍
-    //10个拐角
-    //4个太阳
-    //2个红绿灯
-    [self loadMapWithBarrier:10 Trun:10 Sun:4 TrafficLight:2];
+    switch ([Obstacle sharedObstacle].gameLevel)
+    {
+        case kEASY:
+          //  [self loadMapWithBarrier:7 Turn:7 Sun:4 TrafficLight:0];
+            break;
+        case kMEDIUM:
+          //  [self loadMapWithBarrier:9 Turn:8 Sun:4 TrafficLight:0];
+            [self loadMapWithBarrier:1 Turn:1 Sun:0 TrafficLight:0];
+            break;
+        case kHARD:
+            [self loadMapWithBarrier:10 Turn:9 Sun:4 TrafficLight:0];
+        default:
+            break;
+    }
 }
 
 
@@ -172,9 +222,7 @@
     //13个拐角
     //4个太阳
     //3个红绿灯
-    
-    //辅助数组  让产生随机数不重复，并且一次产生结束
-    [self loadMapWithBarrier:7 Trun:13 Sun:4 TrafficLight:3];
+    [self loadMapWithBarrier:7 Turn:13 Sun:4 TrafficLight:3];
 }
 
 
@@ -184,7 +232,7 @@
     //13个拐角
     //4个太阳
     //3个红绿灯
-    [self loadMapWithBarrier:8 Trun:13 Sun:4 TrafficLight:3];
+    [self loadMapWithBarrier:8 Turn:13 Sun:4 TrafficLight:3];
 }
 
 -(void) loadXbtwSceneMap
@@ -193,7 +241,7 @@
     //15个拐角
     //4个太阳
     //5个红绿灯
-    [self loadMapWithBarrier:15 Trun:15 Sun:4 TrafficLight:5];
+    [self loadMapWithBarrier:15 Turn:15 Sun:4 TrafficLight:5];
 }
 
 #pragma mark startGo
@@ -229,19 +277,19 @@
 {
     switch ([Obstacle sharedObstacle].gameScene) {
         case kYLFC:
-            [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"1夜路飞车.mp3"];
+            [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"1夜路飞车.mp3" loop:false];
             [self runAction:[CCSequence actions:[CCDelayTime actionWithDuration:14],[CCCallFunc actionWithTarget:self selector:@selector(startGo:)],nil]];
             break;
         case kBYYM:
-            [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"2暴雨要密.mp3"];
+            [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"2暴雨要密.mp3" loop:false];
             [self runAction:[CCSequence actions:[CCDelayTime actionWithDuration:27.5],[CCCallFunc actionWithTarget:self selector:@selector(startGo:)],nil]];
             break;
         case kMWTJ:
-            [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"3迷雾通缉.mp3"];
+            [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"3迷雾通缉.mp3" loop:false];
             [self runAction:[CCSequence actions:[CCDelayTime actionWithDuration:20],[CCCallFunc actionWithTarget:self selector:@selector(startGo:)],nil]];
             break;
         case kXBTW:
-            [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"4雪崩逃亡.mp3"];
+            [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"4雪崩逃亡.mp3" loop:false];
             [self runAction:[CCSequence actions:[CCDelayTime actionWithDuration:36],[CCCallFunc actionWithTarget:self selector:@selector(startGo:)] ,nil]];
             break;
         default:
@@ -261,7 +309,8 @@
     
     [self runAction:[CCSequence actions:[CCDelayTime actionWithDuration:1],[CCCallFunc actionWithTarget:self selector:@selector(ready:)],nil]];
     
-    switch ([Obstacle sharedObstacle].gameScene) {
+    switch ([Obstacle sharedObstacle].gameScene)
+    {
         case kYLFC:
             [self loadYlfcSceneMap];
             break;
@@ -271,7 +320,7 @@
         case kMWTJ:
             [self loadMwtjSceneMap];
             break;
-        case  kXBTW:
+        case kXBTW:
             [self loadXbtwSceneMap];
             break;
         default:
@@ -420,6 +469,12 @@
 
 -(void) updateTime:(ccTime)delay
 {
+    if (![[Car sharedCar] getIsPlayCarSpeedSound])
+    {
+        //openAL提供的loop貌似只支持18次循环音效？
+        [[Car sharedCar] playCarEffect];
+    }
+
     raceTime++;
     [raceTimeSecondSprite1 setDisplayFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:[NSMutableString stringWithFormat:@"small%d",(raceTime%60)/10] ]];
     [raceTimeSecondSprite2 setDisplayFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:[NSMutableString stringWithFormat:@"small%d",(raceTime%60)%10] ]];
@@ -451,7 +506,9 @@
                 [self startSun];
                 break;
             case kFINAL:
+                [[SimpleAudioEngine sharedEngine] stopBackgroundMusic];
                 [self finishGame];
+                [self unscheduleAllSelectors];
             default:
                 break;
         }
@@ -462,6 +519,7 @@
 //到达终点
 -(void) finishGame
 {
+    [Car sharedCar].finishGameTime=raceTime;
     CCTransitionFade* fade=[CCTransitionMoveInL transitionWithDuration:0.1 scene:[Gameover scene]];
     [[CCDirector sharedDirector] replaceScene:fade];
 }
@@ -701,7 +759,7 @@
 
 -(void) againMenu:(id)pSender
 {
-    [[CCDirector sharedDirector] popScene];
+    [[CCDirector sharedDirector] replaceScene:[Load scene]];
 }
 
 -(void) mainMenu:(id)pSender
@@ -779,6 +837,7 @@
     if ([[CCDirector sharedDirector] isPaused]) [[CCDirector sharedDirector] resume];
     [[[CCDirector sharedDirector] touchDispatcher] removeDelegate:self];
     [[SimpleAudioEngine sharedEngine] stopAllEffect];
+
     [self stopAllActions];
     [super onExit];
 }

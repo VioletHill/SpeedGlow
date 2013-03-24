@@ -8,9 +8,9 @@
 
 #import "CCScrollLayer.h"
 #import "YlfcChooseLevelScene.h"
-#import "YlfcEasyLevelLayer.h"
-#import "YlfcMidiumLevelLayer.h"
-#import "YlfcHardLevelLayer.h"
+#import "YlfcEasyLayer.h"
+#import "YlfcMediumLayer.h"
+#import "YlfcHardLayer.h"
 #import "UserData.h"
 
 @implementation YlfcChooseLevelScene
@@ -58,7 +58,7 @@
 {
     if ([self.level count]<1)
     {
-        [self.level addObject:[[YlfcEasyLevelLayer alloc] init] ];
+        [self.level addObject:[[YlfcEasyLayer alloc] init] ];
     }
     return [self.level objectAtIndex:0];
 }
@@ -67,7 +67,7 @@
 {
     if ([self.level count]<2)
     {
-        [self.level addObject:[[YlfcMidiumLevelLayer alloc] init]];
+        [self.level addObject:[[YlfcMediumLayer alloc] init]];
     }
     return [self.level objectAtIndex:1];
 }
@@ -76,7 +76,7 @@
 {
     if ([self.level count]<3)
     {
-        [self.level addObject:[[YlfcHardLevelLayer alloc] init]];
+        [self.level addObject:[[YlfcHardLayer alloc] init]];
     }
     return [self.level objectAtIndex:2];
 }
@@ -128,7 +128,7 @@
             [super reflushSunNumAtScene:kYLFC andTotSun:YlfcEasySunNum];
             break;
         case 1:
-            [super reflushSunNumAtScene:kYLFC andTotSun:YlfcMidiumSunNum];
+            [super reflushSunNumAtScene:kYLFC andTotSun:YlfcMediumSunNum];
             break;
         case 2:
             [super reflushSunNumAtScene:kYLFC andTotSun:YlfcHardSunNum];

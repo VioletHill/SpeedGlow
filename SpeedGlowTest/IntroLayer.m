@@ -104,8 +104,7 @@
     [[SimpleAudioEngine sharedEngine] preloadEffect:@"撞到路障.mp3"];
     
     //太阳
-    [[SimpleAudioEngine sharedEngine] preloadEffect:@"SunEatenL.mp3"];
-    [[SimpleAudioEngine sharedEngine] preloadEffect:@"SunEatenR.mp3"];
+    [[SimpleAudioEngine sharedEngine] preloadEffect:@"SunEaten.mp3"];
     [[SimpleAudioEngine sharedEngine] preloadEffect:@"sun提示L.mp3"];
     [[SimpleAudioEngine sharedEngine] preloadEffect:@"sun提示R.mp3"];
     
