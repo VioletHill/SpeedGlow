@@ -195,6 +195,7 @@
     //终点
     obstacle[totalObstacle++]=kFINAL;
     obstacleDistance[totalObstacle-1]=distance+[self getRandomDistance];
+    NSLog(@"%f",obstacleDistance[totalObstacle-1]);
 
 }
 -(void) loadYlfcSceneMap
@@ -202,11 +203,10 @@
     switch ([Obstacle sharedObstacle].gameLevel)
     {
         case kEASY:
-          //  [self loadMapWithBarrier:7 Turn:7 Sun:4 TrafficLight:0];
+            [self loadMapWithBarrier:7 Turn:7 Sun:4 TrafficLight:0];
             break;
         case kMEDIUM:
-          //  [self loadMapWithBarrier:9 Turn:8 Sun:4 TrafficLight:0];
-            [self loadMapWithBarrier:1 Turn:1 Sun:0 TrafficLight:0];
+            [self loadMapWithBarrier:9 Turn:8 Sun:4 TrafficLight:0];
             break;
         case kHARD:
             [self loadMapWithBarrier:10 Turn:9 Sun:4 TrafficLight:0];
@@ -218,11 +218,23 @@
 
 -(void) loadByymSceneMap
 {
-    //7个障碍
-    //13个拐角
-    //4个太阳
-    //3个红绿灯
-    [self loadMapWithBarrier:7 Turn:13 Sun:4 TrafficLight:3];
+
+    switch ([Obstacle sharedObstacle].gameLevel)
+    {
+        case kEASY:
+            [self loadMapWithBarrier:10 Turn:13 Sun:4 TrafficLight:1];
+            break;
+        case kMEDIUM:
+            [self loadMapWithBarrier:13 Turn:13 Sun:4 TrafficLight:2];
+            break;
+        case kHARD:
+            [self loadMapWithBarrier:16 Turn:13 Sun:4 TrafficLight:2];
+            break;
+        default:
+            break;
+    }
+
+
 }
 
 
@@ -653,29 +665,26 @@
     [turnRightSprite setVisible:false];
 }
 
+-(void) showSprite:(id)pSender data:(void*)data
+{
+    CCSprite* sprite=(CCSprite*)data;
+    [sprite setVisible:true];
+}
 //红绿灯事件触发
 -(void) startTraffic
 {
     int random=arc4random()%2;
     if (random==0)   //R2G
     {
-        [redLightSprite setVisible:true];
-        CCActionInterval* spriteAction=[CCSequence actions:[CCFadeIn actionWithDuration:0.1],[CCFadeOut actionWithDuration:0.1], nil];
-        [redLightSprite runAction:[CCRepeatForever actionWithAction:spriteAction]];
-        
-        CCAction* removeSprite=[CCSequence actions:[CCDelayTime actionWithDuration:trafficLightTime],[CCCallFunc actionWithTarget:self selector:@selector(endTrafficLightR2G:)],nil];
-        [[[CCDirector sharedDirector] runningScene] runAction:removeSprite];
-        
+        CCActionInterval* spriteAction=[CCSequence actions:[CCDelayTime actionWithDuration:trafficReadyTime],[CCCallFuncND actionWithTarget:self selector:@selector(showSprite:data:) data:(void*)redLightSprite],[CCBlink actionWithDuration:((float)trafficLightTime)/4*3 blinks:3],[CCCallFunc actionWithTarget:self selector:@selector(endTrafficLightR2G:)],nil];
+        [redLightSprite runAction:spriteAction];
+                
         [[Obstacle sharedObstacle] startRed2Green];
     }
     else            //G2R
     {
-        [greenLightSprite setVisible:true];
-        CCActionInterval* spriteAction=[CCSequence actions:[CCFadeIn actionWithDuration:0.1],[CCFadeOut actionWithDuration:0.1], nil];
+        CCActionInterval* spriteAction=[CCSequence actions:[CCDelayTime actionWithDuration:trafficReadyTime],[CCCallFuncND actionWithTarget:self selector:@selector(showSprite:data:) data:(void*)greenLightSprite],[CCBlink actionWithDuration:((float)trafficLightTime)/4*3 blinks:3],[CCCallFunc actionWithTarget:self selector:@selector(endTrafficLightG2R:)],nil];
         [greenLightSprite runAction:[CCRepeatForever actionWithAction:spriteAction]];
-        
-        CCAction* removeSprite=[CCSequence actions:[CCDelayTime actionWithDuration:trafficLightTime],[CCCallFunc actionWithTarget:self selector:@selector(endTrafficLightG2R:)],nil];
-        [[[CCDirector sharedDirector] runningScene] runAction:removeSprite];
         
         [[Obstacle sharedObstacle] startGreen2Red];
     }
