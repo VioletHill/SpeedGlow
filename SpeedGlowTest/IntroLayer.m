@@ -53,6 +53,11 @@
     [[SimpleAudioEngine sharedEngine] preloadEffect:@"已获得太阳数量.mp3"];
     [[SimpleAudioEngine sharedEngine] preloadEffect:@"已获得所有太阳.mp3"];
     
+    [[SimpleAudioEngine sharedEngine] preloadEffect:@"最佳纪录.mp3"];
+    [[SimpleAudioEngine sharedEngine] preloadEffect:@"1分.mp3"];
+    [[SimpleAudioEngine sharedEngine] preloadEffect:@"2分.mp3"];
+    [[SimpleAudioEngine sharedEngine] preloadEffect:@"3分.mp3"];
+    [[SimpleAudioEngine sharedEngine] preloadEffect:@"秒.mp3"];
     [[SimpleAudioEngine sharedEngine] preloadEffect:@"0.mp3"];
     [[SimpleAudioEngine sharedEngine] preloadEffect:@"1.mp3"];
     [[SimpleAudioEngine sharedEngine] preloadEffect:@"2.mp3"];

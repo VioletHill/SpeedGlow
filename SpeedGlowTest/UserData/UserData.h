@@ -35,7 +35,7 @@
 
 +(UserData*) sharedUserData;
 
--(int*) getTimeByScene:(GameScene)scene andLevel:(GameLevel)level;
+-(int)  getBestTimeByScene:(GameScene)scene andLevel:(GameLevel)level;
 -(BOOL) getIsUnlockAtScene:(GameScene) scene;
 -(BOOL) getIsUnlockAtScene:(GameScene)scene andLevel:(GameLevel)level;
 

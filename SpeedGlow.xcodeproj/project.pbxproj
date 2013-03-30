@@ -267,7 +267,6 @@
 		2465FBC416ECCD5C00394BB6 /* 8.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2465FBAA16ECCD5C00394BB6 /* 8.mp3 */; };
 		2465FBC516ECCD5C00394BB6 /* 9.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2465FBAB16ECCD5C00394BB6 /* 9.mp3 */; };
 		2465FBC616ECCD5C00394BB6 /* 最佳纪录.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2465FBAC16ECCD5C00394BB6 /* 最佳纪录.mp3 */; };
-		2465FBC716ECCD5C00394BB6 /* 模板所用时间  太阳数量.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2465FBAD16ECCD5C00394BB6 /* 模板所用时间  太阳数量.mp3 */; };
 		2465FBC816ECCD5C00394BB6 /* 模板排名第二.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2465FBAE16ECCD5C00394BB6 /* 模板排名第二.mp3 */; };
 		2491518916DB6816002DA205 /* FrameLayer.png in Resources */ = {isa = PBXBuildFile; fileRef = 2491518816DB6816002DA205 /* FrameLayer.png */; };
 		2491518D16DB6FEA002DA205 /* Byym.m in Sources */ = {isa = PBXBuildFile; fileRef = 2491518C16DB6FEA002DA205 /* Byym.m */; };
@@ -816,7 +815,6 @@
 		2465FBAA16ECCD5C00394BB6 /* 8.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 8.mp3; sourceTree = "<group>"; };
 		2465FBAB16ECCD5C00394BB6 /* 9.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 9.mp3; sourceTree = "<group>"; };
 		2465FBAC16ECCD5C00394BB6 /* 最佳纪录.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "最佳纪录.mp3"; sourceTree = "<group>"; };
-		2465FBAD16ECCD5C00394BB6 /* 模板所用时间  太阳数量.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "模板所用时间  太阳数量.mp3"; sourceTree = "<group>"; };
 		2465FBAE16ECCD5C00394BB6 /* 模板排名第二.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "模板排名第二.mp3"; sourceTree = "<group>"; };
 		2491518816DB6816002DA205 /* FrameLayer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = FrameLayer.png; path = Resources/MainMenuScene/MainMenu/FrameLayer.png; sourceTree = "<group>"; };
 		2491518B16DB6FEA002DA205 /* Byym.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Byym.h; path = "PlayScene/暴雨要密/Byym.h"; sourceTree = "<group>"; };
@@ -1815,7 +1813,6 @@
 				2465FBA016ECCD5C00394BB6 /* 已获得所有的太阳.mp3 */,
 				2465FBA116ECCD5C00394BB6 /* 数字 */,
 				2465FBAC16ECCD5C00394BB6 /* 最佳纪录.mp3 */,
-				2465FBAD16ECCD5C00394BB6 /* 模板所用时间  太阳数量.mp3 */,
 				2465FBAE16ECCD5C00394BB6 /* 模板排名第二.mp3 */,
 			);
 			name = "数字单位";
@@ -2481,7 +2478,6 @@
 				2465FBC416ECCD5C00394BB6 /* 8.mp3 in Resources */,
 				2465FBC516ECCD5C00394BB6 /* 9.mp3 in Resources */,
 				2465FBC616ECCD5C00394BB6 /* 最佳纪录.mp3 in Resources */,
-				2465FBC716ECCD5C00394BB6 /* 模板所用时间  太阳数量.mp3 in Resources */,
 				2465FBC816ECCD5C00394BB6 /* 模板排名第二.mp3 in Resources */,
 				242351A416ED9BB9009986A7 /* SettingBackground.png in Resources */,
 				242351C816EF0D0F009986A7 /* 二难度中等.mp3 in Resources */,

@@ -74,6 +74,50 @@
     }
 }
 
+-(void) playMinuteTimeEffect:(id)pSender data:(void*)minute
+{
+    int min=(int)minute;
+    switch (min)
+    {
+        case 1:
+            [[SimpleAudioEngine sharedEngine] playEffect:@"1分.mp3"];
+            break;
+        case 2:
+            [[SimpleAudioEngine sharedEngine] playEffect:@"2分.mp3"];
+            break;
+        case 3:
+            [[SimpleAudioEngine sharedEngine] playEffect:@"3分.mp3"];
+        default:
+            break;
+    }
+}
+
+-(void) playSecondEffect:(id)pSender
+{
+    [[SimpleAudioEngine sharedEngine] playEffect:@"秒.mp3"];
+}
+
+-(CCFiniteTimeAction*) playSecondTimeEffect:(int)second
+{
+    return [CCSequence actions:[CCCallFuncND actionWithTarget:self selector:@selector(playNum:data:) data:(void*)second],[CCDelayTime actionWithDuration:1.5],[CCDelayTime actionWithDuration:0.3],nil];
+}
+
+-(void) playBestRecord:(id)pSender
+{
+    [[SimpleAudioEngine sharedEngine] playEffect:@"最佳纪录.mp3"];
+}
+
+-(CCAction*) playTimeEffect:(int)time
+{
+    if (time==0) return [CCDelayTime actionWithDuration:0.1];
+    int minute=time/60;
+    int second=time%60;
+    CCAction* playAction=[CCSequence actions:[CCCallFunc actionWithTarget:self selector:@selector(playBestRecord:)],
+        [CCDelayTime actionWithDuration:1.3],[CCCallFuncND actionWithTarget:self selector:@selector(playMinuteTimeEffect:data:) data:(void*)minute],
+        [CCDelayTime actionWithDuration:0.5],[self playSecondTimeEffect:second],nil];
+    return playAction;
+}
+
 -(void) playNum:(id)pSender data:(void*)num
 {
     int playNum=(int) num;
@@ -154,20 +198,31 @@
     
 }
 
+-(CCAction*) playSunAction
+{
+    CCAction* play;
+    int sun=[[UserData sharedUserData] getSunAtScene:[Obstacle sharedObstacle].gameScene andLevel:[Obstacle sharedObstacle].gameLevel];
+
+    play=[CCSequence actions:
+          [CCCallFunc actionWithTarget:self selector:@selector(playAllSunEffect:)],
+          [CCDelayTime actionWithDuration:1.5],[CCCallFuncND actionWithTarget:self selector:@selector(playNum:data:) data:(void*)[[UserData sharedUserData] getMaxSunAtScene:[Obstacle sharedObstacle].gameScene andLevel:[Obstacle sharedObstacle].gameLevel]],
+          [CCDelayTime actionWithDuration:1.5],[CCCallFunc actionWithTarget:self selector:@selector(playHaveSunEffect:)],
+          [CCDelayTime actionWithDuration:2],[CCCallFuncND actionWithTarget:self selector:@selector(playNum:data:) data:(void*)sun],
+          [CCDelayTime actionWithDuration:1.5],[CCCallFunc actionWithTarget:self selector:@selector(playLeftRightEffect:)],
+          [CCDelayTime actionWithDuration:2],nil];
+    return play;
+   
+}
 -(void) unlockLevel
 {
     isLock=false;
     if ([Setting sharedSetting].isNeedEffect)
     {
-        int sun=[[UserData sharedUserData] getSunAtScene:[Obstacle sharedObstacle].gameScene andLevel:[Obstacle sharedObstacle].gameLevel];
+        int time=[[UserData sharedUserData] getBestTimeByScene:[Obstacle sharedObstacle].gameScene andLevel:[Obstacle sharedObstacle].gameLevel];
         playEffectAction=[CCSequence actions:
-                          [CCDelayTime actionWithDuration:1],[CCCallFunc actionWithTarget:self selector:@selector(playLevelEffect:)],
-                          [CCDelayTime actionWithDuration:2], [CCCallFunc actionWithTarget:self selector:@selector(playAllSunEffect:)],
-                          [CCDelayTime actionWithDuration:1.5],[CCCallFuncND actionWithTarget:self selector:@selector(playNum:data:) data:(void*)[[UserData sharedUserData] getMaxSunAtScene:[Obstacle sharedObstacle].gameScene andLevel:[Obstacle sharedObstacle].gameLevel]],
-                          [CCDelayTime actionWithDuration:1.5],[CCCallFunc actionWithTarget:self selector:@selector(playHaveSunEffect:)],
-                          [CCDelayTime actionWithDuration:2],[CCCallFuncND actionWithTarget:self selector:@selector(playNum:data:) data:(void*)sun],
-                          [CCDelayTime actionWithDuration:1.5],[CCCallFunc actionWithTarget:self selector:@selector(playLeftRightEffect:)],
-                          [CCDelayTime actionWithDuration:2],[CCCallFunc actionWithTarget:self selector:@selector(playReturnAndHelpEffect:)],nil];
+            [CCDelayTime actionWithDuration:1],[CCCallFunc actionWithTarget:self selector:@selector(playLevelEffect:)],
+            [CCDelayTime actionWithDuration:2], [self playTimeEffect:time] ,[self playSunAction],
+            [CCCallFunc actionWithTarget:self selector:@selector(playReturnAndHelpEffect:)],nil];
         [self runAction:playEffectAction];
 
     }

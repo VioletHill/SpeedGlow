@@ -211,10 +211,10 @@ static UserData* userData;
     return sun[scene][level];
 }
 
--(int*) getTimeByScene:(GameScene)scene andLevel:(GameLevel)level
+-(int) getBestTimeByScene:(GameScene)scene andLevel:(GameLevel)level
 {
     [self getDate];
-    return bestTime[scene][level];
+    return bestTime[scene][level][0];
 }
 
 -(BOOL) isNeedBg
