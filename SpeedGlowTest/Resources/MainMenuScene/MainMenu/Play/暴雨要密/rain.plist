@@ -35,7 +35,7 @@
 	<key>finishParticleSizeVariance</key>
 	<real>0</real>
 	<key>gravityx</key>
-	<real>0</real>
+	<real>50</real>
 	<key>gravityy</key>
 	<real>-300.2099914550781</real>
 	<key>maxParticles</key>

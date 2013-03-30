@@ -364,7 +364,7 @@ static Obstacle* obstacle;
 -(void) checkRed2Green:(id)pSender
 {
     //计算这3s的时间行驶距离 看时候通过红绿灯测试
-    if ([Car sharedCar].nowDistance-startDistance>trafficLightTime/3*2*normalSpeed+trafficLightTime/3*accelerateSpeed)    //失败
+    if ([Car sharedCar].nowDistance-startDistance>trafficLightTime/3.0*2.0*normalSpeed+trafficLightTime/3.0*accelerateSpeed)    //失败
     {
         [[Car sharedCar] breakRedLight];
       
@@ -394,7 +394,7 @@ static Obstacle* obstacle;
 
 -(void) checkGreen2Red:(id) pSender
 {
-    if ([Car sharedCar].nowDistance-startDistance<  trafficLightTime/3*2*accelerateSpeed+trafficLightTime/2*normalSpeed)    //失败
+    if ([Car sharedCar].nowDistance-startDistance<  trafficLightTime/3.0*2.0*accelerateSpeed+trafficLightTime/3.0*normalSpeed)    //失败
     {
         [[Car sharedCar] breakRedLight];
     }

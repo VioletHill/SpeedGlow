@@ -132,12 +132,16 @@ static UserData* userData;
 
 -(BOOL) getIsUnlockAtScene:(GameScene)scene
 {
+    ////
+    return true;
     [self getDate];
     return isUnlock[scene][kEASY];
 }
 
 -(BOOL) getIsUnlockAtScene:(GameScene)scene andLevel:(GameLevel)level
 {
+    ///
+    return true;
     [self getDate];
     return isUnlock[scene][level];
 }

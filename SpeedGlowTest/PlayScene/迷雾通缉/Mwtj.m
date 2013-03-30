@@ -82,7 +82,7 @@
         isLock=true;
         [super lockScene];
     }
-   // [self unlockScene];
+    //[self unlockScene];
 }
 
 -(void) onExitLayer

@@ -11,8 +11,8 @@
 
 #define barrierSingleTime 0.7
 #define sunSingleTime 0.4
-#define turnSingleTime 0.7
-#define trafficLightTime 3
+#define turnSingleTime 0.8
+#define trafficLightTime 3.0
 #define trafficReadyTime 2.1
 #define trafficTotalTime 5.1
 

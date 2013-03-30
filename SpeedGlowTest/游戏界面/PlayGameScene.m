@@ -17,11 +17,16 @@
 #import <CoreMotion/CoreMotion.h>
 
 
+#define processStartPosition ccp(200,100)
+#define processEndPosition ccp(650,100)
+
 #define sunCountPosition ccp(1000,600)
 
 
 @implementation PlayGameScene
 {
+    float finalDistance;
+    
     int raceTime;
     
     CCSprite* raceTimeSecondSprite2;
@@ -31,8 +36,8 @@
     CCSprite* raceTimeMinuteSprite2;
     
     int startSwipe;
-    WhichObstacle obstacle[40];        //障碍物种类
-    float obstacleDistance[40];       //障碍物之间距离
+    WhichObstacle obstacle[60];        //障碍物种类
+    float obstacleDistance[60];       //障碍物之间距离
     int totalObstacle;
     int streetLenth;
     int indexObstacle;
@@ -45,6 +50,8 @@
     CCSprite* barrierSprite;
     CCSprite* greenLightSprite;
     CCSprite* redLightSprite;
+    
+    CCSprite* processSprite;    //完成进度
     
     CCSprite* pauseBackgroundSprite;
     CCMenu* resumeMenu;
@@ -73,14 +80,14 @@
 -(float) getEasyRandomDistance
 {
     int randomDistance=arc4random()%(1100-165);
-    float distance=(float) randomDistance/10.0+16.6;
+    float distance=(float) randomDistance/10.0+36.6;
     return distance;
 }
 
 -(float) getMidiunRandomDistance
 {
     int randomDistance=arc4random()%(900-165);
-    float distance=(float) randomDistance/10.0+16.6;
+    float distance=(float) randomDistance/10.0+26.6;
     return distance;
 }
 
@@ -195,6 +202,7 @@
     //终点
     obstacle[totalObstacle++]=kFINAL;
     obstacleDistance[totalObstacle-1]=distance+[self getRandomDistance];
+    finalDistance=obstacleDistance[totalObstacle-1];
     NSLog(@"%f",obstacleDistance[totalObstacle-1]);
 
 }
@@ -228,7 +236,7 @@
             [self loadMapWithBarrier:13 Turn:13 Sun:4 TrafficLight:2];
             break;
         case kHARD:
-            [self loadMapWithBarrier:16 Turn:13 Sun:4 TrafficLight:2];
+            [self loadMapWithBarrier:16 Turn:14 Sun:4 TrafficLight:2];
             break;
         default:
             break;
@@ -240,20 +248,38 @@
 
 -(void) loadMwtjSceneMap
 {
-    //10个障碍
-    //13个拐角
-    //4个太阳
-    //3个红绿灯
-    [self loadMapWithBarrier:8 Turn:13 Sun:4 TrafficLight:3];
+    switch ([Obstacle sharedObstacle].gameLevel)
+    {
+        case kEASY:
+            [self loadMapWithBarrier:13 Turn:13 Sun:4 TrafficLight:3];
+            break;
+        case kMEDIUM:
+            [self loadMapWithBarrier:15 Turn:15 Sun:4 TrafficLight:3];
+            break;
+        case kHARD:
+            [self loadMapWithBarrier:18 Turn:19 Sun:4 TrafficLight:4];
+            break;
+        default:
+            break;
+    }
 }
 
 -(void) loadXbtwSceneMap
 {
-    //15个障碍
-    //15个拐角
-    //4个太阳
-    //5个红绿灯
-    [self loadMapWithBarrier:15 Turn:15 Sun:4 TrafficLight:5];
+    switch ([Obstacle sharedObstacle].gameLevel)
+    {
+        case kEASY:
+            [self loadMapWithBarrier:15 Turn:15 Sun:4 TrafficLight:3];
+            break;
+        case kMEDIUM:
+            [self loadMapWithBarrier:17 Turn:16 Sun:4 TrafficLight:4];
+            break;
+        case kHARD:
+            [self loadMapWithBarrier:20 Turn:20 Sun:4 TrafficLight:6];
+            break;
+        default:
+            break;
+    }
 }
 
 #pragma mark startGo
@@ -459,6 +485,14 @@
     [mainMenu setEnabled:false];
     [self addChild:mainMenu];
 }
+
+-(void) addProcess
+{
+    processSprite=[CCSprite spriteWithFile:@"Process.png"];
+    processSprite.position=processStartPosition;
+    [self addChild:processSprite];
+}
+
 -(id) init
 {
     if (self=[super init])
@@ -474,6 +508,8 @@
         [self addBarrier];
     
         [self addPause];
+        
+        [self addProcess];
         
     }
     return self;
@@ -496,7 +532,7 @@
 {
     if ([Car sharedCar].isNeedStop) return ;
     [Car sharedCar].nowDistance=[Car sharedCar].nowDistance+[Car sharedCar].speed*0.1;
-
+    processSprite.position=ccp(processStartPosition.x+[Car sharedCar].nowDistance/finalDistance*(processEndPosition.x-processStartPosition.x),processSprite.position.y);
 }
 
 -(void) updateObstacle:(ccTime)delay
@@ -737,17 +773,17 @@
     if (![Car sharedCar].isNeedTurnRight && ![Car sharedCar].isNeedTurnLeft) return;
     CMAccelerometerData *newestAccel = motionManager.accelerometerData;
     double accelerationY = newestAccel.acceleration.y;
-    if (fabs(accelerationY)>0.35)
+    if (fabs(accelerationY)>0.30)
     {
         if (isTurn) return;
-        else if (accelerationY>0.35)
+        else if (accelerationY>0.30)
         {
             [[SimpleAudioEngine sharedEngine] playEffect:@"拐弯音效.mp3"];
             [[Car sharedCar] turnRight];
             isTurn=true;
         
         }
-        else if (accelerationY<-0.35)
+        else if (accelerationY<-0.30)
         {
             [[SimpleAudioEngine sharedEngine] playEffect:@"拐弯音效.mp3"];
             [[Car sharedCar] turnLeft];
@@ -798,6 +834,7 @@
 
     [normalSpeedMenu setEnabled:true];
     [speedUpMenu setEnabled:true];
+    [processSprite setVisible:true];
     
     [resumeMenu setVisible:false];
     [resumeMenu setEnabled:false];
@@ -822,6 +859,7 @@
     
     [normalSpeedMenu setEnabled:false];
     [speedUpMenu setEnabled:false];
+    [processSprite setVisible:false];
     
     [pauseBackgroundSprite setVisible:true];
     
