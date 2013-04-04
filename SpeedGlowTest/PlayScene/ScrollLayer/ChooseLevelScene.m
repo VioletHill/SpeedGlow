@@ -119,6 +119,8 @@
     if (self=[super init])
     {
          screenSize=[[CCDirector sharedDirector] winSize];
+        
+
     }
     return self;
 }

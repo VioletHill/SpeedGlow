@@ -14,6 +14,7 @@
 #import "SimpleAudioEngine.h"
 #import "Setting.h"
 #import "UserData.h"
+#import "MyMenuItem.h"
 
 
 @implementation MainMenuScene
@@ -50,20 +51,27 @@
     [self addChild:settingMenu];
 }
 
--(void) addPlay
+
+-(void) playMenuSingleClick:(id)pSender
 {
-    CCMenuItemImage* playMenuItem=[CCMenuItemImage itemWithNormalImage:@"Play.png" selectedImage:@"PlaySelect.png" target:self selector:@selector(pushToPlayScene:)];
-    CCMenu* playMenu=[CCMenu menuWithItems:playMenuItem, nil];
-    playMenu.position=ccp(screenSize.width/2,screenSize.height/2+10);
-    [self addChild:playMenu];
-    
-    
+
+}
+
+-(void) playMenuDoubleClick:(id)pSender
+{
+}
+
+-(void) addPlay
+{    
+    MyMenuItem* playMenuItem=[MyMenuItem myMenuItemWithNormalFile:@"Play.png" selectFile:@"PlaySelect.png" target:self singleClick:@selector(playMenuSingleClick:) doubleClick:@selector(playMenuDoubleClick:)];
+
+    [self addChild:playMenuItem];
     ///////////////////////改变透明度/////////////
     CCFiniteTimeAction* downAction=[CCSpawn actionOne:[CCFadeIn actionWithDuration:0.5] two:[CCMoveBy actionWithDuration:0.5 position:ccp(0, -20)]];
     CCFiniteTimeAction* upAction=[CCSpawn actionOne:[CCFadeOut actionWithDuration:0.5] two:[CCMoveBy actionWithDuration:0.5 position:ccp(0, 20)]];
     CCSequence* downAndUpAction=[CCSequence actions:downAction ,upAction, nil];
     
-    [playMenu runAction:[CCRepeatForever actionWithAction:downAndUpAction]];
+    [playMenuItem runAction:[CCRepeatForever actionWithAction:downAndUpAction]];
     
 }
 
@@ -83,13 +91,10 @@
         [self addSetting];
         
         [self addPlay];
-        
-
 
     }
     return self;
 }
-
 
 -(void) pushToHelpScene:(id)pSender
 {

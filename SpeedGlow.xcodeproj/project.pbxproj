@@ -165,6 +165,7 @@
 		2416200016DCC1E2008BE1B3 /* Easy.png in Resources */ = {isa = PBXBuildFile; fileRef = 24161FFD16DCC1E1008BE1B3 /* Easy.png */; };
 		2416200116DCC1E2008BE1B3 /* Hard.png in Resources */ = {isa = PBXBuildFile; fileRef = 24161FFE16DCC1E1008BE1B3 /* Hard.png */; };
 		2416200916DCC72E008BE1B3 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2416200816DCC72E008BE1B3 /* CoreMotion.framework */; };
+		241C1F21170B0C00006FF4D7 /* MyMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 241C1F20170B0C00006FF4D7 /* MyMenuItem.m */; };
 		2422D18E16F9C56C00448FE5 /* 10.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2422D18616F9C56C00448FE5 /* 10.mp3 */; };
 		2422D18F16F9C56C00448FE5 /* 20.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2422D18716F9C56C00448FE5 /* 20.mp3 */; };
 		2422D19016F9C56C00448FE5 /* 30.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2422D18816F9C56C00448FE5 /* 30.mp3 */; };
@@ -216,7 +217,6 @@
 		2425456816EB15130025293E /* Start.png in Resources */ = {isa = PBXBuildFile; fileRef = 2425456716EB15130025293E /* Start.png */; };
 		2425456B16EB16890025293E /* mySnow.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2425456916EB16890025293E /* mySnow.plist */; };
 		2425456C16EB16890025293E /* mySnow.png in Resources */ = {isa = PBXBuildFile; fileRef = 2425456A16EB16890025293E /* mySnow.png */; };
-		2425456F16EB357D0025293E /* MyMenuItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 2425456E16EB357D0025293E /* MyMenuItem.m */; };
 		2425458216EB74A10025293E /* YlfcHardLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2425458116EB70C30025293E /* YlfcHardLayer.m */; };
 		2425458316EB74A50025293E /* YlfcEasyLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2425457616EB6EC80025293E /* YlfcEasyLayer.m */; };
 		2425458416EB74AA0025293E /* YlfcMediumLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2425457F16EB70B90025293E /* YlfcMediumLayer.m */; };
@@ -283,7 +283,6 @@
 		24925F0816DA4D3E0041EF8A /* YlfcTitle.png in Resources */ = {isa = PBXBuildFile; fileRef = 24925F0516DA4D3E0041EF8A /* YlfcTitle.png */; };
 		24925F0B16DA4FE90041EF8A /* Back.png in Resources */ = {isa = PBXBuildFile; fileRef = 24925F0916DA4FE90041EF8A /* Back.png */; };
 		24925F0C16DA4FE90041EF8A /* Help.png in Resources */ = {isa = PBXBuildFile; fileRef = 24925F0A16DA4FE90041EF8A /* Help.png */; };
-		2492789916E5F9EB001E75B8 /* SpecialButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 2492789816E5F9EB001E75B8 /* SpecialButton.m */; };
 		2492789B16E60C54001E75B8 /* CCScrollLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2492789416E5F940001E75B8 /* CCScrollLayer.m */; };
 		2493BEC616E75ADE00BB0A4C /* 重启间隙4s.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 2493BEC516E75ADE00BB0A4C /* 重启间隙4s.mp3 */; };
 		2493BEC816E77DE600BB0A4C /* Barrier.png in Resources */ = {isa = PBXBuildFile; fileRef = 2493BEC716E77DE600BB0A4C /* Barrier.png */; };
@@ -702,6 +701,8 @@
 		24161FFD16DCC1E1008BE1B3 /* Easy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Easy.png; path = Resources/MainMenuScene/MainMenu/Play/Easy.png; sourceTree = "<group>"; };
 		24161FFE16DCC1E1008BE1B3 /* Hard.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Hard.png; path = Resources/MainMenuScene/MainMenu/Play/Hard.png; sourceTree = "<group>"; };
 		2416200816DCC72E008BE1B3 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		241C1F1F170B0C00006FF4D7 /* MyMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyMenuItem.h; path = MyLibs/MyMenuItem.h; sourceTree = "<group>"; };
+		241C1F20170B0C00006FF4D7 /* MyMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyMenuItem.m; path = MyLibs/MyMenuItem.m; sourceTree = "<group>"; };
 		2422D18616F9C56C00448FE5 /* 10.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 10.mp3; sourceTree = "<group>"; };
 		2422D18716F9C56C00448FE5 /* 20.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 20.mp3; sourceTree = "<group>"; };
 		2422D18816F9C56C00448FE5 /* 30.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 30.mp3; sourceTree = "<group>"; };
@@ -758,8 +759,6 @@
 		2425456716EB15130025293E /* Start.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Start.png; path = "Resources/MainMenuScene/MainMenu/Play/夜路飞车/Start.png"; sourceTree = "<group>"; };
 		2425456916EB16890025293E /* mySnow.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = mySnow.plist; path = "Resources/MainMenuScene/MainMenu/Play/雪崩逃亡/mySnow.plist"; sourceTree = "<group>"; };
 		2425456A16EB16890025293E /* mySnow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = mySnow.png; path = "Resources/MainMenuScene/MainMenu/Play/雪崩逃亡/mySnow.png"; sourceTree = "<group>"; };
-		2425456D16EB357D0025293E /* MyMenuItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MyMenuItem.h; path = MyLibs/MyMenuItem.h; sourceTree = "<group>"; };
-		2425456E16EB357D0025293E /* MyMenuItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MyMenuItem.m; path = MyLibs/MyMenuItem.m; sourceTree = "<group>"; };
 		2425457516EB6EC80025293E /* YlfcEasyLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = YlfcEasyLayer.h; path = "PlayScene/夜路飞车/简单/YlfcEasyLayer.h"; sourceTree = "<group>"; };
 		2425457616EB6EC80025293E /* YlfcEasyLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = YlfcEasyLayer.m; path = "PlayScene/夜路飞车/简单/YlfcEasyLayer.m"; sourceTree = "<group>"; };
 		2425457E16EB70B90025293E /* YlfcMediumLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = YlfcMediumLayer.h; path = "PlayScene/夜路飞车/中等/YlfcMediumLayer.h"; sourceTree = "<group>"; };
@@ -835,8 +834,6 @@
 		24925F0A16DA4FE90041EF8A /* Help.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Help.png; path = Resources/MainMenuScene/MainMenu/Play/Help.png; sourceTree = "<group>"; };
 		2492789316E5F940001E75B8 /* CCScrollLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = CCScrollLayer.h; path = MyLibs/CCScrollLayer.h; sourceTree = "<group>"; };
 		2492789416E5F940001E75B8 /* CCScrollLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = CCScrollLayer.m; path = MyLibs/CCScrollLayer.m; sourceTree = "<group>"; };
-		2492789716E5F9EB001E75B8 /* SpecialButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SpecialButton.h; path = MyLibs/SpecialButton.h; sourceTree = "<group>"; };
-		2492789816E5F9EB001E75B8 /* SpecialButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SpecialButton.m; path = MyLibs/SpecialButton.m; sourceTree = "<group>"; };
 		2493BEC516E75ADE00BB0A4C /* 重启间隙4s.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "重启间隙4s.mp3"; sourceTree = "<group>"; };
 		2493BEC716E77DE600BB0A4C /* Barrier.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Barrier.png; path = "Resources/MainMenuScene/MainMenu/Play/游戏界面/Barrier.png"; sourceTree = "<group>"; };
 		2493BECB16E7849600BB0A4C /* 货箱.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "货箱.mp3"; path = "音效/系统游戏音效/障碍物音效/场景一/货箱.mp3"; sourceTree = "<group>"; };
@@ -1967,12 +1964,10 @@
 		2492789216E5F8B8001E75B8 /* MyLibs */ = {
 			isa = PBXGroup;
 			children = (
-				2492789716E5F9EB001E75B8 /* SpecialButton.h */,
-				2492789816E5F9EB001E75B8 /* SpecialButton.m */,
 				2492789316E5F940001E75B8 /* CCScrollLayer.h */,
 				2492789416E5F940001E75B8 /* CCScrollLayer.m */,
-				2425456D16EB357D0025293E /* MyMenuItem.h */,
-				2425456E16EB357D0025293E /* MyMenuItem.m */,
+				241C1F1F170B0C00006FF4D7 /* MyMenuItem.h */,
+				241C1F20170B0C00006FF4D7 /* MyMenuItem.m */,
 			);
 			name = MyLibs;
 			sourceTree = "<group>";
@@ -2684,8 +2679,6 @@
 				24976EBD16DF44FC0060D105 /* Setting.m in Sources */,
 				249565E216E4257B00D4BF3D /* Car.m in Sources */,
 				249565E716E42ED900D4BF3D /* UserData.m in Sources */,
-				2492789916E5F9EB001E75B8 /* SpecialButton.m in Sources */,
-				2425456F16EB357D0025293E /* MyMenuItem.m in Sources */,
 				24E7CEF616F094D000233E66 /* ByymChooseLevelScene.m in Sources */,
 				24E7CEFA16F0965700233E66 /* ByymEasyLayer.m in Sources */,
 				24E7CEFE16F0987F00233E66 /* ByymMediumLayer.m in Sources */,
@@ -2700,6 +2693,7 @@
 				2422D1C716FAE78300448FE5 /* XbtwEasyLayer.m in Sources */,
 				2422D1CA16FAE83A00448FE5 /* XbtwMediumLayer.m in Sources */,
 				2422D1CD16FAE8DC00448FE5 /* XbtwHardLayer.m in Sources */,
+				241C1F21170B0C00006FF4D7 /* MyMenuItem.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -10,7 +10,6 @@
 #import "Obstacle.h"
 #import "SimpleAudioEngine.h"
 #import "Car.h"
-#import "SpecialButton.h"
 #import "UserData.h"
 #import "Gameover.h"
 #import "Load.h"
@@ -203,7 +202,7 @@
     obstacle[totalObstacle++]=kFINAL;
     obstacleDistance[totalObstacle-1]=distance+[self getRandomDistance];
     finalDistance=obstacleDistance[totalObstacle-1];
-    NSLog(@"%f",obstacleDistance[totalObstacle-1]);
+  //  NSLog(@"%f",obstacleDistance[totalObstacle-1]);
 
 }
 -(void) loadYlfcSceneMap

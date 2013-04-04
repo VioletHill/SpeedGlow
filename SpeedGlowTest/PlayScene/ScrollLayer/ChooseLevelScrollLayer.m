@@ -17,6 +17,11 @@
     ALuint nowEffect;
     CCSprite* lock;
     CCAction* playEffectAction;
+    CCSprite* minuteSprite1;
+    CCSprite* minuteSprite;
+    CCSprite* secondSprite1;
+    CCSprite* secondSprite2;
+    CCSprite* secondSprite;
     BOOL isLock;
 }
 
@@ -38,7 +43,45 @@
     
 }
 
-//时间排名 
+//时间排名
+-(void) addTime
+{
+    [self removeChild:minuteSprite1 cleanup:true];
+    [self removeChild:minuteSprite cleanup:true];
+    [self removeChild:secondSprite1 cleanup:true];
+    [self removeChild:secondSprite2 cleanup:true];
+    [self removeChild:secondSprite cleanup:true];
+
+    int time=[[UserData sharedUserData] getBestTimeByScene:[Obstacle sharedObstacle].gameScene andLevel:[Obstacle sharedObstacle].gameLevel];
+    
+    if (time==0) return;
+    
+    minuteSprite1=[CCSprite spriteWithSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:[NSMutableString stringWithFormat:@"small%d",time/60%10]]];
+    [minuteSprite1 setAnchorPoint:ccp(0,1)];
+    [minuteSprite1 setPosition:ccp(236,330)];
+    [self addChild:minuteSprite1];
+    
+    minuteSprite=[CCSprite spriteWithFile:@"Minute.png"];
+    [minuteSprite setAnchorPoint:ccp(0,1)];
+    [minuteSprite setPosition:ccp(268,330)];
+    [self addChild:minuteSprite];
+    
+    secondSprite1=[CCSprite spriteWithSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:[NSMutableString stringWithFormat:@"small%d",time%60/10]]];
+    [secondSprite1 setAnchorPoint:ccp(0,1)];
+    [secondSprite1 setPosition:ccp(294,330)];
+    [self addChild:secondSprite1];
+    
+    secondSprite2=[CCSprite spriteWithSpriteFrame:[[CCSpriteFrameCache sharedSpriteFrameCache] spriteFrameByName:[NSMutableString stringWithFormat:@"small%d",time%60%10]]];
+    [secondSprite2 setAnchorPoint:ccp(0,1)];
+    [secondSprite2 setPosition:ccp(326,330)];
+    [self addChild:secondSprite2];
+    
+    secondSprite=[CCSprite spriteWithFile:@"Second.png"];
+    [secondSprite setAnchorPoint:ccp(0,1)];
+    [secondSprite setPosition:ccp(358,330)];
+    [self addChild:secondSprite];
+}
+
 -(void) play1st:(id)pSender
 {
     if ([Setting sharedSetting].isNeedEffect)
@@ -216,6 +259,7 @@
 -(void) unlockLevel
 {
     isLock=false;
+    [self addTime];
     if ([Setting sharedSetting].isNeedEffect)
     {
         int time=[[UserData sharedUserData] getBestTimeByScene:[Obstacle sharedObstacle].gameScene andLevel:[Obstacle sharedObstacle].gameLevel];

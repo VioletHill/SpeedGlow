@@ -16,6 +16,7 @@
 #import "SimpleAudioEngine.h"
 #import "Setting.h"
 #import "UserData.h"
+#import "MyMenuItem.h"
 
 @implementation ChooseScene
 {
@@ -225,11 +226,22 @@
 -(void) addHelp
 {
     //帮助
-    CCMenuItemImage* helpMenuItem=[CCMenuItemImage itemWithNormalImage:@"Help.png" selectedImage:NULL target:self selector:@selector(pushToHelpScene:)];
-    CCMenu* helpMenu=[CCMenu menuWithItems:helpMenuItem, nil];
-    helpMenu.position=ccp(screenSize.width-[helpMenuItem contentSize].width/2, screenSize.height-[helpMenuItem contentSize].height/2);
-    [self addChild:helpMenu];
-
+//    CCMenuItemImage* helpMenuItem=[CCMenuItemImage itemWithNormalImage:@"Help.png" selectedImage:NULL target:self selector:@selector(pushToHelpScene:)];
+//    CCMenu* helpMenu=[CCMenu menuWithItems:helpMenuItem, nil];
+//    helpMenu.position=ccp(screenSize.width-[helpMenuItem contentSize].width/2, screenSize.height-[helpMenuItem contentSize].height/2);
+//    [self addChild:helpMenu];
+//    SpecialButton* button=[SpecialButton specialButtonWithFile:@"Help.png" target:self singClick:nil];
+//    [button setPosition:ccp(100,100)];
+//    [self addChild:button];
+//    
+//    SpecialButton* button1=[SpecialButton specialButtonWithFile:@"Help.png" target:self singClick:nil];
+//    [button1 setPosition:ccp(500,200)];
+//    [self addChild:button1];
+    MyMenuItem* helpMenuItem=[MyMenuItem myMenuItemWithFile:@"Help.png" target:self singClick:@selector(pushToHelpScene:)];
+//    helpMenuItem.position=ccp(screenSize.width-[helpMenuItem contentSize].width/2, screenSize.height-[helpMenuItem contentSize].height/2);
+    helpMenuItem.position=ccp(100,100);
+    [self addChild:helpMenuItem];
+    
 }
 
 -(void) addSun
@@ -243,10 +255,7 @@
 
 -(void) callPlayChooseSceneEffect:(id)pSender
 {
-    if ([Setting sharedSetting].isNeedEffect)
-    {
-        [[SimpleAudioEngine sharedEngine] playEffect:@"选择关卡.mp3"];
-    }
+    [[SimpleAudioEngine sharedEngine] playEffect:@"选择关卡.mp3"];
 }
 
 -(void) playChooseSceneEffect
@@ -269,6 +278,8 @@
         [self addSun];
         [self addBack];
         [self addHelp];
+        
+    
     }
     return self;
 }
@@ -280,10 +291,7 @@
 
 -(void) returnLastScene:(id)pSender
 {
-    if ([Setting sharedSetting].isNeedEffect)
-    {
-        [[SimpleAudioEngine sharedEngine] playEffect:@"按键音一单击.mp3"];
-    }
+    [[SimpleAudioEngine sharedEngine] playEffect:@"按键音一单击.mp3"];
     
     CCAction* action=[CCSequence actions:[CCScaleTo actionWithDuration:0.1 scale:0.25],[CCScaleTo actionWithDuration:0.05 scale:1],[CCCallFunc actionWithTarget:self selector:@selector(callReturnLastScene:)],
                       nil];
@@ -292,10 +300,8 @@
 
 -(void) pushToHelpScene:(id)pSender
 {
-    if ([Setting sharedSetting].isNeedEffect)
-    {
-        [[SimpleAudioEngine sharedEngine] playEffect:@"按键音一单击.mp3"];
-    }
+
+    [[SimpleAudioEngine sharedEngine] playEffect:@"按键音一单击.mp3"];
     
     CCTransitionFade* fade=[CCTransitionShrinkGrow transitionWithDuration:0.1 scene:[HelpScene scene]];
     [[CCDirector sharedDirector] pushScene:fade];
@@ -306,8 +312,12 @@
 -(void) onEnter
 {
     [super onEnter];
+    
+    
     [[[CCDirector sharedDirector] touchDispatcher] addTargetedDelegate:scroller priority:0 swallowsTouches:YES];
     [nowLayer onEnterLayer];
+    
+    
     [self reflushSunNum];
     [self playChooseSceneEffect];
 }

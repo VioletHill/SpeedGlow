@@ -16,6 +16,8 @@
 @synthesize currentScreen;
 @synthesize onPageMoved;
 @synthesize onClick;
+@synthesize touchPoint=_touchPoint;
+@synthesize touchCount=_touchCount;
 
 -(id) initWithLayers:(NSMutableArray *)layers widthOffset: (int) widthOffset
 {
@@ -146,9 +148,9 @@
     CGPoint touchPoint = [touch locationInView:[touch view]];
     touchPoint = [[CCDirector sharedDirector] convertToGL:touchPoint];
     
-    if ([touch tapCount]==2)
+    if ([touch tapCount]==2 || [touch tapCount]==1)
     {
-       
+        self.touchCount=[touch tapCount];
         if (272<touchPoint.x && touchPoint.x<272+478 && 178<touchPoint.y && touchPoint.y<178+478)
         {
             [self runAction:[CCCallFunc actionWithTarget:self selector:@selector(onClick:)]];

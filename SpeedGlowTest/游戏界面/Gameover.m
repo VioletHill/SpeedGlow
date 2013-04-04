@@ -19,6 +19,7 @@
 
 @implementation Gameover
 {
+    BOOL isChange;
     CGSize screenSize;
     CCSprite* frame;
 }
@@ -242,20 +243,31 @@ static GameState _gameState;
     frame=[CCSprite spriteWithFile:@"FrameLayer.png"];
     [frame setPosition:ccp(screenSize.width/2,screenSize.height/2)];
     
-    CCLabelTTF* finish=[CCLabelTTF labelWithString:@"hello" fontName:@"TimesNewRomanPSMT" fontSize:20];
-    [frame addChild:finish];
-    
     [self addChild:frame];
     
-    [frame runAction:[CCSequence actions:[CCDelayTime actionWithDuration:1],[CCRotateTo actionWithDuration:0.5 angleX:0 angleY:180],[CCCallFunc actionWithTarget:self selector:@selector(frameChange:)], nil]];
+    CCMenuItemLabel* nextItem=[CCMenuItemLabel itemWithLabel:[CCLabelTTF labelWithString:@"next" fontName:@"TimesNewRomanPSMT" fontSize:40] target:self selector:@selector(nextMenu:)];
+    CCMenu* nextMenu=[CCMenu menuWithItems:nextItem, nil];
+    [nextMenu setPosition:ccp(700,100)];
+    [self addChild:nextMenu];
 }
 
 -(void) addFail
 {
     [[SimpleAudioEngine sharedEngine] playEffect:@"嘘声.mp3"];
+    
+    CCSprite* bg=[CCSprite spriteWithFile:@"Fail.png"];
+    bg.position=ccp(screenSize.width/2,screenSize.height/2);
+    [self addChild:bg];
+    
+
 }
 
-
+-(void) nextMenu:(id)pSender
+{
+    if (isChange) return;
+    isChange=true;
+    [frame runAction:[CCSequence actions:[CCDelayTime actionWithDuration:1],[CCRotateTo actionWithDuration:0.5 angleX:0 angleY:180],[CCCallFunc actionWithTarget:self selector:@selector(frameChange:)], nil]];
+}
 
 -(id) init
 {

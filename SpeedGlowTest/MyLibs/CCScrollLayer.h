@@ -34,6 +34,8 @@
 @property (nonatomic, retain) NSInvocation *onPageMoved;
 @property (nonatomic, retain) NSInvocation *onClick;
 @property (nonatomic, readonly) int currentScreen;
+@property (nonatomic, readwrite) CGPoint touchPoint;
+@property (nonatomic, readwrite) int touchCount;
 
 -(id) initWithLayers:(NSMutableArray *)layers widthOffset: (int) widthOffset;
 

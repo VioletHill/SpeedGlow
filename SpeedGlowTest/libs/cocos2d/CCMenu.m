@@ -206,9 +206,10 @@ enum {
 	for( CCNode *c = self.parent; c != nil; c = c.parent )
 		if( c.visible == NO )
 			return NO;
-
 	selectedItem_ = [self itemForTouch:touch];
 	[selectedItem_ selected];
+    
+
 
 	if( selectedItem_ ) {
 		state_ = kCCMenuStateTrackingTouch;
