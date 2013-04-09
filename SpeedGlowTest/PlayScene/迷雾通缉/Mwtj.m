@@ -30,11 +30,16 @@
         screenSize=[[CCDirector sharedDirector] winSize];
         
         //background
-        background=[CCSprite spriteWithFile:@"MwtjScrollLayer.png"];
+        background=[CCSprite spriteWithFile:@"MwtjLevel.png"];
         [background setAnchorPoint:ccp(0.5,0)];
         [background setPosition:ccp(layerSize.width/2,-106)];
         [background setOpacity:255/2];
         [self addChild:background];
+        
+        //frame
+        CCSprite* frame=[CCSprite spriteWithFile:@"FrameLayer.png"];
+        frame.position=ccp(layerSize.width/2,layerSize.height/2);
+        [self addChild:frame];
         
         //title
         CCSprite* title=[CCSprite spriteWithFile:@"MwtjTitle.png"];

@@ -148,7 +148,7 @@
     CGPoint touchPoint = [touch locationInView:[touch view]];
     touchPoint = [[CCDirector sharedDirector] convertToGL:touchPoint];
     
-    if ([touch tapCount]==2 || [touch tapCount]==1)
+    if ([touch tapCount]>=2)
     {
         self.touchCount=[touch tapCount];
         if (272<touchPoint.x && touchPoint.x<272+478 && 178<touchPoint.y && touchPoint.y<178+478)

@@ -226,20 +226,8 @@
 -(void) addHelp
 {
     //帮助
-//    CCMenuItemImage* helpMenuItem=[CCMenuItemImage itemWithNormalImage:@"Help.png" selectedImage:NULL target:self selector:@selector(pushToHelpScene:)];
-//    CCMenu* helpMenu=[CCMenu menuWithItems:helpMenuItem, nil];
-//    helpMenu.position=ccp(screenSize.width-[helpMenuItem contentSize].width/2, screenSize.height-[helpMenuItem contentSize].height/2);
-//    [self addChild:helpMenu];
-//    SpecialButton* button=[SpecialButton specialButtonWithFile:@"Help.png" target:self singClick:nil];
-//    [button setPosition:ccp(100,100)];
-//    [self addChild:button];
-//    
-//    SpecialButton* button1=[SpecialButton specialButtonWithFile:@"Help.png" target:self singClick:nil];
-//    [button1 setPosition:ccp(500,200)];
-//    [self addChild:button1];
     MyMenuItem* helpMenuItem=[MyMenuItem myMenuItemWithFile:@"Help.png" target:self singClick:@selector(pushToHelpScene:)];
-//    helpMenuItem.position=ccp(screenSize.width-[helpMenuItem contentSize].width/2, screenSize.height-[helpMenuItem contentSize].height/2);
-    helpMenuItem.position=ccp(100,100);
+    helpMenuItem.position=ccp(screenSize.width-[helpMenuItem contentSize].width/2, screenSize.height-[helpMenuItem contentSize].height/2);
     [self addChild:helpMenuItem];
     
 }

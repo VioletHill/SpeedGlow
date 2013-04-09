@@ -30,7 +30,7 @@
         screenSize=[[CCDirector sharedDirector] winSize];
         
         //background
-        background=[CCSprite spriteWithFile:@"ByymScrollLayer.png"];
+        background=[CCSprite spriteWithFile:@"ByymLevel.png"];
         [background setAnchorPoint:ccp(0.5,0)];
         [background setPosition:ccp(layerSize.width/2,-106)];
         [background setOpacity:255/2];

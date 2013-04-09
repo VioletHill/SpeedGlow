@@ -36,12 +36,21 @@
         screenSize=[[CCDirector sharedDirector] winSize];
     
         //background
-        background=[CCSprite spriteWithFile:@"YlfcScrollLayer.png"];
+        background=[CCSprite spriteWithFile:@"YlfcLevel.png"];
         [background setAnchorPoint:ccp(0.5,0)];
         background.position=ccp(layerSize.width/2,-106);
         [background setOpacity:255/2];
         [self addChild:background];
         
+        //frame
+        CCSprite* frame=[CCSprite spriteWithFile:@"FrameLayer.png"];
+        frame.position=ccp(layerSize.width/2,layerSize.height/2);
+        [self addChild:frame];
+        
+        //title
+        CCSprite* title=[CCSprite spriteWithFile:@"YlfcTitle.png"];
+        title.position=ccp(layerSize.width/2,layerSize.height-title.contentSize.height/2-22);
+        [self addChild:title];
 
     }
     

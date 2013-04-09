@@ -30,7 +30,8 @@
         title.position=ccp(layerSize.width/2,layerSize.height-title.contentSize.height/2-22);
         [self addChild:title];
         
-    
+        
+
     }
     return self;
 }

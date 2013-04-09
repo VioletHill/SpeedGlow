@@ -150,10 +150,12 @@
         [self addChild:background1];
         
         //background2
-        CCSprite* backgroud2=[CCSprite spriteWithFile:@"XbtwScrollLayer.png"];
+        CCSprite* backgroud2=[CCSprite spriteWithFile:@"XbtwLevel.png"];
         [backgroud2 setAnchorPoint:ccp(0,0)];
         backgroud2.position=ccp(0,0);
         [self addChild:backgroud2];
+        
+        
         
         [super addBack];
         [super addHelp];

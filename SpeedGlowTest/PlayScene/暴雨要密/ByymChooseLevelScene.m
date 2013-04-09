@@ -151,7 +151,7 @@
         [self addChild:background1];
         
         //background2
-        CCSprite* background2=[CCSprite spriteWithFile:@"ByymScrollLayer.png"];
+        CCSprite* background2=[CCSprite spriteWithFile:@"ByymLevel.png"];
         [background2 setAnchorPoint:ccp(0,0)];
         background2.position=ccp(0,0);
         [self addChild:background2];

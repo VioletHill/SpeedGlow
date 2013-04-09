@@ -59,6 +59,7 @@
 
 -(void) playMenuDoubleClick:(id)pSender
 {
+    [self pushToPlayScene];
 }
 
 -(void) addPlay
@@ -113,7 +114,7 @@
 
 }
 
--(void) pushToPlayScene:(id)pSender
+-(void) pushToPlayScene
 {
 
     [[SimpleAudioEngine sharedEngine] playEffect:@"按键音一单击.mp3"];
