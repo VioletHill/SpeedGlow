@@ -53,7 +53,7 @@ static Obstacle* obstacle;
 
 -(double) getRotationRate
 {
-   // CMRotationRate rotationRate=motionManager.deviceMotion.rotationRate;
+  //  CMRotationRate rotationRate=motionManager.deviceMotion.rotationRate;
  //   NSLog(@"%f %f %f\n\n",rotationRate.x,rotationRate.y,rotationRate.z);
     
     ///xy 旋转角度   z翻转角度

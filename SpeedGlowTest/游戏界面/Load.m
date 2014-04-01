@@ -29,8 +29,8 @@
 
 -(void) enterGame:(id)pSender
 {
-    //[[CCDirector sharedDirector] replaceScene: [PlayGameScene scene]];
-    [[CCDirector sharedDirector] replaceScene:[Gameover scene]];
+    [[CCDirector sharedDirector] replaceScene: [PlayGameScene scene]];
+   // [[CCDirector sharedDirector] replaceScene:[Gameover scene]];
 }
 
 -(void) playLoadEffect:(id)pSender
