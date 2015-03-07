@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "18567F8E16931043003D5282"
-               BuildableName = "SpeedGlowTest.app"
-               BlueprintName = "SpeedGlowTest"
-               ReferencedContainer = "container:SpeedGlowTest.xcodeproj">
+               BuildableName = "SpeedGlow.app"
+               BlueprintName = "SpeedGlow"
+               ReferencedContainer = "container:SpeedGlow.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "18567F8E16931043003D5282"
-            BuildableName = "SpeedGlowTest.app"
-            BlueprintName = "SpeedGlowTest"
-            ReferencedContainer = "container:SpeedGlowTest.xcodeproj">
+            BuildableName = "SpeedGlow.app"
+            BlueprintName = "SpeedGlow"
+            ReferencedContainer = "container:SpeedGlow.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -52,9 +52,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "18567F8E16931043003D5282"
-            BuildableName = "SpeedGlowTest.app"
-            BlueprintName = "SpeedGlowTest"
-            ReferencedContainer = "container:SpeedGlowTest.xcodeproj">
+            BuildableName = "SpeedGlow.app"
+            BlueprintName = "SpeedGlow"
+            ReferencedContainer = "container:SpeedGlow.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -70,9 +70,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "18567F8E16931043003D5282"
-            BuildableName = "SpeedGlowTest.app"
-            BlueprintName = "SpeedGlowTest"
-            ReferencedContainer = "container:SpeedGlowTest.xcodeproj">
+            BuildableName = "SpeedGlow.app"
+            BlueprintName = "SpeedGlow"
+            ReferencedContainer = "container:SpeedGlow.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

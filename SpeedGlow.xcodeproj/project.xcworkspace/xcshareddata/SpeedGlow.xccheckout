@@ -10,29 +10,29 @@
 	<string>SpeedGlow</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>AEB3AC2F-C1A6-457D-B699-49C746638A8F</key>
+		<key>71B6A01A03DA76B39AED6F4EC1ACB292EE2B2246</key>
 		<string>https://github.com/VioletHill/SpeedGlow.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>SpeedGlow.xcodeproj/project.xcworkspace</string>
+	<string>SpeedGlow.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>AEB3AC2F-C1A6-457D-B699-49C746638A8F</key>
+		<key>71B6A01A03DA76B39AED6F4EC1ACB292EE2B2246</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/VioletHill/SpeedGlow.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>AEB3AC2F-C1A6-457D-B699-49C746638A8F</string>
+	<string>71B6A01A03DA76B39AED6F4EC1ACB292EE2B2246</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>AEB3AC2F-C1A6-457D-B699-49C746638A8F</string>
+			<string>71B6A01A03DA76B39AED6F4EC1ACB292EE2B2246</string>
 			<key>IDESourceControlWCCName</key>
 			<string>SpeedGlow</string>
 		</dict>

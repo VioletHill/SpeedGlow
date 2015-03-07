@@ -106,6 +106,6 @@
 @end
 
 // optimization. Should only be used to read it. Never to write it.
-extern CGFloat	__ccContentScaleFactor;
+extern CGFloat	_ccContentScaleFactor;
 
 #endif // __CC_PLATFORM_IOS
